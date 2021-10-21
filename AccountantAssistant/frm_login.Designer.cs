@@ -43,6 +43,7 @@ namespace AccountantAssistant
             // 
             // lbl_register
             // 
+            this.lbl_register.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_register.AutoSize = true;
             this.lbl_register.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_register.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -54,6 +55,7 @@ namespace AccountantAssistant
             // 
             // btn_login
             // 
+            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_login.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,6 +69,7 @@ namespace AccountantAssistant
             // 
             // lbl_forgot
             // 
+            this.lbl_forgot.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_forgot.AutoSize = true;
             this.lbl_forgot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_forgot.Location = new System.Drawing.Point(210, 267);
@@ -77,6 +80,7 @@ namespace AccountantAssistant
             // 
             // tb_password
             // 
+            this.tb_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_password.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_password.Location = new System.Drawing.Point(273, 195);
             this.tb_password.Name = "tb_password";
@@ -85,6 +89,7 @@ namespace AccountantAssistant
             // 
             // tb_user
             // 
+            this.tb_user.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_user.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_user.Location = new System.Drawing.Point(273, 154);
             this.tb_user.Name = "tb_user";
@@ -93,6 +98,7 @@ namespace AccountantAssistant
             // 
             // lbl_password
             // 
+            this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_password.Location = new System.Drawing.Point(138, 190);
@@ -103,6 +109,7 @@ namespace AccountantAssistant
             // 
             // lbl_user
             // 
+            this.lbl_user.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_user.Location = new System.Drawing.Point(138, 149);
@@ -113,6 +120,7 @@ namespace AccountantAssistant
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
@@ -137,6 +145,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(545, 379);
             this.Name = "frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
