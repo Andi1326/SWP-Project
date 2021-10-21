@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AccountantAssistant
 {
-    public partial class Form1 : Form
+    public partial class frm_login : Form
     {
-        public Form1()
+        public frm_login()
         {
             InitializeComponent();
         }
