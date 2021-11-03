@@ -16,5 +16,10 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void tb_user_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
