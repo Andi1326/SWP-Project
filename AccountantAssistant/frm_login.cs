@@ -16,5 +16,12 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void lbl_register_Click(object sender, EventArgs e)
+        {
+            frm_register frm_register = new frm_register();
+            this.Hide();
+            frm_register.ShowDialog();
+        }
     }
 }
