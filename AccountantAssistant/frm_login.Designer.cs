@@ -52,6 +52,7 @@ namespace AccountantAssistant
             this.lbl_register.Size = new System.Drawing.Size(108, 19);
             this.lbl_register.TabIndex = 15;
             this.lbl_register.Text = "Registrieren";
+            this.lbl_register.Click += new System.EventHandler(this.lbl_register_Click);
             // 
             // btn_login
             // 
@@ -151,6 +152,7 @@ namespace AccountantAssistant
             this.Name = "frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frm_login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,7 +15,7 @@ namespace AccountantAssistant
         public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
         public static SqlCommand cmd = new SqlCommand();
 
-
+        private static SqlDataReader dr;
 
         public static void Tryconnect() 
         {
@@ -44,22 +44,42 @@ namespace AccountantAssistant
             {
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
             }
-        
-        
-        
         }
 
+        public static bool Proofuser(TextBox username)
+        {
+            //proofs if the user exists or not
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select username from login";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (username.Text == dr["username"].ToString())
+                {
+                    con.Close();
+                    return true;
+                }
+            }
+            con.Close();
+            return false;
+        }
 
-
-
-
-        //public static bool Proofuser(TextBox textBox)
-        //{
-
-        //}
-
-
-
-
+        public static void InsertDataLogin(Login login)
+        {
+            //inserts the data into LOGIN
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + login.Password + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can not be insert");
+            }
+        }
     }
 }
