@@ -16,5 +16,15 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void tb_user_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            Serverconnection.Tryconnect();
+        }
     }
 }
