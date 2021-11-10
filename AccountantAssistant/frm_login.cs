@@ -17,6 +17,9 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        public static string IDL;
+        public static string role;
+
         private void tb_user_TextChanged(object sender, EventArgs e)
         {
 
@@ -24,7 +27,27 @@ namespace AccountantAssistant
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            
+            //check if the user and the password are ok
+            if (Serverconnection.Proofuser(tb_user) == false)
+            {
+                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
+            }
+            else
+            {
+                if (Serverconnection.Proofpassoword(tb_password, tb_user) == false)
+                {
+                    MessageBox.Show("Ihr Passwort ist falsch", "Fehler");
+                }
+                else
+                {
+                    //if yes the Role and IDL are saved and frm_customer opens
+                    Serverconnection.SaveRole(tb_user);
+                    Serverconnection.SaveIDL(tb_user);
+                    frm_main frm_main = new frm_main();
+                    this.Hide();
+                    frm_main.ShowDialog();
+                }
+            }
         }
 
         private void frm_login_Load(object sender, EventArgs e)

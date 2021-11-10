@@ -29,6 +29,7 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_register));
             this.cb_role = new System.Windows.Forms.ComboBox();
             this.lbl_role = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@ namespace AccountantAssistant
             // 
             // cb_role
             // 
+            this.cb_role.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_role.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_role.FormattingEnabled = true;
             this.cb_role.Items.AddRange(new object[] {
@@ -60,9 +62,11 @@ namespace AccountantAssistant
             this.cb_role.Name = "cb_role";
             this.cb_role.Size = new System.Drawing.Size(215, 23);
             this.cb_role.TabIndex = 39;
+            this.cb_role.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_role_KeyDown);
             // 
             // lbl_role
             // 
+            this.lbl_role.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_role.AutoSize = true;
             this.lbl_role.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_role.Location = new System.Drawing.Point(190, 463);
@@ -73,6 +77,7 @@ namespace AccountantAssistant
             // 
             // btn_back
             // 
+            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -86,6 +91,7 @@ namespace AccountantAssistant
             // 
             // tb_passwordagain
             // 
+            this.tb_passwordagain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_passwordagain.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_passwordagain.Location = new System.Drawing.Point(285, 230);
             this.tb_passwordagain.Name = "tb_passwordagain";
@@ -94,6 +100,7 @@ namespace AccountantAssistant
             // 
             // lbl_passwordagain
             // 
+            this.lbl_passwordagain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_passwordagain.AutoSize = true;
             this.lbl_passwordagain.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_passwordagain.Location = new System.Drawing.Point(17, 228);
@@ -104,6 +111,7 @@ namespace AccountantAssistant
             // 
             // tb_sq2
             // 
+            this.tb_sq2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_sq2.Location = new System.Drawing.Point(286, 392);
             this.tb_sq2.Name = "tb_sq2";
@@ -112,6 +120,7 @@ namespace AccountantAssistant
             // 
             // cb_sq2
             // 
+            this.cb_sq2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_sq2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_sq2.FormattingEnabled = true;
             this.cb_sq2.Items.AddRange(new object[] {
@@ -122,9 +131,11 @@ namespace AccountantAssistant
             this.cb_sq2.Name = "cb_sq2";
             this.cb_sq2.Size = new System.Drawing.Size(215, 23);
             this.cb_sq2.TabIndex = 36;
+            this.cb_sq2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_sq2_KeyDown);
             // 
             // tb_sq1
             // 
+            this.tb_sq1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_sq1.Location = new System.Drawing.Point(286, 313);
             this.tb_sq1.Name = "tb_sq1";
@@ -133,6 +144,7 @@ namespace AccountantAssistant
             // 
             // cb_sq1
             // 
+            this.cb_sq1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_sq1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_sq1.FormattingEnabled = true;
             this.cb_sq1.Items.AddRange(new object[] {
@@ -143,9 +155,11 @@ namespace AccountantAssistant
             this.cb_sq1.Name = "cb_sq1";
             this.cb_sq1.Size = new System.Drawing.Size(215, 23);
             this.cb_sq1.TabIndex = 32;
+            this.cb_sq1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_sq1_KeyDown);
             // 
             // lbl_sq1
             // 
+            this.lbl_sq1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_sq1.AutoSize = true;
             this.lbl_sq1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sq1.Location = new System.Drawing.Point(59, 278);
@@ -156,6 +170,7 @@ namespace AccountantAssistant
             // 
             // lbl_sq2
             // 
+            this.lbl_sq2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_sq2.AutoSize = true;
             this.lbl_sq2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sq2.Location = new System.Drawing.Point(59, 357);
@@ -166,6 +181,7 @@ namespace AccountantAssistant
             // 
             // btn_login
             // 
+            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_login.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -179,6 +195,7 @@ namespace AccountantAssistant
             // 
             // tb_password
             // 
+            this.tb_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_password.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_password.Location = new System.Drawing.Point(285, 195);
             this.tb_password.Name = "tb_password";
@@ -187,6 +204,7 @@ namespace AccountantAssistant
             // 
             // tb_user
             // 
+            this.tb_user.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_user.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_user.Location = new System.Drawing.Point(285, 151);
             this.tb_user.Name = "tb_user";
@@ -195,6 +213,7 @@ namespace AccountantAssistant
             // 
             // lbl_password
             // 
+            this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_password.Location = new System.Drawing.Point(150, 193);
@@ -205,6 +224,7 @@ namespace AccountantAssistant
             // 
             // lbl_user
             // 
+            this.lbl_user.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_user.Location = new System.Drawing.Point(150, 149);
@@ -215,6 +235,7 @@ namespace AccountantAssistant
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
             this.pictureBox1.Location = new System.Drawing.Point(24, 12);
@@ -247,9 +268,13 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(549, 617);
             this.Name = "frm_register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_register";
+            this.Load += new System.EventHandler(this.frm_register_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_register_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

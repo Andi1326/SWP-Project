@@ -65,6 +65,25 @@ namespace AccountantAssistant
             return false;
         }
 
+        public static bool Proofpassoword(TextBox password, TextBox tb_username)
+        {
+            //Proof if the password matches with the user
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select password from login  where username = '" + tb_username.Text + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (password.Text == dr["password"].ToString())
+                {
+                    con.Close();
+                    return true;
+                }
+            }
+            con.Close();
+            return false;
+        }
+
         public static void InsertDataLogin(Login login)
         {
             //inserts the data into LOGIN
@@ -81,5 +100,26 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString(), "Data can not be insert");
             }
         }
+
+        public static void SaveIDL(TextBox tb_username)
+        {
+            //selects the IDL from the table and saves it into the var IDL
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select IDL from login  where username = '" + tb_username.Text + "'";
+            frm_login.IDL = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+
+        public static void SaveRole(TextBox tb_username)
+        {
+            //selects the Role from the table and saves it into the var role
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select role from login  where username = '" + tb_username.Text + "'";
+            frm_login.role = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+
     }
 }
