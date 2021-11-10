@@ -16,5 +16,17 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            frm_login frm_Login = new frm_login();
+            this.Hide();
+            frm_Login.ShowDialog();
+        }
+
+        private void frm_main_Load(object sender, EventArgs e)
+        {
+            tabCon1.SelectedTab = tabPage_start;
+        }
     }
 }
