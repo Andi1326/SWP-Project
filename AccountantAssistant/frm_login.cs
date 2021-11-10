@@ -19,6 +19,7 @@ namespace AccountantAssistant
 
         public static string IDL;
         public static string role;
+        public static string forget_username;
 
         private void tb_user_TextChanged(object sender, EventArgs e)
         {
@@ -34,7 +35,7 @@ namespace AccountantAssistant
             }
             else
             {
-                if (Serverconnection.Proofpassoword(tb_password, tb_user) == false)
+                if (Serverconnection.Proofpassword(tb_password, tb_user.Text) == false)
                 {
                     MessageBox.Show("Ihr Passwort ist falsch", "Fehler");
                 }
@@ -60,6 +61,28 @@ namespace AccountantAssistant
             frm_register frm_register = new frm_register();
             this.Hide();
             frm_register.ShowDialog();
+        }
+
+        private void lbl_forgot_Click(object sender, EventArgs e)
+        {
+            //Check if you have typed in a user and if this user exists
+            if (tb_user.Text == "")
+            {
+                MessageBox.Show("Bitte geben Sie ihren Benutzer ein", "Fehler");
+            }
+            else if (Serverconnection.Proofuser(tb_user) == false)
+            {
+                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
+            }
+            else
+            {
+                //if yes the IDL saves and frm_forget_password opens
+                Serverconnection.SaveIDL(tb_user);
+                forget_username = tb_user.Text;
+                frm_forget_password frm_Forget_Password = new frm_forget_password();
+                this.Hide();
+                frm_Forget_Password.ShowDialog();
+            }
         }
     }
 }

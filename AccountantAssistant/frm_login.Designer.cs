@@ -79,6 +79,7 @@ namespace AccountantAssistant
             this.lbl_forgot.Size = new System.Drawing.Size(108, 13);
             this.lbl_forgot.TabIndex = 13;
             this.lbl_forgot.Text = "Passwort vergessen?";
+            this.lbl_forgot.Click += new System.EventHandler(this.lbl_forgot_Click);
             // 
             // tb_password
             // 
