@@ -118,5 +118,11 @@
   <ItemGroup>
     <None Include="Resources\logo_small_icon_only.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_Back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

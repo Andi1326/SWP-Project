@@ -62,7 +62,6 @@ namespace AccountantAssistant
             this.cb_role.Name = "cb_role";
             this.cb_role.Size = new System.Drawing.Size(215, 23);
             this.cb_role.TabIndex = 39;
-            this.cb_role.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_role_KeyDown);
             // 
             // lbl_role
             // 
@@ -131,7 +130,6 @@ namespace AccountantAssistant
             this.cb_sq2.Name = "cb_sq2";
             this.cb_sq2.Size = new System.Drawing.Size(215, 23);
             this.cb_sq2.TabIndex = 36;
-            this.cb_sq2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_sq2_KeyDown);
             // 
             // tb_sq1
             // 
@@ -155,7 +153,6 @@ namespace AccountantAssistant
             this.cb_sq1.Name = "cb_sq1";
             this.cb_sq1.Size = new System.Drawing.Size(215, 23);
             this.cb_sq1.TabIndex = 32;
-            this.cb_sq1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_sq1_KeyDown);
             // 
             // lbl_sq1
             // 

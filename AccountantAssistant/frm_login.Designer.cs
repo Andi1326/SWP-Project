@@ -57,7 +57,7 @@ namespace AccountantAssistant
             // btn_login
             // 
             this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_login.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;

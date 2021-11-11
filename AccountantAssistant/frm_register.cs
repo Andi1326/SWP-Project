@@ -76,36 +76,14 @@ namespace AccountantAssistant
             }
         }
 
-        private void cb_sq1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                cb_sq1.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-            
-        }
-
-        private void cb_sq2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cb_sq2.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-        }
-
-        private void cb_role_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cb_role.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-        }
-
         private void frm_register_KeyDown(object sender, KeyEventArgs e)
         {
-            frm_login frm_login = new frm_login();
-            this.Hide();
-            frm_login.ShowDialog();
+            if(e.KeyCode == Keys.Escape)
+            {
+                frm_login frm_login = new frm_login();
+                this.Hide();
+                frm_login.ShowDialog();
+            }
         }
 
         private void frm_register_Load(object sender, EventArgs e)

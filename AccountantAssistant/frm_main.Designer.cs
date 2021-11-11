@@ -32,12 +32,23 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.tabCon1 = new System.Windows.Forms.TabControl();
             this.tabPage_file = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage_start = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.tabPage_ledger = new System.Windows.Forms.TabPage();
             this.tabPage_help = new System.Windows.Forms.TabPage();
             this.btn_back = new System.Windows.Forms.Button();
+            this.pnl_1 = new System.Windows.Forms.Panel();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.btn_new = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.pb_back = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
+            this.tabPage_file.SuspendLayout();
+            this.tabPage_start.SuspendLayout();
+            this.pnl_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -53,35 +64,57 @@ namespace AccountantAssistant
             this.tabCon1.Location = new System.Drawing.Point(1, 1);
             this.tabCon1.Name = "tabCon1";
             this.tabCon1.SelectedIndex = 0;
-            this.tabCon1.Size = new System.Drawing.Size(1131, 151);
+            this.tabCon1.Size = new System.Drawing.Size(1131, 109);
             this.tabCon1.TabIndex = 0;
+            this.tabCon1.SelectedIndexChanged += new System.EventHandler(this.tabCon1_SelectedIndexChanged);
             // 
             // tabPage_file
             // 
             this.tabPage_file.BackColor = System.Drawing.Color.White;
+            this.tabPage_file.Controls.Add(this.label1);
             this.tabPage_file.Location = new System.Drawing.Point(4, 27);
             this.tabPage_file.Name = "tabPage_file";
             this.tabPage_file.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_file.Size = new System.Drawing.Size(1123, 120);
+            this.tabPage_file.Size = new System.Drawing.Size(1123, 78);
             this.tabPage_file.TabIndex = 0;
             this.tabPage_file.Text = "Datei";
+            this.tabPage_file.Click += new System.EventHandler(this.tabPage_file_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(278, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Datei";
             // 
             // tabPage_start
             // 
+            this.tabPage_start.Controls.Add(this.label2);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
             this.tabPage_start.Name = "tabPage_start";
             this.tabPage_start.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_start.Size = new System.Drawing.Size(1123, 120);
+            this.tabPage_start.Size = new System.Drawing.Size(1123, 78);
             this.tabPage_start.TabIndex = 1;
             this.tabPage_start.Text = "Start";
             this.tabPage_start.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(315, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "start";
             // 
             // tabPage_search
             // 
             this.tabPage_search.Location = new System.Drawing.Point(4, 27);
             this.tabPage_search.Name = "tabPage_search";
             this.tabPage_search.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_search.Size = new System.Drawing.Size(1123, 120);
+            this.tabPage_search.Size = new System.Drawing.Size(1123, 78);
             this.tabPage_search.TabIndex = 2;
             this.tabPage_search.Text = "Suche";
             this.tabPage_search.UseVisualStyleBackColor = true;
@@ -91,7 +124,7 @@ namespace AccountantAssistant
             this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ledger.Name = "tabPage_ledger";
             this.tabPage_ledger.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ledger.Size = new System.Drawing.Size(1123, 120);
+            this.tabPage_ledger.Size = new System.Drawing.Size(1123, 78);
             this.tabPage_ledger.TabIndex = 3;
             this.tabPage_ledger.Text = "Konto";
             this.tabPage_ledger.UseVisualStyleBackColor = true;
@@ -101,7 +134,7 @@ namespace AccountantAssistant
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
             this.tabPage_help.Name = "tabPage_help";
             this.tabPage_help.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_help.Size = new System.Drawing.Size(1123, 120);
+            this.tabPage_help.Size = new System.Drawing.Size(1123, 78);
             this.tabPage_help.TabIndex = 4;
             this.tabPage_help.Text = "Hilfe";
             this.tabPage_help.UseVisualStyleBackColor = true;
@@ -120,12 +153,80 @@ namespace AccountantAssistant
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
+            // pnl_1
+            // 
+            this.pnl_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.pnl_1.Controls.Add(this.btn_print);
+            this.pnl_1.Controls.Add(this.btn_new);
+            this.pnl_1.Controls.Add(this.btn_save);
+            this.pnl_1.Controls.Add(this.pb_back);
+            this.pnl_1.Location = new System.Drawing.Point(10, 116);
+            this.pnl_1.Name = "pnl_1";
+            this.pnl_1.Size = new System.Drawing.Size(115, 232);
+            this.pnl_1.TabIndex = 44;
+            this.pnl_1.Visible = false;
+            // 
+            // btn_print
+            // 
+            this.btn_print.FlatAppearance.BorderSize = 0;
+            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_print.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.ForeColor = System.Drawing.Color.White;
+            this.btn_print.Location = new System.Drawing.Point(3, 152);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(109, 34);
+            this.btn_print.TabIndex = 47;
+            this.btn_print.Text = "Drucken";
+            this.btn_print.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_print.UseVisualStyleBackColor = true;
+            // 
+            // btn_new
+            // 
+            this.btn_new.FlatAppearance.BorderSize = 0;
+            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_new.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_new.ForeColor = System.Drawing.Color.White;
+            this.btn_new.Location = new System.Drawing.Point(2, 112);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(109, 34);
+            this.btn_new.TabIndex = 46;
+            this.btn_new.Text = "Neu";
+            this.btn_new.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_new.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            this.btn_save.FlatAppearance.BorderSize = 0;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.ForeColor = System.Drawing.Color.White;
+            this.btn_save.Location = new System.Drawing.Point(3, 72);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(109, 34);
+            this.btn_save.TabIndex = 45;
+            this.btn_save.Text = "Speichern";
+            this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
+            // pb_back
+            // 
+            this.pb_back.BackColor = System.Drawing.Color.Transparent;
+            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
+            this.pb_back.Location = new System.Drawing.Point(22, 14);
+            this.pb_back.Name = "pb_back";
+            this.pb_back.Size = new System.Drawing.Size(64, 52);
+            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_back.TabIndex = 45;
+            this.pb_back.TabStop = false;
+            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1130, 617);
+            this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,7 +235,14 @@ namespace AccountantAssistant
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_main_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_main_KeyDown);
             this.tabCon1.ResumeLayout(false);
+            this.tabPage_file.ResumeLayout(false);
+            this.tabPage_file.PerformLayout();
+            this.tabPage_start.ResumeLayout(false);
+            this.tabPage_start.PerformLayout();
+            this.pnl_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,5 +256,12 @@ namespace AccountantAssistant
         private System.Windows.Forms.TabPage tabPage_ledger;
         private System.Windows.Forms.TabPage tabPage_help;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Panel pnl_1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pb_back;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button btn_new;
     }
 }
