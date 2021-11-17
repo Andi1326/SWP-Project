@@ -15,7 +15,7 @@ namespace AccountantAssistant
         public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
         public static SqlCommand cmd = new SqlCommand();
 
-
+        private static SqlDataReader dr;
 
         public static void Tryconnect() 
         {
@@ -44,22 +44,147 @@ namespace AccountantAssistant
             {
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
             }
-        
-        
-        
+        }
+
+        public static bool Proofuser(TextBox username)
+        {
+            //proofs if the user exists or not
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select username from login";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (username.Text == dr["username"].ToString())
+                {
+                    con.Close();
+                    return true;
+                }
+            }
+            con.Close();
+            return false;
+        }
+
+        public static bool Proofpassword(TextBox password, string username)
+        {
+            //Proof if the password matches with the user
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select password from login  where username = '" + username + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (password.Text == dr["password"].ToString())
+                {
+                    con.Close();
+                    return true;
+                }
+            }
+            con.Close();
+            return false;
+        }
+
+        public static void InsertDataLogin(Login login)
+        {
+            //inserts the data into LOGIN
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + login.Password + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can not be insert");
+            }
+        }
+
+        public static void SaveIDL(TextBox tb_username)
+        {
+            //selects the IDL from the table and saves it into the var IDL
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select IDL from login  where username = '" + tb_username.Text + "'";
+            frm_login.IDL = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+
+        public static void SaveRole(TextBox tb_username)
+        {
+            //selects the Role from the table and saves it into the var role
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select role from login  where username = '" + tb_username.Text + "'";
+            frm_login.role = cmd.ExecuteScalar().ToString();
+            con.Close();
         }
 
 
+        public static string SaveSQ1_Question(string IDL)
+        {
+            //selects the Sq1 question from the table
+            string sq1_question;
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select sq1question from login  where IDL = '" + IDL + "'";
+            sq1_question = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return sq1_question;
+        }
 
+        public static string SaveSQ1(string IDL)
+        {
+            //selects the Sq1 from the table
+            string sq1;
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select sq1 from login  where IDL = '" + IDL + "'";
+            sq1 = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return sq1;
+        }
 
+        public static string SaveSQ2_Question(string IDL)
+        {
+            //selects the Sq3 question from the table
+            string sq2_question;
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select sq2question from login  where IDL = '" + IDL + "'";
+            sq2_question = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return sq2_question;
+        }
 
-        //public static bool Proofuser(TextBox textBox)
-        //{
+        public static string SaveSQ2(string IDL)
+        {
+            //selects the Sq2 from the table
+            string sq2;
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select sq2 from login  where IDL = '" + IDL + "'";
+            sq2 = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return sq2;
+        }
 
-        //}
-
-
-
-
+        public static void ChangePassword(string password, string IDL)
+        {
+            //trys to change the old password to the new
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE LOGIN SET password = '" + password + "' where IDL = " + IDL;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Password can't be changed");
+            }
+        }
     }
 }

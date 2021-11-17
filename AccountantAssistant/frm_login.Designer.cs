@@ -52,11 +52,12 @@ namespace AccountantAssistant
             this.lbl_register.Size = new System.Drawing.Size(108, 19);
             this.lbl_register.TabIndex = 15;
             this.lbl_register.Text = "Registrieren";
+            this.lbl_register.Click += new System.EventHandler(this.lbl_register_Click);
             // 
             // btn_login
             // 
             this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_login.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;
@@ -78,6 +79,7 @@ namespace AccountantAssistant
             this.lbl_forgot.Size = new System.Drawing.Size(108, 13);
             this.lbl_forgot.TabIndex = 13;
             this.lbl_forgot.Text = "Passwort vergessen?";
+            this.lbl_forgot.Click += new System.EventHandler(this.lbl_forgot_Click);
             // 
             // tb_password
             // 
@@ -151,6 +153,7 @@ namespace AccountantAssistant
             this.Name = "frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frm_login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
