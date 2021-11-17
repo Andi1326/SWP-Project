@@ -64,5 +64,10 @@ namespace AccountantAssistant
         {
             pnl_1.Visible = false;
         }
+
+        private void lbl_client_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
