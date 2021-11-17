@@ -43,10 +43,11 @@ namespace AccountantAssistant
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
+            this.btn_newClient = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_back = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_file.SuspendLayout();
             this.tabPage_start.SuspendLayout();
@@ -99,7 +100,7 @@ namespace AccountantAssistant
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
             this.tabPage_start.Name = "tabPage_start";
             this.tabPage_start.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_start.Size = new System.Drawing.Size(1109, 78);
+            this.tabPage_start.Size = new System.Drawing.Size(899, 78);
             this.tabPage_start.TabIndex = 1;
             this.tabPage_start.Text = "Start";
             this.tabPage_start.UseVisualStyleBackColor = true;
@@ -118,7 +119,7 @@ namespace AccountantAssistant
             this.tabPage_search.Location = new System.Drawing.Point(4, 27);
             this.tabPage_search.Name = "tabPage_search";
             this.tabPage_search.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_search.Size = new System.Drawing.Size(1109, 78);
+            this.tabPage_search.Size = new System.Drawing.Size(899, 78);
             this.tabPage_search.TabIndex = 2;
             this.tabPage_search.Text = "Suche";
             this.tabPage_search.UseVisualStyleBackColor = true;
@@ -128,7 +129,7 @@ namespace AccountantAssistant
             this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ledger.Name = "tabPage_ledger";
             this.tabPage_ledger.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ledger.Size = new System.Drawing.Size(1109, 78);
+            this.tabPage_ledger.Size = new System.Drawing.Size(899, 78);
             this.tabPage_ledger.TabIndex = 3;
             this.tabPage_ledger.Text = "Konto";
             this.tabPage_ledger.UseVisualStyleBackColor = true;
@@ -138,7 +139,7 @@ namespace AccountantAssistant
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
             this.tabPage_help.Name = "tabPage_help";
             this.tabPage_help.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_help.Size = new System.Drawing.Size(1109, 78);
+            this.tabPage_help.Size = new System.Drawing.Size(899, 78);
             this.tabPage_help.TabIndex = 4;
             this.tabPage_help.Text = "Hilfe";
             this.tabPage_help.UseVisualStyleBackColor = true;
@@ -160,6 +161,7 @@ namespace AccountantAssistant
             // pnl_1
             // 
             this.pnl_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.pnl_1.Controls.Add(this.btn_newClient);
             this.pnl_1.Controls.Add(this.btn_print);
             this.pnl_1.Controls.Add(this.btn_new);
             this.pnl_1.Controls.Add(this.btn_save);
@@ -212,6 +214,42 @@ namespace AccountantAssistant
             this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_save.UseVisualStyleBackColor = true;
             // 
+            // lbl_client
+            // 
+            this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_client.AutoSize = true;
+            this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_client.Location = new System.Drawing.Point(757, 4);
+            this.lbl_client.Name = "lbl_client";
+            this.lbl_client.Size = new System.Drawing.Size(57, 18);
+            this.lbl_client.TabIndex = 47;
+            this.lbl_client.Text = "Client:";
+            this.lbl_client.Click += new System.EventHandler(this.lbl_client_Click);
+            // 
+            // cb_clients
+            // 
+            this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_clients.FormattingEnabled = true;
+            this.cb_clients.Location = new System.Drawing.Point(820, 5);
+            this.cb_clients.Name = "cb_clients";
+            this.cb_clients.Size = new System.Drawing.Size(232, 21);
+            this.cb_clients.TabIndex = 48;
+            // 
+            // btn_newClient
+            // 
+            this.btn_newClient.FlatAppearance.BorderSize = 0;
+            this.btn_newClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newClient.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newClient.ForeColor = System.Drawing.Color.White;
+            this.btn_newClient.Location = new System.Drawing.Point(0, 175);
+            this.btn_newClient.Name = "btn_newClient";
+            this.btn_newClient.Size = new System.Drawing.Size(122, 36);
+            this.btn_newClient.TabIndex = 48;
+            this.btn_newClient.Text = " Neuer Client";
+            this.btn_newClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newClient.UseVisualStyleBackColor = true;
+            this.btn_newClient.Click += new System.EventHandler(this.btn_newClient_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,27 +273,6 @@ namespace AccountantAssistant
             this.pb_back.TabIndex = 45;
             this.pb_back.TabStop = false;
             this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
-            // 
-            // lbl_client
-            // 
-            this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_client.AutoSize = true;
-            this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(757, 4);
-            this.lbl_client.Name = "lbl_client";
-            this.lbl_client.Size = new System.Drawing.Size(57, 18);
-            this.lbl_client.TabIndex = 47;
-            this.lbl_client.Text = "Client:";
-            this.lbl_client.Click += new System.EventHandler(this.lbl_client_Click);
-            // 
-            // cb_clients
-            // 
-            this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_clients.FormattingEnabled = true;
-            this.cb_clients.Location = new System.Drawing.Point(820, 5);
-            this.cb_clients.Name = "cb_clients";
-            this.cb_clients.Size = new System.Drawing.Size(232, 21);
-            this.cb_clients.TabIndex = 48;
             // 
             // frm_main
             // 
@@ -308,5 +325,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
+        private System.Windows.Forms.Button btn_newClient;
     }
 }

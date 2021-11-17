@@ -69,5 +69,11 @@ namespace AccountantAssistant
         {
 
         }
+
+        private void btn_newClient_Click(object sender, EventArgs e)
+        {
+            frm_create_client frm_cc = new frm_create_client();
+            frm_cc.Show();
+        }
     }
 }

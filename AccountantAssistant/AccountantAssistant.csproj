@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_create_client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_create_client.Designer.cs">
+      <DependentUpon>frm_create_client.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_forget_password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serverconnection.cs" />
+    <EmbeddedResource Include="frm_create_client.resx">
+      <DependentUpon>frm_create_client.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_forget_password.resx">
       <DependentUpon>frm_forget_password.cs</DependentUpon>
     </EmbeddedResource>
