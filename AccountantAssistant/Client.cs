@@ -19,6 +19,7 @@ namespace AccountantAssistant
         private string place;
         private string country;
 
+        //getter und setter
         #region get/set
    
 
