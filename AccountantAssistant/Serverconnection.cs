@@ -101,6 +101,26 @@ namespace AccountantAssistant
             }
         }
 
+        public static void InsertDataClient(Client client)
+        {
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Client (firstname, lastname, telephone, email, uidnumber, address, plz , place , country) values ('" + client.Firstname + "', '" + client.Lastname + "', '" + client.Telephone + "', '" + client.Email + "','" + client.Uidnumber + "','" + client.Address + "','" + client.Plz + "','" + client.Place + "','" + client.Country + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+            }
+        }
+
+
+
         public static void SaveIDL(TextBox tb_username)
         {
             //selects the IDL from the table and saves it into the var IDL
