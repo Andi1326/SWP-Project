@@ -23,5 +23,13 @@ namespace AccountantAssistant
             this.Close();
           
         }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            Client client = new Client (tb_firstname.Text, tb_lastname.Text, tb_telephone.Text, tb_email.Text, tb_uidnumber.Text, tb_address.Text, tb_plz.Text, tb_place.Text, tb_country.Text);
+            Serverconnection.InsertDataClient(client);
+            
+            this.Close();
+        }
     }
 }
