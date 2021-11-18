@@ -17,6 +17,7 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        public static int IDC = 1;
         private void btn_back_Click(object sender, EventArgs e)
         {
             frm_login frm_Login = new frm_login();
@@ -68,6 +69,12 @@ namespace AccountantAssistant
         private void lbl_client_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_newLedger_Click(object sender, EventArgs e)
+        {
+            frm_new_ledger frm_new_ledger = new frm_new_ledger();
+            frm_new_ledger.ShowDialog();
         }
     }
 }
