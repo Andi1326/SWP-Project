@@ -45,7 +45,7 @@ namespace AccountantAssistant
             this.btn_save = new System.Windows.Forms.Button();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
-            this.btn_newLedger = new System.Windows.Forms.Button();
+            this.btn_newClient = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_back = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
@@ -163,6 +163,7 @@ namespace AccountantAssistant
             // pnl_1
             // 
             this.pnl_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.pnl_1.Controls.Add(this.btn_newClient);
             this.pnl_1.Controls.Add(this.btn_print);
             this.pnl_1.Controls.Add(this.btn_new);
             this.pnl_1.Controls.Add(this.btn_save);
@@ -236,20 +237,20 @@ namespace AccountantAssistant
             this.cb_clients.Size = new System.Drawing.Size(232, 21);
             this.cb_clients.TabIndex = 48;
             // 
-            // btn_newLedger
+            // btn_newClient
             // 
-            this.btn_newLedger.FlatAppearance.BorderSize = 0;
-            this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
-            this.btn_newLedger.Location = new System.Drawing.Point(6, 22);
-            this.btn_newLedger.Name = "btn_newLedger";
-            this.btn_newLedger.Size = new System.Drawing.Size(149, 34);
-            this.btn_newLedger.TabIndex = 49;
-            this.btn_newLedger.Text = "Konto hinzufügen";
-            this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_newLedger.UseVisualStyleBackColor = true;
-            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
+            this.btn_newClient.FlatAppearance.BorderSize = 0;
+            this.btn_newClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newClient.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newClient.ForeColor = System.Drawing.Color.White;
+            this.btn_newClient.Location = new System.Drawing.Point(0, 175);
+            this.btn_newClient.Name = "btn_newClient";
+            this.btn_newClient.Size = new System.Drawing.Size(122, 36);
+            this.btn_newClient.TabIndex = 48;
+            this.btn_newClient.Text = " Neuer Client";
+            this.btn_newClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newClient.UseVisualStyleBackColor = true;
+            this.btn_newClient.Click += new System.EventHandler(this.btn_newClient_Click);
             // 
             // pictureBox1
             // 
@@ -327,6 +328,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
-        private System.Windows.Forms.Button btn_newLedger;
+        private System.Windows.Forms.Button btn_newClient;
     }
 }
