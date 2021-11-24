@@ -284,6 +284,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.label);
             this.Name = "frm_create_client";
             this.Text = "frm_create_client";
+            this.Load += new System.EventHandler(this.frm_create_client_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
