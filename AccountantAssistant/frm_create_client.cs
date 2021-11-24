@@ -31,5 +31,10 @@ namespace AccountantAssistant
             
             this.Close();
         }
+
+        private void frm_create_client_Load(object sender, EventArgs e)
+        {
+            //test
+        }
     }
 }
