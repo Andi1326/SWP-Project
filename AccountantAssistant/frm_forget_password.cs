@@ -12,6 +12,8 @@ namespace AccountantAssistant
 {
     public partial class frm_forget_password : Form
     {
+
+        //Test
         public frm_forget_password()
         {
             InitializeComponent();

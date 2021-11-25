@@ -51,6 +51,7 @@ namespace AccountantAssistant
             this.tabCon1.SuspendLayout();
             this.tabPage_file.SuspendLayout();
             this.tabPage_start.SuspendLayout();
+            this.tabPage_ledger.SuspendLayout();
             this.pnl_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
@@ -126,6 +127,7 @@ namespace AccountantAssistant
             // 
             // tabPage_ledger
             // 
+            this.tabPage_ledger.Controls.Add(this.btn_newLedger);
             this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ledger.Name = "tabPage_ledger";
             this.tabPage_ledger.Padding = new System.Windows.Forms.Padding(3);
@@ -298,6 +300,7 @@ namespace AccountantAssistant
             this.tabPage_file.PerformLayout();
             this.tabPage_start.ResumeLayout(false);
             this.tabPage_start.PerformLayout();
+            this.tabPage_ledger.ResumeLayout(false);
             this.pnl_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
