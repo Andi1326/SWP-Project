@@ -34,10 +34,12 @@ namespace AccountantAssistant
             this.btn_create = new System.Windows.Forms.Button();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.tb_number = new System.Windows.Forms.TextBox();
-            this.lbl_password = new System.Windows.Forms.Label();
-            this.lbl_user = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lbl_ledger_name = new System.Windows.Forms.Label();
+            this.lbl_ledger_number = new System.Windows.Forms.Label();
+            this.pb_logo = new System.Windows.Forms.PictureBox();
+            this.lbl_ledger_type = new System.Windows.Forms.Label();
+            this.cb_type = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_back
@@ -45,11 +47,11 @@ namespace AccountantAssistant
             this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_back.Location = new System.Drawing.Point(12, 255);
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(12, 261);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 59;
+            this.btn_back.TabIndex = 5;
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -59,11 +61,11 @@ namespace AccountantAssistant
             this.btn_create.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_create.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_create.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_create.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_create.Location = new System.Drawing.Point(193, 255);
+            this.btn_create.ForeColor = System.Drawing.Color.White;
+            this.btn_create.Location = new System.Drawing.Point(193, 261);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(122, 25);
-            this.btn_create.TabIndex = 57;
+            this.btn_create.TabIndex = 4;
             this.btn_create.Text = "ERSTELLEN";
             this.btn_create.UseVisualStyleBackColor = false;
             this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
@@ -72,10 +74,10 @@ namespace AccountantAssistant
             // 
             this.tb_name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_name.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.Location = new System.Drawing.Point(273, 195);
+            this.tb_name.Location = new System.Drawing.Point(273, 183);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(216, 26);
-            this.tb_name.TabIndex = 48;
+            this.tb_name.TabIndex = 2;
             // 
             // tb_number
             // 
@@ -84,60 +86,86 @@ namespace AccountantAssistant
             this.tb_number.Location = new System.Drawing.Point(273, 151);
             this.tb_number.Name = "tb_number";
             this.tb_number.Size = new System.Drawing.Size(216, 26);
-            this.tb_number.TabIndex = 47;
+            this.tb_number.TabIndex = 1;
             // 
-            // lbl_password
+            // lbl_ledger_name
             // 
-            this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_password.AutoSize = true;
-            this.lbl_password.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_password.Location = new System.Drawing.Point(112, 193);
-            this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(137, 25);
-            this.lbl_password.TabIndex = 46;
-            this.lbl_password.Text = "Kontoname:";
+            this.lbl_ledger_name.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_ledger_name.AutoSize = true;
+            this.lbl_ledger_name.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ledger_name.Location = new System.Drawing.Point(112, 181);
+            this.lbl_ledger_name.Name = "lbl_ledger_name";
+            this.lbl_ledger_name.Size = new System.Drawing.Size(137, 25);
+            this.lbl_ledger_name.TabIndex = 46;
+            this.lbl_ledger_name.Text = "Kontoname:";
             // 
-            // lbl_user
+            // lbl_ledger_number
             // 
-            this.lbl_user.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_user.AutoSize = true;
-            this.lbl_user.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_user.Location = new System.Drawing.Point(81, 149);
-            this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(168, 25);
-            this.lbl_user.TabIndex = 45;
-            this.lbl_user.Text = "Kontonummer:";
+            this.lbl_ledger_number.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_ledger_number.AutoSize = true;
+            this.lbl_ledger_number.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ledger_number.Location = new System.Drawing.Point(81, 149);
+            this.lbl_ledger_number.Name = "lbl_ledger_number";
+            this.lbl_ledger_number.Size = new System.Drawing.Size(168, 25);
+            this.lbl_ledger_number.TabIndex = 45;
+            this.lbl_ledger_number.Text = "Kontonummer:";
             // 
-            // pictureBox1
+            // pb_logo
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 134);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
+            this.pb_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_logo.BackColor = System.Drawing.Color.Transparent;
+            this.pb_logo.Image = global::AccountantAssistant.Properties.Resources.logo_small;
+            this.pb_logo.Location = new System.Drawing.Point(12, 12);
+            this.pb_logo.Name = "pb_logo";
+            this.pb_logo.Size = new System.Drawing.Size(192, 134);
+            this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_logo.TabIndex = 44;
+            this.pb_logo.TabStop = false;
+            // 
+            // lbl_ledger_type
+            // 
+            this.lbl_ledger_type.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_ledger_type.AutoSize = true;
+            this.lbl_ledger_type.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ledger_type.Location = new System.Drawing.Point(142, 213);
+            this.lbl_ledger_type.Name = "lbl_ledger_type";
+            this.lbl_ledger_type.Size = new System.Drawing.Size(107, 25);
+            this.lbl_ledger_type.TabIndex = 60;
+            this.lbl_ledger_type.Text = "Kontoart:";
+            // 
+            // cb_type
+            // 
+            this.cb_type.FormattingEnabled = true;
+            this.cb_type.Items.AddRange(new object[] {
+            "AB",
+            "PB",
+            "AK",
+            "EK"});
+            this.cb_type.Location = new System.Drawing.Point(273, 219);
+            this.cb_type.Name = "cb_type";
+            this.cb_type.Size = new System.Drawing.Size(216, 21);
+            this.cb_type.TabIndex = 61;
             // 
             // frm_new_ledger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(533, 298);
+            this.Controls.Add(this.cb_type);
+            this.Controls.Add(this.lbl_ledger_type);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.tb_name);
             this.Controls.Add(this.tb_number);
-            this.Controls.Add(this.lbl_password);
-            this.Controls.Add(this.lbl_user);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbl_ledger_name);
+            this.Controls.Add(this.lbl_ledger_number);
+            this.Controls.Add(this.pb_logo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_new_ledger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Ledger";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,8 +176,10 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_create;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.TextBox tb_number;
-        private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.Label lbl_user;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_ledger_name;
+        private System.Windows.Forms.Label lbl_ledger_number;
+        private System.Windows.Forms.PictureBox pb_logo;
+        private System.Windows.Forms.Label lbl_ledger_type;
+        private System.Windows.Forms.ComboBox cb_type;
     }
 }
