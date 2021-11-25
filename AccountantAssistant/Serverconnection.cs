@@ -33,7 +33,9 @@ namespace AccountantAssistant
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int Identity(1,1) primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal) end";
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, number int, name varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int) end";
                 cmd.ExecuteNonQuery();
@@ -206,5 +208,74 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString(), "Password can't be changed");
             }
         }
+
+        #region Ledger
+
+            public static void InsertDataAllLedgers(AllLedgers allledgers)
+            {
+                //inserts the data into LOGIN
+                try
+                {
+                    con.Open();
+                    cmd.Connection = con;
+                    cmd.CommandText = "Insert into AllLedgers (idc, number, name) values ('"+allledgers.IDC+"', '" + allledgers.Number + "', '" + allledgers.Name + "');";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Data can not be insert");
+                }
+            }
+
+            public static bool ProofLedger(TextBox number)
+            {
+                //proofs if the user exists or not
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select number from AllLedgers";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (number.Text == dr["number"].ToString())
+                    {
+                        con.Close();
+                        return true;
+                    }
+                }
+                con.Close();
+                return false;
+            }
+
+        public static int SaveIDLE(int number, int idc)
+            {
+                //selects the Sq2 from the table
+                int idle;
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select IDLE from AllLedgers where number = '" + number + "' and IDC = '"+idc+"'";
+                idle = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                con.Close();
+                return idle;
+            }
+
+            public static void InsertDataLedger(Ledger ledger)
+            {
+                //inserts the data into LOGIN
+                try
+                {
+                    con.Open();
+                    cmd.Connection = con;
+                    cmd.CommandText = "Insert into Ledger (IDLE, IDC, contraLedger, debitValue, creditValue) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "', '" + ledger.CreditValue + "');";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Data can not be insert");
+                }
+            }
+
+        #endregion
     }
 }
