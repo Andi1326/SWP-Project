@@ -218,7 +218,7 @@ namespace AccountantAssistant
                 {
                     con.Open();
                     cmd.Connection = con;
-                    cmd.CommandText = "Insert into AllLedgers (idc, number, name) values ('"+allledgers.IDC+"', '" + allledgers.Number + "', '" + allledgers.Name + "');";
+                    cmd.CommandText = "Insert into AllLedgers (idc, number, name, type) values ('"+allledgers.IDC+"', '" + allledgers.Number + "', '" + allledgers.Name + "', '"+allledgers.Type+"');";
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }

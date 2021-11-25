@@ -75,7 +75,13 @@ namespace AccountantAssistant
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             frm_create_client frm_cc = new frm_create_client();
-            frm_cc.Show();
+            frm_cc.ShowDialog();
+        }
+
+        private void btn_newLedger_Click(object sender, EventArgs e)
+        {
+            frm_new_ledger frm_new_ledger = new frm_new_ledger();
+            frm_new_ledger.ShowDialog();
         }
     }
 }

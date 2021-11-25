@@ -38,7 +38,7 @@ namespace AccountantAssistant
             }
             else
             {
-                AllLedgers newAllLedgers = new AllLedgers(frm_main.IDC, Convert.ToInt32(tb_number.Text), tb_name.Text);
+                AllLedgers newAllLedgers = new AllLedgers(frm_main.IDC, Convert.ToInt32(tb_number.Text), tb_name.Text, cb_type.SelectedItem.ToString());
                 Serverconnection.InsertDataAllLedgers(newAllLedgers);
 
                 int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_number.Text), frm_main.IDC);
