@@ -28,5 +28,22 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pb_maximize_Click(object sender, EventArgs e)
+        {
+            if(this.ParentForm.WindowState == FormWindowState.Maximized)
+            {
+                this.ParentForm.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.ParentForm.WindowState = FormWindowState.Maximized;
+            }
+        }
     }
 }

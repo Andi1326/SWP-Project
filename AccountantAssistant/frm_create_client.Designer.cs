@@ -55,6 +55,7 @@ namespace AccountantAssistant
             // 
             // label
             // 
+            this.label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold);
             this.label.Location = new System.Drawing.Point(118, 195);
@@ -65,6 +66,7 @@ namespace AccountantAssistant
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(100, 227);
@@ -75,6 +77,7 @@ namespace AccountantAssistant
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(135, 259);
@@ -85,6 +88,7 @@ namespace AccountantAssistant
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(144, 291);
@@ -95,6 +99,7 @@ namespace AccountantAssistant
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(78, 323);
@@ -105,6 +110,7 @@ namespace AccountantAssistant
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(128, 355);
@@ -115,6 +121,7 @@ namespace AccountantAssistant
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(92, 387);
@@ -125,6 +132,7 @@ namespace AccountantAssistant
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(178, 419);
@@ -135,6 +143,7 @@ namespace AccountantAssistant
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(160, 451);
@@ -145,6 +154,7 @@ namespace AccountantAssistant
             // 
             // tb_firstname
             // 
+            this.tb_firstname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_firstname.Font = new System.Drawing.Font("Rockwell", 12F);
             this.tb_firstname.Location = new System.Drawing.Point(248, 197);
             this.tb_firstname.Multiline = true;
@@ -154,6 +164,7 @@ namespace AccountantAssistant
             // 
             // tb_lastname
             // 
+            this.tb_lastname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_lastname.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_lastname.Location = new System.Drawing.Point(248, 229);
             this.tb_lastname.Multiline = true;
@@ -163,6 +174,7 @@ namespace AccountantAssistant
             // 
             // tb_telephone
             // 
+            this.tb_telephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_telephone.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_telephone.Location = new System.Drawing.Point(248, 261);
             this.tb_telephone.Multiline = true;
@@ -172,6 +184,7 @@ namespace AccountantAssistant
             // 
             // tb_email
             // 
+            this.tb_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_email.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_email.Location = new System.Drawing.Point(248, 293);
             this.tb_email.Multiline = true;
@@ -181,6 +194,7 @@ namespace AccountantAssistant
             // 
             // tb_uidnumber
             // 
+            this.tb_uidnumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_uidnumber.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_uidnumber.Location = new System.Drawing.Point(248, 325);
             this.tb_uidnumber.Multiline = true;
@@ -190,6 +204,7 @@ namespace AccountantAssistant
             // 
             // tb_address
             // 
+            this.tb_address.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_address.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_address.Location = new System.Drawing.Point(248, 357);
             this.tb_address.Multiline = true;
@@ -199,6 +214,7 @@ namespace AccountantAssistant
             // 
             // tb_plz
             // 
+            this.tb_plz.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_plz.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_plz.Location = new System.Drawing.Point(248, 389);
             this.tb_plz.Multiline = true;
@@ -208,6 +224,7 @@ namespace AccountantAssistant
             // 
             // tb_place
             // 
+            this.tb_place.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_place.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_place.Location = new System.Drawing.Point(248, 421);
             this.tb_place.Multiline = true;
@@ -217,6 +234,7 @@ namespace AccountantAssistant
             // 
             // tb_country
             // 
+            this.tb_country.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_country.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_country.Location = new System.Drawing.Point(248, 453);
             this.tb_country.Multiline = true;
@@ -226,6 +244,7 @@ namespace AccountantAssistant
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
             this.pictureBox1.Location = new System.Drawing.Point(26, 42);
@@ -237,6 +256,7 @@ namespace AccountantAssistant
             // 
             // btn_login
             // 
+            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +271,7 @@ namespace AccountantAssistant
             // 
             // btn_back
             // 
+            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
@@ -293,6 +314,7 @@ namespace AccountantAssistant
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(571, 592);
             this.Name = "frm_create_client";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
