@@ -34,7 +34,9 @@ namespace AccountantAssistant
 
         private void frm_create_client_Load(object sender, EventArgs e)
         {
-            //test
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
         }
     }
 }
