@@ -173,5 +173,8 @@
   <ItemGroup>
     <None Include="Resources\MaximizeBox.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

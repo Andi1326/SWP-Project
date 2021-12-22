@@ -28,6 +28,11 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+            ucTopBar.btn_save.Visible = true;
+
             tabCon1.SelectedTab = tabPage_start;
             
         }

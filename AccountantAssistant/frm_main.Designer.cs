@@ -37,6 +37,7 @@ namespace AccountantAssistant
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.tabPage_ledger = new System.Windows.Forms.TabPage();
+            this.btn_newLedger = new System.Windows.Forms.Button();
             this.tabPage_help = new System.Windows.Forms.TabPage();
             this.btn_back = new System.Windows.Forms.Button();
             this.pnl_1 = new System.Windows.Forms.Panel();
@@ -48,7 +49,6 @@ namespace AccountantAssistant
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_newLedger = new System.Windows.Forms.Button();
             this.tabCon1.SuspendLayout();
             this.tabPage_file.SuspendLayout();
             this.tabPage_start.SuspendLayout();
@@ -68,7 +68,7 @@ namespace AccountantAssistant
             this.tabCon1.Controls.Add(this.tabPage_ledger);
             this.tabCon1.Controls.Add(this.tabPage_help);
             this.tabCon1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCon1.Location = new System.Drawing.Point(1, 1);
+            this.tabCon1.Location = new System.Drawing.Point(1, 37);
             this.tabCon1.Name = "tabCon1";
             this.tabCon1.SelectedIndex = 0;
             this.tabCon1.Size = new System.Drawing.Size(907, 109);
@@ -137,6 +137,21 @@ namespace AccountantAssistant
             this.tabPage_ledger.Text = "Konto";
             this.tabPage_ledger.UseVisualStyleBackColor = true;
             // 
+            // btn_newLedger
+            // 
+            this.btn_newLedger.FlatAppearance.BorderSize = 0;
+            this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
+            this.btn_newLedger.Location = new System.Drawing.Point(18, 21);
+            this.btn_newLedger.Name = "btn_newLedger";
+            this.btn_newLedger.Size = new System.Drawing.Size(147, 34);
+            this.btn_newLedger.TabIndex = 47;
+            this.btn_newLedger.Text = "Konto hinzufügen";
+            this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newLedger.UseVisualStyleBackColor = true;
+            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
+            // 
             // tabPage_help
             // 
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
@@ -169,7 +184,7 @@ namespace AccountantAssistant
             this.pnl_1.Controls.Add(this.btn_new);
             this.pnl_1.Controls.Add(this.btn_save);
             this.pnl_1.Controls.Add(this.pb_back);
-            this.pnl_1.Location = new System.Drawing.Point(10, 116);
+            this.pnl_1.Location = new System.Drawing.Point(10, 120);
             this.pnl_1.Name = "pnl_1";
             this.pnl_1.Size = new System.Drawing.Size(115, 232);
             this.pnl_1.TabIndex = 44;
@@ -249,7 +264,7 @@ namespace AccountantAssistant
             this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_client.AutoSize = true;
             this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(757, 4);
+            this.lbl_client.Location = new System.Drawing.Point(757, 40);
             this.lbl_client.Name = "lbl_client";
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
@@ -260,7 +275,7 @@ namespace AccountantAssistant
             // 
             this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_clients.FormattingEnabled = true;
-            this.cb_clients.Location = new System.Drawing.Point(820, 5);
+            this.cb_clients.Location = new System.Drawing.Point(820, 41);
             this.cb_clients.Name = "cb_clients";
             this.cb_clients.Size = new System.Drawing.Size(232, 21);
             this.cb_clients.TabIndex = 48;
@@ -270,27 +285,12 @@ namespace AccountantAssistant
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
-            this.pictureBox1.Location = new System.Drawing.Point(1071, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(1071, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
-            // 
-            // btn_newLedger
-            // 
-            this.btn_newLedger.FlatAppearance.BorderSize = 0;
-            this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
-            this.btn_newLedger.Location = new System.Drawing.Point(18, 21);
-            this.btn_newLedger.Name = "btn_newLedger";
-            this.btn_newLedger.Size = new System.Drawing.Size(147, 34);
-            this.btn_newLedger.TabIndex = 47;
-            this.btn_newLedger.Text = "Konto hinzufügen";
-            this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_newLedger.UseVisualStyleBackColor = true;
-            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
             // 
             // frm_main
             // 
@@ -298,17 +298,20 @@ namespace AccountantAssistant
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1130, 617);
+            this.ControlBox = false;
             this.Controls.Add(this.cb_clients);
             this.Controls.Add(this.lbl_client);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1146, 633);
             this.Name = "frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_main_KeyDown);
             this.tabCon1.ResumeLayout(false);

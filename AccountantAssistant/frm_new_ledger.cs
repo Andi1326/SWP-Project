@@ -48,5 +48,12 @@ namespace AccountantAssistant
             }
             this.Close();
         }
+
+        private void frm_new_ledger_Load(object sender, EventArgs e)
+        {
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+        }
     }
 }
