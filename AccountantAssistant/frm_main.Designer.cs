@@ -68,7 +68,7 @@ namespace AccountantAssistant
             this.tabCon1.Controls.Add(this.tabPage_ledger);
             this.tabCon1.Controls.Add(this.tabPage_help);
             this.tabCon1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCon1.Location = new System.Drawing.Point(1, 37);
+            this.tabCon1.Location = new System.Drawing.Point(1, 29);
             this.tabCon1.Name = "tabCon1";
             this.tabCon1.SelectedIndex = 0;
             this.tabCon1.Size = new System.Drawing.Size(907, 109);
@@ -184,7 +184,7 @@ namespace AccountantAssistant
             this.pnl_1.Controls.Add(this.btn_new);
             this.pnl_1.Controls.Add(this.btn_save);
             this.pnl_1.Controls.Add(this.pb_back);
-            this.pnl_1.Location = new System.Drawing.Point(10, 120);
+            this.pnl_1.Location = new System.Drawing.Point(10, 112);
             this.pnl_1.Name = "pnl_1";
             this.pnl_1.Size = new System.Drawing.Size(115, 232);
             this.pnl_1.TabIndex = 44;
@@ -264,7 +264,7 @@ namespace AccountantAssistant
             this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_client.AutoSize = true;
             this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(757, 40);
+            this.lbl_client.Location = new System.Drawing.Point(757, 32);
             this.lbl_client.Name = "lbl_client";
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
@@ -275,7 +275,7 @@ namespace AccountantAssistant
             // 
             this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_clients.FormattingEnabled = true;
-            this.cb_clients.Location = new System.Drawing.Point(820, 41);
+            this.cb_clients.Location = new System.Drawing.Point(820, 33);
             this.cb_clients.Name = "cb_clients";
             this.cb_clients.Size = new System.Drawing.Size(232, 21);
             this.cb_clients.TabIndex = 48;
@@ -285,7 +285,7 @@ namespace AccountantAssistant
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
-            this.pictureBox1.Location = new System.Drawing.Point(1071, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(1071, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
