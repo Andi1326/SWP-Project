@@ -12,6 +12,7 @@ namespace AccountantAssistant
         private int idc;
         private int number;
         private string name;
+        private string type;
 
 
 
@@ -63,15 +64,28 @@ namespace AccountantAssistant
 
         }
 
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+            set
+            {
+                type = value;
+            }
+        }
+
         #endregion
 
 
         //constructor
-        public AllLedgers(int idc, int number, string name)
+        public AllLedgers(int idc, int number, string name, string type)
         {
             this.IDC = idc;
             this.Number = number;
             this.Name = name;
+            this.Type = type;
         }
     }
 }

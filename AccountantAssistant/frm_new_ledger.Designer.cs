@@ -135,6 +135,7 @@ namespace AccountantAssistant
             // 
             // cb_type
             // 
+            this.cb_type.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_type.FormattingEnabled = true;
             this.cb_type.Items.AddRange(new object[] {
             "AB",
@@ -152,6 +153,7 @@ namespace AccountantAssistant
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(533, 298);
+            this.ControlBox = false;
             this.Controls.Add(this.cb_type);
             this.Controls.Add(this.lbl_ledger_type);
             this.Controls.Add(this.btn_back);
@@ -161,10 +163,14 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_ledger_name);
             this.Controls.Add(this.lbl_ledger_number);
             this.Controls.Add(this.pb_logo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(549, 314);
             this.Name = "frm_new_ledger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Ledger";
+            this.Load += new System.EventHandler(this.frm_new_ledger_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

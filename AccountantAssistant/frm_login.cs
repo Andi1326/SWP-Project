@@ -53,6 +53,10 @@ namespace AccountantAssistant
 
         private void frm_login_Load(object sender, EventArgs e)
         {
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+
             Serverconnection.Tryconnect();
         }
 

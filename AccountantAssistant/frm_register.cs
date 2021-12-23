@@ -89,6 +89,10 @@ namespace AccountantAssistant
         private void frm_register_Load(object sender, EventArgs e)
         {
             KeyPreview = true;
+
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
         }
     }
 }
