@@ -33,7 +33,6 @@ namespace AccountantAssistant
             this.btn_minimize = new System.Windows.Forms.Button();
             this.btn_maximize = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -89,24 +88,10 @@ namespace AccountantAssistant
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::AccountantAssistant.Properties.Resources.SaveButton;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 19);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // ucTopBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_maximize);
             this.Controls.Add(this.btn_minimize);
@@ -125,6 +110,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_minimize;
         private System.Windows.Forms.Button btn_maximize;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btn_save;
     }
 }

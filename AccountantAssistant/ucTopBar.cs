@@ -12,7 +12,6 @@ namespace AccountantAssistant
 {
     public partial class ucTopBar : UserControl
     {
-        public static Button btn_save = new Button();
         
        
         private static ucTopBar _instance;
@@ -30,17 +29,6 @@ namespace AccountantAssistant
         public ucTopBar()
         {
             InitializeComponent();
-            btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            btn_save.BackgroundImage = Properties.Resources.SaveButton;
-            btn_save.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_save.FlatAppearance.BorderSize = 0;
-            btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.Location = new Point(3, 3);
-            btn_save.Name = "btn_save";
-            btn_save.Size = new Size(30, 19);
-            btn_save.TabIndex = 8;
-            btn_save.UseVisualStyleBackColor = true;
-            btn_save.Visible = false;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -86,14 +74,7 @@ namespace AccountantAssistant
 
         private void ucTopBar_Load(object sender, EventArgs e)
         {
-            if (this.ParentForm.Name == "frm_main")
-            {
-                btn_save.Visible = true;
-            }
-            else
-            {
-                btn_save.Visible = false;
-            }
+
         }
     }
 }
