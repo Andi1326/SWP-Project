@@ -165,16 +165,16 @@
     <None Include="Resources\Minimize_Box.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Minimize_Box2.png" />
+    <None Include="Resources\SaveButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SaveButton.png" />
+    <None Include="Resources\cross.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MaximizeBox.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cross.png" />
+    <None Include="Resources\Minimize_Box2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

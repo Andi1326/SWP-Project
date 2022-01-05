@@ -29,10 +29,14 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTopBar));
             this.lbl_header = new System.Windows.Forms.Label();
-            this.btn_minimize = new System.Windows.Forms.Button();
-            this.btn_maximize = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
+            this.pb_minimize = new System.Windows.Forms.PictureBox();
+            this.pb_maximize = new System.Windows.Forms.PictureBox();
+            this.pb_close = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -46,59 +50,62 @@ namespace AccountantAssistant
             this.lbl_header.TabIndex = 0;
             this.lbl_header.Text = "ACAS - Accountant Assistant";
             // 
-            // btn_minimize
+            // pb_minimize
             // 
-            this.btn_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_minimize.BackgroundImage = global::AccountantAssistant.Properties.Resources.Minimize_Box2;
-            this.btn_minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_minimize.FlatAppearance.BorderSize = 0;
-            this.btn_minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_minimize.Location = new System.Drawing.Point(701, 3);
-            this.btn_minimize.Name = "btn_minimize";
-            this.btn_minimize.Size = new System.Drawing.Size(20, 15);
-            this.btn_minimize.TabIndex = 5;
-            this.btn_minimize.UseVisualStyleBackColor = true;
-            this.btn_minimize.Click += new System.EventHandler(this.btn_minimize_Click);
+            this.pb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
+            this.pb_minimize.Location = new System.Drawing.Point(676, 0);
+            this.pb_minimize.Name = "pb_minimize";
+            this.pb_minimize.Size = new System.Drawing.Size(35, 29);
+            this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_minimize.TabIndex = 8;
+            this.pb_minimize.TabStop = false;
+            this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
+            this.pb_minimize.MouseLeave += new System.EventHandler(this.pb_minimize_MouseLeave);
+            this.pb_minimize.MouseHover += new System.EventHandler(this.pb_minimize_MouseHover);
             // 
-            // btn_maximize
+            // pb_maximize
             // 
-            this.btn_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_maximize.BackgroundImage = global::AccountantAssistant.Properties.Resources.MaximizeBox;
-            this.btn_maximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_maximize.FlatAppearance.BorderSize = 0;
-            this.btn_maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_maximize.Location = new System.Drawing.Point(727, 3);
-            this.btn_maximize.Name = "btn_maximize";
-            this.btn_maximize.Size = new System.Drawing.Size(20, 15);
-            this.btn_maximize.TabIndex = 6;
-            this.btn_maximize.UseVisualStyleBackColor = true;
-            this.btn_maximize.Click += new System.EventHandler(this.btn_maximize_Click);
+            this.pb_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_maximize.Image = ((System.Drawing.Image)(resources.GetObject("pb_maximize.Image")));
+            this.pb_maximize.Location = new System.Drawing.Point(707, 0);
+            this.pb_maximize.Name = "pb_maximize";
+            this.pb_maximize.Size = new System.Drawing.Size(35, 29);
+            this.pb_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_maximize.TabIndex = 9;
+            this.pb_maximize.TabStop = false;
+            this.pb_maximize.Click += new System.EventHandler(this.pb_maximize_Click);
+            this.pb_maximize.MouseLeave += new System.EventHandler(this.pb_maximize_MouseLeave);
+            this.pb_maximize.MouseHover += new System.EventHandler(this.pb_maximize_MouseHover);
             // 
-            // btn_close
+            // pb_close
             // 
-            this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_close.BackgroundImage = global::AccountantAssistant.Properties.Resources.cross;
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Location = new System.Drawing.Point(753, 3);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(20, 15);
-            this.btn_close.TabIndex = 7;
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            this.pb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
+            this.pb_close.Location = new System.Drawing.Point(738, 0);
+            this.pb_close.Name = "pb_close";
+            this.pb_close.Size = new System.Drawing.Size(35, 29);
+            this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_close.TabIndex = 10;
+            this.pb_close.TabStop = false;
+            this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
+            this.pb_close.MouseLeave += new System.EventHandler(this.pb_close_MouseLeave);
+            this.pb_close.MouseHover += new System.EventHandler(this.pb_close_MouseHover);
             // 
             // ucTopBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.btn_maximize);
-            this.Controls.Add(this.btn_minimize);
+            this.Controls.Add(this.pb_close);
+            this.Controls.Add(this.pb_maximize);
+            this.Controls.Add(this.pb_minimize);
             this.Controls.Add(this.lbl_header);
             this.Name = "ucTopBar";
             this.Size = new System.Drawing.Size(776, 29);
             this.Load += new System.EventHandler(this.ucTopBar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,9 +114,9 @@ namespace AccountantAssistant
         #endregion
 
         private System.Windows.Forms.Label lbl_header;
-        private System.Windows.Forms.Button btn_minimize;
-        private System.Windows.Forms.Button btn_maximize;
-        private System.Windows.Forms.Button btn_close;
         public System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.PictureBox pb_minimize;
+        private System.Windows.Forms.PictureBox pb_maximize;
+        private System.Windows.Forms.PictureBox pb_close;
     }
 }
