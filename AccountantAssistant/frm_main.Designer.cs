@@ -32,7 +32,7 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.tabCon1 = new System.Windows.Forms.TabControl();
             this.tabPage_file = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_select_ledger = new System.Windows.Forms.Label();
             this.tabPage_start = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
@@ -49,6 +49,7 @@ namespace AccountantAssistant
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_file.SuspendLayout();
             this.tabPage_start.SuspendLayout();
@@ -78,7 +79,8 @@ namespace AccountantAssistant
             // tabPage_file
             // 
             this.tabPage_file.BackColor = System.Drawing.Color.White;
-            this.tabPage_file.Controls.Add(this.label1);
+            this.tabPage_file.Controls.Add(this.comboBox1);
+            this.tabPage_file.Controls.Add(this.lbl_select_ledger);
             this.tabPage_file.Location = new System.Drawing.Point(4, 27);
             this.tabPage_file.Name = "tabPage_file";
             this.tabPage_file.Padding = new System.Windows.Forms.Padding(3);
@@ -87,14 +89,14 @@ namespace AccountantAssistant
             this.tabPage_file.Text = "Datei";
             this.tabPage_file.Click += new System.EventHandler(this.tabPage_file_Click);
             // 
-            // label1
+            // lbl_select_ledger
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(278, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Datei";
+            this.lbl_select_ledger.AutoSize = true;
+            this.lbl_select_ledger.Location = new System.Drawing.Point(7, 24);
+            this.lbl_select_ledger.Name = "lbl_select_ledger";
+            this.lbl_select_ledger.Size = new System.Drawing.Size(118, 18);
+            this.lbl_select_ledger.TabIndex = 0;
+            this.lbl_select_ledger.Text = "Konto auswählen";
             // 
             // tabPage_start
             // 
@@ -292,6 +294,14 @@ namespace AccountantAssistant
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(131, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(188, 26);
+            this.comboBox1.TabIndex = 1;
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,7 +348,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.TabPage tabPage_help;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Panel pnl_1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_select_ledger;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pb_back;
         private System.Windows.Forms.Button btn_save;
@@ -349,5 +359,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
         private System.Windows.Forms.Button btn_newLedger;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
