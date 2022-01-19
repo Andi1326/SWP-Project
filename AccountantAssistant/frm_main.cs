@@ -15,10 +15,24 @@ namespace AccountantAssistant
         public frm_main()
         {
             InitializeComponent();
+            #region btn_ucTopBar_save Button
+            btn_ucTopBar_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
+            btn_ucTopBar_save.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_ucTopBar_save.FlatAppearance.BorderSize = 0;
+            btn_ucTopBar_save.FlatStyle = FlatStyle.Flat;
+            btn_ucTopBar_save.Location = new Point(3, 3);
+            btn_ucTopBar_save.Name = "btn_save";
+            btn_ucTopBar_save.Size = new Size(30, 19);
+            btn_ucTopBar_save.TabIndex = 8;
+            btn_ucTopBar_save.UseVisualStyleBackColor = true;
+            #endregion
         }
 
         public static int IDC = 1;
-        //TestForPull
+
+        public static Button btn_ucTopBar_save = new Button();
+
         private void btn_back_Click(object sender, EventArgs e)
         {
             frm_login frm_Login = new frm_login();
@@ -28,6 +42,11 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+
             tabCon1.SelectedTab = tabPage_start;
             
         }
@@ -75,7 +94,13 @@ namespace AccountantAssistant
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             frm_create_client frm_cc = new frm_create_client();
-            frm_cc.Show();
+            frm_cc.ShowDialog();
+        }
+
+        private void btn_newLedger_Click(object sender, EventArgs e)
+        {
+            frm_new_ledger frm_new_ledger = new frm_new_ledger();
+            frm_new_ledger.ShowDialog();
         }
     }
 }

@@ -30,6 +30,10 @@ namespace AccountantAssistant
         {
             KeyPreview = true;
 
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+
             tb_sq1_question.Text = Serverconnection.SaveSQ1_Question(frm_login.IDL);
             tb_sq2_question.Text = Serverconnection.SaveSQ2_Question(frm_login.IDL);
         }

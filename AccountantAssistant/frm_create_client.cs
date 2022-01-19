@@ -19,7 +19,6 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            frm_main frm_Main = new frm_main();
             this.Close();
           
         }
@@ -34,7 +33,9 @@ namespace AccountantAssistant
 
         private void frm_create_client_Load(object sender, EventArgs e)
         {
-            //test
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
         }
     }
 }

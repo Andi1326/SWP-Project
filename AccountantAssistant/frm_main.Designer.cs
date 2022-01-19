@@ -32,29 +32,31 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.tabCon1 = new System.Windows.Forms.TabControl();
             this.tabPage_file = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_select_ledger = new System.Windows.Forms.Label();
             this.tabPage_start = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.tabPage_ledger = new System.Windows.Forms.TabPage();
+            this.btn_newLedger = new System.Windows.Forms.Button();
             this.tabPage_help = new System.Windows.Forms.TabPage();
             this.btn_back = new System.Windows.Forms.Button();
             this.pnl_1 = new System.Windows.Forms.Panel();
+            this.btn_newClient = new System.Windows.Forms.Button();
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
+            this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
-            this.btn_newClient = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pb_back = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_file.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
             this.pnl_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -67,7 +69,7 @@ namespace AccountantAssistant
             this.tabCon1.Controls.Add(this.tabPage_ledger);
             this.tabCon1.Controls.Add(this.tabPage_help);
             this.tabCon1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCon1.Location = new System.Drawing.Point(1, 1);
+            this.tabCon1.Location = new System.Drawing.Point(1, 29);
             this.tabCon1.Name = "tabCon1";
             this.tabCon1.SelectedIndex = 0;
             this.tabCon1.Size = new System.Drawing.Size(907, 109);
@@ -77,7 +79,8 @@ namespace AccountantAssistant
             // tabPage_file
             // 
             this.tabPage_file.BackColor = System.Drawing.Color.White;
-            this.tabPage_file.Controls.Add(this.label1);
+            this.tabPage_file.Controls.Add(this.comboBox1);
+            this.tabPage_file.Controls.Add(this.lbl_select_ledger);
             this.tabPage_file.Location = new System.Drawing.Point(4, 27);
             this.tabPage_file.Name = "tabPage_file";
             this.tabPage_file.Padding = new System.Windows.Forms.Padding(3);
@@ -86,14 +89,14 @@ namespace AccountantAssistant
             this.tabPage_file.Text = "Datei";
             this.tabPage_file.Click += new System.EventHandler(this.tabPage_file_Click);
             // 
-            // label1
+            // lbl_select_ledger
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(278, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Datei";
+            this.lbl_select_ledger.AutoSize = true;
+            this.lbl_select_ledger.Location = new System.Drawing.Point(7, 24);
+            this.lbl_select_ledger.Name = "lbl_select_ledger";
+            this.lbl_select_ledger.Size = new System.Drawing.Size(118, 18);
+            this.lbl_select_ledger.TabIndex = 0;
+            this.lbl_select_ledger.Text = "Konto auswählen";
             // 
             // tabPage_start
             // 
@@ -136,6 +139,21 @@ namespace AccountantAssistant
             this.tabPage_ledger.Text = "Konto";
             this.tabPage_ledger.UseVisualStyleBackColor = true;
             // 
+            // btn_newLedger
+            // 
+            this.btn_newLedger.FlatAppearance.BorderSize = 0;
+            this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
+            this.btn_newLedger.Location = new System.Drawing.Point(18, 21);
+            this.btn_newLedger.Name = "btn_newLedger";
+            this.btn_newLedger.Size = new System.Drawing.Size(147, 34);
+            this.btn_newLedger.TabIndex = 47;
+            this.btn_newLedger.Text = "Konto hinzufügen";
+            this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newLedger.UseVisualStyleBackColor = true;
+            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
+            // 
             // tabPage_help
             // 
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
@@ -151,7 +169,7 @@ namespace AccountantAssistant
             this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_back.ForeColor = System.Drawing.Color.White;
             this.btn_back.Location = new System.Drawing.Point(12, 580);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
@@ -168,11 +186,26 @@ namespace AccountantAssistant
             this.pnl_1.Controls.Add(this.btn_new);
             this.pnl_1.Controls.Add(this.btn_save);
             this.pnl_1.Controls.Add(this.pb_back);
-            this.pnl_1.Location = new System.Drawing.Point(10, 116);
+            this.pnl_1.Location = new System.Drawing.Point(10, 112);
             this.pnl_1.Name = "pnl_1";
             this.pnl_1.Size = new System.Drawing.Size(115, 232);
             this.pnl_1.TabIndex = 44;
             this.pnl_1.Visible = false;
+            // 
+            // btn_newClient
+            // 
+            this.btn_newClient.FlatAppearance.BorderSize = 0;
+            this.btn_newClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newClient.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newClient.ForeColor = System.Drawing.Color.White;
+            this.btn_newClient.Location = new System.Drawing.Point(0, 175);
+            this.btn_newClient.Name = "btn_newClient";
+            this.btn_newClient.Size = new System.Drawing.Size(122, 36);
+            this.btn_newClient.TabIndex = 48;
+            this.btn_newClient.Text = " Neuer Client";
+            this.btn_newClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newClient.UseVisualStyleBackColor = true;
+            this.btn_newClient.Click += new System.EventHandler(this.btn_newClient_Click);
             // 
             // btn_print
             // 
@@ -216,54 +249,6 @@ namespace AccountantAssistant
             this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_save.UseVisualStyleBackColor = true;
             // 
-            // lbl_client
-            // 
-            this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_client.AutoSize = true;
-            this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(757, 4);
-            this.lbl_client.Name = "lbl_client";
-            this.lbl_client.Size = new System.Drawing.Size(57, 18);
-            this.lbl_client.TabIndex = 47;
-            this.lbl_client.Text = "Client:";
-            this.lbl_client.Click += new System.EventHandler(this.lbl_client_Click);
-            // 
-            // cb_clients
-            // 
-            this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_clients.FormattingEnabled = true;
-            this.cb_clients.Location = new System.Drawing.Point(820, 5);
-            this.cb_clients.Name = "cb_clients";
-            this.cb_clients.Size = new System.Drawing.Size(232, 21);
-            this.cb_clients.TabIndex = 48;
-            // 
-            // btn_newClient
-            // 
-            this.btn_newClient.FlatAppearance.BorderSize = 0;
-            this.btn_newClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_newClient.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newClient.ForeColor = System.Drawing.Color.White;
-            this.btn_newClient.Location = new System.Drawing.Point(0, 175);
-            this.btn_newClient.Name = "btn_newClient";
-            this.btn_newClient.Size = new System.Drawing.Size(122, 36);
-            this.btn_newClient.TabIndex = 48;
-            this.btn_newClient.Text = " Neuer Client";
-            this.btn_newClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_newClient.UseVisualStyleBackColor = true;
-            this.btn_newClient.Click += new System.EventHandler(this.btn_newClient_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
-            this.pictureBox1.Location = new System.Drawing.Point(1071, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
-            // 
             // pb_back
             // 
             this.pb_back.BackColor = System.Drawing.Color.Transparent;
@@ -276,23 +261,67 @@ namespace AccountantAssistant
             this.pb_back.TabStop = false;
             this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
             // 
+            // lbl_client
+            // 
+            this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_client.AutoSize = true;
+            this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_client.Location = new System.Drawing.Point(757, 32);
+            this.lbl_client.Name = "lbl_client";
+            this.lbl_client.Size = new System.Drawing.Size(57, 18);
+            this.lbl_client.TabIndex = 47;
+            this.lbl_client.Text = "Client:";
+            this.lbl_client.Click += new System.EventHandler(this.lbl_client_Click);
+            // 
+            // cb_clients
+            // 
+            this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_clients.FormattingEnabled = true;
+            this.cb_clients.Location = new System.Drawing.Point(820, 33);
+            this.cb_clients.Name = "cb_clients";
+            this.cb_clients.Size = new System.Drawing.Size(232, 21);
+            this.cb_clients.TabIndex = 48;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
+            this.pictureBox1.Location = new System.Drawing.Point(1071, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 21);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(131, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(188, 26);
+            this.comboBox1.TabIndex = 1;
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1130, 617);
+            this.ControlBox = false;
             this.Controls.Add(this.cb_clients);
             this.Controls.Add(this.lbl_client);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1146, 633);
             this.Name = "frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_main_KeyDown);
             this.tabCon1.ResumeLayout(false);
@@ -302,8 +331,8 @@ namespace AccountantAssistant
             this.tabPage_start.PerformLayout();
             this.tabPage_ledger.ResumeLayout(false);
             this.pnl_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,7 +348,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.TabPage tabPage_help;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Panel pnl_1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_select_ledger;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pb_back;
         private System.Windows.Forms.Button btn_save;
@@ -329,5 +358,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
+        private System.Windows.Forms.Button btn_newLedger;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
