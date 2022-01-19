@@ -33,11 +33,11 @@ namespace AccountantAssistant
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, number int, name varchar(50), type varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int, referenceNumber varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 con.Close();
 
