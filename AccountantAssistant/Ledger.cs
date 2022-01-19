@@ -14,7 +14,8 @@ namespace AccountantAssistant
         private int contraLedger;
         private decimal debitValue;
         private decimal creditValue;
-
+        private string referenceNumber;
+        private string date;
 
 
         //get/set
@@ -81,18 +82,44 @@ namespace AccountantAssistant
             }
         }
 
+        public string Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+            }
+        }
+
+        public string ReferenceNumber
+        {
+            get
+            {
+                return referenceNumber;
+            }
+            set
+            {
+                referenceNumber = value;
+            }
+        }
+
 
         #endregion
 
 
         //constructor
-        public Ledger(int idle, int idc, int contraLedger, decimal debitValue, decimal creditValue)
+        public Ledger(int idle, int idc, int contraLedger, decimal debitValue, decimal creditValue, string date, string referenceNumber)
         {
             this.IDLE = idle;
             this.IDC = idc;
             this.ContraLedger = contraLedger;
             this.DebitValue = debitValue;
             this.CreditValue = creditValue;
+            this.Date = date;
+            this.ReferenceNumber = referenceNumber;
         }
     }
 }

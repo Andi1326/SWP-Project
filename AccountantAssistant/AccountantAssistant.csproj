@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccTransaction.cs" />
     <Compile Include="AllLedgers.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="frm_create_client.cs">
