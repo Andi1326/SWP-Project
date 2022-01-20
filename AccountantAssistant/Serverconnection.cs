@@ -303,5 +303,33 @@ namespace AccountantAssistant
         
 
         #endregion
+
+        #region Main
+
+        public static void GetLedger(ComboBox cb)
+        {
+            //Get the DataBases
+            cb.Items.Clear();
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select number from AllLedgers";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cb.Items.Add(dr[0]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                con.Close();
+            }
+        }
+
+        #endregion
+
     }
 }
