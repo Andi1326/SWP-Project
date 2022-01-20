@@ -98,7 +98,6 @@ namespace AccountantAssistant
             this.tb_user.Name = "tb_user";
             this.tb_user.Size = new System.Drawing.Size(165, 26);
             this.tb_user.TabIndex = 11;
-            this.tb_user.TextChanged += new System.EventHandler(this.tb_user_TextChanged);
             // 
             // lbl_password
             // 

@@ -19,6 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes frm_register and opens frm_login
             frm_login frm_login = new frm_login();
             this.Hide();
             frm_login.ShowDialog();
@@ -78,7 +79,8 @@ namespace AccountantAssistant
 
         private void frm_register_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+            //if Escape gets pushed frm_register closes and opens frm_login
+            if (e.KeyCode == Keys.Escape)
             {
                 frm_login frm_login = new frm_login();
                 this.Hide();
@@ -88,6 +90,7 @@ namespace AccountantAssistant
 
         private void frm_register_Load(object sender, EventArgs e)
         {
+            //sets Keypreview to true and adds User Control to the form
             KeyPreview = true;
 
             Controls.Add(ucTopBar.Instance);

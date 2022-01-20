@@ -13,7 +13,6 @@ namespace AccountantAssistant
     public partial class frm_forget_password : Form
     {
 
-        //Test
         public frm_forget_password()
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            //button to go back to login form 
+            //Closes frm_forget_password and opens frm_login
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -29,19 +28,22 @@ namespace AccountantAssistant
 
         private void frm_forget_password_Load(object sender, EventArgs e)
         {
+            //sets Keypreview to true
             KeyPreview = true;
 
+            //Adds User Control to the Form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
 
+            //Loads the questions of the User
             tb_sq1_question.Text = Serverconnection.SaveSQ1_Question(frm_login.IDL);
             tb_sq2_question.Text = Serverconnection.SaveSQ2_Question(frm_login.IDL);
         }
 
         private void frm_forget_password_KeyDown(object sender, KeyEventArgs e)
         {
-            //closes the forget password form and opens the login again
+            //closes the frm_forget_password and opens the frm_login again
             if(e.KeyCode == Keys.Escape)
             {
                 frm_login frm_Login = new frm_login();
