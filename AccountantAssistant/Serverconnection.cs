@@ -122,6 +122,47 @@ namespace AccountantAssistant
         }
 
 
+        public static void InsertDataAccTransaction(AccTransaction accTransaction)
+        {
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate , referenceNumber , date ) values ('" + accTransaction.Idc + "', '" + accTransaction.Ledger1 + "', '" + accTransaction.Ledger2 + "', '" + accTransaction.Netto + "','" + accTransaction.Brutto + "','" + accTransaction.Ust + "','" + accTransaction.Salestaxrate + "','" + accTransaction.ReferenceNumber  + "','" + accTransaction.Date + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+            }
+        }
+
+        public static void InsertDataLedger(Ledger ledger)
+        {
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Ledger (idle, idc, contraLedger, debitValue, creditValue, referenceNumber,date ) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "','" + ledger.CreditValue + "','" + ledger.ReferenceNumber + "','" + ledger.Date +  "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+            }
+        }
+
+
+
+
+
+
 
         public static void SaveIDL(TextBox tb_username)
         {
@@ -259,22 +300,7 @@ namespace AccountantAssistant
                 return idle;
             }
 
-            public static void InsertDataLedger(Ledger ledger)
-            {
-                //inserts the data into LOGIN
-                try
-                {
-                    con.Open();
-                    cmd.Connection = con;
-                    cmd.CommandText = "Insert into Ledger (IDLE, IDC, contraLedger, debitValue, creditValue) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "', '" + ledger.CreditValue + "');";
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "Data can not be insert");
-                }
-            }
+        
 
         #endregion
 
