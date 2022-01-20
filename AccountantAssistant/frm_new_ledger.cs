@@ -19,6 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes frm_new_ledger
             this.Close();
         }
 
@@ -40,19 +41,16 @@ namespace AccountantAssistant
             }
             else
             {
+                //Saves the new Ledger into the table AllLedgers
                 AllLedgers newAllLedgers = new AllLedgers(frm_main.IDC, Convert.ToInt32(tb_number.Text), tb_name.Text, cb_type.SelectedItem.ToString());
                 Serverconnection.InsertDataAllLedgers(newAllLedgers);
-
-                int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_number.Text), frm_main.IDC);
-
-                //Ledger newLedger = new Ledger(IDLE, frm_main.IDC, 0, 0, 0);
-                //Serverconnection.InsertDataLedger(newLedger);
             }
             this.Close();
         }
 
         private void frm_new_ledger_Load(object sender, EventArgs e)
         {
+            //Adds the User Control to the form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();

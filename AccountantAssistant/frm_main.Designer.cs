@@ -112,7 +112,6 @@ namespace AccountantAssistant
             this.tabPage_file.Size = new System.Drawing.Size(907, 78);
             this.tabPage_file.TabIndex = 0;
             this.tabPage_file.Text = "Datei";
-
             // 
             // tabPage_start
             // 
@@ -297,7 +296,6 @@ namespace AccountantAssistant
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
             this.lbl_client.Text = "Client:";
-
             // 
             // cb_clients
             // 
@@ -534,7 +532,7 @@ namespace AccountantAssistant
             this.btn_enter.TabIndex = 6;
             this.btn_enter.Text = "Buchen";
             this.btn_enter.UseVisualStyleBackColor = true;
-            this.btn_enter.Click += new System.EventHandler(this.btn__Click);
+            this.btn_enter.Click += new System.EventHandler(this.btn_enter_Click);
             // 
             // btn_save_main
             // 
@@ -552,6 +550,7 @@ namespace AccountantAssistant
             // 
             // date_picker
             // 
+            this.date_picker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.date_picker.CustomFormat = "dd.MM.yyyy";
             this.date_picker.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;

@@ -19,7 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            //closes the creat client
+            //closes the frm_create_client
             this.Close();
         }
 
@@ -34,6 +34,7 @@ namespace AccountantAssistant
 
         private void frm_create_client_Load(object sender, EventArgs e)
         {
+            //adds the UserControl to the Form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();

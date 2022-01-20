@@ -21,10 +21,6 @@ namespace AccountantAssistant
         public static string role;
         public static string forget_username;
 
-        private void tb_user_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -53,10 +49,12 @@ namespace AccountantAssistant
 
         private void frm_login_Load(object sender, EventArgs e)
         {
+            //Adds User Controls to the Form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
 
+            //Trys to connect to the server
             Serverconnection.Tryconnect();
         }
 
