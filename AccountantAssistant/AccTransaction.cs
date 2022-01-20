@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,8 @@ namespace AccountantAssistant
 {
     class AccTransaction
     {
+
+
         //var for the class AccTransaction
 
         private int idc;
@@ -166,7 +168,6 @@ namespace AccountantAssistant
 
 
         #endregion
-
 
         //constructor
         public AccTransaction (int idc, int ledger1, int ledger2, decimal netto, decimal brutto, decimal ust, int salestaxrate, string referenceNumber,string date)

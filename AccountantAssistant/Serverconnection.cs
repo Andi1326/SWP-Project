@@ -17,10 +17,14 @@ namespace AccountantAssistant
 
         private static SqlDataReader dr;
 
+
+        //creating databases
+
         public static DataTable dt = new DataTable();
 
         private static SqlDataAdapter Da = new SqlDataAdapter();
         private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
+
 
         public static void Tryconnect() 
         {
@@ -110,7 +114,7 @@ namespace AccountantAssistant
 
         public static void InsertDataClient(Client client)
         {
-
+            //inserts the data into Client
             try
             {
                 con.Open();
@@ -129,7 +133,7 @@ namespace AccountantAssistant
 
         public static void InsertDataAccTransaction(AccTransaction accTransaction)
         {
-
+           //inserts the data into AccTransaction
             try
             {
                 con.Open();
@@ -147,7 +151,7 @@ namespace AccountantAssistant
 
         public static void InsertDataLedger(Ledger ledger)
         {
-
+            //inserts the data into Ledger
             try
             {
                 con.Open();

@@ -21,6 +21,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //button to go back to login form 
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -40,6 +41,7 @@ namespace AccountantAssistant
 
         private void frm_forget_password_KeyDown(object sender, KeyEventArgs e)
         {
+            //closes the forget password form and opens the login again
             if(e.KeyCode == Keys.Escape)
             {
                 frm_login frm_Login = new frm_login();
