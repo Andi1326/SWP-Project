@@ -20,7 +20,6 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             this.Close();
-          
         }
 
         private void btn_login_Click(object sender, EventArgs e)
