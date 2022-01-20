@@ -70,9 +70,17 @@ namespace AccountantAssistant
             {
                 Application.Exit();
             }
-            else if (this.ParentForm.Name == "frm_register" || this.ParentForm.Name == "frm_forget_password" || this.ParentForm.Name == "frm_main")
+            else if (this.ParentForm.Name == "frm_register" || this.ParentForm.Name == "frm_forget_password")
             {
-                //if the ParentForm is frm_register or frm_forget_password or frm_main it hides the actual form and opens frm_login
+                //if the ParentForm is frm_register or frm_forget_password it hides the actual form and opens frm_login
+                this.ParentForm.Hide();
+                frm_login frm_login = new frm_login();
+                frm_login.ShowDialog();
+            }
+            else if (this.ParentForm.Name == "frm_main")
+            {
+                //if the ParentForm is frm_main it hides the actual form and opens frm_login and removes the saveButton
+                Controls.Remove(frm_main.btn_ucTopBar_save);
                 this.ParentForm.Hide();
                 frm_login frm_login = new frm_login();
                 frm_login.ShowDialog();

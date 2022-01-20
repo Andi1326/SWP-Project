@@ -19,6 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes frm_new_ledger
             this.Close();
         }
 

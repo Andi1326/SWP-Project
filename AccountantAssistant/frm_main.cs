@@ -38,6 +38,7 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             //Closes frm_main and opens frm_login
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -119,6 +120,7 @@ namespace AccountantAssistant
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             //opens frm_create_client
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
         }
@@ -126,6 +128,7 @@ namespace AccountantAssistant
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
             //opens frm_new_ledger
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_new_ledger frm_new_ledger = new frm_new_ledger();
             frm_new_ledger.ShowDialog();
         }
