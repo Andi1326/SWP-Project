@@ -9,7 +9,7 @@ namespace AccountantAssistant
     class AccTransaction
     {
 
-
+        //var for the class AccTransaction
         private int idc;
         private int ledger1;
         private int ledger2;
@@ -20,7 +20,7 @@ namespace AccountantAssistant
         private string referenceNumber;
         private string date;
 
-
+        //get/set
         #region get/set
 
         public int Idc
@@ -167,6 +167,7 @@ namespace AccountantAssistant
 
         #endregion
 
+        //constructor
         public AccTransaction (int idc, int ledger1, int ledger2, decimal netto, decimal brutto, decimal ust, int salestaxrate, string referenceNumber,string date)
         {
             this.Idc = idc;

@@ -111,7 +111,7 @@ namespace AccountantAssistant
             this.tabPage_file.Size = new System.Drawing.Size(899, 78);
             this.tabPage_file.TabIndex = 0;
             this.tabPage_file.Text = "Datei";
-            this.tabPage_file.Click += new System.EventHandler(this.tabPage_file_Click);
+
             // 
             // tabPage_start
             // 
@@ -278,7 +278,7 @@ namespace AccountantAssistant
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
             this.lbl_client.Text = "Client:";
-            this.lbl_client.Click += new System.EventHandler(this.lbl_client_Click);
+
             // 
             // cb_clients
             // 

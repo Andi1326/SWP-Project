@@ -56,6 +56,7 @@ namespace AccountantAssistant
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
         {
+            //if escape gets pushed than frm_login opens and frm_main hides
             if(e.KeyCode == Keys.Escape)
             {
                 frm_login frm_Login = new frm_login();
@@ -64,11 +65,7 @@ namespace AccountantAssistant
             }
         }
 
-        private void tabPage_file_Click(object sender, EventArgs e)
-        {
-            //tabCon1.SelectedTab = tabPage_start;
-            //pnl_1.Visible = true;
-        }
+        
 
         private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -89,25 +86,25 @@ namespace AccountantAssistant
             pnl_1.Visible = false;
         }
 
-        private void lbl_client_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btn_newClient_Click(object sender, EventArgs e)
         {
+            //opens frm_create_client
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
+            //opens frm_new_ledger
             frm_new_ledger frm_new_ledger = new frm_new_ledger();
             frm_new_ledger.ShowDialog();
         }
 
         private void btn__Click(object sender, EventArgs e)
         {
+            //calculates the ust and brutto
             decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
             decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
             dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
