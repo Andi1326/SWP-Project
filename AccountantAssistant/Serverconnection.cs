@@ -40,7 +40,7 @@ namespace AccountantAssistant
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, number int, name varchar(50), type varchar(50)) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
@@ -115,7 +115,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Insert into Client (firstname, lastname, telephone, email, uidnumber, address, plz , place , country) values ('" + client.Firstname + "', '" + client.Lastname + "', '" + client.Telephone + "', '" + client.Email + "','" + client.Uidnumber + "','" + client.Address + "','" + client.Plz + "','" + client.Place + "','" + client.Country + "');";
+                cmd.CommandText = "Insert into Client (firstname, lastname, telephone, email, uidnumber, adress, plz , place , country) values ('" + client.Firstname + "', '" + client.Lastname + "', '" + client.Telephone + "', '" + client.Email + "','" + client.Uidnumber + "','" + client.Address + "','" + client.Plz + "','" + client.Place + "','" + client.Country + "');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }

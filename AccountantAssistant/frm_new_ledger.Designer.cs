@@ -145,7 +145,7 @@ namespace AccountantAssistant
             this.cb_type.Location = new System.Drawing.Point(273, 219);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(216, 21);
-            this.cb_type.TabIndex = 61;
+            this.cb_type.TabIndex = 3;
             // 
             // frm_new_ledger
             // 

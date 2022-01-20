@@ -74,9 +74,9 @@ namespace AccountantAssistant
             this.tb_netto = new System.Windows.Forms.TextBox();
             this.tb_referenceNumber = new System.Windows.Forms.TextBox();
             this.tb_contraLedger = new System.Windows.Forms.TextBox();
-            this.date_picker = new System.Windows.Forms.DateTimePicker();
             this.btn_enter = new System.Windows.Forms.Button();
             this.btn_save_main = new System.Windows.Forms.Button();
+            this.date_picker = new System.Windows.Forms.DateTimePicker();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
@@ -112,7 +112,6 @@ namespace AccountantAssistant
             this.tabPage_file.Size = new System.Drawing.Size(907, 78);
             this.tabPage_file.TabIndex = 0;
             this.tabPage_file.Text = "Datei";
-            this.tabPage_file.Click += new System.EventHandler(this.tabPage_file_Click);
             // 
             // tabPage_start
             // 
@@ -493,7 +492,7 @@ namespace AccountantAssistant
             this.cb_salesTaxRate.Location = new System.Drawing.Point(660, 541);
             this.cb_salesTaxRate.Name = "cb_salesTaxRate";
             this.cb_salesTaxRate.Size = new System.Drawing.Size(141, 26);
-            this.cb_salesTaxRate.TabIndex = 55;
+            this.cb_salesTaxRate.TabIndex = 5;
             // 
             // tb_netto
             // 
@@ -502,7 +501,7 @@ namespace AccountantAssistant
             this.tb_netto.Location = new System.Drawing.Point(484, 541);
             this.tb_netto.Name = "tb_netto";
             this.tb_netto.Size = new System.Drawing.Size(170, 26);
-            this.tb_netto.TabIndex = 58;
+            this.tb_netto.TabIndex = 4;
             // 
             // tb_referenceNumber
             // 
@@ -511,7 +510,7 @@ namespace AccountantAssistant
             this.tb_referenceNumber.Location = new System.Drawing.Point(132, 541);
             this.tb_referenceNumber.Name = "tb_referenceNumber";
             this.tb_referenceNumber.Size = new System.Drawing.Size(170, 26);
-            this.tb_referenceNumber.TabIndex = 59;
+            this.tb_referenceNumber.TabIndex = 2;
             // 
             // tb_contraLedger
             // 
@@ -520,21 +519,7 @@ namespace AccountantAssistant
             this.tb_contraLedger.Location = new System.Drawing.Point(308, 541);
             this.tb_contraLedger.Name = "tb_contraLedger";
             this.tb_contraLedger.Size = new System.Drawing.Size(170, 26);
-            this.tb_contraLedger.TabIndex = 60;
-            // 
-            // date_picker
-            // 
-            this.date_picker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.date_picker.CustomFormat = "dd.mm.yyyy";
-            this.date_picker.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_picker.Location = new System.Drawing.Point(12, 541);
-            this.date_picker.Name = "date_picker";
-            this.date_picker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.date_picker.Size = new System.Drawing.Size(114, 26);
-            this.date_picker.TabIndex = 61;
-            this.date_picker.Value = new System.DateTime(2022, 1, 19, 0, 0, 0, 0);
-            this.date_picker.ValueChanged += new System.EventHandler(this.date_picker_ValueChanged);
+            this.tb_contraLedger.TabIndex = 3;
             // 
             // btn_enter
             // 
@@ -545,24 +530,34 @@ namespace AccountantAssistant
             this.btn_enter.Location = new System.Drawing.Point(807, 541);
             this.btn_enter.Name = "btn_enter";
             this.btn_enter.Size = new System.Drawing.Size(109, 26);
-            this.btn_enter.TabIndex = 62;
+            this.btn_enter.TabIndex = 6;
             this.btn_enter.Text = "Buchen";
             this.btn_enter.UseVisualStyleBackColor = true;
             this.btn_enter.Click += new System.EventHandler(this.btn__Click);
             // 
             // btn_save_main
             // 
-            this.btn_save_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_save_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_save_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_main.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save_main.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_main.Location = new System.Drawing.Point(922, 491);
+            this.btn_save_main.Location = new System.Drawing.Point(922, 484);
             this.btn_save_main.Name = "btn_save_main";
-            this.btn_save_main.Size = new System.Drawing.Size(109, 26);
-            this.btn_save_main.TabIndex = 63;
+            this.btn_save_main.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_main.TabIndex = 7;
             this.btn_save_main.Text = "Speichern";
             this.btn_save_main.UseVisualStyleBackColor = true;
             this.btn_save_main.Click += new System.EventHandler(this.btn_save_main_Click);
+            // 
+            // date_picker
+            // 
+            this.date_picker.CustomFormat = "dd.MM.yyyy";
+            this.date_picker.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_picker.Location = new System.Drawing.Point(12, 541);
+            this.date_picker.Name = "date_picker";
+            this.date_picker.Size = new System.Drawing.Size(114, 26);
+            this.date_picker.TabIndex = 1;
             // 
             // frm_main
             // 
@@ -571,9 +566,9 @@ namespace AccountantAssistant
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1130, 617);
             this.ControlBox = false;
+            this.Controls.Add(this.date_picker);
             this.Controls.Add(this.btn_save_main);
             this.Controls.Add(this.btn_enter);
-            this.Controls.Add(this.date_picker);
             this.Controls.Add(this.tb_contraLedger);
             this.Controls.Add(this.tb_referenceNumber);
             this.Controls.Add(this.tb_netto);
@@ -643,7 +638,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.TextBox tb_netto;
         private System.Windows.Forms.TextBox tb_referenceNumber;
         private System.Windows.Forms.TextBox tb_contraLedger;
-        private System.Windows.Forms.DateTimePicker date_picker;
         private System.Windows.Forms.Button btn_enter;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_referenceNumber;
@@ -654,5 +648,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust_rate;
         private System.Windows.Forms.Button btn_save_main;
+        private System.Windows.Forms.DateTimePicker date_picker;
     }
 }
