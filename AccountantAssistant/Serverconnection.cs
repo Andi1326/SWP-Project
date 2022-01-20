@@ -17,6 +17,11 @@ namespace AccountantAssistant
 
         private static SqlDataReader dr;
 
+        public static DataTable dt = new DataTable();
+
+        private static SqlDataAdapter Da = new SqlDataAdapter();
+        private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
+
         public static void Tryconnect() 
         {
             try
@@ -129,7 +134,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate , referenceNumber , date ) values ('" + accTransaction.Idc + "', '" + accTransaction.Ledger1 + "', '" + accTransaction.Ledger2 + "', '" + accTransaction.Netto + "','" + accTransaction.Brutto + "','" + accTransaction.Ust + "','" + accTransaction.Salestaxrate + "','" + accTransaction.ReferenceNumber  + "','" + accTransaction.Date + "');";
+                cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate, referenceNumber, date) values ('" + accTransaction.Idc + "', '" + accTransaction.Ledger1 + "', '" + accTransaction.Ledger2 + "', '" + accTransaction.Netto + "','" + accTransaction.Brutto + "','" + accTransaction.Ust + "','" + accTransaction.Salestaxrate + "','" + accTransaction.ReferenceNumber + "','" + accTransaction.Date + "');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }

@@ -43,8 +43,8 @@ namespace AccountantAssistant
 
                 int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_number.Text), frm_main.IDC);
 
-                Ledger newLedger = new Ledger(IDLE, frm_main.IDC, 0, 0, 0);
-                Serverconnection.InsertDataLedger(newLedger);
+                //Ledger newLedger = new Ledger(IDLE, frm_main.IDC, 0, 0, 0);
+                //Serverconnection.InsertDataLedger(newLedger);
             }
             this.Close();
         }
