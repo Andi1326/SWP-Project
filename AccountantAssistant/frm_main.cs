@@ -48,7 +48,10 @@ namespace AccountantAssistant
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
 
             tabCon1.SelectedTab = tabPage_start;
-            
+
+            Serverconnection.GetLedger(cb_ledger);
+            dgv_transaction.Columns[5].DefaultCellStyle.Format = "c";
+            dgv_transaction.Columns[6].DefaultCellStyle.Format = "c";
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -101,6 +104,14 @@ namespace AccountantAssistant
         {
             frm_new_ledger frm_new_ledger = new frm_new_ledger();
             frm_new_ledger.ShowDialog();
+        }
+
+        private void btn__Click(object sender, EventArgs e)
+        {
+            decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
+            decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
+            dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
+            
         }
     }
 }
