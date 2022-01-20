@@ -8,7 +8,7 @@ namespace AccountantAssistant
 {
     class Client
     {
-  
+        //var for the class Login
         private string firstname;
         private string lastname;
         private string telephone;
@@ -150,6 +150,7 @@ namespace AccountantAssistant
 
         #endregion
 
+        //constructor
         public Client(string firstname, string lastname, string telephone, string email, string uidnumber,string address, string plz, string place, string country)
         {
             

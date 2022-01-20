@@ -62,6 +62,7 @@ namespace AccountantAssistant
 
         private void lbl_register_Click(object sender, EventArgs e)
         {
+            //shows frm_register and hides frm_login
             frm_register frm_register = new frm_register();
             this.Hide();
             frm_register.ShowDialog();

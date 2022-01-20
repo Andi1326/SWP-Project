@@ -24,6 +24,8 @@ namespace AccountantAssistant
 
         private void btn_create_Click(object sender, EventArgs e)
         {
+            //checks if the ledger already exists
+            //checks if the textboxes are empty
             if (Serverconnection.ProofLedger(tb_number))
             {
                 MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits");

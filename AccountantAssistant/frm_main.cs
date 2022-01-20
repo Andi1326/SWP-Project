@@ -57,6 +57,7 @@ namespace AccountantAssistant
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
         {
+            //if escape gets pushed than frm_login opens and frm_main hides
             if(e.KeyCode == Keys.Escape)
             {
                 frm_login frm_Login = new frm_login();
@@ -64,7 +65,6 @@ namespace AccountantAssistant
                 frm_Login.ShowDialog();
             }
         }
-
 
         private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -88,19 +88,18 @@ namespace AccountantAssistant
             pnl_1.Visible = false;
         }
 
-        private void lbl_client_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btn_newClient_Click(object sender, EventArgs e)
         {
+            //opens frm_create_client
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
+            //opens frm_new_ledger
             frm_new_ledger frm_new_ledger = new frm_new_ledger();
             frm_new_ledger.ShowDialog();
         }
