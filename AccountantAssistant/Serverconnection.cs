@@ -17,17 +17,16 @@ namespace AccountantAssistant
 
         private static SqlDataReader dr;
 
-
-        //creating databases
-
         public static DataTable dt = new DataTable();
 
         private static SqlDataAdapter Da = new SqlDataAdapter();
         private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
 
+        #region Login
 
         public static void Tryconnect() 
         {
+            //trys to connect to the server and creates the tables and the database if it they are not avaialable
             try
             {
                 con.Open();
@@ -112,66 +111,6 @@ namespace AccountantAssistant
             }
         }
 
-        public static void InsertDataClient(Client client)
-        {
-            //inserts the data into Client
-            try
-            {
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "Insert into Client (firstname, lastname, telephone, email, uidnumber, adress, plz , place , country) values ('" + client.Firstname + "', '" + client.Lastname + "', '" + client.Telephone + "', '" + client.Email + "','" + client.Uidnumber + "','" + client.Address + "','" + client.Plz + "','" + client.Place + "','" + client.Country + "');";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Data can't be insert");
-            }
-        }
-
-
-        public static void InsertDataAccTransaction(AccTransaction accTransaction)
-        {
-           //inserts the data into AccTransaction
-            try
-            {
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate, referenceNumber, date) values ('" + accTransaction.Idc + "', '" + accTransaction.Ledger1 + "', '" + accTransaction.Ledger2 + "', '" + accTransaction.Netto + "','" + accTransaction.Brutto + "','" + accTransaction.Ust + "','" + accTransaction.Salestaxrate + "','" + accTransaction.ReferenceNumber + "','" + accTransaction.Date + "');";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Data can't be insert");
-            }
-        }
-
-        public static void InsertDataLedger(Ledger ledger)
-        {
-            //inserts the data into Ledger
-            try
-            {
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "Insert into Ledger (idle, idc, contraLedger, debitValue, creditValue, referenceNumber,date ) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "','" + ledger.CreditValue + "','" + ledger.ReferenceNumber + "','" + ledger.Date +  "');";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Data can't be insert");
-            }
-        }
-
-
-
-
-
-
 
         public static void SaveIDL(TextBox tb_username)
         {
@@ -220,7 +159,7 @@ namespace AccountantAssistant
 
         public static string SaveSQ2_Question(string IDL)
         {
-            //selects the Sq3 question from the table
+            //selects the Sq2 question from the table
             string sq2_question;
             con.Open();
             cmd.Connection = con;
@@ -259,11 +198,13 @@ namespace AccountantAssistant
             }
         }
 
+        #endregion
+
         #region Ledger
 
-            public static void InsertDataAllLedgers(AllLedgers allledgers)
+        public static void InsertDataAllLedgers(AllLedgers allledgers)
             {
-                //inserts the data into LOGIN
+                //inserts the data into AllLedgers
                 try
                 {
                     con.Open();
@@ -280,7 +221,7 @@ namespace AccountantAssistant
 
             public static bool ProofLedger(TextBox number)
             {
-                //proofs if the user exists or not
+                //proofs if the Ledger exists or not
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandText = "Select number from AllLedgers";
@@ -297,9 +238,9 @@ namespace AccountantAssistant
                 return false;
             }
 
-        public static int SaveIDLE(int number, int idc)
+            public static int SaveIDLE(int number, int idc)
             {
-                //selects the Sq2 from the table
+                //selects the IDLE from the table
                 int idle;
                 con.Open();
                 cmd.Connection = con;
@@ -317,7 +258,7 @@ namespace AccountantAssistant
 
         public static void GetLedger(ComboBox cb)
         {
-            //Get the DataBases
+            //Loads the Ledger of the client
             cb.Items.Clear();
             try
             {
@@ -335,6 +276,60 @@ namespace AccountantAssistant
             {
                 MessageBox.Show(ex.ToString());
                 con.Close();
+            }
+        }
+
+        public static void InsertDataAccTransaction(AccTransaction accTransaction)
+        {
+            //inserts the data into AccTransaction
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate, referenceNumber, date) values ('" + accTransaction.Idc + "', '" + accTransaction.Ledger1 + "', '" + accTransaction.Ledger2 + "', '" + accTransaction.Netto + "','" + accTransaction.Brutto + "','" + accTransaction.Ust + "','" + accTransaction.Salestaxrate + "','" + accTransaction.ReferenceNumber + "','" + accTransaction.Date + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+            }
+        }
+
+        public static void InsertDataLedger(Ledger ledger)
+        {
+            //inserts the data into Ledger
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Ledger (idle, idc, contraLedger, debitValue, creditValue, referenceNumber,date ) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "','" + ledger.CreditValue + "','" + ledger.ReferenceNumber + "','" + ledger.Date + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+            }
+        }
+
+        public static void InsertDataClient(Client client)
+        {
+            //inserts the data into Client
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Insert into Client (firstname, lastname, telephone, email, uidnumber, adress, plz , place , country) values ('" + client.Firstname + "', '" + client.Lastname + "', '" + client.Telephone + "', '" + client.Email + "','" + client.Uidnumber + "','" + client.Address + "','" + client.Plz + "','" + client.Place + "','" + client.Country + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
             }
         }
 

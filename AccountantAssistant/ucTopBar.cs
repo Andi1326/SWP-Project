@@ -12,8 +12,7 @@ namespace AccountantAssistant
 {
     public partial class ucTopBar : UserControl
     {
-        
-       
+        //creates the ucTopBar instance
         private static ucTopBar _instance;
         public static ucTopBar Instance
         {
@@ -31,120 +30,89 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            if(this.ParentForm.Name == "frm_login")
-            {
-                Application.Exit();
-            }
-            else if (this.ParentForm.Name == "frm_register" || this.ParentForm.Name == "frm_forget_password")
-            {
-                this.ParentForm.Hide();
-                frm_login frm_login = new frm_login();
-                frm_login.ShowDialog();
-            }
-            else if(this.ParentForm.Name == "frm_main")
-            {
-                this.ParentForm.Hide();
-                frm_login frm_Login = new frm_login();
-                frm_Login.ShowDialog();
-            }
-            else
-            {
-                this.ParentForm.Close();
-            }
-        }
-
-        private void btn_maximize_Click(object sender, EventArgs e)
-        {
-            if (this.ParentForm.WindowState == FormWindowState.Maximized)
-            {
-                this.ParentForm.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.ParentForm.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void btn_minimize_Click(object sender, EventArgs e)
-        {
-            this.ParentForm.WindowState = FormWindowState.Minimized;
-        }
-
-        private void ucTopBar_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void pb_minimize_MouseHover(object sender, EventArgs e)
         {
+            //if the minimize Box gets hovered the backcolor changes to LightGray
             pb_minimize.BackColor = Color.LightGray;
         }
 
         private void pb_minimize_MouseLeave(object sender, EventArgs e)
         {
+            //if the minimize Box gets hovered the backcolor changes to White
             pb_minimize.BackColor = Color.White;
         }
 
         private void pb_minimize_Click(object sender, EventArgs e)
         {
+            //sets the Windowstate to minimized
             this.ParentForm.WindowState = FormWindowState.Minimized;
         }
 
         private void pb_maximize_Click(object sender, EventArgs e)
         {
+            //if the Windowstate is already Maximized it sets to normal
             if (this.ParentForm.WindowState == FormWindowState.Maximized)
             {
                 this.ParentForm.WindowState = FormWindowState.Normal;
             }
             else
             {
+                //if it's not maximized it sets the Windowstate to maximized
                 this.ParentForm.WindowState = FormWindowState.Maximized;
             }
         }
 
         private void pb_close_Click(object sender, EventArgs e)
         {
+            //if the parentForm ist frm_login it ends the program
             if (this.ParentForm.Name == "frm_login")
             {
                 Application.Exit();
             }
             else if (this.ParentForm.Name == "frm_register" || this.ParentForm.Name == "frm_forget_password")
             {
+                //if the ParentForm is frm_register or frm_forget_password it hides the actual form and opens frm_login
                 this.ParentForm.Hide();
                 frm_login frm_login = new frm_login();
                 frm_login.ShowDialog();
             }
             else if (this.ParentForm.Name == "frm_main")
             {
+                //if the ParentForm is frm_main it hides the actual form and opens frm_login and removes the saveButton
+                Controls.Remove(frm_main.btn_ucTopBar_save);
                 this.ParentForm.Hide();
-                frm_login frm_Login = new frm_login();
-                frm_Login.ShowDialog();
+                frm_login frm_login = new frm_login();
+                frm_login.ShowDialog();
             }
             else
             {
+                //if it's another Form it closes the ParentForm
                 this.ParentForm.Close();
             }
         }
 
         private void pb_maximize_MouseHover(object sender, EventArgs e)
         {
+            //if the maximize Box gets hovered the backcolor changes to LightGray
             pb_maximize.BackColor = Color.LightGray;
         }
 
         private void pb_maximize_MouseLeave(object sender, EventArgs e)
         {
+            //if the maximize Box gets hovered the backcolor changes to White
             pb_maximize.BackColor = Color.White;
         }
 
         private void pb_close_MouseHover(object sender, EventArgs e)
         {
+            //if the close Box gets hovered the backcolor changes to Red
             pb_close.BackColor = Color.Red;
         }
 
         private void pb_close_MouseLeave(object sender, EventArgs e)
         {
+            //if the close Box gets hovered the backcolor changes to White
             pb_close.BackColor = Color.White;
         }
     }

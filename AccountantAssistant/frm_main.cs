@@ -15,6 +15,7 @@ namespace AccountantAssistant
         public frm_main()
         {
             InitializeComponent();
+            //Initiazlizes the Button btn_ucTopBar_save
             #region btn_ucTopBar_save Button
             btn_ucTopBar_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
@@ -36,6 +37,8 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //Closes frm_main and opens frm_login
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -43,16 +46,17 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            //Adds User Control to the Form and adds the Button to the User Control
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
 
+            //selects the tabPage_start
             tabCon1.SelectedTab = tabPage_start;
 
+            //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
-            dgv_transaction.Columns[5].DefaultCellStyle.Format = "c";
-            dgv_transaction.Columns[6].DefaultCellStyle.Format = "c";
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -68,6 +72,7 @@ namespace AccountantAssistant
 
         private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if the tabPage switches to index 0 (Datei) then the panel displays
             if (tabCon1.SelectedIndex == 0)
             {
                 tabCon1.SelectedIndex = 1;
@@ -77,35 +82,24 @@ namespace AccountantAssistant
             }
             else if(tabCon1.SelectedIndex >= 1)
             {
+                //if the tabPage is another Page the panel gets invisible
                 pnl_1.Visible = false;
             }
 
+            //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
         {
+            //the panel gets invisible
             pnl_1.Visible = false;
         }
 
-     
-
-        private void btn_newClient_Click(object sender, EventArgs e)
+        private void btn_enter_Click(object sender, EventArgs e)
         {
-            //opens frm_create_client
-            frm_create_client frm_cc = new frm_create_client();
-            frm_cc.ShowDialog();
-        }
-
-        private void btn_newLedger_Click(object sender, EventArgs e)
-        {
-            //opens frm_new_ledger
-            frm_new_ledger frm_new_ledger = new frm_new_ledger();
-            frm_new_ledger.ShowDialog();
-        }
-
-        private void btn__Click(object sender, EventArgs e)
-        {
+            //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
+            //then sets the Text to "" of the Textboxes
             try
             {
                 decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
@@ -123,23 +117,45 @@ namespace AccountantAssistant
             }
         }
 
+        private void btn_newClient_Click(object sender, EventArgs e)
+        {
+            //opens frm_create_client
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+            frm_create_client frm_cc = new frm_create_client();
+            frm_cc.ShowDialog();
+        }
+
+        private void btn_newLedger_Click(object sender, EventArgs e)
+        {
+            //opens frm_new_ledger
+            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+            frm_new_ledger frm_new_ledger = new frm_new_ledger();
+            frm_new_ledger.ShowDialog();
+        }
+
+
         private void btn_save_Click(object sender, EventArgs e)
         {
+            //executes the Save Function
             Save_Transaction();
         }
 
         private void btn_save_main_Click(object sender, EventArgs e)
         {
+            //executes the Save Function
             Save_Transaction();
         }
 
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
+            //executes the Save Function
             Save_Transaction();
         }
 
         private void Save_Transaction()
         {
+            //trys to save every row of the DataGridView into the Table AccTransaction
+            //then deletes the data of the DataGridView
             try
             {
                 DataGridViewRowCollection rows = dgv_transaction.Rows;
