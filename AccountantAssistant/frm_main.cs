@@ -26,6 +26,7 @@ namespace AccountantAssistant
             btn_ucTopBar_save.Size = new Size(30, 19);
             btn_ucTopBar_save.TabIndex = 8;
             btn_ucTopBar_save.UseVisualStyleBackColor = true;
+            btn_ucTopBar_save.Click += new System.EventHandler(this.btn_ucTopbar_save_Click);
             #endregion
         }
 
@@ -65,8 +66,6 @@ namespace AccountantAssistant
             }
         }
 
-        
-
         private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabCon1.SelectedIndex == 0)
@@ -74,11 +73,14 @@ namespace AccountantAssistant
                 tabCon1.SelectedIndex = 1;
                 pnl_1.Location = new Point(0, 30);
                 pnl_1.Visible = true;
+                pnl_1.BringToFront();
             }
             else if(tabCon1.SelectedIndex >= 1)
             {
                 pnl_1.Visible = false;
             }
+
+            Serverconnection.GetLedger(cb_ledger);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -104,11 +106,58 @@ namespace AccountantAssistant
 
         private void btn__Click(object sender, EventArgs e)
         {
-            //calculates the ust and brutto
-            decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
-            decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
-            dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
-            
+            try
+            {
+                decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
+                decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
+                dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
+
+                tb_contraLedger.Text = "";
+                tb_referenceNumber.Text = "";
+                tb_netto.Text = "";
+                cb_salesTaxRate.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Buchung konnte nicht durchgeführt werden");
+            }
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            Save_Transaction();
+        }
+
+        private void btn_save_main_Click(object sender, EventArgs e)
+        {
+            Save_Transaction();
+        }
+
+        private void btn_ucTopbar_save_Click(object sender, EventArgs e)
+        {
+            Save_Transaction();
+        }
+
+        private void Save_Transaction()
+        {
+            try
+            {
+                DataGridViewRowCollection rows = dgv_transaction.Rows;
+
+                foreach (DataGridViewRow row in rows)
+                {
+                    string dateTransaction = row.Cells[0].Value.ToString();
+                    AccTransaction newAccTransaction = new AccTransaction(IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), Convert.ToDecimal(row.Cells[5].Value), Convert.ToDecimal(row.Cells[6].Value), Convert.ToInt32(row.Cells[7].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                    Serverconnection.InsertDataAccTransaction(newAccTransaction);
+                }
+
+                dgv_transaction.DataSource = null;
+                dgv_transaction.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Buchung konnte nicht gespeichert werden");
+            }
         }
     }
 }

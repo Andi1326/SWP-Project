@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,9 @@ namespace AccountantAssistant
     class AccTransaction
     {
 
+
         //var for the class AccTransaction
+
         private int idc;
         private int ledger1;
         private int ledger2;
