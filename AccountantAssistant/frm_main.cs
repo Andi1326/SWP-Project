@@ -120,6 +120,7 @@ namespace AccountantAssistant
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             //opens frm_create_client
+            pnl_1.Visible = false;
             ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
@@ -138,6 +139,7 @@ namespace AccountantAssistant
         {
             //executes the Save Function
             Save_Transaction();
+            pnl_1.Visible = false;
         }
 
         private void btn_save_main_Click(object sender, EventArgs e)
@@ -205,6 +207,22 @@ namespace AccountantAssistant
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Buchung konnte nicht gespeichert werden");
+            }
+        }
+
+        private void btn_new_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                dgv_transaction.DataSource = null;
+                dgv_transaction.Rows.Clear();
+
+                tb_contraLedger.Text = "";
+                tb_referenceNumber.Text = "";
+                tb_netto.Text = "";
+                cb_salesTaxRate.Text = "";
+                pnl_1.Visible = false;
             }
         }
     }
