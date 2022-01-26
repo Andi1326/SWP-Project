@@ -257,6 +257,7 @@ namespace AccountantAssistant
             this.btn_new.Text = "Neu";
             this.btn_new.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // btn_save
             // 
