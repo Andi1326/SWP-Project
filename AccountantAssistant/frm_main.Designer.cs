@@ -165,7 +165,6 @@ namespace AccountantAssistant
             // 
             // btn_newLedger
             // 
-            this.btn_newLedger.FlatAppearance.BorderSize = 0;
             this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_newLedger.ForeColor = System.Drawing.Color.Black;

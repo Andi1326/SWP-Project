@@ -165,6 +165,38 @@ namespace AccountantAssistant
                     string dateTransaction = row.Cells[0].Value.ToString();
                     AccTransaction newAccTransaction = new AccTransaction(IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), Convert.ToDecimal(row.Cells[5].Value), Convert.ToDecimal(row.Cells[6].Value), Convert.ToInt32(row.Cells[7].Value), row.Cells[1].Value.ToString(), dateTransaction);
                     Serverconnection.InsertDataAccTransaction(newAccTransaction);
+
+                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+
+                    string type = Serverconnection.SaveType(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+                    if(type == "AB" || type == "AK")
+                    {
+                        Ledger ledger1 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                        Serverconnection.InsertDataLedger(ledger1);
+
+                        Ledger ledger2 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                        Serverconnection.InsertDataLedger(ledger2);
+
+                        if(Convert.ToDecimal(row.Cells[6].Value) > 0)
+                        {
+                            Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[6].Value),0 , row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledgerUst);
+                        }
+                    }
+                    else
+                    {
+                        Ledger ledger1 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                        Serverconnection.InsertDataLedger(ledger1);
+
+                        Ledger ledger2 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value),  Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                        Serverconnection.InsertDataLedger(ledger2);
+
+                        if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                        {
+                            Ledger ledgerUst = new Ledger(IDLE, IDC, 3500, Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[6].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledgerUst);
+                        }
+                    }
                 }
 
                 dgv_transaction.DataSource = null;
