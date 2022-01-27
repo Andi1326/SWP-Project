@@ -31,7 +31,7 @@ namespace AccountantAssistant
             #endregion
         }
 
-        public static int IDC = 1;
+        public static int IDC;
         private static int transaction_count;
 
         public static Button btn_ucTopBar_save = new Button();
@@ -59,6 +59,9 @@ namespace AccountantAssistant
             //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
             Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetClient(cb_clients);
+
+            IDC = Convert.ToInt32(cb_clients.SelectedItem);
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -91,6 +94,7 @@ namespace AccountantAssistant
             //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
             Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetClient(cb_clients);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -155,6 +159,7 @@ namespace AccountantAssistant
             ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
+            Serverconnection.GetClient(cb_clients);
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
@@ -265,40 +270,10 @@ namespace AccountantAssistant
             }
         }
 
-        Bitmap bitmap;
-        private void btn_print_Click(object sender, EventArgs e)
-        {
-
-            //Resize DataGridView to full height.
-            int height = dgv_transaction.Height;
-            dgv_transaction.Height = dgv_transaction.RowCount * dgv_transaction.RowTemplate.Height;
-
-            //Create a Bitmap and draw the DataGridView on it.
-            bitmap = new Bitmap(this.dgv_transaction.Width, this.dgv_transaction.Height);
-            dgv_transaction.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dgv_transaction.Width, this.dgv_transaction.Height));
-
-            //Resize DataGridView back to original height.
-            dgv_transaction.Height = height;
-
-            //Show the Print Preview Dialog.
-            printPre.Document = printDoc;
-            printPre.PrintPreviewControl.Zoom = 1;
-            printPre.ShowDialog();
-
-
-
-
-        }
-
-        private void BindDataGridView()
-        {
-
-            //this.dgv_transaction.DataSource = dgv_transaction;
-        }
         private void btn_new_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 dgv_transaction.DataSource = null;
                 dgv_transaction.Rows.Clear();
@@ -309,6 +284,37 @@ namespace AccountantAssistant
                 cb_salesTaxRate.Text = "";
                 pnl_1.Visible = false;
             }
+        }
+
+        #region Printing
+        Bitmap bmp;
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            int height = dgv_transaction.Height;
+            dgv_transaction.Height = dgv_transaction.RowCount * dgv_transaction.RowTemplate.Height * 2;
+            bmp = new Bitmap(dgv_transaction.Width, dgv_transaction.Height);
+            dgv_transaction.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_transaction.Width, dgv_transaction.Height));
+            dgv_transaction.Height = height;
+
+            printDia.AllowSomePages = true;
+            if(printDia.ShowDialog() == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+
+            pnl_1.Visible = false;
+        }
+
+        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        #endregion
+
+        private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDC = Convert.ToInt32(cb_clients.SelectedItem);
         }
     }
 }

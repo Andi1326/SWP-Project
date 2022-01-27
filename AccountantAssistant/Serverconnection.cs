@@ -280,6 +280,29 @@ namespace AccountantAssistant
             }
         }
 
+        public static void GetClient(ComboBox cb)
+        {
+            //Loads the Ledger of the client
+            cb.Items.Clear();
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select IDC from Client";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cb.Items.Add(dr[0]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                con.Close();
+            }
+        }
+
         public static void InsertDataAccTransaction(AccTransaction accTransaction)
         {
             //inserts the data into AccTransaction
