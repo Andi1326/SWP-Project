@@ -22,6 +22,7 @@ namespace AccountantAssistant
         private static SqlDataAdapter Da = new SqlDataAdapter();
         private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
 
+
         #region Login
 
         public static void Tryconnect() 
