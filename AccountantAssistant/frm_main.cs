@@ -32,6 +32,7 @@ namespace AccountantAssistant
         }
 
         public static int IDC = 1;
+        private static int transaction_count;
 
         public static Button btn_ucTopBar_save = new Button();
 
@@ -57,6 +58,7 @@ namespace AccountantAssistant
 
             //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
+            Serverconnection.GetLedger(cb_contraLedger);
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -88,6 +90,7 @@ namespace AccountantAssistant
 
             //Loads the Ledger of the Client
             Serverconnection.GetLedger(cb_ledger);
+            Serverconnection.GetLedger(cb_contraLedger);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -100,21 +103,49 @@ namespace AccountantAssistant
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
             //then sets the Text to "" of the Textboxes
-            try
+            if (cb_ledger.Text == "")
             {
-                decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
-                decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
-                dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
+                MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
+            }
+            else if (date_picker.Text == "")
+            {
+                MessageBox.Show("Sie müssen ein Datum eingeben", "Fehler");
+            }
+            else if (tb_referenceNumber.Text == "")
+            {
+                MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehler");
+            }
+            else if(cb_contraLedger.Text == "")
+            {
+                MessageBox.Show("Sie müssen ein Gegenkonto eingeben", "Fehler");
+            }
+            else if (tb_netto.Text == "")
+            {
+                MessageBox.Show("Sie müssen den Nettobetrag eingeben eingeben", "Fehler");
+            }
+            else if (cb_salesTaxRate.Text == "")
+            {
+                MessageBox.Show("Sie müssen einen Umsatzsteuersatz eingeben", "Fehler");
+            }
+            else
+            {
+                try
+                {
+                    decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
+                    decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
+                    dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
 
-                tb_contraLedger.Text = "";
-                tb_referenceNumber.Text = "";
-                tb_netto.Text = "";
-                cb_salesTaxRate.Text = "";
+                    cb_contraLedger.Text = "";
+                    tb_referenceNumber.Text = "";
+                    tb_netto.Text = "";
+                    cb_salesTaxRate.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Buchung konnte nicht durchgeführt werden");
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Buchung konnte nicht durchgeführt werden");
-            }
+            
         }
 
         private void btn_newClient_Click(object sender, EventArgs e)
@@ -138,20 +169,44 @@ namespace AccountantAssistant
         private void btn_save_Click(object sender, EventArgs e)
         {
             //executes the Save Function
-            Save_Transaction();
+            transaction_count = dgv_transaction.Rows.Count;
+            if (transaction_count > 0)
+            {
+                Save_Transaction();
+            }
+            else
+            {
+                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+            }
             pnl_1.Visible = false;
         }
 
         private void btn_save_main_Click(object sender, EventArgs e)
         {
             //executes the Save Function
-            Save_Transaction();
+            transaction_count = dgv_transaction.Rows.Count;
+            if(transaction_count > 0)
+            {
+                Save_Transaction();
+            }
+            else
+            {
+                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+            }
         }
 
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
             //executes the Save Function
-            Save_Transaction();
+            transaction_count = dgv_transaction.Rows.Count;
+            if (transaction_count > 0)
+            {
+                Save_Transaction();
+            }
+            else
+            {
+                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+            }
         }
 
         private void Save_Transaction()
@@ -218,7 +273,7 @@ namespace AccountantAssistant
                 dgv_transaction.DataSource = null;
                 dgv_transaction.Rows.Clear();
 
-                tb_contraLedger.Text = "";
+                cb_contraLedger.Text = "";
                 tb_referenceNumber.Text = "";
                 tb_netto.Text = "";
                 cb_salesTaxRate.Text = "";
