@@ -265,6 +265,36 @@ namespace AccountantAssistant
             }
         }
 
+        Bitmap bitmap;
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+
+            //Resize DataGridView to full height.
+            int height = dgv_transaction.Height;
+            dgv_transaction.Height = dgv_transaction.RowCount * dgv_transaction.RowTemplate.Height;
+
+            //Create a Bitmap and draw the DataGridView on it.
+            bitmap = new Bitmap(this.dgv_transaction.Width, this.dgv_transaction.Height);
+            dgv_transaction.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dgv_transaction.Width, this.dgv_transaction.Height));
+
+            //Resize DataGridView back to original height.
+            dgv_transaction.Height = height;
+
+            //Show the Print Preview Dialog.
+            printPre.Document = printDoc;
+            printPre.PrintPreviewControl.Zoom = 1;
+            printPre.ShowDialog();
+
+
+
+
+        }
+
+        private void BindDataGridView()
+        {
+
+            //this.dgv_transaction.DataSource = dgv_transaction;
+        }
         private void btn_new_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
