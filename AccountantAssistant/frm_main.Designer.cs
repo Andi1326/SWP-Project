@@ -79,6 +79,7 @@ namespace AccountantAssistant
             this.date_picker = new System.Windows.Forms.DateTimePicker();
             this.printPre = new System.Windows.Forms.PrintPreviewDialog();
             this.printDoc = new System.Drawing.Printing.PrintDocument();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
@@ -567,10 +568,16 @@ namespace AccountantAssistant
             this.printPre.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPre.AutoScrollMinSize = new System.Drawing.Size(0, 0);
             this.printPre.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPre.Document = this.printDoc;
             this.printPre.Enabled = true;
             this.printPre.Icon = ((System.Drawing.Icon)(resources.GetObject("printPre.Icon")));
             this.printPre.Name = "printPre";
             this.printPre.Visible = false;
+            // 
+            // printDialog
+            // 
+            this.printDialog.Document = this.printDoc;
+            this.printDialog.UseEXDialog = true;
             // 
             // frm_main
             // 
@@ -664,5 +671,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.DateTimePicker date_picker;
         private System.Windows.Forms.PrintPreviewDialog printPre;
         private System.Drawing.Printing.PrintDocument printDoc;
+        private System.Windows.Forms.PrintDialog printDialog;
     }
 }

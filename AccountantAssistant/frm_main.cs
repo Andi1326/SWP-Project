@@ -104,6 +104,7 @@ namespace AccountantAssistant
             //then sets the Text to "" of the Textboxes
             try
             {
+               
                 decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
                 decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
                 dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), tb_contraLedger.Text, Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
@@ -197,6 +198,8 @@ namespace AccountantAssistant
             printPre.Document = printDoc;
             printPre.PrintPreviewControl.Zoom = 1;
             printPre.ShowDialog();
+
+
 
 
         }
