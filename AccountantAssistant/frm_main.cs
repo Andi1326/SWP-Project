@@ -137,7 +137,14 @@ namespace AccountantAssistant
                 {
                     decimal ust = Convert.ToDecimal(tb_netto.Text) / 100 * Convert.ToDecimal(cb_salesTaxRate.SelectedItem);
                     decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
-                    dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString());
+                    if(rbtn_s.Checked == true)
+                    {
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
+                    }
+                    else
+                    {
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
+                    }
 
                     cb_contraLedger.Text = "";
                     tb_referenceNumber.Text = "";
@@ -231,32 +238,70 @@ namespace AccountantAssistant
                     int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
 
                     string type = Serverconnection.SaveType(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+                    //controls if the type is a 'Aktives Bestandskonto' or a 'Aufwandskonto'
                     if(type == "AB" || type == "AK")
                     {
-                        Ledger ledger1 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
-                        Serverconnection.InsertDataLedger(ledger1);
-
-                        Ledger ledger2 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
-                        Serverconnection.InsertDataLedger(ledger2);
-
-                        if(Convert.ToDecimal(row.Cells[6].Value) > 0)
+                        //Controls if the user wants that the ledger in debit side or in credit side
+                        if(row.Cells[8].Value.ToString() == "S")
                         {
-                            Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[6].Value),0 , row.Cells[1].Value.ToString(), dateTransaction);
-                            Serverconnection.InsertDataLedger(ledgerUst);
+                            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledger);
+
+                            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(contraLedger);
+
+                            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                            {
+                                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[6].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                                Serverconnection.InsertDataLedger(ledgerUst);
+                            }
+                        }
+                        else if(row.Cells[8].Value.ToString() == "H")
+                        {
+                            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value),0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledger);
+
+                            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(contraLedger);
+
+                            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                            {
+                                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[6].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                                Serverconnection.InsertDataLedger(ledgerUst);
+                            }
                         }
                     }
+                    //controls if the type is a 'Passives Bestandskonto' or a 'Erlöskonto'
                     else
                     {
-                        Ledger ledger1 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
-                        Serverconnection.InsertDataLedger(ledger1);
-
-                        Ledger ledger2 = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value),  Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
-                        Serverconnection.InsertDataLedger(ledger2);
-
-                        if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                        //Controls if the user wants that the ledger in debit side or in credit side
+                        if (row.Cells[8].Value.ToString() == "S")
                         {
-                            Ledger ledgerUst = new Ledger(IDLE, IDC, 3500, Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[6].Value), row.Cells[1].Value.ToString(), dateTransaction);
-                            Serverconnection.InsertDataLedger(ledgerUst);
+                            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledger);
+
+                            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(contraLedger);
+
+                            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                            {
+                                Ledger ledgerUst = new Ledger(IDLE, IDC, 3500, Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[6].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                                Serverconnection.InsertDataLedger(ledgerUst);
+                            }
+                        }
+                        else if(row.Cells[8].Value.ToString() == "H")
+                        {
+                            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), 0, Convert.ToDecimal(row.Cells[4].Value), row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(ledger);
+
+                            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), Convert.ToDecimal(row.Cells[4].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                            Serverconnection.InsertDataLedger(contraLedger);
+
+                            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+                            {
+                                Ledger ledgerUst = new Ledger(IDLE, IDC, 3500, Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[6].Value), 0, row.Cells[1].Value.ToString(), dateTransaction);
+                                Serverconnection.InsertDataLedger(ledgerUst);
+                            }
                         }
                     }
                 }
@@ -269,6 +314,7 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString(), "Buchung konnte nicht gespeichert werden");
             }
         }
+
 
         private void btn_new_Click(object sender, EventArgs e)
         {
@@ -315,6 +361,19 @@ namespace AccountantAssistant
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
+        }
+
+        private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string type = Serverconnection.SaveType(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+            if (type == "AB" || type == "AK")
+            {
+                rbtn_s.Checked = true;
+            }
+            else
+            {
+                rbtn_h.Checked = true;  
+            }
         }
     }
 }
