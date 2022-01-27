@@ -76,6 +76,9 @@ namespace AccountantAssistant
             this.btn_enter = new System.Windows.Forms.Button();
             this.btn_save_main = new System.Windows.Forms.Button();
             this.date_picker = new System.Windows.Forms.DateTimePicker();
+            this.printPre = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDoc = new System.Drawing.Printing.PrintDocument();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
             this.cb_contraLedger = new System.Windows.Forms.ComboBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
@@ -243,6 +246,7 @@ namespace AccountantAssistant
             this.btn_print.Text = "Drucken";
             this.btn_print.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // btn_new
             // 
@@ -550,6 +554,21 @@ namespace AccountantAssistant
             this.date_picker.Size = new System.Drawing.Size(114, 26);
             this.date_picker.TabIndex = 1;
             // 
+            // printPre
+            // 
+            this.printPre.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPre.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPre.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPre.Document = this.printDoc;
+            this.printPre.Enabled = true;
+            this.printPre.Icon = ((System.Drawing.Icon)(resources.GetObject("printPre.Icon")));
+            this.printPre.Name = "printPre";
+            this.printPre.Visible = false;
+            // 
+            // printDialog
+            // 
+            this.printDialog.Document = this.printDoc;
+            this.printDialog.UseEXDialog = true;
             // cb_contraLedger
             // 
             this.cb_contraLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -648,6 +667,9 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust_rate;
         private System.Windows.Forms.Button btn_save_main;
         private System.Windows.Forms.DateTimePicker date_picker;
+        private System.Windows.Forms.PrintPreviewDialog printPre;
+        private System.Drawing.Printing.PrintDocument printDoc;
+        private System.Windows.Forms.PrintDialog printDialog;
         private System.Windows.Forms.ComboBox cb_contraLedger;
     }
 }
