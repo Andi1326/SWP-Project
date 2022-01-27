@@ -11,6 +11,7 @@ namespace AccountantAssistant
         //var for the class Login
         private int idle;
         private int idc;
+        private int number;
         private int contraLedger;
         private decimal debitValue;
         private decimal creditValue;
@@ -43,6 +44,18 @@ namespace AccountantAssistant
             set
             {
                 idc = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+            set
+            {
+                number = value;
             }
         }
 
@@ -111,10 +124,11 @@ namespace AccountantAssistant
 
 
         //constructor
-        public Ledger(int idle, int idc, int contraLedger, decimal debitValue, decimal creditValue, string date, string referenceNumber)
+        public Ledger(int idle, int idc, int number, int contraLedger, decimal debitValue, decimal creditValue, string date, string referenceNumber)
         {
             this.IDLE = idle;
             this.IDC = idc;
+            this.Number = number;
             this.ContraLedger = contraLedger;
             this.DebitValue = debitValue;
             this.CreditValue = creditValue;

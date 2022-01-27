@@ -73,13 +73,13 @@ namespace AccountantAssistant
             this.cb_salesTaxRate = new System.Windows.Forms.ComboBox();
             this.tb_netto = new System.Windows.Forms.TextBox();
             this.tb_referenceNumber = new System.Windows.Forms.TextBox();
-            this.tb_contraLedger = new System.Windows.Forms.TextBox();
             this.btn_enter = new System.Windows.Forms.Button();
             this.btn_save_main = new System.Windows.Forms.Button();
             this.date_picker = new System.Windows.Forms.DateTimePicker();
             this.printPre = new System.Windows.Forms.PrintPreviewDialog();
             this.printDoc = new System.Drawing.Printing.PrintDocument();
             this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.cb_contraLedger = new System.Windows.Forms.ComboBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
@@ -168,7 +168,6 @@ namespace AccountantAssistant
             // 
             // btn_newLedger
             // 
-            this.btn_newLedger.FlatAppearance.BorderSize = 0;
             this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
@@ -262,6 +261,7 @@ namespace AccountantAssistant
             this.btn_new.Text = "Neu";
             this.btn_new.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // btn_save
             // 
@@ -515,15 +515,6 @@ namespace AccountantAssistant
             this.tb_referenceNumber.Size = new System.Drawing.Size(170, 26);
             this.tb_referenceNumber.TabIndex = 2;
             // 
-            // tb_contraLedger
-            // 
-            this.tb_contraLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tb_contraLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_contraLedger.Location = new System.Drawing.Point(308, 541);
-            this.tb_contraLedger.Name = "tb_contraLedger";
-            this.tb_contraLedger.Size = new System.Drawing.Size(170, 26);
-            this.tb_contraLedger.TabIndex = 3;
-            // 
             // btn_enter
             // 
             this.btn_enter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -578,6 +569,14 @@ namespace AccountantAssistant
             // 
             this.printDialog.Document = this.printDoc;
             this.printDialog.UseEXDialog = true;
+            // cb_contraLedger
+            // 
+            this.cb_contraLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_contraLedger.FormattingEnabled = true;
+            this.cb_contraLedger.Location = new System.Drawing.Point(308, 541);
+            this.cb_contraLedger.Name = "cb_contraLedger";
+            this.cb_contraLedger.Size = new System.Drawing.Size(170, 26);
+            this.cb_contraLedger.TabIndex = 55;
             // 
             // frm_main
             // 
@@ -586,10 +585,10 @@ namespace AccountantAssistant
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1130, 617);
             this.ControlBox = false;
+            this.Controls.Add(this.cb_contraLedger);
             this.Controls.Add(this.date_picker);
             this.Controls.Add(this.btn_save_main);
             this.Controls.Add(this.btn_enter);
-            this.Controls.Add(this.tb_contraLedger);
             this.Controls.Add(this.tb_referenceNumber);
             this.Controls.Add(this.tb_netto);
             this.Controls.Add(this.cb_salesTaxRate);
@@ -657,7 +656,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.ComboBox cb_salesTaxRate;
         private System.Windows.Forms.TextBox tb_netto;
         private System.Windows.Forms.TextBox tb_referenceNumber;
-        private System.Windows.Forms.TextBox tb_contraLedger;
         private System.Windows.Forms.Button btn_enter;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_referenceNumber;
@@ -672,5 +670,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.PrintPreviewDialog printPre;
         private System.Drawing.Printing.PrintDocument printDoc;
         private System.Windows.Forms.PrintDialog printDialog;
+        private System.Windows.Forms.ComboBox cb_contraLedger;
     }
 }

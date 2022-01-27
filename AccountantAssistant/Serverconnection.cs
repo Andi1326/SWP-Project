@@ -22,6 +22,7 @@ namespace AccountantAssistant
         private static SqlDataAdapter Da = new SqlDataAdapter();
         private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
 
+
         #region Login
 
         public static void Tryconnect() 
@@ -41,7 +42,7 @@ namespace AccountantAssistant
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLE int primary key, IDC int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
                 cmd.ExecuteNonQuery();
@@ -304,7 +305,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Insert into Ledger (idle, idc, contraLedger, debitValue, creditValue, referenceNumber,date ) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "','" + ledger.CreditValue + "','" + ledger.ReferenceNumber + "','" + ledger.Date + "');";
+                cmd.CommandText = "Insert into Ledger (idle, idc, number, contraLedger, debitValue, creditValue, referenceNumber, date) values ('" + ledger.IDLE + "', '" + ledger.IDC + "', "+ledger.Number+", '" + ledger.ContraLedger + "', '" + ledger.DebitValue + "','" + ledger.CreditValue + "','" + ledger.ReferenceNumber + "','" + ledger.Date + "');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -331,6 +332,18 @@ namespace AccountantAssistant
             {
                 MessageBox.Show(ex.ToString(), "Data can't be insert");
             }
+        }
+
+        public static string SaveType(int number, int idc)
+        {
+            //selects the IDLE from the table
+            string type;
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "'";
+            type = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return type;
         }
 
         #endregion
