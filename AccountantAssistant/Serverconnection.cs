@@ -220,12 +220,12 @@ namespace AccountantAssistant
                 }
             }
 
-            public static bool ProofLedger(TextBox number)
+            public static bool ProofLedger(TextBox number, int client)
             {
                 //proofs if the Ledger exists or not
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client +"'";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -257,7 +257,7 @@ namespace AccountantAssistant
 
         #region Main
 
-        public static void GetLedger(ComboBox cb)
+        public static void GetLedger(ComboBox cb, int client)
         {
             //Loads the Ledger of the client
             cb.Items.Clear();
@@ -265,7 +265,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client+"'";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {

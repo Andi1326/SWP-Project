@@ -27,7 +27,7 @@ namespace AccountantAssistant
         {
             //checks if the ledger already exists
             //checks if the textboxes are empty
-            if (Serverconnection.ProofLedger(tb_number))
+            if (Serverconnection.ProofLedger(tb_number, frm_main.IDC))
             {
                 MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits");
             }

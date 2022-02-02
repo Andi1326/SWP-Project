@@ -57,8 +57,8 @@ namespace AccountantAssistant
             tabCon1.SelectedTab = tabPage_start;
 
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger);
-            Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
 
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
@@ -92,8 +92,8 @@ namespace AccountantAssistant
             }
 
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger);
-            Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
         }
 
@@ -171,10 +171,17 @@ namespace AccountantAssistant
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
-            //opens frm_new_ledger
-            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
-            frm_new_ledger frm_new_ledger = new frm_new_ledger();
-            frm_new_ledger.ShowDialog();
+            if(Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+            }
+            else
+            {
+                //opens frm_new_ledger
+                ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+                frm_new_ledger frm_new_ledger = new frm_new_ledger();
+                frm_new_ledger.ShowDialog();
+            }
         }
 
 
@@ -185,6 +192,10 @@ namespace AccountantAssistant
             if (transaction_count > 0)
             {
                 Save_Transaction();
+            }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
             else
             {
@@ -201,6 +212,10 @@ namespace AccountantAssistant
             {
                 Save_Transaction();
             }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+            }
             else
             {
                 MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
@@ -214,6 +229,10 @@ namespace AccountantAssistant
             if (transaction_count > 0)
             {
                 Save_Transaction();
+            }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
             else
             {
@@ -361,6 +380,9 @@ namespace AccountantAssistant
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
+
         }
 
         private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
