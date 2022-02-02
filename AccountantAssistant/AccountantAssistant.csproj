@@ -85,6 +85,12 @@
     <Compile Include="frm_register.Designer.cs">
       <DependentUpon>frm_register.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_search_refNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_search_refNumber.Designer.cs">
+      <DependentUpon>frm_search_refNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ledger.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_register.resx">
       <DependentUpon>frm_register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_search_refNumber.resx">
+      <DependentUpon>frm_search_refNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
