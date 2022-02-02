@@ -167,6 +167,10 @@ namespace AccountantAssistant
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
             Serverconnection.GetClient(cb_clients);
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
@@ -181,6 +185,11 @@ namespace AccountantAssistant
                 ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
                 frm_new_ledger frm_new_ledger = new frm_new_ledger();
                 frm_new_ledger.ShowDialog();
+
+                Controls.Add(ucTopBar.Instance);
+                ucTopBar.Instance.Dock = DockStyle.Top;
+                ucTopBar.Instance.BringToFront();
+                ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
             }
         }
 
@@ -396,6 +405,12 @@ namespace AccountantAssistant
             {
                 rbtn_h.Checked = true;  
             }
+        }
+
+        private void pb_settings_Click(object sender, EventArgs e)
+        {
+            frm_settings frm_s = new frm_settings();
+            frm_s.ShowDialog();
         }
     }
 }

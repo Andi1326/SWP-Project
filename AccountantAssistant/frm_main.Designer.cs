@@ -32,11 +32,11 @@ namespace AccountantAssistant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.tabCon1 = new System.Windows.Forms.TabControl();
             this.tabPage_file = new System.Windows.Forms.TabPage();
             this.tabPage_start = new System.Windows.Forms.TabPage();
@@ -55,8 +55,16 @@ namespace AccountantAssistant
             this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgv_transaction = new System.Windows.Forms.DataGridView();
+            this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_netto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_brutto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_ust = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_ust_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_debit_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_contraLedger = new System.Windows.Forms.Label();
             this.lbl_netto = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.Label();
@@ -74,22 +82,14 @@ namespace AccountantAssistant
             this.printDia = new System.Windows.Forms.PrintDialog();
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
-            this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_netto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_brutto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_ust = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_ust_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_debit_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pb_settings = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
             this.pnl_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -121,6 +121,7 @@ namespace AccountantAssistant
             // 
             // tabPage_start
             // 
+            this.tabPage_start.BackColor = System.Drawing.Color.White;
             this.tabPage_start.Controls.Add(this.cb_ledger);
             this.tabPage_start.Controls.Add(this.lbl_select_ledger);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
@@ -129,7 +130,6 @@ namespace AccountantAssistant
             this.tabPage_start.Size = new System.Drawing.Size(907, 78);
             this.tabPage_start.TabIndex = 1;
             this.tabPage_start.Text = "Start";
-            this.tabPage_start.UseVisualStyleBackColor = true;
             // 
             // cb_ledger
             // 
@@ -316,18 +316,6 @@ namespace AccountantAssistant
             this.cb_clients.TabIndex = 48;
             this.cb_clients.SelectedIndexChanged += new System.EventHandler(this.cb_clients_SelectedIndexChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
-            this.pictureBox1.Location = new System.Drawing.Point(1071, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
-            // 
             // dgv_transaction
             // 
             this.dgv_transaction.AllowUserToAddRows = false;
@@ -377,6 +365,71 @@ namespace AccountantAssistant
             this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_transaction.Size = new System.Drawing.Size(911, 373);
             this.dgv_transaction.TabIndex = 49;
+            // 
+            // column_date
+            // 
+            this.column_date.HeaderText = "Datum";
+            this.column_date.Name = "column_date";
+            this.column_date.Width = 80;
+            // 
+            // column_referenceNumber
+            // 
+            this.column_referenceNumber.HeaderText = "Belegnummer";
+            this.column_referenceNumber.Name = "column_referenceNumber";
+            this.column_referenceNumber.Width = 120;
+            // 
+            // column_ledger
+            // 
+            this.column_ledger.HeaderText = "Konto";
+            this.column_ledger.Name = "column_ledger";
+            this.column_ledger.Width = 80;
+            // 
+            // column_contraLedger
+            // 
+            this.column_contraLedger.HeaderText = "Gegenkonto";
+            this.column_contraLedger.Name = "column_contraLedger";
+            // 
+            // column_netto
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.column_netto.HeaderText = "Nettobetrag";
+            this.column_netto.Name = "column_netto";
+            this.column_netto.Width = 120;
+            // 
+            // column_brutto
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
+            this.column_brutto.HeaderText = "Bruttobetrag";
+            this.column_brutto.Name = "column_brutto";
+            this.column_brutto.Width = 120;
+            // 
+            // column_ust
+            // 
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
+            this.column_ust.HeaderText = "Ust";
+            this.column_ust.Name = "column_ust";
+            this.column_ust.Width = 60;
+            // 
+            // column_ust_rate
+            // 
+            dataGridViewCellStyle5.Format = "0 \"%\"";
+            dataGridViewCellStyle5.NullValue = null;
+            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.column_ust_rate.HeaderText = "Ust-Satz";
+            this.column_ust_rate.Name = "column_ust_rate";
+            this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.column_ust_rate.Width = 80;
+            // 
+            // column_debit_credit
+            // 
+            this.column_debit_credit.HeaderText = "Soll/Haben";
+            this.column_debit_credit.Name = "column_debit_credit";
             // 
             // lbl_contraLedger
             // 
@@ -540,10 +593,11 @@ namespace AccountantAssistant
             // 
             this.rbtn_s.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbtn_s.AutoSize = true;
+            this.rbtn_s.Checked = true;
             this.rbtn_s.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_s.Location = new System.Drawing.Point(779, 532);
             this.rbtn_s.Name = "rbtn_s";
-            this.rbtn_s.Size = new System.Drawing.Size(33, 20);
+            this.rbtn_s.Size = new System.Drawing.Size(34, 20);
             this.rbtn_s.TabIndex = 55;
             this.rbtn_s.TabStop = true;
             this.rbtn_s.Text = "S";
@@ -556,76 +610,24 @@ namespace AccountantAssistant
             this.rbtn_h.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_h.Location = new System.Drawing.Point(779, 551);
             this.rbtn_h.Name = "rbtn_h";
-            this.rbtn_h.Size = new System.Drawing.Size(33, 20);
+            this.rbtn_h.Size = new System.Drawing.Size(34, 20);
             this.rbtn_h.TabIndex = 56;
             this.rbtn_h.TabStop = true;
             this.rbtn_h.Text = "H";
             this.rbtn_h.UseVisualStyleBackColor = true;
             // 
-            // column_date
+            // pb_settings
             // 
-            this.column_date.HeaderText = "Datum";
-            this.column_date.Name = "column_date";
-            this.column_date.Width = 80;
-            // 
-            // column_referenceNumber
-            // 
-            this.column_referenceNumber.HeaderText = "Belegnummer";
-            this.column_referenceNumber.Name = "column_referenceNumber";
-            this.column_referenceNumber.Width = 120;
-            // 
-            // column_ledger
-            // 
-            this.column_ledger.HeaderText = "Konto";
-            this.column_ledger.Name = "column_ledger";
-            this.column_ledger.Width = 80;
-            // 
-            // column_contraLedger
-            // 
-            this.column_contraLedger.HeaderText = "Gegenkonto";
-            this.column_contraLedger.Name = "column_contraLedger";
-            // 
-            // column_netto
-            // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.column_netto.HeaderText = "Nettobetrag";
-            this.column_netto.Name = "column_netto";
-            this.column_netto.Width = 120;
-            // 
-            // column_brutto
-            // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
-            this.column_brutto.HeaderText = "Bruttobetrag";
-            this.column_brutto.Name = "column_brutto";
-            this.column_brutto.Width = 120;
-            // 
-            // column_ust
-            // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
-            this.column_ust.HeaderText = "Ust";
-            this.column_ust.Name = "column_ust";
-            this.column_ust.Width = 60;
-            // 
-            // column_ust_rate
-            // 
-            dataGridViewCellStyle5.Format = "0 \"%\"";
-            dataGridViewCellStyle5.NullValue = null;
-            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.column_ust_rate.HeaderText = "Ust-Satz";
-            this.column_ust_rate.Name = "column_ust_rate";
-            this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.column_ust_rate.Width = 80;
-            // 
-            // column_debit_credit
-            // 
-            this.column_debit_credit.HeaderText = "Soll/Haben";
-            this.column_debit_credit.Name = "column_debit_credit";
+            this.pb_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_settings.BackColor = System.Drawing.Color.Transparent;
+            this.pb_settings.Image = global::AccountantAssistant.Properties.Resources.gear;
+            this.pb_settings.Location = new System.Drawing.Point(1071, 33);
+            this.pb_settings.Name = "pb_settings";
+            this.pb_settings.Size = new System.Drawing.Size(32, 21);
+            this.pb_settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_settings.TabIndex = 46;
+            this.pb_settings.TabStop = false;
+            this.pb_settings.Click += new System.EventHandler(this.pb_settings_Click);
             // 
             // frm_main
             // 
@@ -651,7 +653,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_transaction);
             this.Controls.Add(this.cb_clients);
             this.Controls.Add(this.lbl_client);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_settings);
             this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
@@ -670,8 +672,8 @@ namespace AccountantAssistant
             this.tabPage_ledger.ResumeLayout(false);
             this.pnl_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,7 +693,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Button btn_new;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_settings;
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
