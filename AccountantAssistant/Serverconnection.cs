@@ -42,7 +42,7 @@ namespace AccountantAssistant
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
+                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, number int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
                 cmd.ExecuteNonQuery();
@@ -266,6 +266,29 @@ namespace AccountantAssistant
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandText = "Select number from AllLedgers";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cb.Items.Add(dr[0]);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                con.Close();
+            }
+        }
+
+        public static void GetClient(ComboBox cb)
+        {
+            //Loads the Ledger of the client
+            cb.Items.Clear();
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select IDC from Client";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
