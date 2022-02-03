@@ -60,5 +60,17 @@ namespace AccountantAssistant
                 }
             }
         }
+
+        private void btn_changeDesign_Click(object sender, EventArgs e)
+        {
+            if(cb_design.SelectedIndex == 0)
+            {
+                
+            }
+            else
+            {
+
+            }
+        }
     }
 }
