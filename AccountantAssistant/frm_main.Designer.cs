@@ -29,6 +29,13 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -85,7 +92,7 @@ namespace AccountantAssistant
             this.printDia = new System.Windows.Forms.PrintDialog();
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_settings = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_search.SuspendLayout();
@@ -93,7 +100,7 @@ namespace AccountantAssistant
             this.pnl_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -125,6 +132,7 @@ namespace AccountantAssistant
             // 
             // tabPage_start
             // 
+            this.tabPage_start.BackColor = System.Drawing.Color.White;
             this.tabPage_start.Controls.Add(this.cb_ledger);
             this.tabPage_start.Controls.Add(this.lbl_select_ledger);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
@@ -133,7 +141,6 @@ namespace AccountantAssistant
             this.tabPage_start.Size = new System.Drawing.Size(907, 78);
             this.tabPage_start.TabIndex = 1;
             this.tabPage_start.Text = "Start";
-            this.tabPage_start.UseVisualStyleBackColor = true;
             // 
             // cb_ledger
             // 
@@ -429,6 +436,9 @@ namespace AccountantAssistant
             // 
             // column_netto
             // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCellStyle9.Format = "C2";
             dataGridViewCellStyle9.NullValue = null;
             this.column_netto.DefaultCellStyle = dataGridViewCellStyle9;
@@ -438,6 +448,9 @@ namespace AccountantAssistant
             // 
             // column_brutto
             // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle10.Format = "C2";
             dataGridViewCellStyle10.NullValue = null;
             this.column_brutto.DefaultCellStyle = dataGridViewCellStyle10;
@@ -447,6 +460,9 @@ namespace AccountantAssistant
             // 
             // column_ust
             // 
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle11.Format = "C2";
             dataGridViewCellStyle11.NullValue = null;
             this.column_ust.DefaultCellStyle = dataGridViewCellStyle11;
@@ -456,9 +472,9 @@ namespace AccountantAssistant
             // 
             // column_ust_rate
             // 
-            dataGridViewCellStyle12.Format = "0 \"%\"";
-            dataGridViewCellStyle12.NullValue = null;
-            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Format = "0 \"%\"";
+            dataGridViewCellStyle5.NullValue = null;
+            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
             this.column_ust_rate.HeaderText = "Ust-Satz";
             this.column_ust_rate.Name = "column_ust_rate";
             this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -653,17 +669,18 @@ namespace AccountantAssistant
             this.rbtn_h.Text = "H";
             this.rbtn_h.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pb_settings
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.gear;
-            this.pictureBox1.Location = new System.Drawing.Point(1071, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
+            this.pb_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_settings.BackColor = System.Drawing.Color.Transparent;
+            this.pb_settings.Image = global::AccountantAssistant.Properties.Resources.gear;
+            this.pb_settings.Location = new System.Drawing.Point(1071, 33);
+            this.pb_settings.Name = "pb_settings";
+            this.pb_settings.Size = new System.Drawing.Size(32, 21);
+            this.pb_settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_settings.TabIndex = 46;
+            this.pb_settings.TabStop = false;
+            this.pb_settings.Click += new System.EventHandler(this.pb_settings_Click);
             // 
             // frm_main
             // 
@@ -689,7 +706,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_transaction);
             this.Controls.Add(this.cb_clients);
             this.Controls.Add(this.lbl_client);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_settings);
             this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
@@ -711,7 +728,7 @@ namespace AccountantAssistant
             this.pnl_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -731,7 +748,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Button btn_new;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_settings;
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
