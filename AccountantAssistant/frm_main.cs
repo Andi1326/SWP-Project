@@ -57,8 +57,8 @@ namespace AccountantAssistant
             tabCon1.SelectedTab = tabPage_start;
 
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger);
-            Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
 
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
@@ -92,8 +92,8 @@ namespace AccountantAssistant
             }
 
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger);
-            Serverconnection.GetLedger(cb_contraLedger);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
         }
 
@@ -167,14 +167,30 @@ namespace AccountantAssistant
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
             Serverconnection.GetClient(cb_clients);
+            Controls.Add(ucTopBar.Instance);
+            ucTopBar.Instance.Dock = DockStyle.Top;
+            ucTopBar.Instance.BringToFront();
+            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
-            //opens frm_new_ledger
-            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
-            frm_new_ledger frm_new_ledger = new frm_new_ledger();
-            frm_new_ledger.ShowDialog();
+            if(Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+            }
+            else
+            {
+                //opens frm_new_ledger
+                ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+                frm_new_ledger frm_new_ledger = new frm_new_ledger();
+                frm_new_ledger.ShowDialog();
+
+                Controls.Add(ucTopBar.Instance);
+                ucTopBar.Instance.Dock = DockStyle.Top;
+                ucTopBar.Instance.BringToFront();
+                ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            }
         }
 
 
@@ -185,6 +201,10 @@ namespace AccountantAssistant
             if (transaction_count > 0)
             {
                 Save_Transaction();
+            }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
             else
             {
@@ -201,6 +221,10 @@ namespace AccountantAssistant
             {
                 Save_Transaction();
             }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+            }
             else
             {
                 MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
@@ -214,6 +238,10 @@ namespace AccountantAssistant
             if (transaction_count > 0)
             {
                 Save_Transaction();
+            }
+            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
             else
             {
@@ -361,6 +389,9 @@ namespace AccountantAssistant
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
+
         }
 
         private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
@@ -374,6 +405,24 @@ namespace AccountantAssistant
             {
                 rbtn_h.Checked = true;  
             }
+        }
+
+        private void pb_settings_Click(object sender, EventArgs e)
+        {
+            frm_settings frm_s = new frm_settings();
+            frm_s.ShowDialog();
+        }
+
+      
+        private void btn_search_ref_Click_1(object sender, EventArgs e)
+        {
+            frm_search_refNumber.search_item = tb_search_ref.Text;
+
+            frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
+
+            frm_Search_Ref.ShowDialog();
+
+          
         }
     }
 }
