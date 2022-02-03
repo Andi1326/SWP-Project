@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="frm_settings.Designer.cs">
       <DependentUpon>frm_settings.cs</DependentUpon>
+	</Compile>
     <Compile Include="frm_search_refNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +128,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="frm_search_refNumber.resx">
       <DependentUpon>frm_search_refNumber.cs</DependentUpon>
     </EmbeddedResource>
