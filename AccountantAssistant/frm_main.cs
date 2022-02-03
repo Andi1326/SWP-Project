@@ -417,12 +417,17 @@ namespace AccountantAssistant
         private void btn_search_ref_Click_1(object sender, EventArgs e)
         {
             frm_search_refNumber.search_item = tb_search_ref.Text;
-
             frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
-
             frm_Search_Ref.ShowDialog();
 
           
+        }
+
+        private void btn_searchDate_Click(object sender, EventArgs e)
+        {
+            frm_search_date.search_date = tb_searchDate.Text;
+            frm_search_date frm_Search = new frm_search_date();
+            frm_Search.ShowDialog();
         }
     }
 }

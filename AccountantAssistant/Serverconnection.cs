@@ -382,16 +382,30 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["leger1"]), Convert.ToInt32(dr["ledger2"]),Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
             }
             con.Close();
        
         }
 
+        #endregion
 
+        #region Search Date
 
+        public static void Search_Date(string search_date, DataGridView dgv, int idc)
+        {
+            //search for Date
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+            }
+            con.Close();
 
-
+        }
 
         #endregion
 
