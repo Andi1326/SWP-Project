@@ -102,6 +102,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_header);
             this.Name = "ucTopBar";
             this.Size = new System.Drawing.Size(776, 29);
+
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();

@@ -371,5 +371,30 @@ namespace AccountantAssistant
 
         #endregion
 
+        #region Search
+
+        public static void Search_refNumber(string search_item, DataGridView dgv, int idc)
+        {
+            //search for refNumber
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where referenceNumber = '"+search_item +"'and IDC = '"+idc + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["leger1"]), Convert.ToInt32(dr["ledger2"]),Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
+            }
+            con.Close();
+       
+        }
+
+
+
+
+
+
+        #endregion
+
+
     }
 }

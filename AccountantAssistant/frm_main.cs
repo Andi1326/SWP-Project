@@ -412,5 +412,17 @@ namespace AccountantAssistant
             frm_settings frm_s = new frm_settings();
             frm_s.ShowDialog();
         }
+
+      
+        private void btn_search_ref_Click_1(object sender, EventArgs e)
+        {
+            frm_search_refNumber.search_item = tb_search_ref.Text;
+
+            frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
+
+            frm_Search_Ref.ShowDialog();
+
+          
+        }
     }
 }

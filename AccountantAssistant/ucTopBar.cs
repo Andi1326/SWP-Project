@@ -115,5 +115,7 @@ namespace AccountantAssistant
             //if the close Box gets hovered the backcolor changes to White
             pb_close.BackColor = Color.White;
         }
+
+       
     }
 }
