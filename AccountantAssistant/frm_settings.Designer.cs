@@ -50,6 +50,7 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 44;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -66,6 +67,7 @@ namespace AccountantAssistant
             this.lbl_head.Name = "lbl_head";
             this.lbl_head.Size = new System.Drawing.Size(164, 29);
             this.lbl_head.TabIndex = 45;
+            this.lbl_head.Tag = "blue";
             this.lbl_head.Text = "Konto-Daten:";
             // 
             // tb_password

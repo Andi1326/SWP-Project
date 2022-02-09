@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="AccTransaction.cs" />
     <Compile Include="AllLedgers.cs" />
+    <Compile Include="ButtonDark.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonDark.Designer.cs">
+      <DependentUpon>ButtonDark.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="frm_create_client.cs">
       <SubType>Form</SubType>
@@ -108,12 +114,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serverconnection.cs" />
+    <Compile Include="Theme_White.cs" />
+    <Compile Include="Theme_Dark.cs" />
     <Compile Include="ucTopBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucTopBar.Designer.cs">
       <DependentUpon>ucTopBar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ButtonDark.resx">
+      <DependentUpon>ButtonDark.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_create_client.resx">
       <DependentUpon>frm_create_client.cs</DependentUpon>
     </EmbeddedResource>

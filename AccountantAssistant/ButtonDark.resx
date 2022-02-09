@@ -117,33 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pb_minimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAFCAIAAAAVLyF7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAA1JREFUGFdjGAGAgQEAAOYAAWJKhhUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pb_maximize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAL9JREFUOE+V0U0KwjAQhuH2rB5ABDduXLhy5w+iiIq4UPAKnsCFV9L0/dKoSZ3W
-        duChmZlMf9KMeMF1pBkxm219kzzPk7cgT9bVPj4LNe6YYoYFlthgjQNulRuUi/CUqwoN0WPfk2s6HJxV
-        aIg+4v1JsvcF50zEUO1Ikmx9wRgUYozfbw50QOagEHPUDuukzUEhVmpHykU47ZEvGINC6Be+B30hTi4Y
-        YIIjTtgF+tcP1L62GnHzH7PYVqcnRTJXABv6+6TV8sVOAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="pb_close.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAZFJREFUOE9jAALm5oaGEGMjo8P29vbSIAFk8P/PHyiLgaG6qorH3tZ2x9zZs32B
-        XCaGnq6ucEZGxn9Azn8QVlZW1gbSzECMAgoLCriB6v4Cmf9ZWFh+T5k8OZRBXU3tPEgAGYuIiNgBaRYg
-        BoMf37+zMjExgTXCsKqy8mWGdevWySLbDMIgvpCQUACQzXHl8mV2dI0gvGb1agUgzcCQkJAghG4ACFta
-        WhZjM9jfz08SyEaAlpYWXmwGIGOQC4yMjNSBbEyAzwCQuIGBgSaQzQjE2MHpU6dc9uzZg2GAmJhYBpBm
-        AmLswMLCQoyVlfWfgIAAikYYVlBQ0AfSGIBRW1tblgkaj/iwvr6+PJBGAJCNQApD4coVKyyBNIYXJCQk
-        rIE0A8O9u3exahQWFg4C0gzFxcWC2ALR1tbWjUFPR+cUusTJEye4gTQcAENZCd0ANRWVSwwb1q3zQRbk
-        4OBoBdIYAJhgpIAUXN26NWv8QOIMO7ZudXZ2ctp69/ZtFBvRwZFDh7icnJy2bd20yZ2BgYEBAH1Eudjj
-        ekBpAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

@@ -20,11 +20,18 @@ namespace AccountantAssistant
 
         public static bool password_change = false;
 
+        public static bool darkmode = true;
+
         private void frm_settings_Load(object sender, EventArgs e)
         {
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
+
+            if (darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(this.Controls, this);
+            }
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -65,12 +72,16 @@ namespace AccountantAssistant
         {
             if(cb_design.SelectedIndex == 0)
             {
-                
+                darkmode = true;
+                Theme_Dark.ChangeThemeDark(Controls, this);
             }
             else
             {
-
+                darkmode = false;
+                Theme_White.ChangeThemeWhite(Controls, this);
             }
         }
+
+
     }
 }

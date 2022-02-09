@@ -49,6 +49,15 @@ namespace AccountantAssistant
 
         private void frm_login_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //Adds User Controls to the Form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
