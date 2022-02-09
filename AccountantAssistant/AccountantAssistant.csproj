@@ -91,6 +91,12 @@
     <Compile Include="frm_search_date.Designer.cs">
       <DependentUpon>frm_search_date.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_search_ledger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_search_ledger.Designer.cs">
+      <DependentUpon>frm_search_ledger.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_search_date.resx">
       <DependentUpon>frm_search_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_search_ledger.resx">
+      <DependentUpon>frm_search_ledger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
