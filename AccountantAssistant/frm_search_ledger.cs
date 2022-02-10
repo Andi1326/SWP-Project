@@ -10,12 +10,10 @@ using System.Windows.Forms;
 
 namespace AccountantAssistant
 {
-    public partial class frm_search_refNumber : Form
+    public partial class frm_search_ledger : Form
     {
-        public static string search_item;
-     
-
-        public frm_search_refNumber()
+        public static int search_ledger;
+        public frm_search_ledger()
         {
             InitializeComponent();
             #region btn_ucTopBar_save Button
@@ -32,26 +30,26 @@ namespace AccountantAssistant
             btn_ucTopBar_save.Click += new System.EventHandler(this.btn_ucTopbar_save_Click);
             #endregion
         }
-        public static Button btn_ucTopBar_save = new Button();
-        private void frm_search_refNumber_Load(object sender, EventArgs e)
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            frm_main frm_Main = new frm_main();
+            this.Hide();
+        }
+
+        private void frm_search_ledger_Load(object sender, EventArgs e)
         {
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
-            Serverconnection.Search_refNumber(search_item, dgv_search_refNumber, frm_main.IDC);
+            Serverconnection.Search_ledger(search_ledger, dgv_search_refNumber, frm_main.IDC);
         }
+        public static Button btn_ucTopBar_save = new Button();
+
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
-          
-        }
 
-        private void btn_back_Click(object sender, EventArgs e)
-        {
-            frm_main frm_main = new frm_main();
-            this.Close();
-            frm_main.Show();
         }
     }
-
 }
