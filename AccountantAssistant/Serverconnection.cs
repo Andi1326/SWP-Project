@@ -95,6 +95,25 @@ namespace AccountantAssistant
             return false;
         }
 
+        public static bool PasswordQuery(TextBox password, int IDL)
+        {
+            //Proof if the password matches with the user
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select password from login  where IDL = '" + IDL + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (password.Text == dr["password"].ToString())
+                {
+                    con.Close();
+                    return true;
+                }
+            }
+            con.Close();
+            return false;
+        }
+
         public static void InsertDataLogin(Login login)
         {
             //inserts the data into LOGIN

@@ -40,7 +40,7 @@ namespace AccountantAssistant
         private void pb_minimize_MouseLeave(object sender, EventArgs e)
         {
             //if the minimize Box gets hovered the backcolor changes to White
-            pb_minimize.BackColor = Color.White;
+            pb_minimize.BackColor = Color.Transparent;
         }
 
         private void pb_minimize_Click(object sender, EventArgs e)
@@ -101,7 +101,9 @@ namespace AccountantAssistant
         private void pb_maximize_MouseLeave(object sender, EventArgs e)
         {
             //if the maximize Box gets hovered the backcolor changes to White
-            pb_maximize.BackColor = Color.White;
+            
+            pb_maximize.BackColor = Color.Transparent;
+            
         }
 
         private void pb_close_MouseHover(object sender, EventArgs e)
@@ -113,9 +115,19 @@ namespace AccountantAssistant
         private void pb_close_MouseLeave(object sender, EventArgs e)
         {
             //if the close Box gets hovered the backcolor changes to White
-            pb_close.BackColor = Color.White;
+            pb_close.BackColor = Color.Transparent;
         }
 
-       
+        private void ucTopBar_Load(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this.ParentForm);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this.ParentForm);
+            }
+        }
     }
 }
