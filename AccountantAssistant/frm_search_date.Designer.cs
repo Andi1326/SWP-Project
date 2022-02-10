@@ -1,7 +1,7 @@
 ﻿
 namespace AccountantAssistant
 {
-    partial class frm_search_refNumber
+    partial class frm_search_date
     {
         /// <summary>
         /// Required designer variable.
@@ -34,42 +34,32 @@ namespace AccountantAssistant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btn_delete_ref = new System.Windows.Forms.Button();
-            this.btn_save_ref = new System.Windows.Forms.Button();
-            this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
             this.btn_back = new System.Windows.Forms.Button();
+            this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_save_ref = new System.Windows.Forms.Button();
+            this.btn_delete_ref = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_delete_ref
+            // btn_back
             // 
-            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(3, 55);
-            this.btn_delete_ref.Name = "btn_delete_ref";
-            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ref.TabIndex = 8;
-            this.btn_delete_ref.Text = "Löschen";
-            this.btn_delete_ref.UseVisualStyleBackColor = true;
-            // 
-            // btn_save_ref
-            // 
-            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(118, 55);
-            this.btn_save_ref.Name = "btn_save_ref";
-            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ref.TabIndex = 9;
-            this.btn_save_ref.Text = "Speichern";
-            this.btn_save_ref.UseVisualStyleBackColor = true;
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(12, 486);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(122, 25);
+            this.btn_back.TabIndex = 55;
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // dgv_search_refNumber
             // 
@@ -102,7 +92,7 @@ namespace AccountantAssistant
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_search_refNumber.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_search_refNumber.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv_search_refNumber.Location = new System.Drawing.Point(3, 94);
+            this.dgv_search_refNumber.Location = new System.Drawing.Point(12, 91);
             this.dgv_search_refNumber.Name = "dgv_search_refNumber";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -113,21 +103,7 @@ namespace AccountantAssistant
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
-            this.dgv_search_refNumber.TabIndex = 50;
-            // 
-            // btn_back
-            // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(3, 491);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 51;
-            this.btn_back.Text = "Zurück";
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.dgv_search_refNumber.TabIndex = 54;
             // 
             // column_date
             // 
@@ -173,19 +149,42 @@ namespace AccountantAssistant
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
             // 
-            // frm_search_refNumber
+            // btn_save_ref
+            // 
+            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
+            this.btn_save_ref.Name = "btn_save_ref";
+            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_ref.TabIndex = 53;
+            this.btn_save_ref.Text = "Speichern";
+            this.btn_save_ref.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete_ref
+            // 
+            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
+            this.btn_delete_ref.Name = "btn_delete_ref";
+            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_ref.TabIndex = 52;
+            this.btn_delete_ref.Text = "Löschen";
+            this.btn_delete_ref.UseVisualStyleBackColor = true;
+            // 
+            // frm_search_date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 520);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(627, 523);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);
             this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
-            this.Name = "frm_search_refNumber";
-            this.Load += new System.EventHandler(this.frm_search_refNumber_Load);
+            this.Name = "frm_search_date";
+            this.Text = "frm_search_date";
+            this.Load += new System.EventHandler(this.frm_search_date_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).EndInit();
             this.ResumeLayout(false);
 
@@ -193,15 +192,15 @@ namespace AccountantAssistant
 
         #endregion
 
-        private System.Windows.Forms.Button btn_delete_ref;
-        private System.Windows.Forms.Button btn_save_ref;
-        private System.Windows.Forms.DataGridView dgv_search_refNumber;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.DataGridView dgv_search_refNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
+        private System.Windows.Forms.Button btn_save_ref;
+        private System.Windows.Forms.Button btn_delete_ref;
     }
 }

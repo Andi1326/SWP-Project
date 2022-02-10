@@ -60,6 +60,7 @@ namespace AccountantAssistant
             Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
+            Serverconnection.GetLedger(cb_search_ledger, IDC);
 
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
         }
@@ -95,6 +96,7 @@ namespace AccountantAssistant
             Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
+            Serverconnection.GetLedger(cb_search_ledger, IDC);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -391,7 +393,7 @@ namespace AccountantAssistant
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
             Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
-
+            Serverconnection.GetLedger(cb_search_ledger, IDC);
         }
 
         private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
@@ -417,12 +419,30 @@ namespace AccountantAssistant
         private void btn_search_ref_Click_1(object sender, EventArgs e)
         {
             frm_search_refNumber.search_item = tb_search_ref.Text;
-
             frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
-
             frm_Search_Ref.ShowDialog();
 
           
+        }
+
+        private void btn_searchDate_Click(object sender, EventArgs e)
+        {
+            frm_search_date.search_date = tb_searchDate.Text;
+            frm_search_date frm_Search = new frm_search_date();
+            frm_Search.ShowDialog();
+        }
+
+        private void btn_search_ledger_Click(object sender, EventArgs e)
+        {
+            frm_search_ledger.search_ledger = Convert.ToInt32(cb_search_ledger.SelectedItem);
+            frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
+            frm_Search_Ledger.ShowDialog();
+
+        }
+
+        private void cb_salesTaxRate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

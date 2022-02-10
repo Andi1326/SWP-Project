@@ -379,13 +379,22 @@ namespace AccountantAssistant
         public static string SaveType(int number, int idc)
         {
             //selects the IDLE from the table
-            string type;
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "'";
-            type = cmd.ExecuteScalar().ToString();
-            con.Close();
-            return type;
+            try
+            {
+                string type;
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "'";
+                type = cmd.ExecuteScalar().ToString();
+                con.Close();
+                return type;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Data can't be insert");
+                con.Close();
+                return null;
+            }
         }
 
         #endregion
@@ -401,19 +410,63 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["leger1"]), Convert.ToInt32(dr["ledger2"]),Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
             }
             con.Close();
        
         }
 
 
+        
+
+        public static void Search_Date(string search_date, DataGridView dgv, int idc)
+        {
+            //search for Date
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+            }
+            con.Close();
+
+        }
 
 
 
+        public static void Search_ledger(int search_ledger, DataGridView dgv, int idc)
+        {
+            //search for ledger
+            string type = Serverconnection.SaveType(search_ledger, idc);
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where ledger1 = '" + search_ledger + "'and IDC = '" + idc + "'";
+            dr = cmd.ExecuteReader();
+           
+            while (dr.Read())
+            {
+                if (type == "AB" || type == "AK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                }
+                else if(type == "PB" || type == "EK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger2"]),0, Convert.ToDecimal(dr["brutto"]));
+                }
+                else
+                {
+                    MessageBox.Show("Es ist ein Fehler passiert");
+                }
+
+                
+            }
+            con.Close();
+
+        }
 
         #endregion
-
 
     }
 }
