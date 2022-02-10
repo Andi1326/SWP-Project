@@ -18,7 +18,14 @@ namespace AccountantAssistant
             //Initiazlizes the Button btn_ucTopBar_save
             #region btn_ucTopBar_save Button
             btn_ucTopBar_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
+            if (frm_settings.darkmode)
+            {
+                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButtonWhite;
+            }
+            else
+            {
+                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
+            }
             btn_ucTopBar_save.BackgroundImageLayout = ImageLayout.Zoom;
             btn_ucTopBar_save.FlatAppearance.BorderSize = 0;
             btn_ucTopBar_save.FlatStyle = FlatStyle.Flat;
@@ -47,6 +54,15 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //Adds User Control to the Form and adds the Button to the User Control
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;

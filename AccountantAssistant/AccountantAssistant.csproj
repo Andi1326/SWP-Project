@@ -233,5 +233,20 @@
   <ItemGroup>
     <None Include="Resources\Minimize_Box2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crossWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaximizeBoxWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeBoxWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveButtonWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_blue.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

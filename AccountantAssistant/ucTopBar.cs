@@ -123,10 +123,16 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this.ParentForm);
+                pb_close.Image = Properties.Resources.crossWhite;
+                pb_maximize.Image = Properties.Resources.MaximizeBoxWhite;
+                pb_minimize.Image = Properties.Resources.MinimizeBoxWhite;
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this.ParentForm);
+                pb_close.Image = Properties.Resources.cross;
+                pb_maximize.Image = Properties.Resources.MaximizeBox;
+                pb_minimize.Image = Properties.Resources.Minimize_Box2;
             }
         }
     }

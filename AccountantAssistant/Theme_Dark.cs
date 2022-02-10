@@ -33,6 +33,21 @@ namespace AccountantAssistant
                 {
                     component.ForeColor = Color.White;
                 }
+                else if(component is TabPage)
+                {
+                    component.ForeColor = Color.White;
+                    component.BackColor = DarkBackColor;
+                }
+                else if(component is DataGridView)
+                {
+                    component.ForeColor = Color.White;
+                    component.BackColor = DarkBackColor;
+                }
+                else if(component is DateTimePicker)
+                {
+                    component.ForeColor = Color.White;
+                    component.BackColor = DarkBackColor;
+                }
             }
         }
     }

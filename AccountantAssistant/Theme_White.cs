@@ -19,12 +19,12 @@ namespace AccountantAssistant
             f.BackColor = Color.White;
             foreach (Control component in container)
             {
-                if (component is Button && component.Tag != "blue")
+                if (component is Button && component.Tag.ToString() != "blue")
                 {
                     component.ForeColor = Color.Black;
                     component.BackColor = Color.White;
                 }
-                else if(component is Button && component.Tag == "blue")
+                else if(component is Button && component.Tag.ToString() == "blue")
                 {
                     component.ForeColor = Color.White;
                     component.BackColor = ButtonBgColor;
@@ -34,11 +34,11 @@ namespace AccountantAssistant
                     component.ForeColor = Color.Black;
                     component.BackColor = Color.White;
                 }
-                else if(component is Label && component.Tag != "blue")
+                else if(component is Label && component.Tag.ToString() != "blue")
                 {
                     component.ForeColor = Color.Black;
                 }
-                else if (component is Label && component.Tag == "blue")
+                else if (component is Label && component.Tag.ToString() == "blue")
                 {
                     component.ForeColor = ButtonBgColor;
                 }
