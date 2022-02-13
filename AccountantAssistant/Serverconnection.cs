@@ -55,6 +55,7 @@ namespace AccountantAssistant
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
+                con.Close();
             }
         }
 
