@@ -20,7 +20,7 @@ namespace AccountantAssistant
 
         public static bool password_change = false;
 
-        public static bool darkmode = true;
+        public static bool darkmode = false;
 
         private void frm_settings_Load(object sender, EventArgs e)
         {

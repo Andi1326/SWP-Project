@@ -99,6 +99,7 @@ namespace AccountantAssistant
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_password_query";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frm_password_query_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -34,5 +34,17 @@ namespace AccountantAssistant
                 this.Close();
             }
         }
+
+        private void frm_password_query_Load(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+        }
     }
 }

@@ -28,6 +28,15 @@ namespace AccountantAssistant
 
         private void frm_forget_password_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //sets Keypreview to true
             KeyPreview = true;
 

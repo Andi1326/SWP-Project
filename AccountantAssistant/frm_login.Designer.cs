@@ -65,6 +65,7 @@ namespace AccountantAssistant
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(122, 25);
             this.btn_login.TabIndex = 14;
+            this.btn_login.Tag = "blue";
             this.btn_login.Text = "LOGIN";
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
@@ -78,6 +79,7 @@ namespace AccountantAssistant
             this.lbl_forgot.Name = "lbl_forgot";
             this.lbl_forgot.Size = new System.Drawing.Size(108, 13);
             this.lbl_forgot.TabIndex = 13;
+            this.lbl_forgot.Tag = "";
             this.lbl_forgot.Text = "Passwort vergessen?";
             this.lbl_forgot.Click += new System.EventHandler(this.lbl_forgot_Click);
             // 

@@ -90,6 +90,15 @@ namespace AccountantAssistant
 
         private void frm_register_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //sets Keypreview to true and adds User Control to the form
             KeyPreview = true;
 
