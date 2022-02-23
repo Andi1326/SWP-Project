@@ -8,8 +8,6 @@ namespace AccountantAssistant
 {
     class AccTransaction
     {
-
-
         //var for the class AccTransaction
 
         private int idc;
@@ -31,14 +29,10 @@ namespace AccountantAssistant
             {
                 return idc;
             }
-
             set
             {
                 idc = value;
             }
-
-
-
         }
 
         public int Ledger1
@@ -47,14 +41,10 @@ namespace AccountantAssistant
             {
                 return ledger1;
             }
-
             set
             {
                 ledger1 = value;
             }
-
-
-
         }
 
         public int Ledger2
@@ -63,14 +53,10 @@ namespace AccountantAssistant
             {
                 return ledger2;
             }
-
             set
             {
                 ledger2 = value;
             }
-
-
-
         }
 
         public decimal Netto
@@ -79,14 +65,10 @@ namespace AccountantAssistant
             {
                 return netto;
             }
-
             set
             {
                 netto = value;
             }
-
-
-
         }
 
         public decimal Brutto
@@ -95,14 +77,10 @@ namespace AccountantAssistant
             {
                 return brutto;
             }
-
             set
             {
                 brutto = value;
             }
-
-
-
         }
 
         public decimal Ust
@@ -111,14 +89,10 @@ namespace AccountantAssistant
             {
                 return ust;
             }
-
             set
             {
                 ust = value;
             }
-
-
-
         }
 
         public int Salestaxrate
@@ -127,14 +101,11 @@ namespace AccountantAssistant
             {
                 return salestaxrate;
             }
-
             set
             {
                 salestaxrate = value;
             }
-
         }
-
 
         public string ReferenceNumber
         {
@@ -142,14 +113,11 @@ namespace AccountantAssistant
             {
                 return referenceNumber;
             }
-
             set
             {
                 referenceNumber = value;
             }
-
         }
-
 
         public string Date
         {
@@ -157,15 +125,11 @@ namespace AccountantAssistant
             {
                 return date;
             }
-
             set
             {
                 date = value;
             }
-
         }
-
-
 
         #endregion
 
@@ -182,7 +146,5 @@ namespace AccountantAssistant
             this.referenceNumber = referenceNumber;
             this.Date = date;
         }
-
-
     }
 }

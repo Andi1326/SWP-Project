@@ -10,8 +10,6 @@ namespace AccountantAssistant
 {
     internal class Theme_White
     {
-        public static Color fc_button = Color.White;
-        public static Color bc_button = Color.Black;
         public static Color ButtonBgColor = ColorTranslator.FromHtml("#047dda");
 
         public static void ChangeThemeWhite(Control.ControlCollection container, Form f)

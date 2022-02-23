@@ -37,7 +37,6 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             this.Close();
-            
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -54,7 +53,7 @@ namespace AccountantAssistant
             }
             else
             {
-                if(tb_password.Text == "")
+                if(tb_password.Text.Equals(""))
                 {
                     MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler");
                 }
@@ -81,7 +80,5 @@ namespace AccountantAssistant
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
         }
-
-
     }
 }

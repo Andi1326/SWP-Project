@@ -24,7 +24,7 @@ namespace AccountantAssistant
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (Serverconnection.PasswordQuery(tb_password, Convert.ToInt32(frm_login.IDL)) == false)
+            if (!Serverconnection.PasswordQuery(tb_password, Convert.ToInt32(frm_login.IDL)))
             {
                 MessageBox.Show("Das eingegebene Passwort ist falsch", "Falsches Passwort", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

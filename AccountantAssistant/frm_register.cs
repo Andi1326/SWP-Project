@@ -28,7 +28,7 @@ namespace AccountantAssistant
         private void btn_login_Click(object sender, EventArgs e)
         {
             //chech if the textboxes are empty and if the user is already taken
-            if (tb_user.Text == "")
+            if (tb_user.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen einen Username eingeben", "Kein Username");
             }
@@ -36,31 +36,31 @@ namespace AccountantAssistant
             {
                 MessageBox.Show("Der Username ist bereits vergeben", "Username vorhanden");
             }
-            else if (tb_password.Text == "")
+            else if (tb_password.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Passwort eingeben", "Kein Passwort");
             }
-            else if (tb_passwordagain.Text == "")
+            else if (tb_passwordagain.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen das Passwort wiederholen", "Passwort wiederholen!");
             }
-            else if (tb_password.Text != tb_passwordagain.Text)
+            else if (!tb_password.Text.Equals(tb_passwordagain.Text))
             {
                 MessageBox.Show("Ihre Passwörter stimmen nicht überein", "Passwort stimmt nicht überein");
             }
-            else if (cb_sq1.SelectedItem == null)
+            else if (cb_sq1.SelectedItem.Equals(null))
             {
                 MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage");
             }
-            else if (tb_sq1.Text == "")
+            else if (tb_sq1.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler");
             }
-            else if (cb_sq2.SelectedItem == null)
+            else if (cb_sq2.SelectedItem.Equals(null))
             {
                 MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage");
             }
-            else if (tb_sq2.Text == "")
+            else if (tb_sq2.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler");
             }

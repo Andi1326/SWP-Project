@@ -31,11 +31,11 @@ namespace AccountantAssistant
             {
                 MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits");
             }
-            else if(tb_number.Text == "")
+            else if(tb_number.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen eine Kontonummer eingeben", "Keine Kontonummer");
             }
-            else if(tb_name.Text == "")
+            else if(tb_name.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen einen Kontonamen eingeben", "Kein Kontoname");
             }
