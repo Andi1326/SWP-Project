@@ -36,14 +36,14 @@ namespace AccountantAssistant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
+            this.btn_save_ref = new System.Windows.Forms.Button();
+            this.btn_delete_ref = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_save_ref = new System.Windows.Forms.Button();
-            this.btn_delete_ref = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,30 @@ namespace AccountantAssistant
             this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
             this.dgv_search_refNumber.TabIndex = 54;
             // 
+            // btn_save_ref
+            // 
+            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
+            this.btn_save_ref.Name = "btn_save_ref";
+            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_ref.TabIndex = 53;
+            this.btn_save_ref.Text = "Speichern";
+            this.btn_save_ref.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete_ref
+            // 
+            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
+            this.btn_delete_ref.Name = "btn_delete_ref";
+            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_ref.TabIndex = 52;
+            this.btn_delete_ref.Text = "Löschen";
+            this.btn_delete_ref.UseVisualStyleBackColor = true;
+            // 
             // column_date
             // 
             this.column_date.HeaderText = "Datum";
@@ -130,7 +154,7 @@ namespace AccountantAssistant
             // column_debit
             // 
             this.column_debit.FillWeight = 60F;
-            this.column_debit.HeaderText = "Soll";
+            this.column_debit.HeaderText = "Netto";
             this.column_debit.Name = "column_debit";
             this.column_debit.Width = 60;
             // 
@@ -145,33 +169,9 @@ namespace AccountantAssistant
             // column_credit
             // 
             this.column_credit.FillWeight = 80F;
-            this.column_credit.HeaderText = "Haben";
+            this.column_credit.HeaderText = "Brutto";
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
-            // 
-            // btn_save_ref
-            // 
-            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
-            this.btn_save_ref.Name = "btn_save_ref";
-            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ref.TabIndex = 53;
-            this.btn_save_ref.Text = "Speichern";
-            this.btn_save_ref.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete_ref
-            // 
-            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
-            this.btn_delete_ref.Name = "btn_delete_ref";
-            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ref.TabIndex = 52;
-            this.btn_delete_ref.Text = "Löschen";
-            this.btn_delete_ref.UseVisualStyleBackColor = true;
             // 
             // frm_search_date
             // 
@@ -194,13 +194,13 @@ namespace AccountantAssistant
 
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.DataGridView dgv_search_refNumber;
+        private System.Windows.Forms.Button btn_save_ref;
+        private System.Windows.Forms.Button btn_delete_ref;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
-        private System.Windows.Forms.Button btn_save_ref;
-        private System.Windows.Forms.Button btn_delete_ref;
     }
 }

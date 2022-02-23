@@ -66,18 +66,18 @@ namespace AccountantAssistant
         private void pb_close_Click(object sender, EventArgs e)
         {
             //if the parentForm ist frm_login it ends the program
-            if (this.ParentForm.Name == "frm_login")
+            if (this.ParentForm.Name.Equals("frm_login"))
             {
                 Application.Exit();
             }
-            else if (this.ParentForm.Name == "frm_register" || this.ParentForm.Name == "frm_forget_password")
+            else if (this.ParentForm.Name.Equals("frm_register") || this.ParentForm.Name.Equals("frm_forget_password"))
             {
                 //if the ParentForm is frm_register or frm_forget_password it hides the actual form and opens frm_login
                 this.ParentForm.Hide();
                 frm_login frm_login = new frm_login();
                 frm_login.ShowDialog();
             }
-            else if (this.ParentForm.Name == "frm_main")
+            else if (this.ParentForm.Name.Equals("frm_main"))
             {
                 //if the ParentForm is frm_main it hides the actual form and opens frm_login and removes the saveButton
                 Controls.Remove(frm_main.btn_ucTopBar_save);
