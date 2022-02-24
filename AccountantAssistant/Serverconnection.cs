@@ -505,5 +505,26 @@ namespace AccountantAssistant
 
         #endregion
 
+        #region balance
+
+
+        public static bool Balance(DataGridView dgv)
+        {
+            //proofs if the Ledger exists or not
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, Ledger.creditValue, Ledger.debitValue from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by number";
+            
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debitValue"]), Convert.ToDecimal(dr["creditValue"]));
+            }
+            con.Close();
+            return false;
+        }
+
+
+        #endregion
     }
 }

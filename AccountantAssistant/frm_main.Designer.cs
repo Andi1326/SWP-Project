@@ -61,7 +61,6 @@ namespace AccountantAssistant
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
             this.dgv_transaction = new System.Windows.Forms.DataGridView();
@@ -91,15 +90,18 @@ namespace AccountantAssistant
             this.printDia = new System.Windows.Forms.PrintDialog();
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pb_settings = new System.Windows.Forms.PictureBox();
+            this.pb_back = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_search.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
             this.pnl_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -132,6 +134,8 @@ namespace AccountantAssistant
             // tabPage_start
             // 
             this.tabPage_start.BackColor = System.Drawing.Color.White;
+            this.tabPage_start.Controls.Add(this.button1);
+            this.tabPage_start.Controls.Add(this.label4);
             this.tabPage_start.Controls.Add(this.cb_ledger);
             this.tabPage_start.Controls.Add(this.lbl_select_ledger);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
@@ -397,18 +401,6 @@ namespace AccountantAssistant
             this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // pb_back
-            // 
-            this.pb_back.BackColor = System.Drawing.Color.Transparent;
-            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
-            this.pb_back.Location = new System.Drawing.Point(30, 16);
-            this.pb_back.Name = "pb_back";
-            this.pb_back.Size = new System.Drawing.Size(39, 33);
-            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_back.TabIndex = 45;
-            this.pb_back.TabStop = false;
-            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
             // 
             // lbl_client
             // 
@@ -731,6 +723,29 @@ namespace AccountantAssistant
             this.rbtn_h.Text = "H";
             this.rbtn_h.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(360, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 18);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Summen- Saldenbilanz";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(519, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "Berechnen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pb_settings
             // 
             this.pb_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -743,6 +758,18 @@ namespace AccountantAssistant
             this.pb_settings.TabIndex = 46;
             this.pb_settings.TabStop = false;
             this.pb_settings.Click += new System.EventHandler(this.pb_settings_Click);
+            // 
+            // pb_back
+            // 
+            this.pb_back.BackColor = System.Drawing.Color.Transparent;
+            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
+            this.pb_back.Location = new System.Drawing.Point(30, 16);
+            this.pb_back.Name = "pb_back";
+            this.pb_back.Size = new System.Drawing.Size(39, 33);
+            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_back.TabIndex = 45;
+            this.pb_back.TabStop = false;
+            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
             // 
             // frm_main
             // 
@@ -789,9 +816,9 @@ namespace AccountantAssistant
             this.tabPage_ledger.ResumeLayout(false);
             this.tabPage_ledger.PerformLayout();
             this.pnl_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -854,5 +881,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_search_ledger;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_search_ledger;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
     }
 }
