@@ -31,21 +31,23 @@ namespace AccountantAssistant
                 {
                     component.ForeColor = Color.White;
                 }
-                else if(component is TabPage)
+                else if(component is TabPage || component is DataGridView || component is DateTimePicker)
                 {
                     component.ForeColor = Color.White;
                     component.BackColor = DarkBackColor;
                 }
-                else if(component is DataGridView)
+                else if(component is PictureBox && component.Name.ToString() == "pb_logo")
                 {
-                    component.ForeColor = Color.White;
-                    component.BackColor = DarkBackColor;
+                    component.BackgroundImage = Properties.Resources.logo_blue;
                 }
-                else if(component is DateTimePicker)
+                else if (component is PictureBox && component.Name.ToString() == "pb_settings")
                 {
-                    component.ForeColor = Color.White;
-                    component.BackColor = DarkBackColor;
+                    component.BackgroundImage = Properties.Resources.gearWhite;
                 }
+                //else if(component is UserControl)
+                //{
+                //    ucTopBar.Instance.ucTopBar_Load(null, null);
+                //}
             }
         }
     }

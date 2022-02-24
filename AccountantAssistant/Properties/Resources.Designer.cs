@@ -103,6 +103,16 @@ namespace AccountantAssistant.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gearWhite {
+            get {
+                object obj = ResourceManager.GetObject("gearWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_blue {
             get {
                 object obj = ResourceManager.GetObject("logo_blue", resourceCulture);

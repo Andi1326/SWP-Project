@@ -54,6 +54,7 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(98, 25);
             this.btn_back.TabIndex = 36;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -68,6 +69,7 @@ namespace AccountantAssistant
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(122, 25);
             this.btn_save.TabIndex = 35;
+            this.btn_save.Tag = "blue";
             this.btn_save.Text = "SPEICHERN";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);

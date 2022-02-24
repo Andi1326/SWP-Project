@@ -419,6 +419,7 @@ namespace AccountantAssistant
         private void pb_settings_Click(object sender, EventArgs e)
         {
             frm_settings frm_s = new frm_settings();
+            this.Hide();
             frm_s.ShowDialog();
         }
 

@@ -14,29 +14,29 @@ namespace AccountantAssistant
 
         public static void ChangeThemeWhite(Control.ControlCollection container, Form f)
         {
-            f.BackColor = Color.White;
-            foreach (Control component in container)
-            {
-                if (component is Button && !component.Tag.Equals("blue"))
-                {
-                    component.ForeColor = Color.Black;
-                    component.BackColor = Color.White;
-                }
-                else if(component is Button && component.Tag.Equals("blue"))
-                {
-                    component.ForeColor = Color.White;
-                    component.BackColor = ButtonBgColor;
-                }
-                else if(component is TextBox || component is ComboBox)
-                {
-                    component.ForeColor = Color.Black;
-                    component.BackColor = Color.White;
-                }
-                else if(component is Label)
-                {
-                    component.ForeColor = Color.Black;
-                }
-            }
+            //f.BackColor = Color.White;
+            //foreach (Control component in container)
+            //{
+            //    if (component is Button && !component.Tag.Equals("blue"))
+            //    {
+            //        component.ForeColor = Color.Black;
+            //        component.BackColor = Color.White;
+            //    }
+            //    else if(component is Button && component.Tag.Equals("blue"))
+            //    {
+            //        component.ForeColor = Color.White;
+            //        component.BackColor = ButtonBgColor;
+            //    }
+            //    else if(component is TextBox || component is ComboBox)
+            //    {
+            //        component.ForeColor = Color.Black;
+            //        component.BackColor = Color.White;
+            //    }
+            //    else if(component is Label)
+            //    {
+            //        component.ForeColor = Color.Black;
+            //    }
+            //}
         }
     }
 }

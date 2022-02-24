@@ -24,6 +24,7 @@ namespace AccountantAssistant
 
         private void frm_settings_Load(object sender, EventArgs e)
         {
+            Controls.Remove(ucTopBar.Instance);
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
@@ -36,7 +37,9 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            frm_main frm_m = new frm_main();
+            frm_m.ShowDialog();
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -77,6 +80,17 @@ namespace AccountantAssistant
             else
             {
                 darkmode = false;
+                this.Hide();
+                frm_settings frm_s = new frm_settings();
+                frm_s.ShowDialog();
+
+                //Controls.Remove(ucTopBar.Instance);
+                //Controls.Add(ucTopBar.Instance);
+                //ucTopBar.Instance.Dock = DockStyle.Top;
+                //ucTopBar.Instance.BringToFront();
+
+                //ucTopBar.Instance.Update();
+
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
         }

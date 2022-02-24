@@ -60,6 +60,7 @@ namespace AccountantAssistant
             this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_close.TabIndex = 10;
             this.pb_close.TabStop = false;
+            this.pb_close.Tag = "normal";
             this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
             this.pb_close.MouseLeave += new System.EventHandler(this.pb_close_MouseLeave);
             this.pb_close.MouseHover += new System.EventHandler(this.pb_close_MouseHover);
@@ -74,6 +75,7 @@ namespace AccountantAssistant
             this.pb_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_maximize.TabIndex = 9;
             this.pb_maximize.TabStop = false;
+            this.pb_maximize.Tag = "normal";
             this.pb_maximize.Click += new System.EventHandler(this.pb_maximize_Click);
             this.pb_maximize.MouseLeave += new System.EventHandler(this.pb_maximize_MouseLeave);
             this.pb_maximize.MouseHover += new System.EventHandler(this.pb_maximize_MouseHover);
@@ -88,6 +90,7 @@ namespace AccountantAssistant
             this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_minimize.TabIndex = 8;
             this.pb_minimize.TabStop = false;
+            this.pb_minimize.Tag = "normal";
             this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
             this.pb_minimize.MouseLeave += new System.EventHandler(this.pb_minimize_MouseLeave);
             this.pb_minimize.MouseHover += new System.EventHandler(this.pb_minimize_MouseHover);
@@ -115,8 +118,8 @@ namespace AccountantAssistant
 
         private System.Windows.Forms.Label lbl_header;
         public System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.PictureBox pb_minimize;
         private System.Windows.Forms.PictureBox pb_maximize;
         private System.Windows.Forms.PictureBox pb_close;
+        public System.Windows.Forms.PictureBox pb_minimize;
     }
 }

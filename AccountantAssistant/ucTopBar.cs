@@ -14,6 +14,8 @@ namespace AccountantAssistant
     {
         //creates the ucTopBar instance
         private static ucTopBar _instance;
+
+
         public static ucTopBar Instance
         {
             get
@@ -30,6 +32,7 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        #region pb_minimize
 
         private void pb_minimize_MouseHover(object sender, EventArgs e)
         {
@@ -49,6 +52,23 @@ namespace AccountantAssistant
             this.ParentForm.WindowState = FormWindowState.Minimized;
         }
 
+        #endregion
+
+        #region pb_maximize
+        private void pb_maximize_MouseHover(object sender, EventArgs e)
+        {
+            //if the maximize Box gets hovered the backcolor changes to LightGray
+            pb_maximize.BackColor = Color.LightGray;
+        }
+
+        private void pb_maximize_MouseLeave(object sender, EventArgs e)
+        {
+            //if the maximize Box gets hovered the backcolor changes to White
+
+            pb_maximize.BackColor = Color.Transparent;
+
+        }
+
         private void pb_maximize_Click(object sender, EventArgs e)
         {
             //if the Windowstate is already Maximized it sets to normal
@@ -63,6 +83,9 @@ namespace AccountantAssistant
             }
         }
 
+        #endregion
+
+        #region pb_close
         private void pb_close_Click(object sender, EventArgs e)
         {
             //if the parentForm ist frm_login it ends the program
@@ -92,20 +115,6 @@ namespace AccountantAssistant
             }
         }
 
-        private void pb_maximize_MouseHover(object sender, EventArgs e)
-        {
-            //if the maximize Box gets hovered the backcolor changes to LightGray
-            pb_maximize.BackColor = Color.LightGray;
-        }
-
-        private void pb_maximize_MouseLeave(object sender, EventArgs e)
-        {
-            //if the maximize Box gets hovered the backcolor changes to White
-            
-            pb_maximize.BackColor = Color.Transparent;
-            
-        }
-
         private void pb_close_MouseHover(object sender, EventArgs e)
         {
             //if the close Box gets hovered the backcolor changes to Red
@@ -118,8 +127,11 @@ namespace AccountantAssistant
             pb_close.BackColor = Color.Transparent;
         }
 
+        #endregion
+
         private void ucTopBar_Load(object sender, EventArgs e)
         {
+
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this.ParentForm);
@@ -134,6 +146,11 @@ namespace AccountantAssistant
                 pb_maximize.Image = Properties.Resources.MaximizeBox;
                 pb_minimize.Image = Properties.Resources.Minimize_Box2;
             }
+        }
+
+        public static void ChangeImages()
+        {
+            
         }
     }
 }

@@ -36,9 +36,9 @@ namespace AccountantAssistant
             this.tb_number = new System.Windows.Forms.TextBox();
             this.lbl_ledger_name = new System.Windows.Forms.Label();
             this.lbl_ledger_number = new System.Windows.Forms.Label();
-            this.pb_logo = new System.Windows.Forms.PictureBox();
             this.lbl_ledger_type = new System.Windows.Forms.Label();
             this.cb_type = new System.Windows.Forms.ComboBox();
+            this.pb_logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 5;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -66,6 +67,7 @@ namespace AccountantAssistant
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(122, 25);
             this.btn_create.TabIndex = 4;
+            this.btn_create.Tag = "blue";
             this.btn_create.Text = "ERSTELLEN";
             this.btn_create.UseVisualStyleBackColor = false;
             this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
@@ -110,18 +112,6 @@ namespace AccountantAssistant
             this.lbl_ledger_number.TabIndex = 45;
             this.lbl_ledger_number.Text = "Kontonummer:";
             // 
-            // pb_logo
-            // 
-            this.pb_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pb_logo.BackColor = System.Drawing.Color.Transparent;
-            this.pb_logo.Image = global::AccountantAssistant.Properties.Resources.logo_small;
-            this.pb_logo.Location = new System.Drawing.Point(12, 12);
-            this.pb_logo.Name = "pb_logo";
-            this.pb_logo.Size = new System.Drawing.Size(192, 134);
-            this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_logo.TabIndex = 44;
-            this.pb_logo.TabStop = false;
-            // 
             // lbl_ledger_type
             // 
             this.lbl_ledger_type.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -147,6 +137,19 @@ namespace AccountantAssistant
             this.cb_type.Size = new System.Drawing.Size(216, 21);
             this.cb_type.TabIndex = 3;
             // 
+            // pb_logo
+            // 
+            this.pb_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_logo.BackColor = System.Drawing.Color.Transparent;
+            this.pb_logo.BackgroundImage = global::AccountantAssistant.Properties.Resources.logo_small;
+            this.pb_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_logo.Location = new System.Drawing.Point(11, 9);
+            this.pb_logo.Name = "pb_logo";
+            this.pb_logo.Size = new System.Drawing.Size(192, 134);
+            this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_logo.TabIndex = 61;
+            this.pb_logo.TabStop = false;
+            // 
             // frm_new_ledger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +157,7 @@ namespace AccountantAssistant
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(533, 298);
             this.ControlBox = false;
+            this.Controls.Add(this.pb_logo);
             this.Controls.Add(this.cb_type);
             this.Controls.Add(this.lbl_ledger_type);
             this.Controls.Add(this.btn_back);
@@ -162,7 +166,6 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_number);
             this.Controls.Add(this.lbl_ledger_name);
             this.Controls.Add(this.lbl_ledger_number);
-            this.Controls.Add(this.pb_logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -184,8 +187,8 @@ namespace AccountantAssistant
         private System.Windows.Forms.TextBox tb_number;
         private System.Windows.Forms.Label lbl_ledger_name;
         private System.Windows.Forms.Label lbl_ledger_number;
-        private System.Windows.Forms.PictureBox pb_logo;
         private System.Windows.Forms.Label lbl_ledger_type;
         private System.Windows.Forms.ComboBox cb_type;
+        private System.Windows.Forms.PictureBox pb_logo;
     }
 }
