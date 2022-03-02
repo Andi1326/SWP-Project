@@ -40,15 +40,17 @@ namespace AccountantAssistant
         private void frm_balance_Load(object sender, EventArgs e)
         {
             
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            Controls.Add(ucTopBarWhite.Instance);
+            ucTopBarWhite.Instance.Dock = DockStyle.Top;
+            ucTopBarWhite.Instance.BringToFront();
+            ucTopBarWhite.Instance.Controls.Add(btn_ucTopBar_save);
             Serverconnection.Balance(dgv_balance);
+
+            
           
         }
-
-
+        
+        
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
 

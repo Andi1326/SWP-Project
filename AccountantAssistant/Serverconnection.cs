@@ -512,15 +512,26 @@ namespace AccountantAssistant
 
         public static bool Balance(DataGridView dgv)
         {
-            //proofs if the Ledger exists or not
+            decimal saldo;
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, Ledger.creditValue, Ledger.debitValue from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by number";
-            
+            //cmd.CommandText = "Select  AllLedgers.number, AllLedgers.name, Ledger.creditValue, Ledger.debitValue from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE ";
+            cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, SUM(Ledger.creditValue) as credit, SUM(Ledger.debitValue) as debit from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by AllLedgers.number, AllLedgers.name";
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debitValue"]), Convert.ToDecimal(dr["creditValue"]));
+                if(Convert.ToDecimal(dr["debit"]) > Convert.ToDecimal(dr["credit"]))
+                {
+                    saldo = Convert.ToDecimal(dr["debit"]) - Convert.ToDecimal(dr["credit"]);
+                }
+                else
+                {
+                    saldo = Convert.ToDecimal(dr["credit"]) - Convert.ToDecimal(dr["debit"]);
+                }
+                //dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debitValue"]), Convert.ToDecimal(dr["creditValue"]));
+                dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debit"]), Convert.ToDecimal(dr["credit"]), saldo);
+
             }
             con.Close();
             return false;

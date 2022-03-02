@@ -31,19 +31,20 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
             }
 
             //sets Keypreview to true
             KeyPreview = true;
-
-            //Adds User Control to the Form
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
 
             //Loads the questions of the User
             tb_sq1_question.Text = Serverconnection.SaveSQ1_Question(frm_login.IDL);
