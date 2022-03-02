@@ -34,6 +34,7 @@ namespace AccountantAssistant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_refNumber));
             this.btn_delete_ref = new System.Windows.Forms.Button();
             this.btn_save_ref = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
@@ -180,12 +181,13 @@ namespace AccountantAssistant
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 520);
+            this.ClientSize = new System.Drawing.Size(587, 520);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);
             this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_refNumber";
             this.Load += new System.EventHandler(this.frm_search_refNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).EndInit();

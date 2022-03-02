@@ -128,11 +128,17 @@
     <Compile Include="Serverconnection.cs" />
     <Compile Include="Theme_White.cs" />
     <Compile Include="Theme_Dark.cs" />
-    <Compile Include="ucTopBar.cs">
+    <Compile Include="ucTopBarDark.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucTopBar.Designer.cs">
-      <DependentUpon>ucTopBar.cs</DependentUpon>
+    <Compile Include="ucTopBarDark.Designer.cs">
+      <DependentUpon>ucTopBarDark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucTopBarWhite.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTopBarWhite.Designer.cs">
+      <DependentUpon>ucTopBarWhite.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frm_balance.resx">
       <DependentUpon>frm_balance.cs</DependentUpon>
@@ -180,8 +186,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucTopBar.resx">
-      <DependentUpon>ucTopBar.cs</DependentUpon>
+    <EmbeddedResource Include="ucTopBarDark.resx">
+      <DependentUpon>ucTopBarDark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTopBarWhite.resx">
+      <DependentUpon>ucTopBarWhite.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
