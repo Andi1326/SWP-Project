@@ -37,8 +37,8 @@ namespace AccountantAssistant
             this.tb_user = new System.Windows.Forms.TextBox();
             this.lbl_password = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pb_logo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_register
@@ -65,6 +65,7 @@ namespace AccountantAssistant
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(122, 25);
             this.btn_login.TabIndex = 14;
+            this.btn_login.Tag = "blue";
             this.btn_login.Text = "LOGIN";
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
@@ -78,6 +79,7 @@ namespace AccountantAssistant
             this.lbl_forgot.Name = "lbl_forgot";
             this.lbl_forgot.Size = new System.Drawing.Size(108, 13);
             this.lbl_forgot.TabIndex = 13;
+            this.lbl_forgot.Tag = "";
             this.lbl_forgot.Text = "Passwort vergessen?";
             this.lbl_forgot.Click += new System.EventHandler(this.lbl_forgot_Click);
             // 
@@ -123,17 +125,18 @@ namespace AccountantAssistant
             this.lbl_user.TabIndex = 9;
             this.lbl_user.Text = "Benutzer:";
             // 
-            // pictureBox1
+            // pb_logo
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 134);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.pb_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_logo.BackColor = System.Drawing.Color.Transparent;
+            this.pb_logo.BackgroundImage = global::AccountantAssistant.Properties.Resources.logo_small;
+            this.pb_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_logo.Location = new System.Drawing.Point(12, 23);
+            this.pb_logo.Name = "pb_logo";
+            this.pb_logo.Size = new System.Drawing.Size(192, 134);
+            this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_logo.TabIndex = 8;
+            this.pb_logo.TabStop = false;
             // 
             // frm_login
             // 
@@ -149,7 +152,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_user);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_user);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -158,7 +161,7 @@ namespace AccountantAssistant
             this.Name = "frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +176,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.TextBox tb_user;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_user;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_logo;
     }
 }
 

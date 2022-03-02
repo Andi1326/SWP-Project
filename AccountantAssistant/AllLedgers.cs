@@ -14,8 +14,6 @@ namespace AccountantAssistant
         private string name;
         private string type;
 
-
-
         //get/set
         #region Get/Set
 
@@ -37,14 +35,10 @@ namespace AccountantAssistant
             {
                 return number;
             }
-
             set
             {
                 number = value;
             }
-
-
-
         }
 
 
@@ -54,14 +48,10 @@ namespace AccountantAssistant
             {
                 return name;
             }
-
             set
             {
                 name = value;
             }
-
-
-
         }
 
         public string Type

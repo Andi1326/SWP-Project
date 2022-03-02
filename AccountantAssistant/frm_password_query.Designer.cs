@@ -66,6 +66,7 @@ namespace AccountantAssistant
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(118, 25);
             this.btn_ok.TabIndex = 55;
+            this.btn_ok.Tag = "blue";
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
@@ -80,6 +81,7 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(118, 25);
             this.btn_back.TabIndex = 56;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Abbrechen";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -99,6 +101,7 @@ namespace AccountantAssistant
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_password_query";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frm_password_query_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

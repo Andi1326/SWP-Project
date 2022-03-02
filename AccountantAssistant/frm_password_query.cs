@@ -24,7 +24,7 @@ namespace AccountantAssistant
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (Serverconnection.PasswordQuery(tb_password, Convert.ToInt32(frm_login.IDL)) == false)
+            if (!Serverconnection.PasswordQuery(tb_password, Convert.ToInt32(frm_login.IDL)))
             {
                 MessageBox.Show("Das eingegebene Passwort ist falsch", "Falsches Passwort", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -32,6 +32,18 @@ namespace AccountantAssistant
             {
                 frm_settings.password_change = true;
                 this.Close();
+            }
+        }
+
+        private void frm_password_query_Load(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
             }
         }
     }

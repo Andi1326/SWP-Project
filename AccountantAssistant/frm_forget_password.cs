@@ -28,6 +28,15 @@ namespace AccountantAssistant
 
         private void frm_forget_password_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //sets Keypreview to true
             KeyPreview = true;
 
@@ -55,31 +64,31 @@ namespace AccountantAssistant
         private void btn_save_Click(object sender, EventArgs e)
         {
             //Check if everything has been typed in correctly
-            if (tb_password.Text == "")
+            if (tb_password.Text.Equals(""))
             {
                 MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler");
             }
-            else if (tb_passwordagain.Text == "")
+            else if (tb_passwordagain.Text.Equals(""))
             {
                 MessageBox.Show("Bitte wiederholen Sie das Passwort", "Fehler");
             }
-            else if (tb_password.Text != tb_passwordagain.Text)
+            else if (!tb_password.Text.Equals(tb_passwordagain.Text))
             {
                 MessageBox.Show("Passwörter stimmen nicht überein", "Fehler");
             }
-            else if (tb_sq1.Text == "")
+            else if (tb_sq1.Text.Equals(""))
             {
                 MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 1 ein", "Fehler");
             }
-            else if (tb_sq2.Text == "")
+            else if (tb_sq2.Text.Equals(""))
             {
                 MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 2 ein", "Fehler");
             }
-            else if (tb_sq1.Text != Serverconnection.SaveSQ1(frm_login.IDL))
+            else if (!tb_sq1.Text.Equals(Serverconnection.SaveSQ1(frm_login.IDL)))
             {
                 MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 1 stimmt nicht überein", "Fehler");
             }
-            else if (tb_sq2.Text != Serverconnection.SaveSQ2(frm_login.IDL))
+            else if (!tb_sq2.Text.Equals(Serverconnection.SaveSQ2(frm_login.IDL)))
             {
                 MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 2 stimmt nicht überein", "Fehler");
             }

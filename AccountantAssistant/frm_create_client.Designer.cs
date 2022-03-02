@@ -47,10 +47,10 @@ namespace AccountantAssistant
             this.tb_plz = new System.Windows.Forms.TextBox();
             this.tb_place = new System.Windows.Forms.TextBox();
             this.tb_country = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_logo = new System.Windows.Forms.PictureBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // label
@@ -242,17 +242,18 @@ namespace AccountantAssistant
             this.tb_country.Size = new System.Drawing.Size(216, 26);
             this.tb_country.TabIndex = 9;
             // 
-            // pictureBox1
+            // pb_logo
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AccountantAssistant.Properties.Resources.logo_small;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 134);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.pb_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_logo.BackColor = System.Drawing.Color.Transparent;
+            this.pb_logo.BackgroundImage = global::AccountantAssistant.Properties.Resources.logo_small;
+            this.pb_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_logo.Location = new System.Drawing.Point(12, 12);
+            this.pb_logo.Name = "pb_logo";
+            this.pb_logo.Size = new System.Drawing.Size(192, 134);
+            this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_logo.TabIndex = 18;
+            this.pb_logo.TabStop = false;
             // 
             // btn_login
             // 
@@ -265,6 +266,7 @@ namespace AccountantAssistant
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(122, 25);
             this.btn_login.TabIndex = 10;
+            this.btn_login.Tag = "blue";
             this.btn_login.Text = "ERSTELLEN";
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
@@ -279,6 +281,7 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 11;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -292,7 +295,7 @@ namespace AccountantAssistant
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_logo);
             this.Controls.Add(this.tb_country);
             this.Controls.Add(this.tb_place);
             this.Controls.Add(this.tb_plz);
@@ -319,7 +322,7 @@ namespace AccountantAssistant
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_create_client_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,7 +348,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.TextBox tb_plz;
         private System.Windows.Forms.TextBox tb_place;
         private System.Windows.Forms.TextBox tb_country;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_logo;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Button btn_back;
     }

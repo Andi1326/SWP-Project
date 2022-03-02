@@ -31,12 +31,12 @@ namespace AccountantAssistant
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTopBar));
             this.lbl_header = new System.Windows.Forms.Label();
-            this.pb_minimize = new System.Windows.Forms.PictureBox();
-            this.pb_maximize = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).BeginInit();
+            this.pb_maximize = new System.Windows.Forms.PictureBox();
+            this.pb_minimize = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -50,19 +50,20 @@ namespace AccountantAssistant
             this.lbl_header.TabIndex = 0;
             this.lbl_header.Text = "ACAS - Accountant Assistant";
             // 
-            // pb_minimize
+            // pb_close
             // 
-            this.pb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(676, 0);
-            this.pb_minimize.Name = "pb_minimize";
-            this.pb_minimize.Size = new System.Drawing.Size(35, 29);
-            this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_minimize.TabIndex = 8;
-            this.pb_minimize.TabStop = false;
-            this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
-            this.pb_minimize.MouseLeave += new System.EventHandler(this.pb_minimize_MouseLeave);
-            this.pb_minimize.MouseHover += new System.EventHandler(this.pb_minimize_MouseHover);
+            this.pb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
+            this.pb_close.Location = new System.Drawing.Point(738, 0);
+            this.pb_close.Name = "pb_close";
+            this.pb_close.Size = new System.Drawing.Size(35, 29);
+            this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_close.TabIndex = 10;
+            this.pb_close.TabStop = false;
+            this.pb_close.Tag = "normal";
+            this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
+            this.pb_close.MouseLeave += new System.EventHandler(this.pb_close_MouseLeave);
+            this.pb_close.MouseHover += new System.EventHandler(this.pb_close_MouseHover);
             // 
             // pb_maximize
             // 
@@ -74,23 +75,25 @@ namespace AccountantAssistant
             this.pb_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pb_maximize.TabIndex = 9;
             this.pb_maximize.TabStop = false;
+            this.pb_maximize.Tag = "normal";
             this.pb_maximize.Click += new System.EventHandler(this.pb_maximize_Click);
             this.pb_maximize.MouseLeave += new System.EventHandler(this.pb_maximize_MouseLeave);
             this.pb_maximize.MouseHover += new System.EventHandler(this.pb_maximize_MouseHover);
             // 
-            // pb_close
+            // pb_minimize
             // 
-            this.pb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(738, 0);
-            this.pb_close.Name = "pb_close";
-            this.pb_close.Size = new System.Drawing.Size(35, 29);
-            this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_close.TabIndex = 10;
-            this.pb_close.TabStop = false;
-            this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
-            this.pb_close.MouseLeave += new System.EventHandler(this.pb_close_MouseLeave);
-            this.pb_close.MouseHover += new System.EventHandler(this.pb_close_MouseHover);
+            this.pb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
+            this.pb_minimize.Location = new System.Drawing.Point(676, 0);
+            this.pb_minimize.Name = "pb_minimize";
+            this.pb_minimize.Size = new System.Drawing.Size(35, 29);
+            this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_minimize.TabIndex = 8;
+            this.pb_minimize.TabStop = false;
+            this.pb_minimize.Tag = "normal";
+            this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
+            this.pb_minimize.MouseLeave += new System.EventHandler(this.pb_minimize_MouseLeave);
+            this.pb_minimize.MouseHover += new System.EventHandler(this.pb_minimize_MouseHover);
             // 
             // ucTopBar
             // 
@@ -103,9 +106,9 @@ namespace AccountantAssistant
             this.Name = "ucTopBar";
             this.Size = new System.Drawing.Size(776, 29);
             this.Load += new System.EventHandler(this.ucTopBar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +118,8 @@ namespace AccountantAssistant
 
         private System.Windows.Forms.Label lbl_header;
         public System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.PictureBox pb_minimize;
         private System.Windows.Forms.PictureBox pb_maximize;
         private System.Windows.Forms.PictureBox pb_close;
+        public System.Windows.Forms.PictureBox pb_minimize;
     }
 }
