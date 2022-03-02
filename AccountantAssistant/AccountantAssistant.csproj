@@ -49,6 +49,12 @@
     <Compile Include="AccTransaction.cs" />
     <Compile Include="AllLedgers.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="frm_balance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_balance.Designer.cs">
+      <DependentUpon>frm_balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_create_client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="ucTopBar.Designer.cs">
       <DependentUpon>ucTopBar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ButtonDark.resx">
+      <DependentUpon>ButtonDark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_balance.resx">
+      <DependentUpon>frm_balance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_create_client.resx">
       <DependentUpon>frm_create_client.cs</DependentUpon>
     </EmbeddedResource>

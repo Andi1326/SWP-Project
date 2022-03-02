@@ -68,7 +68,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (username.Text == dr["username"].ToString())
+                if (username.Text.Equals(dr["username"].ToString()))
                 {
                     con.Close();
                     return true;
@@ -87,7 +87,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text == dr["password"].ToString())
+                if (password.Text.Equals(dr["password"].ToString()))
                 {
                     con.Close();
                     return true;
@@ -106,7 +106,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text == dr["password"].ToString())
+                if (password.Text.Equals(dr["password"].ToString()))
                 {
                     con.Close();
                     return true;
@@ -250,7 +250,7 @@ namespace AccountantAssistant
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    if (number.Text == dr["number"].ToString())
+                    if (number.Text.Equals(dr["number"].ToString()))
                     {
                         con.Close();
                         return true;
@@ -423,17 +423,54 @@ namespace AccountantAssistant
 
         public static void Search_Date(string search_date, DataGridView dgv, int idc)
         {
+            string type = null;
+            int number = 0;
             //search for Date
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+            cmd.CommandText = "Select ledger1 from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                number = Convert.ToInt32(dr["ledger1"]);
+                
             }
             con.Close();
 
+            type = Serverconnection.SaveType(number, idc);
+
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select date, referenceNumber, ledger1,  netto, ledger2, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+            
+            dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+            //}
+            //con.Close();
+
+            while (dr.Read())
+            {
+                
+
+                if (type == "AB" || type == "AK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]),0);
+                }
+                else if (type == "PB" || type == "EK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]),0, Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                }
+                else
+                {
+                    MessageBox.Show("Es ist ein Fehler passiert");
+                }
+
+
+            }
+            con.Close();
         }
 
 
@@ -470,6 +507,28 @@ namespace AccountantAssistant
 
         #endregion
 
+        #region balance
+
+
+        public static bool Balance(DataGridView dgv)
+        {
+            //proofs if the Ledger exists or not
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, Ledger.creditValue, Ledger.debitValue from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by number";
+            
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debitValue"]), Convert.ToDecimal(dr["creditValue"]));
+            }
+            con.Close();
+            return false;
+        }
+
+
+        #endregion
+          
         #region delete & save
 
 
