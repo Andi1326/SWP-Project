@@ -35,10 +35,22 @@ namespace AccountantAssistant
         public static Button btn_ucTopBar_save = new Button();
         private void frm_search_refNumber_Load(object sender, EventArgs e)
         {
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
+            }
+
+            ucTopBarWhite.Instance.Controls.Add(btn_ucTopBar_save);
             Serverconnection.Search_refNumber(search_item, dgv_search_refNumber, frm_main.IDC);
         }
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)

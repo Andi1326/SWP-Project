@@ -15,38 +15,15 @@ namespace AccountantAssistant
         public frm_main()
         {
             InitializeComponent();
-            //Initiazlizes the Button btn_ucTopBar_save
-            #region btn_ucTopBar_save Button
-            btn_ucTopBar_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            if (frm_settings.darkmode)
-            {
-                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButtonWhite;
-            }
-            else
-            {
-                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
-            }
-            btn_ucTopBar_save.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_ucTopBar_save.FlatAppearance.BorderSize = 0;
-            btn_ucTopBar_save.FlatStyle = FlatStyle.Flat;
-            btn_ucTopBar_save.Location = new Point(3, 3);
-            btn_ucTopBar_save.Name = "btn_save";
-            btn_ucTopBar_save.Size = new Size(30, 19);
-            btn_ucTopBar_save.TabIndex = 8;
-            btn_ucTopBar_save.UseVisualStyleBackColor = true;
-            btn_ucTopBar_save.Click += new System.EventHandler(this.btn_ucTopbar_save_Click);
-            #endregion
         }
 
         public static int IDC;
         private static int transaction_count;
 
-        public static Button btn_ucTopBar_save = new Button();
 
         private void btn_back_Click(object sender, EventArgs e)
         {
             //Closes frm_main and opens frm_login
-            btn_ucTopBar_save.Visible = false;
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -57,18 +34,22 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = true;
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.PbSaveVisible();
             }
 
             //Adds User Control to the Form and adds the Button to the User Control
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
-            btn_ucTopBar_save.Visible = true;
+
 
             //selects the tabPage_start
             tabCon1.SelectedTab = tabPage_start;
@@ -181,11 +162,9 @@ namespace AccountantAssistant
         {
             //opens frm_create_client
             pnl_1.Visible = false;
-            btn_ucTopBar_save.Visible = false;
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
             Serverconnection.GetClient(cb_clients);
-            btn_ucTopBar_save.Visible = true;
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
@@ -197,10 +176,8 @@ namespace AccountantAssistant
             else
             {
                 //opens frm_new_ledger
-                btn_ucTopBar_save.Visible = false;
                 frm_new_ledger frm_new_ledger = new frm_new_ledger();
                 frm_new_ledger.ShowDialog();
-                btn_ucTopBar_save.Visible = true;
             }
         }
 
@@ -242,7 +219,7 @@ namespace AccountantAssistant
             }
         }
 
-        private void btn_ucTopbar_save_Click(object sender, EventArgs e)
+        public void ucTopbar_save_Click(object sender, EventArgs e)
         {
             //executes the Save Function
             transaction_count = dgv_transaction.Rows.Count;

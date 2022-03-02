@@ -39,10 +39,22 @@ namespace AccountantAssistant
 
         private void frm_search_ledger_Load(object sender, EventArgs e)
         {
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
+            }
+
+            ucTopBarWhite.Instance.Controls.Add(btn_ucTopBar_save);
             Serverconnection.Search_ledger(search_ledger, dgv_search_ledger, frm_main.IDC);
         }
         public static Button btn_ucTopBar_save = new Button();
