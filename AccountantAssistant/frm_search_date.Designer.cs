@@ -34,6 +34,7 @@ namespace AccountantAssistant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_date));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,6 +187,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_search_refNumber);
             this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_date";
             this.Load += new System.EventHandler(this.frm_search_date_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).EndInit();
