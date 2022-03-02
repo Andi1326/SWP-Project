@@ -37,13 +37,13 @@ namespace AccountantAssistant
             this.btn_delete_ref = new System.Windows.Forms.Button();
             this.btn_save_ref = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
-            this.btn_back = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@ namespace AccountantAssistant
             this.btn_delete_ref.TabIndex = 8;
             this.btn_delete_ref.Text = "Löschen";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
+            this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
             // btn_save_ref
             // 
@@ -70,6 +71,7 @@ namespace AccountantAssistant
             this.btn_save_ref.TabIndex = 9;
             this.btn_save_ref.Text = "Speichern";
             this.btn_save_ref.UseVisualStyleBackColor = true;
+            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
             // 
             // dgv_search_refNumber
             // 
@@ -115,20 +117,6 @@ namespace AccountantAssistant
             this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
             this.dgv_search_refNumber.TabIndex = 50;
             // 
-            // btn_back
-            // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(3, 491);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 51;
-            this.btn_back.Text = "Zurück";
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
             // column_date
             // 
             this.column_date.HeaderText = "Datum";
@@ -172,6 +160,20 @@ namespace AccountantAssistant
             this.column_credit.HeaderText = "Haben";
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(3, 491);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(122, 25);
+            this.btn_back.TabIndex = 51;
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // frm_search_refNumber
             // 

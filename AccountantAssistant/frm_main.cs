@@ -18,7 +18,14 @@ namespace AccountantAssistant
             //Initiazlizes the Button btn_ucTopBar_save
             #region btn_ucTopBar_save Button
             btn_ucTopBar_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
+            if (frm_settings.darkmode)
+            {
+                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButtonWhite;
+            }
+            else
+            {
+                btn_ucTopBar_save.BackgroundImage = Properties.Resources.SaveButton;
+            }
             btn_ucTopBar_save.BackgroundImageLayout = ImageLayout.Zoom;
             btn_ucTopBar_save.FlatAppearance.BorderSize = 0;
             btn_ucTopBar_save.FlatStyle = FlatStyle.Flat;
@@ -39,7 +46,7 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             //Closes frm_main and opens frm_login
-            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+            btn_ucTopBar_save.Visible = false;
             frm_login frm_Login = new frm_login();
             this.Hide();
             frm_Login.ShowDialog();
@@ -47,11 +54,21 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //Adds User Control to the Form and adds the Button to the User Control
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            btn_ucTopBar_save.Visible = true;
 
             //selects the tabPage_start
             tabCon1.SelectedTab = tabPage_start;
@@ -109,27 +126,27 @@ namespace AccountantAssistant
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
             //then sets the Text to "" of the Textboxes
-            if (cb_ledger.Text == "")
+            if (cb_ledger.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
             }
-            else if (date_picker.Text == "")
+            else if (date_picker.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Datum eingeben", "Fehler");
             }
-            else if (tb_referenceNumber.Text == "")
+            else if (tb_referenceNumber.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehler");
             }
-            else if(cb_contraLedger.Text == "")
+            else if(cb_contraLedger.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Gegenkonto eingeben", "Fehler");
             }
-            else if (tb_netto.Text == "")
+            else if (tb_netto.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen den Nettobetrag eingeben eingeben", "Fehler");
             }
-            else if (cb_salesTaxRate.Text == "")
+            else if (cb_salesTaxRate.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen einen Umsatzsteuersatz eingeben", "Fehler");
             }
@@ -158,21 +175,17 @@ namespace AccountantAssistant
                     MessageBox.Show(ex.ToString(), "Buchung konnte nicht durchgeführt werden");
                 }
             }
-            
         }
 
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             //opens frm_create_client
             pnl_1.Visible = false;
-            ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+            btn_ucTopBar_save.Visible = false;
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
             Serverconnection.GetClient(cb_clients);
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-            ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+            btn_ucTopBar_save.Visible = true;
         }
 
         private void btn_newLedger_Click(object sender, EventArgs e)
@@ -184,14 +197,10 @@ namespace AccountantAssistant
             else
             {
                 //opens frm_new_ledger
-                ucTopBar.Instance.Controls.Remove(btn_ucTopBar_save);
+                btn_ucTopBar_save.Visible = false;
                 frm_new_ledger frm_new_ledger = new frm_new_ledger();
                 frm_new_ledger.ShowDialog();
-
-                Controls.Add(ucTopBar.Instance);
-                ucTopBar.Instance.Dock = DockStyle.Top;
-                ucTopBar.Instance.BringToFront();
-                ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
+                btn_ucTopBar_save.Visible = true;
             }
         }
 
@@ -204,7 +213,7 @@ namespace AccountantAssistant
             {
                 Save_Transaction();
             }
-            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
             {
                 MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
@@ -223,7 +232,7 @@ namespace AccountantAssistant
             {
                 Save_Transaction();
             }
-            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
             {
                 MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
@@ -241,7 +250,7 @@ namespace AccountantAssistant
             {
                 Save_Transaction();
             }
-            else if (Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
             {
                 MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
@@ -345,7 +354,6 @@ namespace AccountantAssistant
             }
         }
 
-
         private void btn_new_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
@@ -377,7 +385,6 @@ namespace AccountantAssistant
             {
                 printDoc.Print();
             }
-
             pnl_1.Visible = false;
         }
 
@@ -412,6 +419,7 @@ namespace AccountantAssistant
         private void pb_settings_Click(object sender, EventArgs e)
         {
             frm_settings frm_s = new frm_settings();
+            this.Hide();
             frm_s.ShowDialog();
         }
 

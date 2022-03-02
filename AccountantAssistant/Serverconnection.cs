@@ -18,6 +18,7 @@ namespace AccountantAssistant
         private static SqlDataReader dr;
 
         public static DataTable dt = new DataTable();
+        public static DataTable dt1 = new DataTable();
 
         private static SqlDataAdapter Da = new SqlDataAdapter();
         private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
@@ -54,6 +55,7 @@ namespace AccountantAssistant
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
+                con.Close();
             }
         }
 
@@ -526,5 +528,44 @@ namespace AccountantAssistant
 
 
         #endregion
+          
+        #region delete & save
+
+
+        public static void DeleteData(DataGridView dgv)
+        {
+            //Deletes the Row which is selected
+            try
+            {
+                con.Open();
+                dgv.Rows.RemoveAt(dgv.CurrentRow.Index);
+                Da.Update(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public static void SaveData()
+        {
+            //saves the data in the datagridview
+            try
+            {
+                con.Open();
+                Da.UpdateCommand = cmdbuilder.GetUpdateCommand();
+                Da.Update(dt1);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                con.Close();
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -48,12 +48,6 @@
   <ItemGroup>
     <Compile Include="AccTransaction.cs" />
     <Compile Include="AllLedgers.cs" />
-    <Compile Include="ButtonDark.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ButtonDark.Designer.cs">
-      <DependentUpon>ButtonDark.cs</DependentUpon>
-    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="frm_balance.cs">
       <SubType>Form</SubType>
@@ -241,6 +235,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Minimize_Box2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crossWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaximizeBoxWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeBoxWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveButtonWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gearWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,11 +31,11 @@ namespace AccountantAssistant
             {
                 MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits");
             }
-            else if(tb_number.Text == "")
+            else if(tb_number.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen eine Kontonummer eingeben", "Keine Kontonummer");
             }
-            else if(tb_name.Text == "")
+            else if(tb_name.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen einen Kontonamen eingeben", "Kein Kontoname");
             }
@@ -50,6 +50,15 @@ namespace AccountantAssistant
 
         private void frm_new_ledger_Load(object sender, EventArgs e)
         {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+            }
+
             //Adds the User Control to the form
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;

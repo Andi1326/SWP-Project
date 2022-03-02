@@ -21,17 +21,16 @@ namespace AccountantAssistant
         public static string role;
         public static string forget_username;
 
-
         private void btn_login_Click(object sender, EventArgs e)
         {
             //check if the user and the password are ok
-            if (Serverconnection.Proofuser(tb_user) == false)
+            if (!Serverconnection.Proofuser(tb_user))
             {
                 MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
             }
             else
             {
-                if (Serverconnection.Proofpassword(tb_password, tb_user.Text) == false)
+                if (!Serverconnection.Proofpassword(tb_password, tb_user.Text))
                 {
                     MessageBox.Show("Ihr Passwort ist falsch", "Fehler");
                 }
@@ -78,11 +77,11 @@ namespace AccountantAssistant
         private void lbl_forgot_Click(object sender, EventArgs e)
         {
             //Check if you have typed in a user and if this user exists
-            if (tb_user.Text == "")
+            if (tb_user.Text.Equals(""))
             {
                 MessageBox.Show("Bitte geben Sie ihren Benutzer ein", "Fehler");
             }
-            else if (Serverconnection.Proofuser(tb_user) == false)
+            else if (!Serverconnection.Proofuser(tb_user))
             {
                 MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
             }

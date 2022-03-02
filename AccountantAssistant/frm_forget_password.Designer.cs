@@ -46,7 +46,7 @@ namespace AccountantAssistant
             // 
             // btn_back
             // 
-            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
@@ -54,13 +54,14 @@ namespace AccountantAssistant
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(98, 25);
             this.btn_back.TabIndex = 36;
+            this.btn_back.Tag = "blue";
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_save
             // 
-            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_save.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.ForeColor = System.Drawing.Color.White;
@@ -68,6 +69,7 @@ namespace AccountantAssistant
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(122, 25);
             this.btn_save.TabIndex = 35;
+            this.btn_save.Tag = "blue";
             this.btn_save.Text = "SPEICHERN";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);

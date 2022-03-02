@@ -97,6 +97,7 @@ namespace AccountantAssistant
             this.btn_changePassword.Name = "btn_changePassword";
             this.btn_changePassword.Size = new System.Drawing.Size(96, 26);
             this.btn_changePassword.TabIndex = 53;
+            this.btn_changePassword.Tag = "normal";
             this.btn_changePassword.Text = "Ändern";
             this.btn_changePassword.UseVisualStyleBackColor = true;
             this.btn_changePassword.Click += new System.EventHandler(this.btn_change_Click);
@@ -134,6 +135,7 @@ namespace AccountantAssistant
             this.btn_changeDesign.Name = "btn_changeDesign";
             this.btn_changeDesign.Size = new System.Drawing.Size(96, 26);
             this.btn_changeDesign.TabIndex = 56;
+            this.btn_changeDesign.Tag = "normal";
             this.btn_changeDesign.Text = "Ändern";
             this.btn_changeDesign.UseVisualStyleBackColor = true;
             this.btn_changeDesign.Click += new System.EventHandler(this.btn_changeDesign_Click);

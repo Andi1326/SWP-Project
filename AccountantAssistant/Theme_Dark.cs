@@ -10,8 +10,6 @@ namespace AccountantAssistant
 {
     internal class Theme_Dark
     {
-        public static Color fc_button = Color.White;
-        public static Color bc_button = Color.Black;
         public static Color DarkBackColor = ColorTranslator.FromHtml("#212121");
 
         public static void ChangeThemeDark(Control.ControlCollection container, Form f)
@@ -33,6 +31,23 @@ namespace AccountantAssistant
                 {
                     component.ForeColor = Color.White;
                 }
+                else if(component is TabPage || component is DataGridView || component is DateTimePicker)
+                {
+                    component.ForeColor = Color.White;
+                    component.BackColor = DarkBackColor;
+                }
+                else if(component is PictureBox && component.Name.ToString() == "pb_logo")
+                {
+                    component.BackgroundImage = Properties.Resources.logo_blue;
+                }
+                else if (component is PictureBox && component.Name.ToString() == "pb_settings")
+                {
+                    component.BackgroundImage = Properties.Resources.gearWhite;
+                }
+                //else if(component is UserControl)
+                //{
+                //    ucTopBar.Instance.ucTopBar_Load(null, null);
+                //}
             }
         }
     }
