@@ -43,13 +43,23 @@ namespace AccountantAssistant
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
-            Serverconnection.Search_ledger(search_ledger, dgv_search_refNumber, frm_main.IDC);
+            Serverconnection.Search_ledger(search_ledger, dgv_search_ledger, frm_main.IDC);
         }
         public static Button btn_ucTopBar_save = new Button();
 
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_delete_ledger_Click(object sender, EventArgs e)
+        {
+            Serverconnection.DeleteData(dgv_search_ledger);
+        }
+
+        private void btn_save_ledger_Click(object sender, EventArgs e)
+        {
+            Serverconnection.SaveData();
         }
     }
 }

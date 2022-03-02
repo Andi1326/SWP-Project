@@ -53,5 +53,15 @@ namespace AccountantAssistant
             this.Hide();
             
         }
+
+        private void btn_delete_ref_Click(object sender, EventArgs e)
+        {
+            Serverconnection.DeleteData(dgv_search_refNumber);
+        }
+
+        private void btn_save_ref_Click(object sender, EventArgs e)
+        {
+            Serverconnection.SaveData();
+        }
     }
 }

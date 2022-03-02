@@ -10,12 +10,9 @@ using System.Windows.Forms;
 
 namespace AccountantAssistant
 {
-    public partial class frm_search_refNumber : Form
+    public partial class frm_balance : Form
     {
-        public static string search_item;
-     
-
-        public frm_search_refNumber()
+        public frm_balance()
         {
             InitializeComponent();
             #region btn_ucTopBar_save Button
@@ -33,35 +30,29 @@ namespace AccountantAssistant
             #endregion
         }
         public static Button btn_ucTopBar_save = new Button();
-        private void frm_search_refNumber_Load(object sender, EventArgs e)
+       
+
+        private void btn_back_Click(object sender, EventArgs e)
         {
+            this.Hide();
+        }
+     
+        private void frm_balance_Load(object sender, EventArgs e)
+        {
+            
             Controls.Add(ucTopBar.Instance);
             ucTopBar.Instance.Dock = DockStyle.Top;
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
-            Serverconnection.Search_refNumber(search_item, dgv_search_refNumber, frm_main.IDC);
-        }
-        private void btn_ucTopbar_save_Click(object sender, EventArgs e)
-        {
+            Serverconnection.Balance(dgv_balance);
           
         }
 
-        private void btn_back_Click(object sender, EventArgs e)
+
+        private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
-            frm_main frm_main = new frm_main();
-            this.Close();
-            frm_main.Show();
+
         }
 
-        private void btn_delete_ref_Click(object sender, EventArgs e)
-        {
-            Serverconnection.DeleteData(dgv_search_refNumber);
-        }
-
-        private void btn_save_ref_Click(object sender, EventArgs e)
-        {
-            Serverconnection.SaveData();
-        }
     }
-
 }

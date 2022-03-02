@@ -58,6 +58,7 @@ namespace AccountantAssistant
             this.btn_delete_ref.TabIndex = 8;
             this.btn_delete_ref.Text = "Löschen";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
+            this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
             // btn_save_ref
             // 
@@ -70,6 +71,7 @@ namespace AccountantAssistant
             this.btn_save_ref.TabIndex = 9;
             this.btn_save_ref.Text = "Speichern";
             this.btn_save_ref.UseVisualStyleBackColor = true;
+            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
             // 
             // dgv_search_refNumber
             // 
