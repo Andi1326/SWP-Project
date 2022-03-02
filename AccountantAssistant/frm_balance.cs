@@ -45,10 +45,12 @@ namespace AccountantAssistant
             ucTopBar.Instance.BringToFront();
             ucTopBar.Instance.Controls.Add(btn_ucTopBar_save);
             Serverconnection.Balance(dgv_balance);
+
+            
           
         }
-
-
+        
+        
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)
         {
 
