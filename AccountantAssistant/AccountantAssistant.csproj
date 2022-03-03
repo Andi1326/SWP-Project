@@ -134,9 +134,6 @@
     <Compile Include="ucTopBar.Designer.cs">
       <DependentUpon>ucTopBar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ButtonDark.resx">
-      <DependentUpon>ButtonDark.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_balance.resx">
       <DependentUpon>frm_balance.cs</DependentUpon>
     </EmbeddedResource>
