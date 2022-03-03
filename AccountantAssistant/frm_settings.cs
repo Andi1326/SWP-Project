@@ -19,17 +19,17 @@ namespace AccountantAssistant
         }
 
         public static bool password_change = false;
-
         public static bool darkmode = false;
 
         private void frm_settings_Load(object sender, EventArgs e)
         {
-            if (frm_settings.darkmode)
+            if (darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
             }
             else
             {
@@ -37,6 +37,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
         }
 

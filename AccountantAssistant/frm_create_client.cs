@@ -20,7 +20,9 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             //closes the frm_create_client
-            this.Close();
+            this.Hide();
+            frm_main frm_m = new frm_main();
+            frm_m.ShowDialog();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -39,6 +41,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
             }
             else
             {
@@ -46,6 +49,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
         }
     }

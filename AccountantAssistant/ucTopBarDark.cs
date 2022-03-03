@@ -133,10 +133,6 @@ namespace AccountantAssistant
 
         }
 
-        public void PbSaveVisible()
-        {
-            pb_save.Visible = true;
-        }
 
         private void pb_save_Click(object sender, EventArgs e)
         {
