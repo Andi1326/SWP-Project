@@ -45,8 +45,8 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            frm_main frm_main = new frm_main();
             this.Hide();
+            frm_main frm_main = new frm_main();
             frm_main.Show();
         }
 

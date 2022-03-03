@@ -38,6 +38,7 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = true;
+                ucTopBarDark.Instance.pb_save.Click += btn_save_Click;
             }
             else
             {
@@ -46,9 +47,8 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
                 ucTopBarWhite.Instance.pb_save.Visible = true;
+                ucTopBarWhite.Instance.pb_save.Click += btn_save_main_Click;
             }
-
-            //Adds User Control to the Form and adds the Button to the User Control
 
 
             //selects the tabPage_start
@@ -60,7 +60,12 @@ namespace AccountantAssistant
             Serverconnection.GetClient(cb_clients);
             Serverconnection.GetLedger(cb_search_ledger, IDC);
 
-            IDC = Convert.ToInt32(cb_clients.SelectedItem);
+            if(IDC >= 0)
+            {
+                cb_clients.SelectedItem = IDC;
+            }
+
+            
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)

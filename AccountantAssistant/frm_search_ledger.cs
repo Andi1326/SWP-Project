@@ -20,9 +20,9 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
-            this.Hide();
         }
 
         private void frm_search_ledger_Load(object sender, EventArgs e)

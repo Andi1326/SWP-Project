@@ -136,8 +136,10 @@ namespace AccountantAssistant
 
         private void pb_save_Click(object sender, EventArgs e)
         {
-            frm_main frm_m = new frm_main();
-            frm_m.ucTopbar_save_Click(0, null);
+            //if (!this.ParentForm.Name.Equals("frm_login"))
+            //{
+            //    Serverconnection.SaveData();
+            //}
         }
     }
 }
