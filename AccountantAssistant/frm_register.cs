@@ -93,18 +93,20 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
             }
 
             //sets Keypreview to true and adds User Control to the form
             KeyPreview = true;
-
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
         }
     }
 }

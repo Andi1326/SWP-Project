@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace AccountantAssistant
 {
-    public partial class ucTopBar : UserControl
+    public partial class ucTopBarDark : UserControl
     {
         //creates the ucTopBar instance
-        private static ucTopBar _instance;
+        private static ucTopBarDark _instance;
 
 
-        public static ucTopBar Instance
+        public static ucTopBarDark Instance
         {
             get
             {
                 if(_instance == null)
                 {
-                    _instance = new ucTopBar();
+                    _instance = new ucTopBarDark();
                 }
                 return _instance;
             }
         }
-        public ucTopBar()
+        public ucTopBarDark()
         {
             InitializeComponent();
         }
@@ -103,7 +103,6 @@ namespace AccountantAssistant
             else if (this.ParentForm.Name.Equals("frm_main"))
             {
                 //if the ParentForm is frm_main it hides the actual form and opens frm_login and removes the saveButton
-                Controls.Remove(frm_main.btn_ucTopBar_save);
                 this.ParentForm.Hide();
                 frm_login frm_login = new frm_login();
                 frm_login.ShowDialog();
@@ -132,25 +131,17 @@ namespace AccountantAssistant
         private void ucTopBar_Load(object sender, EventArgs e)
         {
 
-            if (frm_settings.darkmode)
-            {
-                Theme_Dark.ChangeThemeDark(Controls, this.ParentForm);
-                pb_close.Image = Properties.Resources.crossWhite;
-                pb_maximize.Image = Properties.Resources.MaximizeBoxWhite;
-                pb_minimize.Image = Properties.Resources.MinimizeBoxWhite;
-            }
-            else
-            {
-                Theme_White.ChangeThemeWhite(Controls, this.ParentForm);
-                pb_close.Image = Properties.Resources.cross;
-                pb_maximize.Image = Properties.Resources.MaximizeBox;
-                pb_minimize.Image = Properties.Resources.Minimize_Box2;
-            }
         }
 
-        public static void ChangeImages()
+        public void PbSaveVisible()
         {
-            
+            pb_save.Visible = true;
+        }
+
+        private void pb_save_Click(object sender, EventArgs e)
+        {
+            frm_main frm_m = new frm_main();
+            frm_m.ucTopbar_save_Click(0, null);
         }
     }
 }

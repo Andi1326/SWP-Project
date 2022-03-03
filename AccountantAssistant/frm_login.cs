@@ -51,16 +51,17 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
             }
-
-            //Adds User Controls to the Form
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
 
             //Trys to connect to the server
             Serverconnection.Tryconnect();

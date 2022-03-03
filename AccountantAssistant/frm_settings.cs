@@ -20,18 +20,23 @@ namespace AccountantAssistant
 
         public static bool password_change = false;
 
-        public static bool darkmode = false;
+        public static bool darkmode = true;
 
         private void frm_settings_Load(object sender, EventArgs e)
         {
-            Controls.Remove(ucTopBar.Instance);
-            Controls.Add(ucTopBar.Instance);
-            ucTopBar.Instance.Dock = DockStyle.Top;
-            ucTopBar.Instance.BringToFront();
-
-            if (darkmode)
+            if (frm_settings.darkmode)
             {
-                Theme_Dark.ChangeThemeDark(this.Controls, this);
+                Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
             }
         }
 
@@ -76,22 +81,18 @@ namespace AccountantAssistant
             {
                 darkmode = true;
                 Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Remove(ucTopBarWhite.Instance);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
             }
             else
             {
                 darkmode = false;
+                Theme_White.ChangeThemeWhite(Controls, this);
                 this.Hide();
                 frm_settings frm_s = new frm_settings();
                 frm_s.ShowDialog();
-
-                //Controls.Remove(ucTopBar.Instance);
-                //Controls.Add(ucTopBar.Instance);
-                //ucTopBar.Instance.Dock = DockStyle.Top;
-                //ucTopBar.Instance.BringToFront();
-
-                //ucTopBar.Instance.Update();
-
-                Theme_White.ChangeThemeWhite(Controls, this);
             }
         }
     }
