@@ -39,11 +39,21 @@ namespace AccountantAssistant
      
         private void frm_balance_Load(object sender, EventArgs e)
         {
-            
-            Controls.Add(ucTopBarWhite.Instance);
-            ucTopBarWhite.Instance.Dock = DockStyle.Top;
-            ucTopBarWhite.Instance.BringToFront();
-            ucTopBarWhite.Instance.Controls.Add(btn_ucTopBar_save);
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
+            }
+
             Serverconnection.Balance(dgv_balance);
 
             
