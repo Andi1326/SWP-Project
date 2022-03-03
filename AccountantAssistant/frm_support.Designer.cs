@@ -29,19 +29,43 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(841, 117);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(28, 534);
+            this.vScrollBar1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(39, 78);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(760, 551);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // frm_support
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 516);
+            this.ClientSize = new System.Drawing.Size(1074, 692);
+            this.ControlBox = false;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.vScrollBar1);
             this.Name = "frm_support";
-            this.Text = "l";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
