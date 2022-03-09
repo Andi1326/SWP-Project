@@ -1,7 +1,7 @@
 ﻿
 namespace AccountantAssistant
 {
-    partial class frm_new_ledger
+    partial class frm_create_ledger
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_new_ledger));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_create_ledger));
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_create = new System.Windows.Forms.Button();
             this.tb_name = new System.Windows.Forms.TextBox();
