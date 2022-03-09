@@ -73,7 +73,7 @@ namespace AccountantAssistant
             // tb_password
             // 
             this.tb_password.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_password.Location = new System.Drawing.Point(309, 49);
+            this.tb_password.Location = new System.Drawing.Point(90, 85);
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(195, 26);
             this.tb_password.TabIndex = 46;
@@ -82,7 +82,7 @@ namespace AccountantAssistant
             // 
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_password.Location = new System.Drawing.Point(232, 52);
+            this.lbl_password.Location = new System.Drawing.Point(13, 88);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(71, 18);
             this.lbl_password.TabIndex = 52;
@@ -93,7 +93,7 @@ namespace AccountantAssistant
             this.btn_changePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_changePassword.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_changePassword.ForeColor = System.Drawing.Color.Black;
-            this.btn_changePassword.Location = new System.Drawing.Point(510, 48);
+            this.btn_changePassword.Location = new System.Drawing.Point(291, 84);
             this.btn_changePassword.Name = "btn_changePassword";
             this.btn_changePassword.Size = new System.Drawing.Size(96, 26);
             this.btn_changePassword.TabIndex = 53;
@@ -106,7 +106,7 @@ namespace AccountantAssistant
             // 
             this.lbl_design.AutoSize = true;
             this.lbl_design.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_design.Location = new System.Drawing.Point(232, 98);
+            this.lbl_design.Location = new System.Drawing.Point(28, 135);
             this.lbl_design.Name = "lbl_design";
             this.lbl_design.Size = new System.Drawing.Size(56, 18);
             this.lbl_design.TabIndex = 54;
@@ -114,13 +114,12 @@ namespace AccountantAssistant
             // 
             // cb_design
             // 
-            this.cb_design.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_design.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_design.FormattingEnabled = true;
             this.cb_design.Items.AddRange(new object[] {
             "Darkmode",
             "Whitemode"});
-            this.cb_design.Location = new System.Drawing.Point(309, 95);
+            this.cb_design.Location = new System.Drawing.Point(90, 131);
             this.cb_design.Name = "cb_design";
             this.cb_design.Size = new System.Drawing.Size(195, 26);
             this.cb_design.Sorted = true;
@@ -131,7 +130,7 @@ namespace AccountantAssistant
             this.btn_changeDesign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_changeDesign.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_changeDesign.ForeColor = System.Drawing.Color.Black;
-            this.btn_changeDesign.Location = new System.Drawing.Point(510, 95);
+            this.btn_changeDesign.Location = new System.Drawing.Point(291, 131);
             this.btn_changeDesign.Name = "btn_changeDesign";
             this.btn_changeDesign.Size = new System.Drawing.Size(96, 26);
             this.btn_changeDesign.TabIndex = 56;
@@ -157,6 +156,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.btn_back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(948, 527);
             this.Name = "frm_settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_settings_Load);
