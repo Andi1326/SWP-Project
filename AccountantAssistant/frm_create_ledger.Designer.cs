@@ -48,7 +48,7 @@ namespace AccountantAssistant
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(12, 261);
+            this.btn_back.Location = new System.Drawing.Point(20, 269);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 5;
@@ -63,7 +63,7 @@ namespace AccountantAssistant
             this.btn_create.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_create.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_create.ForeColor = System.Drawing.Color.White;
-            this.btn_create.Location = new System.Drawing.Point(193, 261);
+            this.btn_create.Location = new System.Drawing.Point(201, 269);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(122, 25);
             this.btn_create.TabIndex = 4;
@@ -76,7 +76,7 @@ namespace AccountantAssistant
             // 
             this.tb_name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_name.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.Location = new System.Drawing.Point(273, 183);
+            this.tb_name.Location = new System.Drawing.Point(281, 191);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(216, 26);
             this.tb_name.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace AccountantAssistant
             // 
             this.tb_number.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_number.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_number.Location = new System.Drawing.Point(273, 151);
+            this.tb_number.Location = new System.Drawing.Point(281, 159);
             this.tb_number.Name = "tb_number";
             this.tb_number.Size = new System.Drawing.Size(216, 26);
             this.tb_number.TabIndex = 1;
@@ -95,7 +95,7 @@ namespace AccountantAssistant
             this.lbl_ledger_name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_ledger_name.AutoSize = true;
             this.lbl_ledger_name.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ledger_name.Location = new System.Drawing.Point(112, 181);
+            this.lbl_ledger_name.Location = new System.Drawing.Point(120, 189);
             this.lbl_ledger_name.Name = "lbl_ledger_name";
             this.lbl_ledger_name.Size = new System.Drawing.Size(137, 25);
             this.lbl_ledger_name.TabIndex = 46;
@@ -106,7 +106,7 @@ namespace AccountantAssistant
             this.lbl_ledger_number.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_ledger_number.AutoSize = true;
             this.lbl_ledger_number.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ledger_number.Location = new System.Drawing.Point(81, 149);
+            this.lbl_ledger_number.Location = new System.Drawing.Point(89, 157);
             this.lbl_ledger_number.Name = "lbl_ledger_number";
             this.lbl_ledger_number.Size = new System.Drawing.Size(168, 25);
             this.lbl_ledger_number.TabIndex = 45;
@@ -117,7 +117,7 @@ namespace AccountantAssistant
             this.lbl_ledger_type.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_ledger_type.AutoSize = true;
             this.lbl_ledger_type.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ledger_type.Location = new System.Drawing.Point(142, 213);
+            this.lbl_ledger_type.Location = new System.Drawing.Point(150, 221);
             this.lbl_ledger_type.Name = "lbl_ledger_type";
             this.lbl_ledger_type.Size = new System.Drawing.Size(107, 25);
             this.lbl_ledger_type.TabIndex = 60;
@@ -132,7 +132,7 @@ namespace AccountantAssistant
             "PB",
             "AK",
             "EK"});
-            this.cb_type.Location = new System.Drawing.Point(273, 219);
+            this.cb_type.Location = new System.Drawing.Point(281, 227);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(216, 21);
             this.cb_type.TabIndex = 3;
@@ -143,14 +143,14 @@ namespace AccountantAssistant
             this.pb_logo.BackColor = System.Drawing.Color.Transparent;
             this.pb_logo.BackgroundImage = global::AccountantAssistant.Properties.Resources.logo_small;
             this.pb_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_logo.Location = new System.Drawing.Point(11, 9);
+            this.pb_logo.Location = new System.Drawing.Point(19, 17);
             this.pb_logo.Name = "pb_logo";
             this.pb_logo.Size = new System.Drawing.Size(192, 134);
             this.pb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_logo.TabIndex = 61;
             this.pb_logo.TabStop = false;
             // 
-            // frm_new_ledger
+            // frm_create_ledger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,12 +166,12 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_number);
             this.Controls.Add(this.lbl_ledger_name);
             this.Controls.Add(this.lbl_ledger_number);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(549, 314);
-            this.Name = "frm_new_ledger";
+            this.Name = "frm_create_ledger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_new_ledger_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();

@@ -50,7 +50,7 @@ namespace AccountantAssistant
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(12, 308);
+            this.btn_back.Location = new System.Drawing.Point(12, 324);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(98, 25);
             this.btn_back.TabIndex = 36;
@@ -65,7 +65,7 @@ namespace AccountantAssistant
             this.btn_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_save.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.ForeColor = System.Drawing.Color.White;
-            this.btn_save.Location = new System.Drawing.Point(236, 308);
+            this.btn_save.Location = new System.Drawing.Point(244, 324);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(122, 25);
             this.btn_save.TabIndex = 35;
@@ -78,7 +78,7 @@ namespace AccountantAssistant
             // 
             this.tb_passwordagain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_passwordagain.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_passwordagain.Location = new System.Drawing.Point(281, 247);
+            this.tb_passwordagain.Location = new System.Drawing.Point(289, 255);
             this.tb_passwordagain.Name = "tb_passwordagain";
             this.tb_passwordagain.Size = new System.Drawing.Size(216, 26);
             this.tb_passwordagain.TabIndex = 34;
@@ -88,7 +88,7 @@ namespace AccountantAssistant
             this.lbl_passwordagain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_passwordagain.AutoSize = true;
             this.lbl_passwordagain.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_passwordagain.Location = new System.Drawing.Point(13, 245);
+            this.lbl_passwordagain.Location = new System.Drawing.Point(21, 253);
             this.lbl_passwordagain.Name = "lbl_passwordagain";
             this.lbl_passwordagain.Size = new System.Drawing.Size(244, 25);
             this.lbl_passwordagain.TabIndex = 42;
@@ -98,7 +98,7 @@ namespace AccountantAssistant
             // 
             this.tb_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_password.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_password.Location = new System.Drawing.Point(281, 212);
+            this.tb_password.Location = new System.Drawing.Point(289, 220);
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(216, 26);
             this.tb_password.TabIndex = 33;
@@ -108,7 +108,7 @@ namespace AccountantAssistant
             this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_password.Location = new System.Drawing.Point(75, 210);
+            this.lbl_password.Location = new System.Drawing.Point(83, 218);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(182, 25);
             this.lbl_password.TabIndex = 41;
@@ -118,7 +118,7 @@ namespace AccountantAssistant
             // 
             this.tb_sq1_question.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq1_question.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_sq1_question.Location = new System.Drawing.Point(281, 34);
+            this.tb_sq1_question.Location = new System.Drawing.Point(289, 42);
             this.tb_sq1_question.Name = "tb_sq1_question";
             this.tb_sq1_question.Size = new System.Drawing.Size(215, 26);
             this.tb_sq1_question.TabIndex = 37;
@@ -127,7 +127,7 @@ namespace AccountantAssistant
             // 
             this.tb_sq2_question.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq2_question.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_sq2_question.Location = new System.Drawing.Point(281, 113);
+            this.tb_sq2_question.Location = new System.Drawing.Point(289, 121);
             this.tb_sq2_question.Name = "tb_sq2_question";
             this.tb_sq2_question.Size = new System.Drawing.Size(215, 26);
             this.tb_sq2_question.TabIndex = 38;
@@ -136,7 +136,7 @@ namespace AccountantAssistant
             // 
             this.tb_sq2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_sq2.Location = new System.Drawing.Point(281, 146);
+            this.tb_sq2.Location = new System.Drawing.Point(289, 154);
             this.tb_sq2.Name = "tb_sq2";
             this.tb_sq2.Size = new System.Drawing.Size(215, 26);
             this.tb_sq2.TabIndex = 32;
@@ -145,7 +145,7 @@ namespace AccountantAssistant
             // 
             this.tb_sq1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_sq1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_sq1.Location = new System.Drawing.Point(281, 67);
+            this.tb_sq1.Location = new System.Drawing.Point(289, 75);
             this.tb_sq1.Name = "tb_sq1";
             this.tb_sq1.Size = new System.Drawing.Size(215, 26);
             this.tb_sq1.TabIndex = 31;
@@ -155,7 +155,7 @@ namespace AccountantAssistant
             this.lbl_sq1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_sq1.AutoSize = true;
             this.lbl_sq1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_sq1.Location = new System.Drawing.Point(54, 32);
+            this.lbl_sq1.Location = new System.Drawing.Point(62, 40);
             this.lbl_sq1.Name = "lbl_sq1";
             this.lbl_sq1.Size = new System.Drawing.Size(203, 25);
             this.lbl_sq1.TabIndex = 40;
@@ -166,7 +166,7 @@ namespace AccountantAssistant
             this.lbl_sq2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_sq2.AutoSize = true;
             this.lbl_sq2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_sq2.Location = new System.Drawing.Point(54, 111);
+            this.lbl_sq2.Location = new System.Drawing.Point(62, 119);
             this.lbl_sq2.Name = "lbl_sq2";
             this.lbl_sq2.Size = new System.Drawing.Size(203, 25);
             this.lbl_sq2.TabIndex = 39;
@@ -191,7 +191,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_sq1);
             this.Controls.Add(this.lbl_sq1);
             this.Controls.Add(this.lbl_sq2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

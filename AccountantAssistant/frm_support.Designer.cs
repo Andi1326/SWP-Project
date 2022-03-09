@@ -57,6 +57,7 @@ namespace AccountantAssistant
             this.ControlBox = false;
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.vScrollBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_support";
             this.ResumeLayout(false);
             this.PerformLayout();

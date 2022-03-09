@@ -187,6 +187,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_search_refNumber);
             this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_date";
             this.Load += new System.EventHandler(this.frm_search_date_Load);

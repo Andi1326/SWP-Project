@@ -31,10 +31,10 @@ namespace AccountantAssistant
                 {
                     component.ForeColor = Color.White;
                 }
-                else if(component is TabPage || component is DataGridView || component is DateTimePicker)
+                else if(component is DataGridView)
                 {
                     component.ForeColor = Color.White;
-                    component.BackColor = DarkBackColor;
+                    component.BackColor = Color.Black;
                 }
                 else if(component is PictureBox && component.Name.ToString() == "pb_logo")
                 {

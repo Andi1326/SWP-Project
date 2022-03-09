@@ -31,6 +31,12 @@ namespace AccountantAssistant
 
         private void frm_main_Load(object sender, EventArgs e)
         {
+            //Loads the Ledger of the Client
+            Serverconnection.GetLedger(cb_ledger, IDC);
+            Serverconnection.GetLedger(cb_contraLedger, IDC);
+            Serverconnection.GetClient(cb_clients);
+            Serverconnection.GetLedger(cb_search_ledger, IDC);
+
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
@@ -39,6 +45,15 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = true;
                 ucTopBarDark.Instance.pb_save.Click += btn_save_Click;
+
+                dgv_transaction.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_transaction.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_transaction.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_transaction.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_transaction.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_transaction.EnableHeadersVisualStyles = false;
+
+                dgv_transaction.Bor
             }
             else
             {
@@ -54,18 +69,13 @@ namespace AccountantAssistant
             //selects the tabPage_start
             tabCon1.SelectedTab = tabPage_start;
 
-            //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger, IDC);
-            Serverconnection.GetLedger(cb_contraLedger, IDC);
-            Serverconnection.GetClient(cb_clients);
-            Serverconnection.GetLedger(cb_search_ledger, IDC);
+          
 
             if(IDC >= 0)
             {
                 cb_clients.SelectedItem = IDC;
             }
 
-            
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)

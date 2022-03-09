@@ -175,6 +175,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_search_ledger);
             this.Controls.Add(this.btn_save_ledger);
             this.Controls.Add(this.btn_delete_ledger);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_ledger";
             this.Load += new System.EventHandler(this.frm_search_ledger_Load);
