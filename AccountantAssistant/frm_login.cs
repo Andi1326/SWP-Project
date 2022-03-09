@@ -54,6 +54,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
             }
             else
             {
@@ -61,6 +62,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
             //Trys to connect to the server

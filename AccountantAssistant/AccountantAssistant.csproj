@@ -79,11 +79,11 @@
     <Compile Include="frm_main.Designer.cs">
       <DependentUpon>frm_main.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_new_ledger.cs">
+    <Compile Include="frm_create_ledger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_new_ledger.Designer.cs">
-      <DependentUpon>frm_new_ledger.cs</DependentUpon>
+    <Compile Include="frm_create_ledger.Designer.cs">
+      <DependentUpon>frm_create_ledger.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_password_query.cs">
       <SubType>Form</SubType>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_new_ledger.resx">
-      <DependentUpon>frm_new_ledger.cs</DependentUpon>
+    <EmbeddedResource Include="frm_create_ledger.resx">
+      <DependentUpon>frm_create_ledger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_password_query.resx">
       <DependentUpon>frm_password_query.cs</DependentUpon>

@@ -38,6 +38,7 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = true;
+                ucTopBarDark.Instance.pb_save.Click += btn_save_Click;
             }
             else
             {
@@ -45,10 +46,9 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
-                ucTopBarWhite.Instance.PbSaveVisible();
+                ucTopBarWhite.Instance.pb_save.Visible = true;
+                ucTopBarWhite.Instance.pb_save.Click += btn_save_main_Click;
             }
-
-            //Adds User Control to the Form and adds the Button to the User Control
 
 
             //selects the tabPage_start
@@ -60,7 +60,12 @@ namespace AccountantAssistant
             Serverconnection.GetClient(cb_clients);
             Serverconnection.GetLedger(cb_search_ledger, IDC);
 
-            IDC = Convert.ToInt32(cb_clients.SelectedItem);
+            if(IDC >= 0)
+            {
+                cb_clients.SelectedItem = IDC;
+            }
+
+            
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -162,8 +167,11 @@ namespace AccountantAssistant
         {
             //opens frm_create_client
             pnl_1.Visible = false;
+
+            this.Hide();
             frm_create_client frm_cc = new frm_create_client();
             frm_cc.ShowDialog();
+
             Serverconnection.GetClient(cb_clients);
         }
 
@@ -176,11 +184,13 @@ namespace AccountantAssistant
             else
             {
                 //opens frm_new_ledger
-                frm_new_ledger frm_new_ledger = new frm_new_ledger();
+                this.Hide();
+                frm_create_ledger frm_new_ledger = new frm_create_ledger();
                 frm_new_ledger.ShowDialog();
             }
         }
 
+        #region Save_Functions
 
         private void btn_save_Click(object sender, EventArgs e)
         {
@@ -331,6 +341,8 @@ namespace AccountantAssistant
             }
         }
 
+        #endregion
+
         private void btn_new_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
@@ -400,19 +412,20 @@ namespace AccountantAssistant
             frm_s.ShowDialog();
         }
 
-      
+        #region search
+
         private void btn_search_ref_Click_1(object sender, EventArgs e)
         {
             frm_search_refNumber.search_item = tb_search_ref.Text;
+            this.Hide();
             frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
             frm_Search_Ref.ShowDialog();
-
-          
         }
 
         private void btn_searchDate_Click(object sender, EventArgs e)
         {
             frm_search_date.search_date = tb_searchDate.Text;
+            this.Hide();
             frm_search_date frm_Search = new frm_search_date();
             frm_Search.ShowDialog();
         }
@@ -420,10 +433,12 @@ namespace AccountantAssistant
         private void btn_search_ledger_Click(object sender, EventArgs e)
         {
             frm_search_ledger.search_ledger = Convert.ToInt32(cb_search_ledger.SelectedItem);
+            this.Hide();
             frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
             frm_Search_Ledger.ShowDialog();
-
         }
+
+        #endregion
 
         private void cb_salesTaxRate_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -432,6 +447,7 @@ namespace AccountantAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frm_balance frm_Balance = new frm_balance();
             frm_Balance.ShowDialog();
         }

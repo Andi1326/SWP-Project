@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AccountantAssistant
 {
-    public partial class frm_new_ledger : Form
+    public partial class frm_create_ledger : Form
     {
-        public frm_new_ledger()
+        public frm_create_ledger()
         {
             InitializeComponent();
         }
@@ -20,7 +20,9 @@ namespace AccountantAssistant
         private void btn_back_Click(object sender, EventArgs e)
         {
             //closes frm_new_ledger
-            this.Close();
+            this.Hide();
+            frm_main frm_m = new frm_main();
+            frm_m.ShowDialog();
         }
 
         private void btn_create_Click(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
             }
             else
             {
@@ -63,6 +66,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
         }
     }
