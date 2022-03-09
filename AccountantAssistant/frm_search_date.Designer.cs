@@ -37,14 +37,14 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_date));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
+            this.btn_save_ref = new System.Windows.Forms.Button();
+            this.btn_delete_ref = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_save_ref = new System.Windows.Forms.Button();
-            this.btn_delete_ref = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,8 +103,34 @@ namespace AccountantAssistant
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
+            this.dgv_search_refNumber.Size = new System.Drawing.Size(583, 391);
             this.dgv_search_refNumber.TabIndex = 54;
+            // 
+            // btn_save_ref
+            // 
+            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
+            this.btn_save_ref.Name = "btn_save_ref";
+            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_ref.TabIndex = 53;
+            this.btn_save_ref.Text = "Speichern";
+            this.btn_save_ref.UseVisualStyleBackColor = true;
+            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
+            // 
+            // btn_delete_ref
+            // 
+            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
+            this.btn_delete_ref.Name = "btn_delete_ref";
+            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_ref.TabIndex = 52;
+            this.btn_delete_ref.Text = "stornieren ";
+            this.btn_delete_ref.UseVisualStyleBackColor = true;
+            this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
             // column_date
             // 
@@ -133,7 +159,7 @@ namespace AccountantAssistant
             this.column_debit.FillWeight = 60F;
             this.column_debit.HeaderText = "Netto";
             this.column_debit.Name = "column_debit";
-            this.column_debit.Width = 60;
+            this.column_debit.Width = 80;
             // 
             // column_contraLedger
             // 
@@ -150,38 +176,12 @@ namespace AccountantAssistant
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
             // 
-            // btn_save_ref
-            // 
-            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
-            this.btn_save_ref.Name = "btn_save_ref";
-            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ref.TabIndex = 53;
-            this.btn_save_ref.Text = "Speichern";
-            this.btn_save_ref.UseVisualStyleBackColor = true;
-            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
-            // 
-            // btn_delete_ref
-            // 
-            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
-            this.btn_delete_ref.Name = "btn_delete_ref";
-            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ref.TabIndex = 52;
-            this.btn_delete_ref.Text = "Löschen";
-            this.btn_delete_ref.UseVisualStyleBackColor = true;
-            this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
-            // 
             // frm_search_date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(627, 523);
+            this.ClientSize = new System.Drawing.Size(608, 523);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);

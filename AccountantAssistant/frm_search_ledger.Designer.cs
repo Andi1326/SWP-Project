@@ -36,13 +36,13 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_ledger));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_ledger = new System.Windows.Forms.DataGridView();
+            this.btn_save_ledger = new System.Windows.Forms.Button();
+            this.btn_delete_ledger = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_save_ledger = new System.Windows.Forms.Button();
-            this.btn_delete_ledger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_ledger)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,8 +100,34 @@ namespace AccountantAssistant
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_search_ledger.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_search_ledger.Size = new System.Drawing.Size(482, 391);
+            this.dgv_search_ledger.Size = new System.Drawing.Size(504, 391);
             this.dgv_search_ledger.TabIndex = 58;
+            // 
+            // btn_save_ledger
+            // 
+            this.btn_save_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_ledger.ForeColor = System.Drawing.Color.Black;
+            this.btn_save_ledger.Location = new System.Drawing.Point(127, 66);
+            this.btn_save_ledger.Name = "btn_save_ledger";
+            this.btn_save_ledger.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_ledger.TabIndex = 57;
+            this.btn_save_ledger.Text = "Speichern";
+            this.btn_save_ledger.UseVisualStyleBackColor = true;
+            this.btn_save_ledger.Click += new System.EventHandler(this.btn_save_ledger_Click);
+            // 
+            // btn_delete_ledger
+            // 
+            this.btn_delete_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_ledger.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_ledger.Location = new System.Drawing.Point(12, 66);
+            this.btn_delete_ledger.Name = "btn_delete_ledger";
+            this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_ledger.TabIndex = 56;
+            this.btn_delete_ledger.Text = "stornieren ";
+            this.btn_delete_ledger.UseVisualStyleBackColor = true;
+            this.btn_delete_ledger.Click += new System.EventHandler(this.btn_delete_ledger_Click);
             // 
             // column_date
             // 
@@ -129,7 +155,7 @@ namespace AccountantAssistant
             this.column_debit.FillWeight = 60F;
             this.column_debit.HeaderText = "Soll";
             this.column_debit.Name = "column_debit";
-            this.column_debit.Width = 60;
+            this.column_debit.Width = 80;
             // 
             // column_credit
             // 
@@ -137,32 +163,6 @@ namespace AccountantAssistant
             this.column_credit.HeaderText = "Haben";
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
-            // 
-            // btn_save_ledger
-            // 
-            this.btn_save_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ledger.Location = new System.Drawing.Point(127, 66);
-            this.btn_save_ledger.Name = "btn_save_ledger";
-            this.btn_save_ledger.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ledger.TabIndex = 57;
-            this.btn_save_ledger.Text = "Speichern";
-            this.btn_save_ledger.UseVisualStyleBackColor = true;
-            this.btn_save_ledger.Click += new System.EventHandler(this.btn_save_ledger_Click);
-            // 
-            // btn_delete_ledger
-            // 
-            this.btn_delete_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ledger.Location = new System.Drawing.Point(12, 66);
-            this.btn_delete_ledger.Name = "btn_delete_ledger";
-            this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ledger.TabIndex = 56;
-            this.btn_delete_ledger.Text = "Löschen";
-            this.btn_delete_ledger.UseVisualStyleBackColor = true;
-            this.btn_delete_ledger.Click += new System.EventHandler(this.btn_delete_ledger_Click);
             // 
             // frm_search_ledger
             // 

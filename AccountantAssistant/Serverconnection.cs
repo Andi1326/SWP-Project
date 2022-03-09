@@ -556,6 +556,7 @@ namespace AccountantAssistant
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                con.Close();
             }
         }
 
@@ -566,7 +567,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 Da.UpdateCommand = cmdbuilder.GetUpdateCommand();
-                Da.Update(dt1);
+                Da.Update(dt);
                 con.Close();
             }
             catch (Exception ex)
