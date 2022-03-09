@@ -451,5 +451,24 @@ namespace AccountantAssistant
             frm_balance frm_Balance = new frm_balance();
             frm_Balance.ShowDialog();
         }
+
+        private void linklable_email_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link");
+            }
+        }
+        private void VisitLink()
+        {
+            
+            linklable_email.LinkVisited = true;
+            
+            System.Diagnostics.Process.Start("https://outlook.live.com/owa/");
+        }
     }
 }
