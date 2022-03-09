@@ -53,7 +53,6 @@ namespace AccountantAssistant
                 dgv_transaction.RowHeadersDefaultCellStyle.BackColor = Color.Black;
                 dgv_transaction.EnableHeadersVisualStyles = false;
 
-                dgv_transaction.Bor
             }
             else
             {
