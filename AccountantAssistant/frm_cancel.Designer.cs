@@ -29,57 +29,20 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
-            this.rbtn_h = new System.Windows.Forms.RadioButton();
-            this.rbtn_s = new System.Windows.Forms.RadioButton();
-            this.cb_contraLedger = new System.Windows.Forms.ComboBox();
             this.date_picker = new System.Windows.Forms.DateTimePicker();
             this.btn_enter = new System.Windows.Forms.Button();
             this.tb_referenceNumber = new System.Windows.Forms.TextBox();
             this.tb_netto = new System.Windows.Forms.TextBox();
-            this.cb_salesTaxRate = new System.Windows.Forms.ComboBox();
             this.lbl_ust = new System.Windows.Forms.Label();
             this.lbl_referenceNumber = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_netto = new System.Windows.Forms.Label();
             this.lbl_contraLedger = new System.Windows.Forms.Label();
+            this.tb_contraledger = new System.Windows.Forms.TextBox();
+            this.tb_ledger = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_salestaxrate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // rbtn_h
-            // 
-            this.rbtn_h.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbtn_h.AutoSize = true;
-            this.rbtn_h.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_h.Location = new System.Drawing.Point(808, 113);
-            this.rbtn_h.Name = "rbtn_h";
-            this.rbtn_h.Size = new System.Drawing.Size(34, 20);
-            this.rbtn_h.TabIndex = 69;
-            this.rbtn_h.Text = "H";
-            this.rbtn_h.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_s
-            // 
-            this.rbtn_s.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbtn_s.AutoSize = true;
-            this.rbtn_s.Checked = true;
-            this.rbtn_s.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_s.Location = new System.Drawing.Point(808, 94);
-            this.rbtn_s.Name = "rbtn_s";
-            this.rbtn_s.Size = new System.Drawing.Size(34, 20);
-            this.rbtn_s.TabIndex = 68;
-            this.rbtn_s.TabStop = true;
-            this.rbtn_s.Text = "S";
-            this.rbtn_s.UseVisualStyleBackColor = true;
-            // 
-            // cb_contraLedger
-            // 
-            this.cb_contraLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_contraLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_contraLedger.FormattingEnabled = true;
-            this.cb_contraLedger.Location = new System.Drawing.Point(322, 103);
-            this.cb_contraLedger.Name = "cb_contraLedger";
-            this.cb_contraLedger.Size = new System.Drawing.Size(155, 26);
-            this.cb_contraLedger.Sorted = true;
-            this.cb_contraLedger.TabIndex = 59;
             // 
             // date_picker
             // 
@@ -87,7 +50,7 @@ namespace AccountantAssistant
             this.date_picker.CustomFormat = "dd.MM.yyyy";
             this.date_picker.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_picker.Location = new System.Drawing.Point(41, 103);
+            this.date_picker.Location = new System.Drawing.Point(7, 68);
             this.date_picker.Name = "date_picker";
             this.date_picker.Size = new System.Drawing.Size(114, 26);
             this.date_picker.TabIndex = 57;
@@ -98,7 +61,7 @@ namespace AccountantAssistant
             this.btn_enter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_enter.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enter.ForeColor = System.Drawing.Color.Black;
-            this.btn_enter.Location = new System.Drawing.Point(849, 103);
+            this.btn_enter.Location = new System.Drawing.Point(932, 68);
             this.btn_enter.Name = "btn_enter";
             this.btn_enter.Size = new System.Drawing.Size(96, 26);
             this.btn_enter.TabIndex = 62;
@@ -110,7 +73,7 @@ namespace AccountantAssistant
             // 
             this.tb_referenceNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tb_referenceNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_referenceNumber.Location = new System.Drawing.Point(161, 103);
+            this.tb_referenceNumber.Location = new System.Drawing.Point(127, 68);
             this.tb_referenceNumber.Name = "tb_referenceNumber";
             this.tb_referenceNumber.Size = new System.Drawing.Size(155, 26);
             this.tb_referenceNumber.TabIndex = 58;
@@ -119,32 +82,17 @@ namespace AccountantAssistant
             // 
             this.tb_netto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tb_netto.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_netto.Location = new System.Drawing.Point(483, 103);
+            this.tb_netto.Location = new System.Drawing.Point(607, 68);
             this.tb_netto.Name = "tb_netto";
             this.tb_netto.Size = new System.Drawing.Size(155, 26);
             this.tb_netto.TabIndex = 60;
-            // 
-            // cb_salesTaxRate
-            // 
-            this.cb_salesTaxRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_salesTaxRate.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_salesTaxRate.FormattingEnabled = true;
-            this.cb_salesTaxRate.Items.AddRange(new object[] {
-            "0",
-            "10",
-            "13",
-            "20"});
-            this.cb_salesTaxRate.Location = new System.Drawing.Point(644, 103);
-            this.cb_salesTaxRate.Name = "cb_salesTaxRate";
-            this.cb_salesTaxRate.Size = new System.Drawing.Size(155, 26);
-            this.cb_salesTaxRate.TabIndex = 61;
             // 
             // lbl_ust
             // 
             this.lbl_ust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_ust.AutoSize = true;
             this.lbl_ust.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ust.Location = new System.Drawing.Point(698, 82);
+            this.lbl_ust.Location = new System.Drawing.Point(822, 47);
             this.lbl_ust.Name = "lbl_ust";
             this.lbl_ust.Size = new System.Drawing.Size(63, 18);
             this.lbl_ust.TabIndex = 67;
@@ -155,7 +103,7 @@ namespace AccountantAssistant
             this.lbl_referenceNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_referenceNumber.AutoSize = true;
             this.lbl_referenceNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_referenceNumber.Location = new System.Drawing.Point(192, 82);
+            this.lbl_referenceNumber.Location = new System.Drawing.Point(158, 47);
             this.lbl_referenceNumber.Name = "lbl_referenceNumber";
             this.lbl_referenceNumber.Size = new System.Drawing.Size(98, 18);
             this.lbl_referenceNumber.TabIndex = 66;
@@ -166,7 +114,7 @@ namespace AccountantAssistant
             this.lbl_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_date.AutoSize = true;
             this.lbl_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.Location = new System.Drawing.Point(71, 82);
+            this.lbl_date.Location = new System.Drawing.Point(37, 47);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(52, 18);
             this.lbl_date.TabIndex = 65;
@@ -177,7 +125,7 @@ namespace AccountantAssistant
             this.lbl_netto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_netto.AutoSize = true;
             this.lbl_netto.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_netto.Location = new System.Drawing.Point(519, 82);
+            this.lbl_netto.Location = new System.Drawing.Point(643, 47);
             this.lbl_netto.Name = "lbl_netto";
             this.lbl_netto.Size = new System.Drawing.Size(86, 18);
             this.lbl_netto.TabIndex = 64;
@@ -188,27 +136,66 @@ namespace AccountantAssistant
             this.lbl_contraLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_contraLedger.AutoSize = true;
             this.lbl_contraLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_contraLedger.Location = new System.Drawing.Point(362, 82);
+            this.lbl_contraLedger.Location = new System.Drawing.Point(486, 47);
             this.lbl_contraLedger.Name = "lbl_contraLedger";
             this.lbl_contraLedger.Size = new System.Drawing.Size(86, 18);
             this.lbl_contraLedger.TabIndex = 63;
             this.lbl_contraLedger.Text = "Gegenkonto";
+            // 
+            // tb_contraledger
+            // 
+            this.tb_contraledger.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.tb_contraledger.Location = new System.Drawing.Point(447, 68);
+            this.tb_contraledger.Multiline = true;
+            this.tb_contraledger.Name = "tb_contraledger";
+            this.tb_contraledger.Size = new System.Drawing.Size(154, 26);
+            this.tb_contraledger.TabIndex = 70;
+            // 
+            // tb_ledger
+            // 
+            this.tb_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.tb_ledger.Location = new System.Drawing.Point(287, 68);
+            this.tb_ledger.Multiline = true;
+            this.tb_ledger.Name = "tb_ledger";
+            this.tb_ledger.Size = new System.Drawing.Size(154, 26);
+            this.tb_ledger.TabIndex = 72;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(336, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 18);
+            this.label1.TabIndex = 71;
+            this.label1.Text = "Konto";
+            // 
+            // tb_salestaxrate
+            // 
+            this.tb_salestaxrate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tb_salestaxrate.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_salestaxrate.Location = new System.Drawing.Point(768, 68);
+            this.tb_salestaxrate.Multiline = true;
+            this.tb_salestaxrate.Name = "tb_salestaxrate";
+            this.tb_salestaxrate.Size = new System.Drawing.Size(158, 26);
+            this.tb_salestaxrate.TabIndex = 73;
             // 
             // frm_cancel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(965, 179);
+            this.ClientSize = new System.Drawing.Size(1037, 179);
             this.ControlBox = false;
-            this.Controls.Add(this.rbtn_h);
-            this.Controls.Add(this.rbtn_s);
-            this.Controls.Add(this.cb_contraLedger);
+            this.Controls.Add(this.tb_salestaxrate);
+            this.Controls.Add(this.tb_ledger);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_contraledger);
             this.Controls.Add(this.date_picker);
             this.Controls.Add(this.btn_enter);
             this.Controls.Add(this.tb_referenceNumber);
             this.Controls.Add(this.tb_netto);
-            this.Controls.Add(this.cb_salesTaxRate);
             this.Controls.Add(this.lbl_ust);
             this.Controls.Add(this.lbl_referenceNumber);
             this.Controls.Add(this.lbl_date);
@@ -219,25 +206,25 @@ namespace AccountantAssistant
             this.MinimizeBox = false;
             this.Name = "frm_cancel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frm_cancel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton rbtn_h;
-        private System.Windows.Forms.RadioButton rbtn_s;
-        private System.Windows.Forms.ComboBox cb_contraLedger;
         private System.Windows.Forms.DateTimePicker date_picker;
         private System.Windows.Forms.Button btn_enter;
         private System.Windows.Forms.TextBox tb_referenceNumber;
         private System.Windows.Forms.TextBox tb_netto;
-        private System.Windows.Forms.ComboBox cb_salesTaxRate;
         private System.Windows.Forms.Label lbl_ust;
         private System.Windows.Forms.Label lbl_referenceNumber;
         private System.Windows.Forms.Label lbl_date;
         private System.Windows.Forms.Label lbl_netto;
         private System.Windows.Forms.Label lbl_contraLedger;
+        private System.Windows.Forms.TextBox tb_contraledger;
+        private System.Windows.Forms.TextBox tb_ledger;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_salestaxrate;
     }
 }

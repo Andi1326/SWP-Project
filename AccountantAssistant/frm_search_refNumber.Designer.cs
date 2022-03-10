@@ -42,8 +42,8 @@ namespace AccountantAssistant
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
@@ -91,8 +91,8 @@ namespace AccountantAssistant
             this.column_date,
             this.referenceNumber,
             this.column_ledger,
-            this.column_debit,
             this.column_contraLedger,
+            this.column_debit,
             this.column_credit});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -154,13 +154,6 @@ namespace AccountantAssistant
             this.column_ledger.Name = "column_ledger";
             this.column_ledger.Width = 80;
             // 
-            // column_debit
-            // 
-            this.column_debit.FillWeight = 60F;
-            this.column_debit.HeaderText = "Soll";
-            this.column_debit.Name = "column_debit";
-            this.column_debit.Width = 80;
-            // 
             // column_contraLedger
             // 
             dataGridViewCellStyle3.Format = "##";
@@ -168,6 +161,13 @@ namespace AccountantAssistant
             this.column_contraLedger.DefaultCellStyle = dataGridViewCellStyle3;
             this.column_contraLedger.HeaderText = "Gegenkonto";
             this.column_contraLedger.Name = "column_contraLedger";
+            // 
+            // column_debit
+            // 
+            this.column_debit.FillWeight = 60F;
+            this.column_debit.HeaderText = "Soll";
+            this.column_debit.Name = "column_debit";
+            this.column_debit.Width = 80;
             // 
             // column_credit
             // 
@@ -204,8 +204,8 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
     }
 }

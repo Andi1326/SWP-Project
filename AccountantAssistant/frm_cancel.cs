@@ -16,5 +16,29 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
+
+        private void frm_cancel_Load(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode)
+            {
+                Theme_Dark.ChangeThemeDark(Controls, this);
+                Controls.Add(ucTopBarDark.Instance);
+                ucTopBarDark.Instance.Dock = DockStyle.Top;
+                ucTopBarDark.Instance.BringToFront();
+            }
+            else
+            {
+                Theme_White.ChangeThemeWhite(Controls, this);
+                Controls.Add(ucTopBarWhite.Instance);
+                ucTopBarWhite.Instance.Dock = DockStyle.Top;
+                ucTopBarWhite.Instance.BringToFront();
+            }
+
+            tb_referenceNumber.Text = Serverconnection.referenceNumberCancel;
+            tb_ledger.Text = Serverconnection.ledgerCancel;
+            tb_contraledger.Text = Serverconnection.contraLedgerCancel;
+            tb_netto.Text = Serverconnection.nettoCancel;
+            tb_salestaxrate.Text = Serverconnection.salestaxrateCancel;
+        }
     }
 }

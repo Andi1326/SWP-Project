@@ -30,9 +30,10 @@ namespace AccountantAssistant
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_ledger));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_ledger = new System.Windows.Forms.DataGridView();
@@ -40,6 +41,7 @@ namespace AccountantAssistant
             this.btn_delete_ledger = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,31 +78,32 @@ namespace AccountantAssistant
             this.dgv_search_ledger.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_date,
             this.referenceNumber,
+            this.column_ledger,
             this.column_contraLedger,
             this.column_debit,
             this.column_credit});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_search_ledger.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_search_ledger.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_search_ledger.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dgv_search_ledger.Location = new System.Drawing.Point(12, 105);
             this.dgv_search_ledger.Name = "dgv_search_ledger";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_search_ledger.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_search_ledger.Size = new System.Drawing.Size(504, 391);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_search_ledger.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_search_ledger.Size = new System.Drawing.Size(602, 391);
             this.dgv_search_ledger.TabIndex = 58;
             // 
             // btn_save_ledger
@@ -142,11 +145,19 @@ namespace AccountantAssistant
             this.referenceNumber.Name = "referenceNumber";
             this.referenceNumber.Width = 120;
             // 
-            // column_contraLedger
+            // column_ledger
             // 
             dataGridViewCellStyle2.Format = "##";
             dataGridViewCellStyle2.NullValue = null;
-            this.column_contraLedger.DefaultCellStyle = dataGridViewCellStyle2;
+            this.column_ledger.DefaultCellStyle = dataGridViewCellStyle2;
+            this.column_ledger.HeaderText = "Konto";
+            this.column_ledger.Name = "column_ledger";
+            // 
+            // column_contraLedger
+            // 
+            dataGridViewCellStyle3.Format = "##";
+            dataGridViewCellStyle3.NullValue = null;
+            this.column_contraLedger.DefaultCellStyle = dataGridViewCellStyle3;
             this.column_contraLedger.HeaderText = "Gegenkonto";
             this.column_contraLedger.Name = "column_contraLedger";
             // 
@@ -169,7 +180,7 @@ namespace AccountantAssistant
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(592, 542);
+            this.ClientSize = new System.Drawing.Size(626, 542);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_ledger);
@@ -191,6 +202,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_delete_ledger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;

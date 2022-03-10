@@ -52,7 +52,9 @@ namespace AccountantAssistant
 
         private void btn_delete_ledger_Click(object sender, EventArgs e)
         {
-            Serverconnection.DeleteData(dgv_search_ledger);
+            Serverconnection.CancelTransaction(dgv_search_ledger);
+            frm_cancel frm_Cancel = new frm_cancel();
+            frm_Cancel.ShowDialog();
         }
 
         private void btn_save_ledger_Click(object sender, EventArgs e)
