@@ -42,7 +42,6 @@ namespace AccountantAssistant
             this.tabPage_start = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.cb_ledger = new System.Windows.Forms.ComboBox();
             this.lbl_select_ledger = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.btn_searchDate = new System.Windows.Forms.Button();
@@ -68,7 +67,6 @@ namespace AccountantAssistant
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
             this.dgv_transaction = new System.Windows.Forms.DataGridView();
@@ -99,15 +97,18 @@ namespace AccountantAssistant
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
             this.pb_settings = new System.Windows.Forms.PictureBox();
+            this.pb_back = new System.Windows.Forms.PictureBox();
+            this.cb_ledger = new System.Windows.Forms.ComboBox();
+            this.btn_chooseLedger = new System.Windows.Forms.Button();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_search.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
             this.tabPage_help.SuspendLayout();
             this.pnl_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -140,6 +141,7 @@ namespace AccountantAssistant
             // tabPage_start
             // 
             this.tabPage_start.BackColor = System.Drawing.Color.White;
+            this.tabPage_start.Controls.Add(this.btn_chooseLedger);
             this.tabPage_start.Controls.Add(this.button1);
             this.tabPage_start.Controls.Add(this.label4);
             this.tabPage_start.Controls.Add(this.cb_ledger);
@@ -173,16 +175,6 @@ namespace AccountantAssistant
             this.label4.Size = new System.Drawing.Size(153, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Summen- Saldenbilanz";
-            // 
-            // cb_ledger
-            // 
-            this.cb_ledger.FormattingEnabled = true;
-            this.cb_ledger.Location = new System.Drawing.Point(133, 21);
-            this.cb_ledger.Name = "cb_ledger";
-            this.cb_ledger.Size = new System.Drawing.Size(188, 26);
-            this.cb_ledger.Sorted = true;
-            this.cb_ledger.TabIndex = 3;
-            this.cb_ledger.SelectedIndexChanged += new System.EventHandler(this.cb_ledger_SelectedIndexChanged);
             // 
             // lbl_select_ledger
             // 
@@ -495,18 +487,6 @@ namespace AccountantAssistant
             this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // pb_back
-            // 
-            this.pb_back.BackColor = System.Drawing.Color.Transparent;
-            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
-            this.pb_back.Location = new System.Drawing.Point(30, 16);
-            this.pb_back.Name = "pb_back";
-            this.pb_back.Size = new System.Drawing.Size(39, 33);
-            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_back.TabIndex = 45;
-            this.pb_back.TabStop = false;
-            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
             // 
             // lbl_client
             // 
@@ -846,6 +826,42 @@ namespace AccountantAssistant
             this.pb_settings.Tag = "settings";
             this.pb_settings.Click += new System.EventHandler(this.pb_settings_Click);
             // 
+            // pb_back
+            // 
+            this.pb_back.BackColor = System.Drawing.Color.Transparent;
+            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
+            this.pb_back.Location = new System.Drawing.Point(30, 16);
+            this.pb_back.Name = "pb_back";
+            this.pb_back.Size = new System.Drawing.Size(39, 33);
+            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_back.TabIndex = 45;
+            this.pb_back.TabStop = false;
+            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
+            // 
+            // cb_ledger
+            // 
+            this.cb_ledger.FormattingEnabled = true;
+            this.cb_ledger.Location = new System.Drawing.Point(133, 21);
+            this.cb_ledger.Name = "cb_ledger";
+            this.cb_ledger.Size = new System.Drawing.Size(188, 26);
+            this.cb_ledger.Sorted = true;
+            this.cb_ledger.TabIndex = 3;
+            this.cb_ledger.SelectedIndexChanged += new System.EventHandler(this.cb_ledger_SelectedIndexChanged);
+            // 
+            // btn_chooseLedger
+            // 
+            this.btn_chooseLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_chooseLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chooseLedger.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chooseLedger.ForeColor = System.Drawing.Color.Black;
+            this.btn_chooseLedger.Location = new System.Drawing.Point(161, 49);
+            this.btn_chooseLedger.Name = "btn_chooseLedger";
+            this.btn_chooseLedger.Size = new System.Drawing.Size(117, 23);
+            this.btn_chooseLedger.TabIndex = 59;
+            this.btn_chooseLedger.Text = "Auswählen";
+            this.btn_chooseLedger.UseVisualStyleBackColor = true;
+            this.btn_chooseLedger.Click += new System.EventHandler(this.btn_chooseLedger_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -893,9 +909,9 @@ namespace AccountantAssistant
             this.tabPage_help.ResumeLayout(false);
             this.tabPage_help.PerformLayout();
             this.pnl_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -920,7 +936,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
         private System.Windows.Forms.Button btn_newLedger;
-        private System.Windows.Forms.ComboBox cb_ledger;
         private System.Windows.Forms.Label lbl_select_ledger;
         private System.Windows.Forms.DataGridView dgv_transaction;
         private System.Windows.Forms.Label lbl_contraLedger;
@@ -965,5 +980,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linklable_email;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_chooseLedger;
+        private System.Windows.Forms.ComboBox cb_ledger;
     }
 }

@@ -479,5 +479,11 @@ namespace AccountantAssistant
             
             System.Diagnostics.Process.Start("https://outlook.live.com/owa/");
         }
+
+        private void btn_chooseLedger_Click(object sender, EventArgs e)
+        {
+            frm_ledger_overview frm_lo = new frm_ledger_overview();
+            frm_lo.ShowDialog();
+        }
     }
 }

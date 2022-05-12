@@ -67,6 +67,12 @@
     <Compile Include="frm_forget_password.Designer.cs">
       <DependentUpon>frm_forget_password.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_ledger_overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ledger_overview.Designer.cs">
+      <DependentUpon>frm_ledger_overview.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_forget_password.resx">
       <DependentUpon>frm_forget_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ledger_overview.resx">
+      <DependentUpon>frm_ledger_overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
