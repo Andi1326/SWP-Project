@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using static System.Console;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AccountantAssistant
 {
@@ -57,6 +58,22 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
                 con.Close();
             }
+        }
+
+        public static void SaveStandardLedgers(int client)
+        {
+            con.Open();
+            cmd.Connection = con;
+            StreamReader reader = new StreamReader(Properties.Resources.AllLedgers);
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values ("+client+", '"+values[0]+"', '"+values[1]+"', '"+values[2]+"')";
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
         }
 
         public static bool Proofuser(TextBox username)
@@ -299,6 +316,19 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString());
                 con.Close();
             }
+        }
+
+        public static void ShowLedgers(DataGridView dgv, int client)
+        {
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select number, name, type from AllLedgers where IDC = '"+client+"'";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(Convert.ToInt32(dr["number"]), dr["name"].ToString(), dr["type"].ToString());
+            }
+            con.Close();
         }
 
         public static void GetClient(ComboBox cb)

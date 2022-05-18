@@ -219,6 +219,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\AllLedgers.csv" />
     <None Include="Resources\Minimize_Box.ai" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +278,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gearWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifyingGlass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

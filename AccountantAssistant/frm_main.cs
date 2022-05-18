@@ -32,7 +32,7 @@ namespace AccountantAssistant
         private void frm_main_Load(object sender, EventArgs e)
         {
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger, IDC);
+            //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
             Serverconnection.GetLedger(cb_search_ledger, IDC);
@@ -105,7 +105,7 @@ namespace AccountantAssistant
             }
 
             //Loads the Ledger of the Client
-            Serverconnection.GetLedger(cb_ledger, IDC);
+            //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
             Serverconnection.GetLedger(cb_search_ledger, IDC);
@@ -121,7 +121,7 @@ namespace AccountantAssistant
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
             //then sets the Text to "" of the Textboxes
-            if (cb_ledger.Text.Equals(""))
+            if (tb_ledger.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
             }
@@ -153,11 +153,11 @@ namespace AccountantAssistant
                     decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
                     if(rbtn_s.Checked == true)
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
                     }
                     else
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, cb_ledger.SelectedItem.ToString(), cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
                     }
 
                     cb_contraLedger.Text = "";
@@ -270,9 +270,9 @@ namespace AccountantAssistant
                     AccTransaction newAccTransaction = new AccTransaction(IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), Convert.ToDecimal(row.Cells[5].Value), Convert.ToDecimal(row.Cells[6].Value), Convert.ToInt32(row.Cells[7].Value), row.Cells[1].Value.ToString(), dateTransaction);
                     Serverconnection.InsertDataAccTransaction(newAccTransaction);
 
-                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_ledger), IDC);
 
-                    string type = Serverconnection.SaveType(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+                    string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger), IDC);
                     //controls if the type is a 'Aktives Bestandskonto' or a 'Aufwandskonto'
                     if(type == "AB" || type == "AK")
                     {
@@ -396,14 +396,14 @@ namespace AccountantAssistant
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
-            Serverconnection.GetLedger(cb_ledger, IDC);
+            //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetLedger(cb_search_ledger, IDC);
         }
 
         private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string type = Serverconnection.SaveType(Convert.ToInt32(cb_ledger.SelectedItem), IDC);
+            string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
             if (type == "AB" || type == "AK")
             {
                 rbtn_s.Checked = true;
@@ -484,6 +484,13 @@ namespace AccountantAssistant
         {
             frm_ledger_overview frm_lo = new frm_ledger_overview();
             frm_lo.ShowDialog();
+            tb_ledger.Text = frm_ledger_overview.ledger_number;
+        }
+
+
+        public static void Get_tb_ledger(int number)
+        {
+            //tb_ledger.Text = number.ToString();
         }
     }
 }

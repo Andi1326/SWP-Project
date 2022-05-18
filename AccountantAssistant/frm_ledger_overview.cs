@@ -12,6 +12,8 @@ namespace AccountantAssistant
 {
     public partial class frm_ledger_overview : Form
     {
+        public static string ledger_number;
+
         public frm_ledger_overview()
         {
             InitializeComponent();
@@ -22,22 +24,32 @@ namespace AccountantAssistant
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
-                Controls.Add(ucTopBarDark.Instance);
-                ucTopBarDark.Instance.Dock = DockStyle.Top;
-                ucTopBarDark.Instance.BringToFront();
-
+                dgv_ledger.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_ledger.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_ledger.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_ledger.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_ledger.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_ledger.EnableHeadersVisualStyles = false;
             }
             else
             {
                 Theme_White.ChangeThemeWhite(Controls, this);
-                Controls.Add(ucTopBarWhite.Instance);
-                ucTopBarWhite.Instance.Dock = DockStyle.Top;
-                ucTopBarWhite.Instance.BringToFront();
             }
+
+            Serverconnection.ShowLedgers(dgv_ledger, frm_main.IDC);
+            dgv_ledger.Sort(this.dgv_ledger.Columns[0], ListSortDirection.Ascending);
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            ledger_number = "";
+            this.Hide();
+        }
+
+
+        private void dgv_ledger_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ledger_number = dgv_ledger.CurrentRow.Cells[0].Value.ToString();
             this.Hide();
         }
     }
