@@ -160,7 +160,7 @@ namespace AccountantAssistant
             this.btn_delete_ledger.Name = "btn_delete_ledger";
             this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ledger.TabIndex = 56;
-            this.btn_delete_ledger.Text = "Löschen";
+            this.btn_delete_ledger.Text = "Stonieren";
             this.btn_delete_ledger.UseVisualStyleBackColor = true;
             this.btn_delete_ledger.Click += new System.EventHandler(this.btn_delete_ledger_Click);
             // 

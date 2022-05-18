@@ -172,7 +172,7 @@ namespace AccountantAssistant
             this.btn_delete_ref.Name = "btn_delete_ref";
             this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ref.TabIndex = 52;
-            this.btn_delete_ref.Text = "Löschen";
+            this.btn_delete_ref.Text = "Stonieren";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
             this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
