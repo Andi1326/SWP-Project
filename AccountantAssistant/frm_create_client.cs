@@ -30,6 +30,7 @@ namespace AccountantAssistant
             //saves the data in database
             Client client = new Client (tb_firstname.Text, tb_lastname.Text, tb_telephone.Text, tb_email.Text, tb_uidnumber.Text, tb_address.Text, tb_plz.Text, tb_place.Text, tb_country.Text);
             Serverconnection.InsertDataClient(client);
+
             Serverconnection.SaveStandardLedgers(frm_main.IDC);
             this.Hide();
             frm_main frm_m = new frm_main();

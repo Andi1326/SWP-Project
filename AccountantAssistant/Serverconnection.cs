@@ -8,6 +8,7 @@ using static System.Console;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace AccountantAssistant
 {
@@ -62,18 +63,26 @@ namespace AccountantAssistant
 
         public static void SaveStandardLedgers(int client)
         {
-            con.Open();
-            cmd.Connection = con;
-            StreamReader reader = new StreamReader(Properties.Resources.AllLedgers);
-            while (!reader.EndOfStream)
+            try
             {
-                var line = reader.ReadLine();
-                var values = line.Split(';');
+                con.Open();
+                cmd.Connection = con;
+                var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
+                StreamReader sr = new StreamReader(stream);
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    var values = line.Split(';');
 
-                cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values ("+client+", '"+values[0]+"', '"+values[1]+"', '"+values[2]+"')";
-                cmd.ExecuteNonQuery();
+                    cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
             }
-            con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
+            }
         }
 
         public static bool Proofuser(TextBox username)
@@ -322,7 +331,7 @@ namespace AccountantAssistant
         {
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select number, name, type from AllLedgers where IDC = '"+client+"'";
+            cmd.CommandText = "Select number, name, type from AllLedgers where IDC = '"+client+"' or IDC = 0";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {

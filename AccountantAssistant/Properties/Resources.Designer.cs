@@ -61,7 +61,23 @@ namespace AccountantAssistant.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 0200;Grundwert unbebautes GrundstŸck;AB        ///0210;Grundwert bebautes GrundstŸck;AB        ///0300;GebŠude;AB        ///0400;Maschinen;AB        ///0600;BGA (Betriebs- und GeschŠftsausstattung);AB        ///0620;BŸromaschinen, EDV-Anlagen;AB        ///0630;Pkw;AB        ///0640;Lkw;AB        ///0680;geringwertige WirtschaftsgŸter (GWG);AB        ///0690;kum. AfA (kumulierte Absetzung fŸr AbnŸtzung);AB        ///1100;Rohstoffvorrat;AB        ///1300;Hilfsstoffe;AB        ///1360;Vorrat Heizšl;AB        ///1500;Vorrat Verpackungsmaterial;AB        ///1600;HW-Vorrat (Handelswaren-Vorrat);AB        ///2000;Lieferforderungen;AB        ///2050;Besitzwechsel;AB        ///2300; [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 200;Grundwert unbebautes GrundstŸck;AB
+        ///210;Grundwert bebautes GrundstŸck;AB
+        ///300;Gebäude;AB
+        ///400;Maschinen;AB
+        ///600;BGA (Betriebs- und Geschäftsausstattung);AB
+        ///620;Büromaschinen, EDV-Anlagen;AB
+        ///630;Pkw;AB
+        ///640;Lkw;AB
+        ///680;geringwertige WirtschaftsgŸter (GWG);AB
+        ///690;kum. AfA (kumulierte Absetzung fŸr AbnŸtzung);AB
+        ///1100;Rohstoffvorrat;AB
+        ///1300;Hilfsstoffe;AB
+        ///1360;Vorrat Heizšl;AB
+        ///1500;Vorrat Verpackungsmaterial;AB
+        ///1600;HW-Vorrat (Handelswaren-Vorrat);AB
+        ///2000;Lieferforderungen;AB
+        ///2050;Besitzwechsel;AB [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string AllLedgers {
             get {
