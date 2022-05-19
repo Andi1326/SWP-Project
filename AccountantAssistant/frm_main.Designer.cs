@@ -68,6 +68,7 @@ namespace AccountantAssistant
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
+            this.pb_back = new System.Windows.Forms.PictureBox();
             this.lbl_client = new System.Windows.Forms.Label();
             this.cb_clients = new System.Windows.Forms.ComboBox();
             this.dgv_transaction = new System.Windows.Forms.DataGridView();
@@ -99,16 +100,15 @@ namespace AccountantAssistant
             this.rbtn_h = new System.Windows.Forms.RadioButton();
             this.tb_ledger = new System.Windows.Forms.TextBox();
             this.pb_settings = new System.Windows.Forms.PictureBox();
-            this.pb_back = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             this.tabPage_search.SuspendLayout();
             this.tabPage_ledger.SuspendLayout();
             this.tabPage_help.SuspendLayout();
             this.pnl_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCon1
@@ -224,7 +224,7 @@ namespace AccountantAssistant
             this.btn_searchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_searchDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchDate.ForeColor = System.Drawing.Color.Black;
-            this.btn_searchDate.Location = new System.Drawing.Point(781, 9);
+            this.btn_searchDate.Location = new System.Drawing.Point(752, 14);
             this.btn_searchDate.Name = "btn_searchDate";
             this.btn_searchDate.Size = new System.Drawing.Size(83, 23);
             this.btn_searchDate.TabIndex = 60;
@@ -235,7 +235,7 @@ namespace AccountantAssistant
             // 
             // tb_searchDate
             // 
-            this.tb_searchDate.Location = new System.Drawing.Point(577, 12);
+            this.tb_searchDate.Location = new System.Drawing.Point(548, 17);
             this.tb_searchDate.Multiline = true;
             this.tb_searchDate.Name = "tb_searchDate";
             this.tb_searchDate.Size = new System.Drawing.Size(198, 20);
@@ -244,7 +244,7 @@ namespace AccountantAssistant
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(514, 15);
+            this.label2.Location = new System.Drawing.Point(485, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 18);
             this.label2.TabIndex = 58;
@@ -504,6 +504,18 @@ namespace AccountantAssistant
             this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // pb_back
+            // 
+            this.pb_back.BackColor = System.Drawing.Color.Transparent;
+            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
+            this.pb_back.Location = new System.Drawing.Point(30, 16);
+            this.pb_back.Name = "pb_back";
+            this.pb_back.Size = new System.Drawing.Size(39, 33);
+            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_back.TabIndex = 45;
+            this.pb_back.TabStop = false;
+            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
             // 
             // lbl_client
             // 
@@ -852,18 +864,6 @@ namespace AccountantAssistant
             this.pb_settings.Tag = "settings";
             this.pb_settings.Click += new System.EventHandler(this.pb_settings_Click);
             // 
-            // pb_back
-            // 
-            this.pb_back.BackColor = System.Drawing.Color.Transparent;
-            this.pb_back.Image = global::AccountantAssistant.Properties.Resources.arrow_Back;
-            this.pb_back.Location = new System.Drawing.Point(30, 16);
-            this.pb_back.Name = "pb_back";
-            this.pb_back.Size = new System.Drawing.Size(39, 33);
-            this.pb_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_back.TabIndex = 45;
-            this.pb_back.TabStop = false;
-            this.pb_back.Click += new System.EventHandler(this.pb_back_Click);
-            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,9 +911,9 @@ namespace AccountantAssistant
             this.tabPage_help.ResumeLayout(false);
             this.tabPage_help.PerformLayout();
             this.pnl_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,13 +38,13 @@ namespace AccountantAssistant
             this.btn_delete_ref = new System.Windows.Forms.Button();
             this.btn_save_ref = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
+            this.btn_back = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,8 +91,8 @@ namespace AccountantAssistant
             this.column_date,
             this.referenceNumber,
             this.column_ledger,
-            this.column_debit,
             this.column_contraLedger,
+            this.column_debit,
             this.column_credit});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -115,8 +115,22 @@ namespace AccountantAssistant
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
+            this.dgv_search_refNumber.Size = new System.Drawing.Size(584, 391);
             this.dgv_search_refNumber.TabIndex = 50;
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(3, 491);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(122, 25);
+            this.btn_back.TabIndex = 51;
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // column_date
             // 
@@ -140,13 +154,6 @@ namespace AccountantAssistant
             this.column_ledger.Name = "column_ledger";
             this.column_ledger.Width = 80;
             // 
-            // column_debit
-            // 
-            this.column_debit.FillWeight = 60F;
-            this.column_debit.HeaderText = "Soll";
-            this.column_debit.Name = "column_debit";
-            this.column_debit.Width = 60;
-            // 
             // column_contraLedger
             // 
             dataGridViewCellStyle3.Format = "##";
@@ -155,6 +162,13 @@ namespace AccountantAssistant
             this.column_contraLedger.HeaderText = "Gegenkonto";
             this.column_contraLedger.Name = "column_contraLedger";
             // 
+            // column_debit
+            // 
+            this.column_debit.FillWeight = 60F;
+            this.column_debit.HeaderText = "Soll";
+            this.column_debit.Name = "column_debit";
+            this.column_debit.Width = 80;
+            // 
             // column_credit
             // 
             this.column_credit.FillWeight = 80F;
@@ -162,26 +176,12 @@ namespace AccountantAssistant
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
             // 
-            // btn_back
-            // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(3, 491);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 51;
-            this.btn_back.Text = "Zurück";
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
             // frm_search_refNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(587, 520);
+            this.ClientSize = new System.Drawing.Size(615, 520);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);
@@ -205,8 +205,8 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
     }
 }
