@@ -186,7 +186,7 @@ namespace AccountantAssistant
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(cb_clients.SelectedItem) == 0)
+            if (cb_clients.Text.ToString().Equals(null))
             {
                 MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
             }
@@ -401,18 +401,6 @@ namespace AccountantAssistant
             Serverconnection.GetLedger(cb_search_ledger, IDC);
         }
 
-        private void cb_ledger_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
-            if (type == "AB" || type == "AK")
-            {
-                rbtn_s.Checked = true;
-            }
-            else
-            {
-                rbtn_h.Checked = true;  
-            }
-        }
 
         private void pb_settings_Click(object sender, EventArgs e)
         {
@@ -491,6 +479,19 @@ namespace AccountantAssistant
         public static void Get_tb_ledger(int number)
         {
             //tb_ledger.Text = number.ToString();
+        }
+
+        private void tb_ledger_TextChanged(object sender, EventArgs e)
+        {
+            string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
+            if (type == "AB" || type == "AK")
+            {
+                rbtn_s.Checked = true;
+            }
+            else
+            {
+                rbtn_h.Checked = true;
+            }
         }
     }
 }

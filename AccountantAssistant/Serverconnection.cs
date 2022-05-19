@@ -272,7 +272,7 @@ namespace AccountantAssistant
                 //proofs if the Ledger exists or not
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client +"'";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client +"' or IDC = 0";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -292,7 +292,7 @@ namespace AccountantAssistant
                 int idle;
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select IDLE from AllLedgers where number = '" + number + "' and IDC = '"+idc+"'";
+                cmd.CommandText = "Select IDLE from AllLedgers where number = '" + number + "' and IDC = '"+idc+"' or IDC = 0";
                 idle = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                 con.Close();
                 return idle;
@@ -312,7 +312,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client+"'";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client+"' or IDC = 0";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -425,7 +425,7 @@ namespace AccountantAssistant
                 string type;
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "'";
+                cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "' or IDC = 0";
                 type = cmd.ExecuteScalar().ToString();
                 con.Close();
                 return type;
