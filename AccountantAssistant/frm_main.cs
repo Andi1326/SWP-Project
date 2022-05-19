@@ -270,9 +270,9 @@ namespace AccountantAssistant
                     AccTransaction newAccTransaction = new AccTransaction(IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToDecimal(row.Cells[4].Value), Convert.ToDecimal(row.Cells[5].Value), Convert.ToDecimal(row.Cells[6].Value), Convert.ToInt32(row.Cells[7].Value), row.Cells[1].Value.ToString(), dateTransaction);
                     Serverconnection.InsertDataAccTransaction(newAccTransaction);
 
-                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_ledger), IDC);
+                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_ledger.Text), IDC);
 
-                    string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger), IDC);
+                    string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
                     //controls if the type is a 'Aktives Bestandskonto' or a 'Aufwandskonto'
                     if(type == "AB" || type == "AK")
                     {
@@ -475,11 +475,6 @@ namespace AccountantAssistant
             tb_ledger.Text = frm_ledger_overview.ledger_number;
         }
 
-
-        public static void Get_tb_ledger(int number)
-        {
-            //tb_ledger.Text = number.ToString();
-        }
 
         private void tb_ledger_TextChanged(object sender, EventArgs e)
         {
