@@ -29,20 +29,20 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.tabCon1 = new System.Windows.Forms.TabControl();
             this.tabPage_file = new System.Windows.Forms.TabPage();
             this.tabPage_start = new System.Windows.Forms.TabPage();
+            this.btn_chooseLedger = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.cb_ledger = new System.Windows.Forms.ComboBox();
             this.lbl_select_ledger = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.btn_searchDate = new System.Windows.Forms.Button();
@@ -98,6 +98,7 @@ namespace AccountantAssistant
             this.printDia = new System.Windows.Forms.PrintDialog();
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
+            this.tb_ledger = new System.Windows.Forms.TextBox();
             this.pb_settings = new System.Windows.Forms.PictureBox();
             this.tabCon1.SuspendLayout();
             this.tabPage_start.SuspendLayout();
@@ -123,7 +124,7 @@ namespace AccountantAssistant
             this.tabCon1.Location = new System.Drawing.Point(1, 29);
             this.tabCon1.Name = "tabCon1";
             this.tabCon1.SelectedIndex = 0;
-            this.tabCon1.Size = new System.Drawing.Size(915, 109);
+            this.tabCon1.Size = new System.Drawing.Size(931, 109);
             this.tabCon1.TabIndex = 0;
             this.tabCon1.SelectedIndexChanged += new System.EventHandler(this.tabCon1_SelectedIndexChanged);
             // 
@@ -133,23 +134,41 @@ namespace AccountantAssistant
             this.tabPage_file.Location = new System.Drawing.Point(4, 27);
             this.tabPage_file.Name = "tabPage_file";
             this.tabPage_file.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_file.Size = new System.Drawing.Size(907, 78);
+            this.tabPage_file.Size = new System.Drawing.Size(923, 78);
             this.tabPage_file.TabIndex = 0;
             this.tabPage_file.Text = "Datei";
             // 
             // tabPage_start
             // 
             this.tabPage_start.BackColor = System.Drawing.Color.White;
+            this.tabPage_start.Controls.Add(this.btn_chooseLedger);
+            this.tabPage_start.Controls.Add(this.tb_ledger);
             this.tabPage_start.Controls.Add(this.button1);
             this.tabPage_start.Controls.Add(this.label4);
-            this.tabPage_start.Controls.Add(this.cb_ledger);
             this.tabPage_start.Controls.Add(this.lbl_select_ledger);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
             this.tabPage_start.Name = "tabPage_start";
             this.tabPage_start.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_start.Size = new System.Drawing.Size(907, 78);
+            this.tabPage_start.Size = new System.Drawing.Size(923, 78);
             this.tabPage_start.TabIndex = 1;
             this.tabPage_start.Text = "Start";
+            // 
+            // btn_chooseLedger
+            // 
+            this.btn_chooseLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_chooseLedger.BackColor = System.Drawing.Color.Transparent;
+            this.btn_chooseLedger.BackgroundImage = global::AccountantAssistant.Properties.Resources.magnifyingGlass;
+            this.btn_chooseLedger.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_chooseLedger.FlatAppearance.BorderSize = 0;
+            this.btn_chooseLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chooseLedger.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chooseLedger.ForeColor = System.Drawing.Color.Black;
+            this.btn_chooseLedger.Location = new System.Drawing.Point(281, 23);
+            this.btn_chooseLedger.Name = "btn_chooseLedger";
+            this.btn_chooseLedger.Size = new System.Drawing.Size(33, 23);
+            this.btn_chooseLedger.TabIndex = 59;
+            this.btn_chooseLedger.UseVisualStyleBackColor = false;
+            this.btn_chooseLedger.Click += new System.EventHandler(this.btn_chooseLedger_Click);
             // 
             // button1
             // 
@@ -174,16 +193,6 @@ namespace AccountantAssistant
             this.label4.TabIndex = 4;
             this.label4.Text = "Summen- Saldenbilanz";
             // 
-            // cb_ledger
-            // 
-            this.cb_ledger.FormattingEnabled = true;
-            this.cb_ledger.Location = new System.Drawing.Point(133, 21);
-            this.cb_ledger.Name = "cb_ledger";
-            this.cb_ledger.Size = new System.Drawing.Size(188, 26);
-            this.cb_ledger.Sorted = true;
-            this.cb_ledger.TabIndex = 3;
-            this.cb_ledger.SelectedIndexChanged += new System.EventHandler(this.cb_ledger_SelectedIndexChanged);
-            // 
             // lbl_select_ledger
             // 
             this.lbl_select_ledger.AutoSize = true;
@@ -204,7 +213,7 @@ namespace AccountantAssistant
             this.tabPage_search.Location = new System.Drawing.Point(4, 27);
             this.tabPage_search.Name = "tabPage_search";
             this.tabPage_search.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_search.Size = new System.Drawing.Size(907, 78);
+            this.tabPage_search.Size = new System.Drawing.Size(923, 78);
             this.tabPage_search.TabIndex = 2;
             this.tabPage_search.Text = "Suche";
             this.tabPage_search.UseVisualStyleBackColor = true;
@@ -282,7 +291,7 @@ namespace AccountantAssistant
             this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ledger.Name = "tabPage_ledger";
             this.tabPage_ledger.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ledger.Size = new System.Drawing.Size(907, 78);
+            this.tabPage_ledger.Size = new System.Drawing.Size(923, 78);
             this.tabPage_ledger.TabIndex = 3;
             this.tabPage_ledger.Text = "Konto";
             this.tabPage_ledger.UseVisualStyleBackColor = true;
@@ -347,7 +356,7 @@ namespace AccountantAssistant
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
             this.tabPage_help.Name = "tabPage_help";
             this.tabPage_help.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_help.Size = new System.Drawing.Size(907, 78);
+            this.tabPage_help.Size = new System.Drawing.Size(923, 78);
             this.tabPage_help.TabIndex = 4;
             this.tabPage_help.Text = "Hilfe";
             this.tabPage_help.UseVisualStyleBackColor = true;
@@ -409,7 +418,7 @@ namespace AccountantAssistant
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(12, 580);
+            this.btn_back.Location = new System.Drawing.Point(12, 596);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 43;
@@ -513,7 +522,7 @@ namespace AccountantAssistant
             this.lbl_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_client.AutoSize = true;
             this.lbl_client.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(757, 32);
+            this.lbl_client.Location = new System.Drawing.Point(773, 32);
             this.lbl_client.Name = "lbl_client";
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
@@ -523,7 +532,7 @@ namespace AccountantAssistant
             // 
             this.cb_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_clients.FormattingEnabled = true;
-            this.cb_clients.Location = new System.Drawing.Point(820, 33);
+            this.cb_clients.Location = new System.Drawing.Point(836, 33);
             this.cb_clients.Name = "cb_clients";
             this.cb_clients.Size = new System.Drawing.Size(232, 21);
             this.cb_clients.TabIndex = 48;
@@ -536,14 +545,14 @@ namespace AccountantAssistant
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_transaction.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_transaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_date,
@@ -555,28 +564,28 @@ namespace AccountantAssistant
             this.column_ust,
             this.column_ust_rate,
             this.column_debit_credit});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.Format = "C2";
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_transaction.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dgv_transaction.Location = new System.Drawing.Point(5, 144);
             this.dgv_transaction.Name = "dgv_transaction";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv_transaction.Size = new System.Drawing.Size(911, 373);
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgv_transaction.Size = new System.Drawing.Size(927, 389);
             this.dgv_transaction.TabIndex = 49;
             // 
             // column_date
@@ -604,36 +613,36 @@ namespace AccountantAssistant
             // 
             // column_netto
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Format = "C2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.column_netto.DefaultCellStyle = dataGridViewCellStyle16;
             this.column_netto.HeaderText = "Nettobetrag";
             this.column_netto.Name = "column_netto";
             this.column_netto.Width = 120;
             // 
             // column_brutto
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Format = "C2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle17;
             this.column_brutto.HeaderText = "Bruttobetrag";
             this.column_brutto.Name = "column_brutto";
             this.column_brutto.Width = 120;
             // 
             // column_ust
             // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Format = "C2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.column_ust.DefaultCellStyle = dataGridViewCellStyle18;
             this.column_ust.HeaderText = "Ust";
             this.column_ust.Name = "column_ust";
             this.column_ust.Width = 60;
             // 
             // column_ust_rate
             // 
-            dataGridViewCellStyle5.Format = "0 \"%\"";
-            dataGridViewCellStyle5.NullValue = null;
-            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.Format = "0 \"%\"";
+            dataGridViewCellStyle19.NullValue = null;
+            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle19;
             this.column_ust_rate.HeaderText = "Ust-Satz";
             this.column_ust_rate.Name = "column_ust_rate";
             this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -649,7 +658,7 @@ namespace AccountantAssistant
             this.lbl_contraLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_contraLedger.AutoSize = true;
             this.lbl_contraLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_contraLedger.Location = new System.Drawing.Point(333, 520);
+            this.lbl_contraLedger.Location = new System.Drawing.Point(333, 536);
             this.lbl_contraLedger.Name = "lbl_contraLedger";
             this.lbl_contraLedger.Size = new System.Drawing.Size(86, 18);
             this.lbl_contraLedger.TabIndex = 50;
@@ -660,7 +669,7 @@ namespace AccountantAssistant
             this.lbl_netto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_netto.AutoSize = true;
             this.lbl_netto.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_netto.Location = new System.Drawing.Point(490, 520);
+            this.lbl_netto.Location = new System.Drawing.Point(490, 536);
             this.lbl_netto.Name = "lbl_netto";
             this.lbl_netto.Size = new System.Drawing.Size(86, 18);
             this.lbl_netto.TabIndex = 51;
@@ -671,7 +680,7 @@ namespace AccountantAssistant
             this.lbl_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_date.AutoSize = true;
             this.lbl_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.Location = new System.Drawing.Point(42, 520);
+            this.lbl_date.Location = new System.Drawing.Point(42, 536);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(52, 18);
             this.lbl_date.TabIndex = 52;
@@ -682,7 +691,7 @@ namespace AccountantAssistant
             this.lbl_referenceNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_referenceNumber.AutoSize = true;
             this.lbl_referenceNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_referenceNumber.Location = new System.Drawing.Point(163, 520);
+            this.lbl_referenceNumber.Location = new System.Drawing.Point(163, 536);
             this.lbl_referenceNumber.Name = "lbl_referenceNumber";
             this.lbl_referenceNumber.Size = new System.Drawing.Size(98, 18);
             this.lbl_referenceNumber.TabIndex = 53;
@@ -693,7 +702,7 @@ namespace AccountantAssistant
             this.lbl_ust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_ust.AutoSize = true;
             this.lbl_ust.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ust.Location = new System.Drawing.Point(669, 520);
+            this.lbl_ust.Location = new System.Drawing.Point(669, 536);
             this.lbl_ust.Name = "lbl_ust";
             this.lbl_ust.Size = new System.Drawing.Size(63, 18);
             this.lbl_ust.TabIndex = 54;
@@ -709,7 +718,7 @@ namespace AccountantAssistant
             "10",
             "13",
             "20"});
-            this.cb_salesTaxRate.Location = new System.Drawing.Point(615, 541);
+            this.cb_salesTaxRate.Location = new System.Drawing.Point(615, 557);
             this.cb_salesTaxRate.Name = "cb_salesTaxRate";
             this.cb_salesTaxRate.Size = new System.Drawing.Size(155, 26);
             this.cb_salesTaxRate.TabIndex = 5;
@@ -719,7 +728,7 @@ namespace AccountantAssistant
             // 
             this.tb_netto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tb_netto.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_netto.Location = new System.Drawing.Point(454, 541);
+            this.tb_netto.Location = new System.Drawing.Point(454, 557);
             this.tb_netto.Name = "tb_netto";
             this.tb_netto.Size = new System.Drawing.Size(155, 26);
             this.tb_netto.TabIndex = 4;
@@ -728,7 +737,7 @@ namespace AccountantAssistant
             // 
             this.tb_referenceNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tb_referenceNumber.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_referenceNumber.Location = new System.Drawing.Point(132, 541);
+            this.tb_referenceNumber.Location = new System.Drawing.Point(132, 557);
             this.tb_referenceNumber.Name = "tb_referenceNumber";
             this.tb_referenceNumber.Size = new System.Drawing.Size(155, 26);
             this.tb_referenceNumber.TabIndex = 2;
@@ -739,7 +748,7 @@ namespace AccountantAssistant
             this.btn_enter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_enter.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enter.ForeColor = System.Drawing.Color.Black;
-            this.btn_enter.Location = new System.Drawing.Point(820, 541);
+            this.btn_enter.Location = new System.Drawing.Point(820, 557);
             this.btn_enter.Name = "btn_enter";
             this.btn_enter.Size = new System.Drawing.Size(96, 26);
             this.btn_enter.TabIndex = 6;
@@ -754,7 +763,7 @@ namespace AccountantAssistant
             this.btn_save_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_main.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save_main.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_main.Location = new System.Drawing.Point(922, 484);
+            this.btn_save_main.Location = new System.Drawing.Point(938, 500);
             this.btn_save_main.Name = "btn_save_main";
             this.btn_save_main.Size = new System.Drawing.Size(109, 33);
             this.btn_save_main.TabIndex = 7;
@@ -769,7 +778,7 @@ namespace AccountantAssistant
             this.date_picker.CustomFormat = "dd.MM.yyyy";
             this.date_picker.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_picker.Location = new System.Drawing.Point(12, 541);
+            this.date_picker.Location = new System.Drawing.Point(12, 557);
             this.date_picker.Name = "date_picker";
             this.date_picker.Size = new System.Drawing.Size(114, 26);
             this.date_picker.TabIndex = 1;
@@ -795,7 +804,7 @@ namespace AccountantAssistant
             this.cb_contraLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_contraLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_contraLedger.FormattingEnabled = true;
-            this.cb_contraLedger.Location = new System.Drawing.Point(293, 541);
+            this.cb_contraLedger.Location = new System.Drawing.Point(293, 557);
             this.cb_contraLedger.Name = "cb_contraLedger";
             this.cb_contraLedger.Size = new System.Drawing.Size(155, 26);
             this.cb_contraLedger.Sorted = true;
@@ -811,9 +820,9 @@ namespace AccountantAssistant
             this.rbtn_s.AutoSize = true;
             this.rbtn_s.Checked = true;
             this.rbtn_s.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_s.Location = new System.Drawing.Point(779, 532);
+            this.rbtn_s.Location = new System.Drawing.Point(779, 548);
             this.rbtn_s.Name = "rbtn_s";
-            this.rbtn_s.Size = new System.Drawing.Size(34, 20);
+            this.rbtn_s.Size = new System.Drawing.Size(33, 20);
             this.rbtn_s.TabIndex = 55;
             this.rbtn_s.TabStop = true;
             this.rbtn_s.Text = "S";
@@ -824,12 +833,21 @@ namespace AccountantAssistant
             this.rbtn_h.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbtn_h.AutoSize = true;
             this.rbtn_h.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_h.Location = new System.Drawing.Point(779, 551);
+            this.rbtn_h.Location = new System.Drawing.Point(779, 567);
             this.rbtn_h.Name = "rbtn_h";
-            this.rbtn_h.Size = new System.Drawing.Size(34, 20);
+            this.rbtn_h.Size = new System.Drawing.Size(33, 20);
             this.rbtn_h.TabIndex = 56;
             this.rbtn_h.Text = "H";
             this.rbtn_h.UseVisualStyleBackColor = true;
+            // 
+            // tb_ledger
+            // 
+            this.tb_ledger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tb_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_ledger.Location = new System.Drawing.Point(127, 22);
+            this.tb_ledger.Name = "tb_ledger";
+            this.tb_ledger.Size = new System.Drawing.Size(188, 26);
+            this.tb_ledger.TabIndex = 57;
             // 
             // pb_settings
             // 
@@ -837,7 +855,7 @@ namespace AccountantAssistant
             this.pb_settings.BackColor = System.Drawing.Color.Transparent;
             this.pb_settings.BackgroundImage = global::AccountantAssistant.Properties.Resources.gear;
             this.pb_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_settings.Location = new System.Drawing.Point(1071, 33);
+            this.pb_settings.Location = new System.Drawing.Point(1087, 33);
             this.pb_settings.Name = "pb_settings";
             this.pb_settings.Size = new System.Drawing.Size(32, 21);
             this.pb_settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -851,7 +869,7 @@ namespace AccountantAssistant
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1130, 617);
+            this.ClientSize = new System.Drawing.Size(1146, 633);
             this.ControlBox = false;
             this.Controls.Add(this.rbtn_h);
             this.Controls.Add(this.rbtn_s);
@@ -874,7 +892,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.pnl_1);
             this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -920,7 +938,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
         private System.Windows.Forms.Button btn_newLedger;
-        private System.Windows.Forms.ComboBox cb_ledger;
         private System.Windows.Forms.Label lbl_select_ledger;
         private System.Windows.Forms.DataGridView dgv_transaction;
         private System.Windows.Forms.Label lbl_contraLedger;
@@ -965,5 +982,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linklable_email;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_chooseLedger;
+        public System.Windows.Forms.TextBox tb_ledger;
     }
 }

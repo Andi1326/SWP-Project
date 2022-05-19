@@ -57,7 +57,7 @@ namespace AccountantAssistant
             this.btn_delete_ref.Name = "btn_delete_ref";
             this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ref.TabIndex = 8;
-            this.btn_delete_ref.Text = "stornieren ";
+            this.btn_delete_ref.Text = "Stonieren";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
             this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
@@ -187,6 +187,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.dgv_search_refNumber);
             this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_refNumber";
             this.Load += new System.EventHandler(this.frm_search_refNumber_Load);
