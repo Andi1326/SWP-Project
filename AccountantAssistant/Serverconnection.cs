@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using static System.Console;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace AccountantAssistant
 {
@@ -56,6 +58,30 @@ namespace AccountantAssistant
             {
                 MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
                 con.Close();
+            }
+        }
+
+        public static void SaveStandardLedgers(int client)
+        {
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
+                StreamReader sr = new StreamReader(stream);
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    var values = line.Split(';');
+
+                    cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
             }
         }
 
@@ -299,6 +325,19 @@ namespace AccountantAssistant
                 MessageBox.Show(ex.ToString());
                 con.Close();
             }
+        }
+
+        public static void ShowLedgers(DataGridView dgv, int client)
+        {
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select number, name, type from AllLedgers where IDC = '"+client+"' or IDC = 0";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dgv.Rows.Add(Convert.ToInt32(dr["number"]), dr["name"].ToString(), dr["type"].ToString());
+            }
+            con.Close();
         }
 
         public static void GetClient(ComboBox cb)

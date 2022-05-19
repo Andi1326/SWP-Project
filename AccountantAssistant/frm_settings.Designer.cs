@@ -46,7 +46,7 @@ namespace AccountantAssistant
             this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
             this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(12, 474);
+            this.btn_back.Location = new System.Drawing.Point(12, 490);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(122, 25);
             this.btn_back.TabIndex = 44;
@@ -154,7 +154,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.lbl_head);
             this.Controls.Add(this.btn_back);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(948, 527);
             this.Name = "frm_settings";

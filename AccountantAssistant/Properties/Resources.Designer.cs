@@ -61,6 +61,31 @@ namespace AccountantAssistant.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 200;Grundwert unbebautes GrundstŸck;AB
+        ///210;Grundwert bebautes GrundstŸck;AB
+        ///300;Gebäude;AB
+        ///400;Maschinen;AB
+        ///600;BGA (Betriebs- und Geschäftsausstattung);AB
+        ///620;Büromaschinen, EDV-Anlagen;AB
+        ///630;Pkw;AB
+        ///640;Lkw;AB
+        ///680;geringwertige WirtschaftsgŸter (GWG);AB
+        ///690;kum. AfA (kumulierte Absetzung fŸr AbnŸtzung);AB
+        ///1100;Rohstoffvorrat;AB
+        ///1300;Hilfsstoffe;AB
+        ///1360;Vorrat Heizšl;AB
+        ///1500;Vorrat Verpackungsmaterial;AB
+        ///1600;HW-Vorrat (Handelswaren-Vorrat);AB
+        ///2000;Lieferforderungen;AB
+        ///2050;Besitzwechsel;AB [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string AllLedgers {
+            get {
+                return ResourceManager.GetString("AllLedgers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrow_Back {
@@ -136,6 +161,16 @@ namespace AccountantAssistant.Properties {
         internal static System.Drawing.Bitmap logo_small_icon_only {
             get {
                 object obj = ResourceManager.GetObject("logo_small_icon_only", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifyingGlass {
+            get {
+                object obj = ResourceManager.GetObject("magnifyingGlass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,0 +1,103 @@
+﻿200;Grundwert unbebautes GrundstŸck;AB
+210;Grundwert bebautes GrundstŸck;AB
+300;Gebäude;AB
+400;Maschinen;AB
+600;BGA (Betriebs- und Geschäftsausstattung);AB
+620;Büromaschinen, EDV-Anlagen;AB
+630;Pkw;AB
+640;Lkw;AB
+680;geringwertige WirtschaftsgŸter (GWG);AB
+690;kum. AfA (kumulierte Absetzung fŸr AbnŸtzung);AB
+1100;Rohstoffvorrat;AB
+1300;Hilfsstoffe;AB
+1360;Vorrat Heizšl;AB
+1500;Vorrat Verpackungsmaterial;AB
+1600;HW-Vorrat (Handelswaren-Vorrat);AB
+2000;Lieferforderungen;AB
+2050;Besitzwechsel;AB
+2300;sonstige Forderungen;AB
+2350;gewŠhrte Darlehen;AB
+2500;Vorsteuer (VSt);AB
+2501;Vorsteuer (VSt) 10 %;AB
+2510;Vorsteuer aus i. g. Erwerb 20 %;AB
+2511;Vorsteuer aus i. g. Erwerb 10 %;AB
+2520;Einfuhrumsatzsteuer (EUSt);AB
+2700;Kassa;AB
+2780;Forderungen Kreditkarte;AB
+2790;Forderungen Bankomat;AB
+2800;Bank;AB
+2810;PSK;AB
+2870;Barverkehr mit Banken;AB
+2900;ARA (aktive Rechnungsabgrenzung);AB
+3000;RŸckstellungen;PB
+3110;Bankschulden;PB
+3150;Darlehen;PB
+3180;Verbindlichkeiten Kreditkarte;PB
+3190;Verbindlichkeiten Bankomat;PB
+3300;Lieferverbindlichkeiten;PB
+3380;Schuldwechsel;PB
+3500;Umsatzsteuer (USt);PB
+3501;Umsatzsteuer (USt) 10 %;PB
+3510;Erwerbsteuer (USt aus i. g. Erwerb) 20 %;PB
+3511;Erwerbsteuer (USt aus i. g. Erwerb) 10 %;PB
+3520;USt-Zahllast;PB
+3540;Verbindlichkeiten Finanzamt;PB
+3600;Verbindlichkeiten Krankenkassa;PB
+3610;Verbindlichkeiten Gemeinde;PB
+3700;sonstige Verbindlichkeiten;PB
+3850;Verbindlichkeiten Mitarbeiter;PB
+3900;PRA (passive Rechnungsabgrenzung);PB
+4000;HW-Erlšse (Handelswaren-Erlšse);EK
+4001;HW-Erlšse (10 % USt);EK
+4010;Erlšse aus i. g. Lieferungen 0 %;EK
+4015;Exporterlšse (Drittland) 0 %;EK
+4400;Erlšsberichtigungen;EK
+4410;Kundenskonti;EK
+4600;Erlšse Anlagenverkauf;EK
+4700;ErtrŠge aus Auflšsung von RŸckstellungen;EK
+4800;MietertrŠge;EK
+4820;ProvisionsvertrŠge;EK
+4890;MahnspesenvergŸtungen;EK
+4900;Eigenverbrauch;EK
+5010;HW-Einsatz (Handelswaren-Einsatz);AK
+5100;Rohstoffverbrauch;AK
+5630;Energieaufwand;AK
+5880;Lieferantenskonti;AK
+6000;Lšhne;AK
+6200;GehŠlter;AK
+6500;gesetzlicher Sozialaufwand;AK
+6600;lohn- und gehaltsabhŠngige Abgaben;AK
+6620;Kommunalsteuer;AK
+7010;AfA (Absetzung fŸr AbnŸtzung);AK
+7030;AfA GWG (AfA fŸr geringwertige WirtschaftsgŸter);AK
+7100;Steuern;AK
+7200;Reparaturen;AK
+7230;Beleuchtungsaufwand;AK
+7300;Ausgangsfrachten;AK
+7320;Pkw-Betriebsaufwand;AK
+7330;Lkw-Betriebsaufwand;AK
+7380;TelefongebŸhren;AK
+7390;PortogebŸhren;AK
+7400;Mietaufwand;AK
+7540;Provisionen;AK
+7600;BŸromaterial;AK
+7650;Werbeaufwand;AK
+7700;Versicherungsaufwand;AK
+7750;Rechts- und Beratungsaufwand;AK
+7790;Spesen des Geldverkehrs;AK
+7820;Buchwert abgegangener Anlagen (BW abg. A.);AK
+7840;Aufwand aus Vorperioden;AK
+7850;Aufwand fŸr Schadenersatzzahlungen;AK
+7890;sonstiger Aufwand;AK
+8100;ZinsertrŠge;EK
+8130;Verzugszinsertrag;EK
+8280;Zinsaufwand;AK
+8300;Verzugszinsaufwand;AK
+8310;Mahnspesen;AK
+8400;au§erordentliche ErtrŠge;EK
+8450;au§erordentliche AufwŠnde;AK
+9000;Eigenkapital;PB
+9600;Privat;PB
+9800;EBK (Eršffnungsbilanzkonto);PB
+9850;SBK (Schlussbilanzkonto);PB
+9890;GuV (Gewinn und Verlust);
