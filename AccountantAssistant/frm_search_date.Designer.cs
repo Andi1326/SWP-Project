@@ -37,14 +37,14 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_date));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
+            this.btn_save_ref = new System.Windows.Forms.Button();
+            this.btn_delete_ref = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_save_ref = new System.Windows.Forms.Button();
-            this.btn_delete_ref = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,8 +79,8 @@ namespace AccountantAssistant
             this.column_date,
             this.referenceNumber,
             this.column_ledger,
-            this.column_debit,
             this.column_contraLedger,
+            this.column_debit,
             this.column_credit});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -103,52 +103,8 @@ namespace AccountantAssistant
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_search_refNumber.Size = new System.Drawing.Size(563, 391);
+            this.dgv_search_refNumber.Size = new System.Drawing.Size(583, 391);
             this.dgv_search_refNumber.TabIndex = 54;
-            // 
-            // column_date
-            // 
-            this.column_date.HeaderText = "Datum";
-            this.column_date.Name = "column_date";
-            this.column_date.Width = 80;
-            // 
-            // referenceNumber
-            // 
-            this.referenceNumber.FillWeight = 120F;
-            this.referenceNumber.HeaderText = "Belegnummer";
-            this.referenceNumber.Name = "referenceNumber";
-            this.referenceNumber.Width = 120;
-            // 
-            // column_ledger
-            // 
-            dataGridViewCellStyle2.Format = "##";
-            dataGridViewCellStyle2.NullValue = null;
-            this.column_ledger.DefaultCellStyle = dataGridViewCellStyle2;
-            this.column_ledger.HeaderText = "Konto";
-            this.column_ledger.Name = "column_ledger";
-            this.column_ledger.Width = 80;
-            // 
-            // column_debit
-            // 
-            this.column_debit.FillWeight = 60F;
-            this.column_debit.HeaderText = "Netto";
-            this.column_debit.Name = "column_debit";
-            this.column_debit.Width = 60;
-            // 
-            // column_contraLedger
-            // 
-            dataGridViewCellStyle3.Format = "##";
-            dataGridViewCellStyle3.NullValue = null;
-            this.column_contraLedger.DefaultCellStyle = dataGridViewCellStyle3;
-            this.column_contraLedger.HeaderText = "Gegenkonto";
-            this.column_contraLedger.Name = "column_contraLedger";
-            // 
-            // column_credit
-            // 
-            this.column_credit.FillWeight = 80F;
-            this.column_credit.HeaderText = "Brutto";
-            this.column_credit.Name = "column_credit";
-            this.column_credit.Width = 80;
             // 
             // btn_save_ref
             // 
@@ -172,16 +128,60 @@ namespace AccountantAssistant
             this.btn_delete_ref.Name = "btn_delete_ref";
             this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ref.TabIndex = 52;
-            this.btn_delete_ref.Text = "Löschen";
+            this.btn_delete_ref.Text = "stornieren ";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
             this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
+            // column_date
+            // 
+            this.column_date.HeaderText = "Datum";
+            this.column_date.Name = "column_date";
+            this.column_date.Width = 80;
+            // 
+            // referenceNumber
+            // 
+            this.referenceNumber.FillWeight = 120F;
+            this.referenceNumber.HeaderText = "Belegnummer";
+            this.referenceNumber.Name = "referenceNumber";
+            this.referenceNumber.Width = 120;
+            // 
+            // column_ledger
+            // 
+            dataGridViewCellStyle2.Format = "##";
+            dataGridViewCellStyle2.NullValue = null;
+            this.column_ledger.DefaultCellStyle = dataGridViewCellStyle2;
+            this.column_ledger.HeaderText = "Konto";
+            this.column_ledger.Name = "column_ledger";
+            this.column_ledger.Width = 80;
+            // 
+            // column_contraLedger
+            // 
+            dataGridViewCellStyle3.Format = "##";
+            dataGridViewCellStyle3.NullValue = null;
+            this.column_contraLedger.DefaultCellStyle = dataGridViewCellStyle3;
+            this.column_contraLedger.HeaderText = "Gegenkonto";
+            this.column_contraLedger.Name = "column_contraLedger";
+            // 
+            // column_debit
+            // 
+            this.column_debit.FillWeight = 60F;
+            this.column_debit.HeaderText = "Soll";
+            this.column_debit.Name = "column_debit";
+            this.column_debit.Width = 80;
+            // 
+            // column_credit
+            // 
+            this.column_credit.FillWeight = 80F;
+            this.column_credit.HeaderText = "Haben";
+            this.column_credit.Name = "column_credit";
+            this.column_credit.Width = 80;
+            //
             // frm_search_date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(627, 523);
+            this.ClientSize = new System.Drawing.Size(608, 523);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);
@@ -205,8 +205,8 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
     }
 }

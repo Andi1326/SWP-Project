@@ -46,8 +46,11 @@ namespace AccountantAssistant
                 //Saves the new Ledger into the table AllLedgers
                 AllLedgers newAllLedgers = new AllLedgers(frm_main.IDC, Convert.ToInt32(tb_number.Text), tb_name.Text, cb_type.SelectedItem.ToString());
                 Serverconnection.InsertDataAllLedgers(newAllLedgers);
+                this.Hide();
+                frm_main frm_Main = new frm_main();
+                frm_Main.ShowDialog();
             }
-            this.Close();
+            
         }
 
         private void frm_new_ledger_Load(object sender, EventArgs e)

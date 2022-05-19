@@ -527,11 +527,11 @@ namespace AccountantAssistant
             {
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
                 }
                 else if(type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger2"]),0, Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]),0, Convert.ToDecimal(dr["brutto"]));
                 }
                 else
                 {
@@ -595,6 +595,7 @@ namespace AccountantAssistant
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                con.Close();
             }
         }
 
@@ -605,7 +606,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 Da.UpdateCommand = cmdbuilder.GetUpdateCommand();
-                Da.Update(dt1);
+                Da.Update(dt);
                 con.Close();
             }
             catch (Exception ex)
@@ -615,7 +616,33 @@ namespace AccountantAssistant
             }
         }
 
+
+
+
+
+
         #endregion
+
+        public static string datetimeCancel;
+        public static string referenceNumberCancel;
+        public static string contraLedgerCancel;
+        public static string nettoCancel;
+        public static string salestaxrateCancel;
+        public static string ledgerCancel;
+
+        public static void CancelTransaction(DataGridView dgv)
+        {
+            con.Open();
+
+            //datetimeCancel = dgv.CurrentRow.Cells[0].Value.ToString();
+            
+            referenceNumberCancel = dgv.CurrentRow.Cells[1].Value.ToString();
+            contraLedgerCancel = dgv.CurrentRow.Cells[2].Value.ToString();
+            ledgerCancel = dgv.CurrentRow.Cells[3].Value.ToString();
+            nettoCancel = dgv.CurrentRow.Cells[4].Value.ToString();
+            salestaxrateCancel = dgv.CurrentRow.Cells[5].Value.ToString();
+
+        }
 
     }
 }
