@@ -9,15 +9,20 @@ using System.Data;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using MySql.Data.MySqlClient;
 
 namespace AccountantAssistant
 {
     class Serverconnection
     {
-        public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
-        public static SqlCommand cmd = new SqlCommand();
+        public static MySqlConnection con = new MySqlConnection("server=50.7.115.30;port=3306;user id=andi;password=Ny8r4yiJ! ;persistsecurityinfo=True;database=ACAS_1;allowuservariables=True");
+        public static MySqlCommand cmd = new MySqlCommand();
+        public static MySqlDataReader dr;
 
-        private static SqlDataReader dr;
+        //public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
+        //public static SqlCommand cmd = new SqlCommand();
+
+        //private static SqlDataReader dr;
 
         public static DataTable dt = new DataTable();
         public static DataTable dt1 = new DataTable();
@@ -33,23 +38,23 @@ namespace AccountantAssistant
             //trys to connect to the server and creates the tables and the database if it they are not avaialable
             try
             {
+                //con.Open();
+                //cmd.Connection = con;
+                //cmd.CommandText = "if not exists(select * from sys.databases where name = 'ACAS') begin create database [ACAS] end";
+                //cmd.ExecuteNonQuery();
+                //con.Close();
+                //con.ConnectionString = con.ConnectionString + "; database = 'ACAS'";
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "if not exists(select * from sys.databases where name = 'ACAS') begin create database [ACAS] end";
+                cmd.CommandText = "create table Login (IDL int Identity(1,1) primary key,username varchar(50), password varchar(50), sq1 varchar(50), sq2 varchar(50), sq1question varchar(50), sq2question varchar(50), role varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                con.Close();
-                con.ConnectionString = con.ConnectionString + "; database = 'ACAS'";
-                con.Open();
-
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Login') begin create table Login (IDL int Identity(1,1) primary key,username varchar(50), password varchar(50), sq1 varchar(50), sq2 varchar(50), sq1question varchar(50), sq2question varchar(50), role varchar(50)) end";
+                cmd.CommandText = "create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
+                cmd.CommandText = "create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, number int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, number int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
+                cmd.CommandText = "create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int, referenceNumber varchar(50), date varchar(50)) end";
+                cmd.CommandText = "create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int, referenceNumber varchar(50), date varchar(50)) end";
                 cmd.ExecuteNonQuery();
                 con.Close();
 
