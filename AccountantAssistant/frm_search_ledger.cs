@@ -33,6 +33,12 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                dgv_search_ledger.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_search_ledger.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_search_ledger.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_ledger.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_search_ledger.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_ledger.EnableHeadersVisualStyles = false;
             }
             else
             {

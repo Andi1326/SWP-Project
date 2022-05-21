@@ -27,6 +27,12 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                dgv_search_refNumber.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_search_refNumber.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_search_refNumber.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_refNumber.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_search_refNumber.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_refNumber.EnableHeadersVisualStyles = false;
             }
             else
             {
