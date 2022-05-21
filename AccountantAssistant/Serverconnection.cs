@@ -15,7 +15,7 @@ namespace AccountantAssistant
 {
     class Serverconnection
     {
-        public static MySqlConnection con = new MySqlConnection("server=50.7.115.30;port=3306;user id=andi;password=Ny8r4yiJ! ;persistsecurityinfo=True;database=ACAS_1;allowuservariables=True");
+        public static MySqlConnection con = new MySqlConnection("server=50.7.115.30;port=3306;user id=andi;password=Ny8r4yiJ!;persistsecurityinfo=True;database=ACAS_1;allowuservariables=True");
         public static MySqlCommand cmd = new MySqlCommand();
         public static MySqlDataReader dr;
 
