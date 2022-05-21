@@ -42,26 +42,26 @@ namespace AccountantAssistant
             this.tabPage_start = new System.Windows.Forms.TabPage();
             this.btn_chooseLedger = new System.Windows.Forms.Button();
             this.tb_ledger = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btn_balance = new System.Windows.Forms.Button();
+            this.lbl_TP_balance = new System.Windows.Forms.Label();
             this.lbl_select_ledger = new System.Windows.Forms.Label();
             this.tabPage_search = new System.Windows.Forms.TabPage();
             this.btn_searchDate = new System.Windows.Forms.Button();
             this.tb_searchDate = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_TP_date = new System.Windows.Forms.Label();
             this.btn_search_ref = new System.Windows.Forms.Button();
             this.tb_search_ref = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_TP_referenceNumber = new System.Windows.Forms.Label();
             this.tabPage_ledger = new System.Windows.Forms.TabPage();
             this.btn_search_ledger = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_TP_ledger = new System.Windows.Forms.Label();
             this.cb_search_ledger = new System.Windows.Forms.ComboBox();
             this.btn_newLedger = new System.Windows.Forms.Button();
             this.tabPage_help = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_eMail2 = new System.Windows.Forms.Label();
+            this.lbl_eMail1 = new System.Windows.Forms.Label();
             this.linklable_email = new System.Windows.Forms.LinkLabel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_eMailHeading = new System.Windows.Forms.Label();
             this.btn_email = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.pnl_1 = new System.Windows.Forms.Panel();
@@ -143,8 +143,8 @@ namespace AccountantAssistant
             this.tabPage_start.BackColor = System.Drawing.Color.White;
             this.tabPage_start.Controls.Add(this.btn_chooseLedger);
             this.tabPage_start.Controls.Add(this.tb_ledger);
-            this.tabPage_start.Controls.Add(this.button1);
-            this.tabPage_start.Controls.Add(this.label4);
+            this.tabPage_start.Controls.Add(this.btn_balance);
+            this.tabPage_start.Controls.Add(this.lbl_TP_balance);
             this.tabPage_start.Controls.Add(this.lbl_select_ledger);
             this.tabPage_start.Location = new System.Drawing.Point(4, 27);
             this.tabPage_start.Name = "tabPage_start";
@@ -180,28 +180,28 @@ namespace AccountantAssistant
             this.tb_ledger.TabIndex = 57;
             this.tb_ledger.TextChanged += new System.EventHandler(this.tb_ledger_TextChanged);
             // 
-            // button1
+            // btn_balance
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(519, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Berechnen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_balance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_balance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_balance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_balance.ForeColor = System.Drawing.Color.Black;
+            this.btn_balance.Location = new System.Drawing.Point(519, 24);
+            this.btn_balance.Name = "btn_balance";
+            this.btn_balance.Size = new System.Drawing.Size(117, 23);
+            this.btn_balance.TabIndex = 58;
+            this.btn_balance.Text = "Berechnen";
+            this.btn_balance.UseVisualStyleBackColor = true;
+            this.btn_balance.Click += new System.EventHandler(this.btn_balance_Click);
             // 
-            // label4
+            // lbl_TP_balance
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(360, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 18);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Summen- Saldenbilanz";
+            this.lbl_TP_balance.AutoSize = true;
+            this.lbl_TP_balance.Location = new System.Drawing.Point(360, 24);
+            this.lbl_TP_balance.Name = "lbl_TP_balance";
+            this.lbl_TP_balance.Size = new System.Drawing.Size(153, 18);
+            this.lbl_TP_balance.TabIndex = 4;
+            this.lbl_TP_balance.Text = "Summen- Saldenbilanz";
             // 
             // lbl_select_ledger
             // 
@@ -216,10 +216,10 @@ namespace AccountantAssistant
             // 
             this.tabPage_search.Controls.Add(this.btn_searchDate);
             this.tabPage_search.Controls.Add(this.tb_searchDate);
-            this.tabPage_search.Controls.Add(this.label2);
+            this.tabPage_search.Controls.Add(this.lbl_TP_date);
             this.tabPage_search.Controls.Add(this.btn_search_ref);
             this.tabPage_search.Controls.Add(this.tb_search_ref);
-            this.tabPage_search.Controls.Add(this.label1);
+            this.tabPage_search.Controls.Add(this.lbl_TP_referenceNumber);
             this.tabPage_search.Location = new System.Drawing.Point(4, 27);
             this.tabPage_search.Name = "tabPage_search";
             this.tabPage_search.Padding = new System.Windows.Forms.Padding(3);
@@ -234,7 +234,7 @@ namespace AccountantAssistant
             this.btn_searchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_searchDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchDate.ForeColor = System.Drawing.Color.Black;
-            this.btn_searchDate.Location = new System.Drawing.Point(752, 14);
+            this.btn_searchDate.Location = new System.Drawing.Point(752, 18);
             this.btn_searchDate.Name = "btn_searchDate";
             this.btn_searchDate.Size = new System.Drawing.Size(83, 23);
             this.btn_searchDate.TabIndex = 60;
@@ -245,20 +245,20 @@ namespace AccountantAssistant
             // 
             // tb_searchDate
             // 
-            this.tb_searchDate.Location = new System.Drawing.Point(548, 17);
+            this.tb_searchDate.Location = new System.Drawing.Point(548, 16);
             this.tb_searchDate.Multiline = true;
             this.tb_searchDate.Name = "tb_searchDate";
-            this.tb_searchDate.Size = new System.Drawing.Size(198, 20);
+            this.tb_searchDate.Size = new System.Drawing.Size(198, 26);
             this.tb_searchDate.TabIndex = 59;
             // 
-            // label2
+            // lbl_TP_date
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(485, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 18);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "Datum:";
+            this.lbl_TP_date.AutoSize = true;
+            this.lbl_TP_date.Location = new System.Drawing.Point(485, 19);
+            this.lbl_TP_date.Name = "lbl_TP_date";
+            this.lbl_TP_date.Size = new System.Drawing.Size(57, 18);
+            this.lbl_TP_date.TabIndex = 58;
+            this.lbl_TP_date.Text = "Datum:";
             // 
             // btn_search_ref
             // 
@@ -266,7 +266,7 @@ namespace AccountantAssistant
             this.btn_search_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search_ref.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_search_ref.Location = new System.Drawing.Point(331, 14);
+            this.btn_search_ref.Location = new System.Drawing.Point(331, 19);
             this.btn_search_ref.Name = "btn_search_ref";
             this.btn_search_ref.Size = new System.Drawing.Size(83, 23);
             this.btn_search_ref.TabIndex = 57;
@@ -277,25 +277,25 @@ namespace AccountantAssistant
             // 
             // tb_search_ref
             // 
-            this.tb_search_ref.Location = new System.Drawing.Point(127, 17);
+            this.tb_search_ref.Location = new System.Drawing.Point(127, 16);
             this.tb_search_ref.Multiline = true;
             this.tb_search_ref.Name = "tb_search_ref";
-            this.tb_search_ref.Size = new System.Drawing.Size(198, 20);
+            this.tb_search_ref.Size = new System.Drawing.Size(198, 26);
             this.tb_search_ref.TabIndex = 4;
             // 
-            // label1
+            // lbl_TP_referenceNumber
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 18);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Belegnummer:";
+            this.lbl_TP_referenceNumber.AutoSize = true;
+            this.lbl_TP_referenceNumber.Location = new System.Drawing.Point(18, 19);
+            this.lbl_TP_referenceNumber.Name = "lbl_TP_referenceNumber";
+            this.lbl_TP_referenceNumber.Size = new System.Drawing.Size(103, 18);
+            this.lbl_TP_referenceNumber.TabIndex = 3;
+            this.lbl_TP_referenceNumber.Text = "Belegnummer:";
             // 
             // tabPage_ledger
             // 
             this.tabPage_ledger.Controls.Add(this.btn_search_ledger);
-            this.tabPage_ledger.Controls.Add(this.label3);
+            this.tabPage_ledger.Controls.Add(this.lbl_TP_ledger);
             this.tabPage_ledger.Controls.Add(this.cb_search_ledger);
             this.tabPage_ledger.Controls.Add(this.btn_newLedger);
             this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
@@ -321,14 +321,14 @@ namespace AccountantAssistant
             this.btn_search_ledger.UseVisualStyleBackColor = true;
             this.btn_search_ledger.Click += new System.EventHandler(this.btn_search_ledger_Click);
             // 
-            // label3
+            // lbl_TP_ledger
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(319, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 18);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "Konto:";
+            this.lbl_TP_ledger.AutoSize = true;
+            this.lbl_TP_ledger.Location = new System.Drawing.Point(319, 29);
+            this.lbl_TP_ledger.Name = "lbl_TP_ledger";
+            this.lbl_TP_ledger.Size = new System.Drawing.Size(51, 18);
+            this.lbl_TP_ledger.TabIndex = 59;
+            this.lbl_TP_ledger.Text = "Konto:";
             // 
             // cb_search_ledger
             // 
@@ -358,10 +358,10 @@ namespace AccountantAssistant
             // 
             // tabPage_help
             // 
-            this.tabPage_help.Controls.Add(this.label5);
-            this.tabPage_help.Controls.Add(this.label6);
+            this.tabPage_help.Controls.Add(this.lbl_eMail2);
+            this.tabPage_help.Controls.Add(this.lbl_eMail1);
             this.tabPage_help.Controls.Add(this.linklable_email);
-            this.tabPage_help.Controls.Add(this.label7);
+            this.tabPage_help.Controls.Add(this.lbl_eMailHeading);
             this.tabPage_help.Controls.Add(this.btn_email);
             this.tabPage_help.Location = new System.Drawing.Point(4, 27);
             this.tabPage_help.Name = "tabPage_help";
@@ -371,23 +371,23 @@ namespace AccountantAssistant
             this.tabPage_help.Text = "Hilfe";
             this.tabPage_help.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lbl_eMail2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(124, 57);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(246, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Täglich von 8:00 bis 15:00 für sie da";
+            this.lbl_eMail2.AutoSize = true;
+            this.lbl_eMail2.Location = new System.Drawing.Point(124, 57);
+            this.lbl_eMail2.Name = "lbl_eMail2";
+            this.lbl_eMail2.Size = new System.Drawing.Size(246, 18);
+            this.lbl_eMail2.TabIndex = 7;
+            this.lbl_eMail2.Text = "Täglich von 8:00 bis 15:00 für sie da";
             // 
-            // label6
+            // lbl_eMail1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 18);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "0664 345 8254";
+            this.lbl_eMail1.AutoSize = true;
+            this.lbl_eMail1.Location = new System.Drawing.Point(7, 57);
+            this.lbl_eMail1.Name = "lbl_eMail1";
+            this.lbl_eMail1.Size = new System.Drawing.Size(106, 18);
+            this.lbl_eMail1.TabIndex = 6;
+            this.lbl_eMail1.Text = "0664 345 8254";
             // 
             // linklable_email
             // 
@@ -403,24 +403,26 @@ namespace AccountantAssistant
             this.linklable_email.VisitedLinkColor = System.Drawing.Color.Gray;
             this.linklable_email.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklable_email_LinkClicked);
             // 
-            // label7
+            // lbl_eMailHeading
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 24);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Kontaktdaten:";
+            this.lbl_eMailHeading.AutoSize = true;
+            this.lbl_eMailHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_eMailHeading.Location = new System.Drawing.Point(7, 3);
+            this.lbl_eMailHeading.Name = "lbl_eMailHeading";
+            this.lbl_eMailHeading.Size = new System.Drawing.Size(136, 24);
+            this.lbl_eMailHeading.TabIndex = 4;
+            this.lbl_eMailHeading.Text = "Kontaktdaten:";
             // 
             // btn_email
             // 
-            this.btn_email.Location = new System.Drawing.Point(764, 24);
+            this.btn_email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_email.Location = new System.Drawing.Point(740, 24);
             this.btn_email.Name = "btn_email";
             this.btn_email.Size = new System.Drawing.Size(123, 29);
             this.btn_email.TabIndex = 0;
             this.btn_email.Text = "E-MAIL";
             this.btn_email.UseVisualStyleBackColor = true;
+            this.btn_email.Click += new System.EventHandler(this.btn_email_Click);
             // 
             // btn_back
             // 
@@ -732,7 +734,6 @@ namespace AccountantAssistant
             this.cb_salesTaxRate.Name = "cb_salesTaxRate";
             this.cb_salesTaxRate.Size = new System.Drawing.Size(155, 26);
             this.cb_salesTaxRate.TabIndex = 5;
-            this.cb_salesTaxRate.SelectedIndexChanged += new System.EventHandler(this.cb_salesTaxRate_SelectedIndexChanged);
             // 
             // tb_netto
             // 
@@ -969,20 +970,20 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit_credit;
         private System.Windows.Forms.Button btn_search_ref;
         private System.Windows.Forms.TextBox tb_search_ref;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_TP_referenceNumber;
         private System.Windows.Forms.Button btn_searchDate;
         private System.Windows.Forms.TextBox tb_searchDate;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_TP_date;
         private System.Windows.Forms.Button btn_search_ledger;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_TP_ledger;
         private System.Windows.Forms.ComboBox cb_search_ledger;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_balance;
+        private System.Windows.Forms.Label lbl_TP_balance;
         private System.Windows.Forms.Button btn_email;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_eMail2;
+        private System.Windows.Forms.Label lbl_eMail1;
         private System.Windows.Forms.LinkLabel linklable_email;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_eMailHeading;
         private System.Windows.Forms.Button btn_chooseLedger;
         public System.Windows.Forms.TextBox tb_ledger;
     }

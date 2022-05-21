@@ -368,31 +368,7 @@ namespace AccountantAssistant
             }
         }
 
-        #region Printing
-        Bitmap bmp;
-        private void btn_print_Click(object sender, EventArgs e)
-        {
-            int height = dgv_transaction.Height;
-            dgv_transaction.Height = dgv_transaction.RowCount * dgv_transaction.RowTemplate.Height * 2;
-            bmp = new Bitmap(dgv_transaction.Width, dgv_transaction.Height);
-            dgv_transaction.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_transaction.Width, dgv_transaction.Height));
-            dgv_transaction.Height = height;
-
-            printDia.AllowSomePages = true;
-            if(printDia.ShowDialog() == DialogResult.OK)
-            {
-                printDoc.Print();
-            }
-            pnl_1.Visible = false;
-        }
-
-        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(bmp, 0, 0);
-        }
-
-        #endregion
-
+        
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
@@ -408,6 +384,38 @@ namespace AccountantAssistant
             this.Hide();
             frm_s.ShowDialog();
         }
+
+        private void btn_balance_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_balance frm_Balance = new frm_balance();
+            frm_Balance.ShowDialog();
+        }
+
+        #region Printing
+        Bitmap bmp;
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            int height = dgv_transaction.Height;
+            dgv_transaction.Height = dgv_transaction.RowCount * dgv_transaction.RowTemplate.Height * 2;
+            bmp = new Bitmap(dgv_transaction.Width, dgv_transaction.Height);
+            dgv_transaction.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_transaction.Width, dgv_transaction.Height));
+            dgv_transaction.Height = height;
+
+            printDia.AllowSomePages = true;
+            if (printDia.ShowDialog() == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+            pnl_1.Visible = false;
+        }
+
+        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        #endregion
 
         #region search
 
@@ -437,36 +445,7 @@ namespace AccountantAssistant
 
         #endregion
 
-        private void cb_salesTaxRate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frm_balance frm_Balance = new frm_balance();
-            frm_Balance.ShowDialog();
-        }
-
-        private void linklable_email_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                VisitLink();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Unable to open link");
-            }
-        }
-        private void VisitLink()
-        {
-            
-            linklable_email.LinkVisited = true;
-            
-            System.Diagnostics.Process.Start("https://outlook.live.com/owa/");
-        }
+        #region tbLedger
 
         private void btn_chooseLedger_Click(object sender, EventArgs e)
         {
@@ -488,5 +467,41 @@ namespace AccountantAssistant
                 rbtn_h.Checked = true;
             }
         }
+
+        #endregion
+
+        #region eMail
+
+        private void linklable_email_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link");
+            }
+        }
+        private void VisitLink()
+        {
+            linklable_email.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://outlook.live.com/owa/");
+        }
+
+        private void btn_email_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link");
+            }
+        }
+
+        #endregion
+
     }
 }
