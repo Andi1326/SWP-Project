@@ -9,15 +9,20 @@ using System.Data;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using MySql.Data.MySqlClient;
 
 namespace AccountantAssistant
 {
     class Serverconnection
     {
-        public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
-        public static SqlCommand cmd = new SqlCommand();
+        public static MySqlConnection con = new MySqlConnection("server=50.7.115.30;port=3306;user id=andi;password=Ny8r4yiJ!;persistsecurityinfo=True;database=ACAS_1;allowuservariables=True");
+        public static MySqlCommand cmd = new MySqlCommand();
+        public static MySqlDataReader dr;
 
-        private static SqlDataReader dr;
+        //public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
+        //public static SqlCommand cmd = new SqlCommand();
+
+        //private static SqlDataReader dr;
 
         public static DataTable dt = new DataTable();
         public static DataTable dt1 = new DataTable();
@@ -34,63 +39,46 @@ namespace AccountantAssistant
             try
             {
                 con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "if not exists(select * from sys.databases where name = 'ACAS') begin create database [ACAS] end";
-                cmd.ExecuteNonQuery();
-                con.Close();
-                con.ConnectionString = con.ConnectionString + "; database = 'ACAS'";
-                con.Open();
-
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Login') begin create table Login (IDL int Identity(1,1) primary key,username varchar(50), password varchar(50), sq1 varchar(50), sq2 varchar(50), sq1question varchar(50), sq2question varchar(50), role varchar(50)) end";
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Client') begin create table Client (IDC int Identity(1,1) primary key, firstname varchar(50), lastname varchar(50), telephone varchar(50), eMail varchar(50), uidNumber varchar(50), adress varchar(50), plz varchar(50), place varchar(50),country varchar(50)) end";
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'Ledger') begin create table Ledger (IDLedger int Identity(1,1) primary key, IDLE int, IDC int, number int, contraLedger int, debitValue decimal, creditValue decimal, referenceNumber varchar(50), date varchar(50)) end";
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AllLedgers') begin create table AllLedgers (IDLE int Identity(1,1) primary key, IDC int, number int, name varchar(50), type varchar(50)) end";
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "use [ACAS] if not exists(select * from sysobjects where name = 'AccTransaction') begin create table AccTransaction (IDT int Identity(1,1) primary key, IDC int, ledger1 int, ledger2 int, netto decimal, brutto decimal, ust decimal, salestaxrate int, referenceNumber varchar(50), date varchar(50)) end";
-                cmd.ExecuteNonQuery();
                 con.Close();
 
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "The Database or the Table can't be created");
+                MessageBox.Show(ex.ToString(), "connection to server failed");
                 con.Close();
             }
         }
 
-        public static void SaveStandardLedgers(int client)
-        {
-            try
-            {
-                con.Open();
-                cmd.Connection = con;
-                var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
-                StreamReader sr = new StreamReader(stream);
-                while (!sr.EndOfStream)
-                {
-                    var line = sr.ReadLine();
-                    var values = line.Split(';');
+        //public static void SaveStandardLedgers(int client)
+        //{
+        //    try
+        //    {
+        //        con.Open();
+        //        cmd.Connection = con;
+        //        var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
+        //        StreamReader sr = new StreamReader(stream);
+        //        while (!sr.EndOfStream)
+        //        {
+        //            var line = sr.ReadLine();
+        //            var values = line.Split(';');
 
-                    cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
-            }
-        }
+        //            cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        con.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
+        //    }
+        //}
 
         public static bool Proofuser(TextBox username)
         {
             //proofs if the user exists or not
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select username from login";
+            cmd.CommandText = "Select username from Login";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -109,7 +97,7 @@ namespace AccountantAssistant
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select password from login  where username = '" + username + "'";
+            cmd.CommandText = "Select password from Login where username = '" + username + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -128,7 +116,7 @@ namespace AccountantAssistant
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select password from login  where IDL = '" + IDL + "'";
+            cmd.CommandText = "Select password from Login  where IDL = '" + IDL + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -165,7 +153,7 @@ namespace AccountantAssistant
             //selects the IDL from the table and saves it into the var IDL
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select IDL from login  where username = '" + tb_username.Text + "'";
+            cmd.CommandText = "Select IDL from Login where username = '" + tb_username.Text + "'";
             frm_login.IDL = cmd.ExecuteScalar().ToString();
             con.Close();
         }
@@ -175,7 +163,7 @@ namespace AccountantAssistant
             //selects the Role from the table and saves it into the var role
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select role from login  where username = '" + tb_username.Text + "'";
+            cmd.CommandText = "Select role from Login where username = '" + tb_username.Text + "'";
             frm_login.role = cmd.ExecuteScalar().ToString();
             con.Close();
         }
@@ -187,7 +175,7 @@ namespace AccountantAssistant
             string sq1_question;
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select sq1question from login  where IDL = '" + IDL + "'";
+            cmd.CommandText = "Select sq1question from Login where IDL = '" + IDL + "'";
             sq1_question = cmd.ExecuteScalar().ToString();
             con.Close();
             return sq1_question;
@@ -199,7 +187,7 @@ namespace AccountantAssistant
             string sq1;
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select sq1 from login  where IDL = '" + IDL + "'";
+            cmd.CommandText = "Select sq1 from Login where IDL = '" + IDL + "'";
             sq1 = cmd.ExecuteScalar().ToString();
             con.Close();
             return sq1;
@@ -211,7 +199,7 @@ namespace AccountantAssistant
             string sq2_question;
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select sq2question from login  where IDL = '" + IDL + "'";
+            cmd.CommandText = "Select sq2question from Login where IDL = '" + IDL + "'";
             sq2_question = cmd.ExecuteScalar().ToString();
             con.Close();
             return sq2_question;
@@ -223,7 +211,7 @@ namespace AccountantAssistant
             string sq2;
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select sq2 from login  where IDL = '" + IDL + "'";
+            cmd.CommandText = "Select sq2 from Login where IDL = '" + IDL + "'";
             sq2 = cmd.ExecuteScalar().ToString();
             con.Close();
             return sq2;
@@ -272,7 +260,7 @@ namespace AccountantAssistant
                 //proofs if the Ledger exists or not
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client +"'";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client +"' or IDC = 0";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -292,7 +280,7 @@ namespace AccountantAssistant
                 int idle;
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select IDLE from AllLedgers where number = '" + number + "' and IDC = '"+idc+"'";
+                cmd.CommandText = "Select IDLE from AllLedgers where number = '" + number + "' and IDC = '"+idc+"' or IDC = 0";
                 idle = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                 con.Close();
                 return idle;
@@ -312,7 +300,7 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client+"'";
+                cmd.CommandText = "Select number from AllLedgers where IDC = '"+client+"' or IDC = 0";
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -425,7 +413,7 @@ namespace AccountantAssistant
                 string type;
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "'";
+                cmd.CommandText = "Select type from AllLedgers where number = '" + number + "' and IDC = '" + idc + "' or IDC = 0";
                 type = cmd.ExecuteScalar().ToString();
                 con.Close();
                 return type;
