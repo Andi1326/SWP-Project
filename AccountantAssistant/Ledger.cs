@@ -124,7 +124,7 @@ namespace AccountantAssistant
 
 
         //constructor
-        public Ledger(int idle, int idc, int number, int contraLedger, decimal debitValue, decimal creditValue, string date, string referenceNumber)
+        public Ledger(int idle, int idc, int number, int contraLedger, decimal debitValue, decimal creditValue, string referenceNumber, string date)
         {
             this.IDLE = idle;
             this.IDC = idc;
