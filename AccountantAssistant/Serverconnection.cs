@@ -19,16 +19,11 @@ namespace AccountantAssistant
         public static MySqlCommand cmd = new MySqlCommand();
         public static MySqlDataReader dr;
 
-        //public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
-        //public static SqlCommand cmd = new SqlCommand();
-
-        //private static SqlDataReader dr;
-
         public static DataTable dt = new DataTable();
         public static DataTable dt1 = new DataTable();
 
-        private static SqlDataAdapter Da = new SqlDataAdapter();
-        private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
+        private static MySqlDataAdapter Da = new MySqlDataAdapter();
+        private static MySqlCommandBuilder cmdbuilder = new MySqlCommandBuilder(Da);
 
 
         #region Login
@@ -439,7 +434,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
             }
             con.Close();
        
@@ -472,30 +467,21 @@ namespace AccountantAssistant
             cmd.CommandText = "Select date, referenceNumber, ledger1,  netto, ledger2, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
             
             dr = cmd.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
-            //}
-            //con.Close();
 
             while (dr.Read())
             {
-                
-
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]),0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
                 }
                 else if (type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]),0, Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]));
                 }
                 else
                 {
                     MessageBox.Show("Es ist ein Fehler passiert");
                 }
-
-
             }
             con.Close();
         }
@@ -605,12 +591,6 @@ namespace AccountantAssistant
         }
 
 
-
-
-
-
-        #endregion
-
         public static string datetimeCancel;
         public static string referenceNumberCancel;
         public static string contraLedgerCancel;
@@ -631,6 +611,8 @@ namespace AccountantAssistant
             salestaxrateCancel = dgv.CurrentRow.Cells[5].Value.ToString();
 
         }
+
+        #endregion
 
     }
 }
