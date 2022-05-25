@@ -92,7 +92,7 @@ namespace AccountantAssistant
             else
             {
                 darkmode = false;
-                Serverconnection.ChangeDarkmode(1, frm_login.IDL);
+                Serverconnection.ChangeDarkmode(0, frm_login.IDL);
 
                 Theme_White.ChangeThemeWhite(Controls, this);
                 this.Hide();
