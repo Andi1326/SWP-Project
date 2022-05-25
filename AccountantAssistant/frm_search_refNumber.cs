@@ -42,6 +42,19 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.BringToFront();
             }
 
+            if (frm_login.role.Equals("Mitarbeiter"))
+            {
+                btn_delete_ref.Visible = false;
+            }
+            else if (frm_login.role.Equals("Praktikant"))
+            {
+                btn_delete_ref.Visible = false;
+                btn_save_ref.Visible = false;
+                dgv_search_refNumber.ReadOnly = true;
+                ucTopBarDark.Instance.pb_save.Visible = false;
+                ucTopBarWhite.Instance.pb_save.Visible = false;
+            }
+
             Serverconnection.Search_refNumber(search_item, dgv_search_refNumber, frm_main.IDC);
         }
         private void btn_ucTopbar_save_Click(object sender, EventArgs e)

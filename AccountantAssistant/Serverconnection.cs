@@ -124,7 +124,7 @@ namespace AccountantAssistant
                 con.Open();
                 cmd.Connection = con;
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(login.Password);
-                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + hashedPassword + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
+                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role, darkmode) values ('" + login.Username + "', '" + hashedPassword + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "', '"+login.Darkmode +"');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }

@@ -43,8 +43,8 @@ namespace AccountantAssistant
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_save_ref = new System.Windows.Forms.Button();
-            this.btn_delete_ref = new System.Windows.Forms.Button();
+            this.btn_save_date = new System.Windows.Forms.Button();
+            this.btn_delete_date = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_date)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,31 +150,31 @@ namespace AccountantAssistant
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
             // 
-            // btn_save_ref
+            // btn_save_date
             // 
-            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(127, 52);
-            this.btn_save_ref.Name = "btn_save_ref";
-            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ref.TabIndex = 53;
-            this.btn_save_ref.Text = "Speichern";
-            this.btn_save_ref.UseVisualStyleBackColor = true;
-            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
+            this.btn_save_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save_date.ForeColor = System.Drawing.Color.Black;
+            this.btn_save_date.Location = new System.Drawing.Point(12, 52);
+            this.btn_save_date.Name = "btn_save_date";
+            this.btn_save_date.Size = new System.Drawing.Size(109, 33);
+            this.btn_save_date.TabIndex = 53;
+            this.btn_save_date.Text = "Speichern";
+            this.btn_save_date.UseVisualStyleBackColor = true;
+            this.btn_save_date.Click += new System.EventHandler(this.btn_save_ref_Click);
             // 
-            // btn_delete_ref
+            // btn_delete_date
             // 
-            this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(12, 52);
-            this.btn_delete_ref.Name = "btn_delete_ref";
-            this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ref.TabIndex = 52;
-            this.btn_delete_ref.Text = "stornieren ";
-            this.btn_delete_ref.UseVisualStyleBackColor = true;
-            this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
+            this.btn_delete_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_date.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_date.Location = new System.Drawing.Point(127, 52);
+            this.btn_delete_date.Name = "btn_delete_date";
+            this.btn_delete_date.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_date.TabIndex = 52;
+            this.btn_delete_date.Text = "Stornieren ";
+            this.btn_delete_date.UseVisualStyleBackColor = true;
+            this.btn_delete_date.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
             // frm_search_date
             // 
@@ -185,11 +185,12 @@ namespace AccountantAssistant
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_date);
-            this.Controls.Add(this.btn_save_ref);
-            this.Controls.Add(this.btn_delete_ref);
+            this.Controls.Add(this.btn_save_date);
+            this.Controls.Add(this.btn_delete_date);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_date";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_search_date_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_date)).EndInit();
             this.ResumeLayout(false);
@@ -200,8 +201,8 @@ namespace AccountantAssistant
 
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.DataGridView dgv_search_date;
-        private System.Windows.Forms.Button btn_save_ref;
-        private System.Windows.Forms.Button btn_delete_ref;
+        private System.Windows.Forms.Button btn_save_date;
+        private System.Windows.Forms.Button btn_delete_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenceNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ledger;
