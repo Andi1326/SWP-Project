@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using MySql.Data.MySqlClient;
+using BCrypt.Net;
 
 namespace AccountantAssistant
 {
@@ -35,7 +36,6 @@ namespace AccountantAssistant
             {
                 con.Open();
                 con.Close();
-
             }
             catch(Exception ex)
             {
@@ -44,29 +44,6 @@ namespace AccountantAssistant
             }
         }
 
-        //public static void SaveStandardLedgers(int client)
-        //{
-        //    try
-        //    {
-        //        con.Open();
-        //        cmd.Connection = con;
-        //        var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
-        //        StreamReader sr = new StreamReader(stream);
-        //        while (!sr.EndOfStream)
-        //        {
-        //            var line = sr.ReadLine();
-        //            var values = line.Split(';');
-
-        //            cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        con.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
-        //    }
-        //}
 
         public static bool Proofuser(TextBox username)
         {
@@ -87,42 +64,56 @@ namespace AccountantAssistant
             return false;
         }
 
-        public static bool Proofpassword(TextBox password, string username)
+        public static bool Proofpassword(TextBox tb_password, string username)
         {
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
+            string savedPassword = "";
+
             cmd.CommandText = "Select password from Login where username = '" + username + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text.Equals(dr["password"].ToString()))
-                {
-                    con.Close();
-                    return true;
-                }
+                savedPassword = dr["password"].ToString();
             }
             con.Close();
-            return false;
+
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(tb_password.Text, savedPassword);
+            if (isValidPassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public static bool PasswordQuery(TextBox password, int IDL)
+        public static bool PasswordQuery(TextBox tb_password, int IDL)
         {
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
+            string savedPassword = "";
+
             cmd.CommandText = "Select password from Login  where IDL = '" + IDL + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text.Equals(dr["password"].ToString()))
-                {
-                    con.Close();
-                    return true;
-                }
+                savedPassword = dr["password"].ToString();
             }
             con.Close();
-            return false;
+
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(tb_password.Text, savedPassword);
+            if (isValidPassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void InsertDataLogin(Login login)
@@ -132,7 +123,8 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + login.Password + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(login.Password);
+                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + hashedPassword + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -212,6 +204,24 @@ namespace AccountantAssistant
             return sq2;
         }
 
+        public static void SaveDarkmode(TextBox tb_username)
+        {
+            //selects the IDL from the table and saves it into the var IDL
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select darkmode from Login where username = '" + tb_username.Text + "'";
+            if(Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+            {
+                frm_settings.darkmode = false;
+            }
+            else
+            {
+                frm_settings.darkmode = true;
+            }
+            
+            con.Close();
+        }
+
         public static void ChangePassword(string password, string IDL)
         {
             //trys to change the old password to the new
@@ -219,7 +229,25 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE LOGIN SET password = '" + password + "' where IDL = " + IDL;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                cmd.CommandText = "UPDATE Login SET password = '" + hashedPassword + "' where IDL = " + IDL;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Password can't be changed");
+            }
+        }
+
+        public static void ChangeDarkmode(int darkmode, string IDL)
+        {
+            //trys to change the darkmode settings of the user
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE Login SET darkmode = '" + darkmode + "' where IDL = " + IDL;
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -520,8 +548,7 @@ namespace AccountantAssistant
 
         #endregion
 
-        #region balance
-
+        #region Balance
 
         public static bool Balance(DataGridView dgv)
         {
@@ -553,7 +580,7 @@ namespace AccountantAssistant
 
         #endregion
           
-        #region delete & save
+        #region Delete & Save
 
 
         public static void DeleteData(DataGridView dgv)
