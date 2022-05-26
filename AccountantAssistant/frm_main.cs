@@ -310,7 +310,7 @@ namespace AccountantAssistant
 
                             if (Convert.ToDecimal(row.Cells[6].Value) > 0)
                             {
-                                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), "0", netto_s, row.Cells[1].Value.ToString(), dateTransaction);
+                                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), "0", ust_s, row.Cells[1].Value.ToString(), dateTransaction);
                                 Serverconnection.InsertDataLedger(ledgerUst);
                             }
                         }
@@ -356,6 +356,21 @@ namespace AccountantAssistant
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Buchung konnte nicht gespeichert werden");
+            }
+        }
+
+        private void SaveLedger(int IDLE, int ledger1, int ledger2, string debitValue, string creditValue, string ust, string refNumber, string date)
+        {
+            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), netto_s, "0", row.Cells[1].Value.ToString(), dateTransaction);
+            Serverconnection.InsertDataLedger(ledger);
+
+            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), "0", netto_s, row.Cells[1].Value.ToString(), dateTransaction);
+            Serverconnection.InsertDataLedger(contraLedger);
+
+            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
+            {
+                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), ust_s, "0", row.Cells[1].Value.ToString(), dateTransaction);
+                Serverconnection.InsertDataLedger(ledgerUst);
             }
         }
 
