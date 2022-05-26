@@ -29,40 +29,14 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
-            this.tabCon1 = new System.Windows.Forms.TabControl();
-            this.tabPage_file = new System.Windows.Forms.TabPage();
-            this.tabPage_start = new System.Windows.Forms.TabPage();
-            this.btn_chooseLedger = new System.Windows.Forms.Button();
-            this.tb_ledger = new System.Windows.Forms.TextBox();
-            this.btn_balance = new System.Windows.Forms.Button();
-            this.lbl_TP_balance = new System.Windows.Forms.Label();
-            this.lbl_select_ledger = new System.Windows.Forms.Label();
-            this.tabPage_search = new System.Windows.Forms.TabPage();
-            this.btn_searchDate = new System.Windows.Forms.Button();
-            this.tb_searchDate = new System.Windows.Forms.TextBox();
-            this.lbl_TP_date = new System.Windows.Forms.Label();
-            this.btn_search_ref = new System.Windows.Forms.Button();
-            this.tb_search_ref = new System.Windows.Forms.TextBox();
-            this.lbl_TP_referenceNumber = new System.Windows.Forms.Label();
-            this.tabPage_ledger = new System.Windows.Forms.TabPage();
-            this.btn_search_ledger = new System.Windows.Forms.Button();
-            this.lbl_TP_ledger = new System.Windows.Forms.Label();
-            this.cb_search_ledger = new System.Windows.Forms.ComboBox();
-            this.btn_newLedger = new System.Windows.Forms.Button();
-            this.tabPage_help = new System.Windows.Forms.TabPage();
-            this.lbl_eMail2 = new System.Windows.Forms.Label();
-            this.lbl_eMail1 = new System.Windows.Forms.Label();
-            this.linklable_email = new System.Windows.Forms.LinkLabel();
-            this.lbl_eMailHeading = new System.Windows.Forms.Label();
-            this.btn_email = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.pnl_1 = new System.Windows.Forms.Panel();
             this.btn_newClient = new System.Windows.Forms.Button();
@@ -100,329 +74,11 @@ namespace AccountantAssistant
             this.rbtn_s = new System.Windows.Forms.RadioButton();
             this.rbtn_h = new System.Windows.Forms.RadioButton();
             this.pb_settings = new System.Windows.Forms.PictureBox();
-            this.tabCon1.SuspendLayout();
-            this.tabPage_start.SuspendLayout();
-            this.tabPage_search.SuspendLayout();
-            this.tabPage_ledger.SuspendLayout();
-            this.tabPage_help.SuspendLayout();
             this.pnl_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_settings)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabCon1
-            // 
-            this.tabCon1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabCon1.Controls.Add(this.tabPage_file);
-            this.tabCon1.Controls.Add(this.tabPage_start);
-            this.tabCon1.Controls.Add(this.tabPage_search);
-            this.tabCon1.Controls.Add(this.tabPage_ledger);
-            this.tabCon1.Controls.Add(this.tabPage_help);
-            this.tabCon1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCon1.Location = new System.Drawing.Point(1, 29);
-            this.tabCon1.Name = "tabCon1";
-            this.tabCon1.SelectedIndex = 0;
-            this.tabCon1.Size = new System.Drawing.Size(931, 109);
-            this.tabCon1.TabIndex = 0;
-            this.tabCon1.SelectedIndexChanged += new System.EventHandler(this.tabCon1_SelectedIndexChanged);
-            // 
-            // tabPage_file
-            // 
-            this.tabPage_file.BackColor = System.Drawing.Color.White;
-            this.tabPage_file.Location = new System.Drawing.Point(4, 27);
-            this.tabPage_file.Name = "tabPage_file";
-            this.tabPage_file.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_file.Size = new System.Drawing.Size(923, 78);
-            this.tabPage_file.TabIndex = 0;
-            this.tabPage_file.Text = "Datei";
-            // 
-            // tabPage_start
-            // 
-            this.tabPage_start.BackColor = System.Drawing.Color.White;
-            this.tabPage_start.Controls.Add(this.btn_chooseLedger);
-            this.tabPage_start.Controls.Add(this.tb_ledger);
-            this.tabPage_start.Controls.Add(this.btn_balance);
-            this.tabPage_start.Controls.Add(this.lbl_TP_balance);
-            this.tabPage_start.Controls.Add(this.lbl_select_ledger);
-            this.tabPage_start.Location = new System.Drawing.Point(4, 27);
-            this.tabPage_start.Name = "tabPage_start";
-            this.tabPage_start.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_start.Size = new System.Drawing.Size(923, 78);
-            this.tabPage_start.TabIndex = 1;
-            this.tabPage_start.Text = "Start";
-            // 
-            // btn_chooseLedger
-            // 
-            this.btn_chooseLedger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_chooseLedger.BackColor = System.Drawing.Color.Transparent;
-            this.btn_chooseLedger.BackgroundImage = global::AccountantAssistant.Properties.Resources.magnifyingGlass;
-            this.btn_chooseLedger.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_chooseLedger.FlatAppearance.BorderSize = 0;
-            this.btn_chooseLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_chooseLedger.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_chooseLedger.ForeColor = System.Drawing.Color.Black;
-            this.btn_chooseLedger.Location = new System.Drawing.Point(281, 23);
-            this.btn_chooseLedger.Name = "btn_chooseLedger";
-            this.btn_chooseLedger.Size = new System.Drawing.Size(33, 23);
-            this.btn_chooseLedger.TabIndex = 59;
-            this.btn_chooseLedger.UseVisualStyleBackColor = false;
-            this.btn_chooseLedger.Click += new System.EventHandler(this.btn_chooseLedger_Click);
-            // 
-            // tb_ledger
-            // 
-            this.tb_ledger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tb_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ledger.Location = new System.Drawing.Point(127, 22);
-            this.tb_ledger.Name = "tb_ledger";
-            this.tb_ledger.Size = new System.Drawing.Size(188, 26);
-            this.tb_ledger.TabIndex = 57;
-            this.tb_ledger.TextChanged += new System.EventHandler(this.tb_ledger_TextChanged);
-            // 
-            // btn_balance
-            // 
-            this.btn_balance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_balance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_balance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_balance.ForeColor = System.Drawing.Color.Black;
-            this.btn_balance.Location = new System.Drawing.Point(519, 24);
-            this.btn_balance.Name = "btn_balance";
-            this.btn_balance.Size = new System.Drawing.Size(117, 23);
-            this.btn_balance.TabIndex = 58;
-            this.btn_balance.Text = "Berechnen";
-            this.btn_balance.UseVisualStyleBackColor = true;
-            this.btn_balance.Click += new System.EventHandler(this.btn_balance_Click);
-            // 
-            // lbl_TP_balance
-            // 
-            this.lbl_TP_balance.AutoSize = true;
-            this.lbl_TP_balance.Location = new System.Drawing.Point(360, 24);
-            this.lbl_TP_balance.Name = "lbl_TP_balance";
-            this.lbl_TP_balance.Size = new System.Drawing.Size(153, 18);
-            this.lbl_TP_balance.TabIndex = 4;
-            this.lbl_TP_balance.Text = "Summen- Saldenbilanz";
-            // 
-            // lbl_select_ledger
-            // 
-            this.lbl_select_ledger.AutoSize = true;
-            this.lbl_select_ledger.Location = new System.Drawing.Point(9, 24);
-            this.lbl_select_ledger.Name = "lbl_select_ledger";
-            this.lbl_select_ledger.Size = new System.Drawing.Size(118, 18);
-            this.lbl_select_ledger.TabIndex = 2;
-            this.lbl_select_ledger.Text = "Konto auswählen";
-            // 
-            // tabPage_search
-            // 
-            this.tabPage_search.Controls.Add(this.btn_searchDate);
-            this.tabPage_search.Controls.Add(this.tb_searchDate);
-            this.tabPage_search.Controls.Add(this.lbl_TP_date);
-            this.tabPage_search.Controls.Add(this.btn_search_ref);
-            this.tabPage_search.Controls.Add(this.tb_search_ref);
-            this.tabPage_search.Controls.Add(this.lbl_TP_referenceNumber);
-            this.tabPage_search.Location = new System.Drawing.Point(4, 27);
-            this.tabPage_search.Name = "tabPage_search";
-            this.tabPage_search.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_search.Size = new System.Drawing.Size(923, 78);
-            this.tabPage_search.TabIndex = 2;
-            this.tabPage_search.Text = "Suche";
-            this.tabPage_search.UseVisualStyleBackColor = true;
-            // 
-            // btn_searchDate
-            // 
-            this.btn_searchDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_searchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_searchDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_searchDate.ForeColor = System.Drawing.Color.Black;
-            this.btn_searchDate.Location = new System.Drawing.Point(752, 18);
-            this.btn_searchDate.Name = "btn_searchDate";
-            this.btn_searchDate.Size = new System.Drawing.Size(83, 23);
-            this.btn_searchDate.TabIndex = 60;
-            this.btn_searchDate.Tag = "normal";
-            this.btn_searchDate.Text = "Suchen";
-            this.btn_searchDate.UseVisualStyleBackColor = true;
-            this.btn_searchDate.Click += new System.EventHandler(this.btn_searchDate_Click);
-            // 
-            // tb_searchDate
-            // 
-            this.tb_searchDate.Location = new System.Drawing.Point(548, 16);
-            this.tb_searchDate.Multiline = true;
-            this.tb_searchDate.Name = "tb_searchDate";
-            this.tb_searchDate.Size = new System.Drawing.Size(198, 26);
-            this.tb_searchDate.TabIndex = 59;
-            // 
-            // lbl_TP_date
-            // 
-            this.lbl_TP_date.AutoSize = true;
-            this.lbl_TP_date.Location = new System.Drawing.Point(485, 19);
-            this.lbl_TP_date.Name = "lbl_TP_date";
-            this.lbl_TP_date.Size = new System.Drawing.Size(57, 18);
-            this.lbl_TP_date.TabIndex = 58;
-            this.lbl_TP_date.Text = "Datum:";
-            // 
-            // btn_search_ref
-            // 
-            this.btn_search_ref.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_search_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_search_ref.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_search_ref.Location = new System.Drawing.Point(331, 19);
-            this.btn_search_ref.Name = "btn_search_ref";
-            this.btn_search_ref.Size = new System.Drawing.Size(83, 23);
-            this.btn_search_ref.TabIndex = 57;
-            this.btn_search_ref.Tag = "normal";
-            this.btn_search_ref.Text = "Suchen";
-            this.btn_search_ref.UseVisualStyleBackColor = true;
-            this.btn_search_ref.Click += new System.EventHandler(this.btn_search_ref_Click_1);
-            // 
-            // tb_search_ref
-            // 
-            this.tb_search_ref.Location = new System.Drawing.Point(127, 16);
-            this.tb_search_ref.Multiline = true;
-            this.tb_search_ref.Name = "tb_search_ref";
-            this.tb_search_ref.Size = new System.Drawing.Size(198, 26);
-            this.tb_search_ref.TabIndex = 4;
-            // 
-            // lbl_TP_referenceNumber
-            // 
-            this.lbl_TP_referenceNumber.AutoSize = true;
-            this.lbl_TP_referenceNumber.Location = new System.Drawing.Point(18, 19);
-            this.lbl_TP_referenceNumber.Name = "lbl_TP_referenceNumber";
-            this.lbl_TP_referenceNumber.Size = new System.Drawing.Size(103, 18);
-            this.lbl_TP_referenceNumber.TabIndex = 3;
-            this.lbl_TP_referenceNumber.Text = "Belegnummer:";
-            // 
-            // tabPage_ledger
-            // 
-            this.tabPage_ledger.Controls.Add(this.btn_search_ledger);
-            this.tabPage_ledger.Controls.Add(this.lbl_TP_ledger);
-            this.tabPage_ledger.Controls.Add(this.cb_search_ledger);
-            this.tabPage_ledger.Controls.Add(this.btn_newLedger);
-            this.tabPage_ledger.Location = new System.Drawing.Point(4, 27);
-            this.tabPage_ledger.Name = "tabPage_ledger";
-            this.tabPage_ledger.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ledger.Size = new System.Drawing.Size(923, 78);
-            this.tabPage_ledger.TabIndex = 3;
-            this.tabPage_ledger.Text = "Konto";
-            this.tabPage_ledger.UseVisualStyleBackColor = true;
-            // 
-            // btn_search_ledger
-            // 
-            this.btn_search_ledger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_search_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_search_ledger.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_search_ledger.Location = new System.Drawing.Point(537, 28);
-            this.btn_search_ledger.Name = "btn_search_ledger";
-            this.btn_search_ledger.Size = new System.Drawing.Size(83, 23);
-            this.btn_search_ledger.TabIndex = 61;
-            this.btn_search_ledger.Tag = "normal";
-            this.btn_search_ledger.Text = "Suchen";
-            this.btn_search_ledger.UseVisualStyleBackColor = true;
-            this.btn_search_ledger.Click += new System.EventHandler(this.btn_search_ledger_Click);
-            // 
-            // lbl_TP_ledger
-            // 
-            this.lbl_TP_ledger.AutoSize = true;
-            this.lbl_TP_ledger.Location = new System.Drawing.Point(319, 29);
-            this.lbl_TP_ledger.Name = "lbl_TP_ledger";
-            this.lbl_TP_ledger.Size = new System.Drawing.Size(51, 18);
-            this.lbl_TP_ledger.TabIndex = 59;
-            this.lbl_TP_ledger.Text = "Konto:";
-            // 
-            // cb_search_ledger
-            // 
-            this.cb_search_ledger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_search_ledger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_search_ledger.FormattingEnabled = true;
-            this.cb_search_ledger.Location = new System.Drawing.Point(376, 26);
-            this.cb_search_ledger.Name = "cb_search_ledger";
-            this.cb_search_ledger.Size = new System.Drawing.Size(155, 26);
-            this.cb_search_ledger.Sorted = true;
-            this.cb_search_ledger.TabIndex = 48;
-            // 
-            // btn_newLedger
-            // 
-            this.btn_newLedger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_newLedger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newLedger.ForeColor = System.Drawing.Color.Black;
-            this.btn_newLedger.Location = new System.Drawing.Point(18, 21);
-            this.btn_newLedger.Name = "btn_newLedger";
-            this.btn_newLedger.Size = new System.Drawing.Size(147, 34);
-            this.btn_newLedger.TabIndex = 47;
-            this.btn_newLedger.Tag = "normal";
-            this.btn_newLedger.Text = "Konto hinzufügen";
-            this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_newLedger.UseVisualStyleBackColor = true;
-            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
-            // 
-            // tabPage_help
-            // 
-            this.tabPage_help.Controls.Add(this.lbl_eMail2);
-            this.tabPage_help.Controls.Add(this.lbl_eMail1);
-            this.tabPage_help.Controls.Add(this.linklable_email);
-            this.tabPage_help.Controls.Add(this.lbl_eMailHeading);
-            this.tabPage_help.Controls.Add(this.btn_email);
-            this.tabPage_help.Location = new System.Drawing.Point(4, 27);
-            this.tabPage_help.Name = "tabPage_help";
-            this.tabPage_help.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_help.Size = new System.Drawing.Size(923, 78);
-            this.tabPage_help.TabIndex = 4;
-            this.tabPage_help.Text = "Hilfe";
-            this.tabPage_help.UseVisualStyleBackColor = true;
-            // 
-            // lbl_eMail2
-            // 
-            this.lbl_eMail2.AutoSize = true;
-            this.lbl_eMail2.Location = new System.Drawing.Point(124, 57);
-            this.lbl_eMail2.Name = "lbl_eMail2";
-            this.lbl_eMail2.Size = new System.Drawing.Size(246, 18);
-            this.lbl_eMail2.TabIndex = 7;
-            this.lbl_eMail2.Text = "Täglich von 8:00 bis 15:00 für sie da";
-            // 
-            // lbl_eMail1
-            // 
-            this.lbl_eMail1.AutoSize = true;
-            this.lbl_eMail1.Location = new System.Drawing.Point(7, 57);
-            this.lbl_eMail1.Name = "lbl_eMail1";
-            this.lbl_eMail1.Size = new System.Drawing.Size(106, 18);
-            this.lbl_eMail1.TabIndex = 6;
-            this.lbl_eMail1.Text = "0664 345 8254";
-            // 
-            // linklable_email
-            // 
-            this.linklable_email.AutoSize = true;
-            this.linklable_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklable_email.LinkColor = System.Drawing.Color.Black;
-            this.linklable_email.Location = new System.Drawing.Point(149, 11);
-            this.linklable_email.Name = "linklable_email";
-            this.linklable_email.Size = new System.Drawing.Size(111, 13);
-            this.linklable_email.TabIndex = 5;
-            this.linklable_email.TabStop = true;
-            this.linklable_email.Text = "acas.help@gmail.com";
-            this.linklable_email.VisitedLinkColor = System.Drawing.Color.Gray;
-            this.linklable_email.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklable_email_LinkClicked);
-            // 
-            // lbl_eMailHeading
-            // 
-            this.lbl_eMailHeading.AutoSize = true;
-            this.lbl_eMailHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_eMailHeading.Location = new System.Drawing.Point(7, 3);
-            this.lbl_eMailHeading.Name = "lbl_eMailHeading";
-            this.lbl_eMailHeading.Size = new System.Drawing.Size(136, 24);
-            this.lbl_eMailHeading.TabIndex = 4;
-            this.lbl_eMailHeading.Text = "Kontaktdaten:";
-            // 
-            // btn_email
-            // 
-            this.btn_email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_email.Location = new System.Drawing.Point(740, 24);
-            this.btn_email.Name = "btn_email";
-            this.btn_email.Size = new System.Drawing.Size(123, 29);
-            this.btn_email.TabIndex = 0;
-            this.btn_email.Text = "E-MAIL";
-            this.btn_email.UseVisualStyleBackColor = true;
-            this.btn_email.Click += new System.EventHandler(this.btn_email_Click);
             // 
             // btn_back
             // 
@@ -557,14 +213,14 @@ namespace AccountantAssistant
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_transaction.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_transaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_date,
@@ -576,27 +232,27 @@ namespace AccountantAssistant
             this.column_ust,
             this.column_ust_rate,
             this.column_debit_credit});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_transaction.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dgv_transaction.Location = new System.Drawing.Point(5, 144);
             this.dgv_transaction.Name = "dgv_transaction";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_transaction.Size = new System.Drawing.Size(927, 389);
             this.dgv_transaction.TabIndex = 49;
             // 
@@ -625,36 +281,36 @@ namespace AccountantAssistant
             // 
             // column_netto
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.column_netto.DefaultCellStyle = dataGridViewCellStyle9;
             this.column_netto.HeaderText = "Nettobetrag";
             this.column_netto.Name = "column_netto";
             this.column_netto.Width = 120;
             // 
             // column_brutto
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle10;
             this.column_brutto.HeaderText = "Bruttobetrag";
             this.column_brutto.Name = "column_brutto";
             this.column_brutto.Width = 120;
             // 
             // column_ust
             // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.column_ust.DefaultCellStyle = dataGridViewCellStyle11;
             this.column_ust.HeaderText = "Ust";
             this.column_ust.Name = "column_ust";
             this.column_ust.Width = 60;
             // 
             // column_ust_rate
             // 
-            dataGridViewCellStyle5.Format = "0 \"%\"";
-            dataGridViewCellStyle5.NullValue = null;
-            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Format = "0 \"%\"";
+            dataGridViewCellStyle12.NullValue = null;
+            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle12;
             this.column_ust_rate.HeaderText = "Ust-Satz";
             this.column_ust_rate.Name = "column_ust_rate";
             this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -873,6 +529,9 @@ namespace AccountantAssistant
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 633);
             this.ControlBox = false;
+            this.Controls.Add(this.cb_clients);
+            this.Controls.Add(this.lbl_client);
+            this.Controls.Add(this.pb_settings);
             this.Controls.Add(this.rbtn_h);
             this.Controls.Add(this.rbtn_s);
             this.Controls.Add(this.cb_contraLedger);
@@ -888,11 +547,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_netto);
             this.Controls.Add(this.lbl_contraLedger);
             this.Controls.Add(this.dgv_transaction);
-            this.Controls.Add(this.cb_clients);
-            this.Controls.Add(this.lbl_client);
-            this.Controls.Add(this.pb_settings);
             this.Controls.Add(this.pnl_1);
-            this.Controls.Add(this.tabCon1);
             this.Controls.Add(this.btn_back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -903,15 +558,6 @@ namespace AccountantAssistant
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_main_KeyDown);
-            this.tabCon1.ResumeLayout(false);
-            this.tabPage_start.ResumeLayout(false);
-            this.tabPage_start.PerformLayout();
-            this.tabPage_search.ResumeLayout(false);
-            this.tabPage_search.PerformLayout();
-            this.tabPage_ledger.ResumeLayout(false);
-            this.tabPage_ledger.PerformLayout();
-            this.tabPage_help.ResumeLayout(false);
-            this.tabPage_help.PerformLayout();
             this.pnl_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
@@ -922,13 +568,6 @@ namespace AccountantAssistant
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabCon1;
-        private System.Windows.Forms.TabPage tabPage_file;
-        private System.Windows.Forms.TabPage tabPage_start;
-        private System.Windows.Forms.TabPage tabPage_search;
-        private System.Windows.Forms.TabPage tabPage_ledger;
-        private System.Windows.Forms.TabPage tabPage_help;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Panel pnl_1;
         private System.Windows.Forms.PictureBox pb_back;
@@ -939,8 +578,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.Label lbl_client;
         private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
-        private System.Windows.Forms.Button btn_newLedger;
-        private System.Windows.Forms.Label lbl_select_ledger;
         private System.Windows.Forms.DataGridView dgv_transaction;
         private System.Windows.Forms.Label lbl_contraLedger;
         private System.Windows.Forms.Label lbl_netto;
@@ -968,23 +605,5 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust_rate;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit_credit;
-        private System.Windows.Forms.Button btn_search_ref;
-        private System.Windows.Forms.TextBox tb_search_ref;
-        private System.Windows.Forms.Label lbl_TP_referenceNumber;
-        private System.Windows.Forms.Button btn_searchDate;
-        private System.Windows.Forms.TextBox tb_searchDate;
-        private System.Windows.Forms.Label lbl_TP_date;
-        private System.Windows.Forms.Button btn_search_ledger;
-        private System.Windows.Forms.Label lbl_TP_ledger;
-        private System.Windows.Forms.ComboBox cb_search_ledger;
-        private System.Windows.Forms.Button btn_balance;
-        private System.Windows.Forms.Label lbl_TP_balance;
-        private System.Windows.Forms.Button btn_email;
-        private System.Windows.Forms.Label lbl_eMail2;
-        private System.Windows.Forms.Label lbl_eMail1;
-        private System.Windows.Forms.LinkLabel linklable_email;
-        private System.Windows.Forms.Label lbl_eMailHeading;
-        private System.Windows.Forms.Button btn_chooseLedger;
-        public System.Windows.Forms.TextBox tb_ledger;
     }
 }

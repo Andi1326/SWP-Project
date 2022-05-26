@@ -192,6 +192,12 @@
     <Compile Include="Serverconnection.cs" />
     <Compile Include="Theme_White.cs" />
     <Compile Include="Theme_Dark.cs" />
+    <Compile Include="ucTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTabControl.Designer.cs">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucTopBarDark.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,6 +265,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucTabControl.resx">
+      <DependentUpon>ucTabControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucTopBarDark.resx">
       <DependentUpon>ucTopBarDark.cs</DependentUpon>
     </EmbeddedResource>

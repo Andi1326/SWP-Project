@@ -35,7 +35,9 @@ namespace AccountantAssistant
             //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
-            Serverconnection.GetLedger(cb_search_ledger, IDC);
+            Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
+
+            
 
             if (frm_settings.darkmode)
             {
@@ -46,13 +48,14 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.pb_save.Visible = true;
                 ucTopBarDark.Instance.pb_save.Click += btn_save_Click;
 
+
                 dgv_transaction.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
                 dgv_transaction.BackgroundColor = Theme_Dark.DarkBackColor;
                 dgv_transaction.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
                 dgv_transaction.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                 dgv_transaction.RowHeadersDefaultCellStyle.BackColor = Color.Black;
                 dgv_transaction.EnableHeadersVisualStyles = false;
-
+                ucTabControl.Instance.BackColor = Theme_Dark.DarkBackColor;
             }
             else
             {
@@ -64,17 +67,37 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.pb_save.Click += btn_save_main_Click;
             }
 
+            #region ucTabControl
+            Controls.Add(ucTabControl.Instance);
+            ucTabControl.Instance.Dock = DockStyle.Top;
+            ucTabControl.Instance.BringToFront();
+            lbl_client.BringToFront();
+            cb_clients.BringToFront();
+            pb_settings.BringToFront();
 
-            //selects the tabPage_start
-            tabCon1.SelectedTab = tabPage_start;
+            ucTabControl.Instance.btn_file.Click += TabCon_btnFile;
+            ucTabControl.Instance.btn_start.Click += TabCon_HidePanel;
+            ucTabControl.Instance.btn_search.Click += TabCon_HidePanel;
+            ucTabControl.Instance.btn_ledger.Click += TabCon_HidePanel;
+            ucTabControl.Instance.btn_help.Click += TabCon_HidePanel;
 
-          
+            ucTabControl.Instance.btn_chooseLedger.Click += btn_chooseLedger_Click;
+            ucTabControl.Instance.btn_balance.Click += btn_balance_Click;
+            ucTabControl.Instance.btn_search_ref.Click += btn_search_ref_Click_1;
+            ucTabControl.Instance.btn_searchDate.Click += btn_searchDate_Click;
+            ucTabControl.Instance.btn_newLedger.Click += btn_newLedger_Click;
+            ucTabControl.Instance.btn_search_ledger.Click += btn_search_ledger_Click;
+            ucTabControl.Instance.tb_ledger.TextChanged += tb_ledger_TextChanged;
+            ucTabControl.Instance.linklable_email.LinkClicked += linklable_email_LinkClicked;
+            ucTabControl.Instance.btn_email.Click += btn_email_Click;
 
-            if(IDC >= 0)
+            
+            #endregion
+
+            if (IDC >= 0)
             {
                 cb_clients.SelectedItem = IDC;
             }
-
         }
 
         private void frm_main_KeyDown(object sender, KeyEventArgs e)
@@ -88,27 +111,39 @@ namespace AccountantAssistant
             }
         }
 
+        private void TabCon_btnFile(object sender, EventArgs e)
+        {
+            pnl_1.Location = new Point(0, 30);
+            pnl_1.Visible = true;
+            pnl_1.BringToFront();
+        }
+
+        private void TabCon_HidePanel(object sender, EventArgs e)
+        {
+            pnl_1.Visible = false;
+        }
+
         private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if the tabPage switches to index 0 (Datei) then the panel displays
-            if (tabCon1.SelectedIndex == 0)
-            {
-                tabCon1.SelectedIndex = 1;
-                pnl_1.Location = new Point(0, 30);
-                pnl_1.Visible = true;
-                pnl_1.BringToFront();
-            }
-            else if(tabCon1.SelectedIndex >= 1)
-            {
-                //if the tabPage is another Page the panel gets invisible
-                pnl_1.Visible = false;
-            }
+            //if (tabCon1.SelectedIndex == 0)
+            //{
+            //    tabCon1.SelectedIndex = 1;
+            //    pnl_1.Location = new Point(0, 30);
+            //    pnl_1.Visible = true;
+            //    pnl_1.BringToFront();
+            //}
+            //else if(tabCon1.SelectedIndex >= 1)
+            //{
+            //    //if the tabPage is another Page the panel gets invisible
+            //    pnl_1.Visible = false;
+            //}
 
             //Loads the Ledger of the Client
             //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetClient(cb_clients);
-            Serverconnection.GetLedger(cb_search_ledger, IDC);
+            Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -121,7 +156,7 @@ namespace AccountantAssistant
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
             //then sets the Text to "" of the Textboxes
-            if (tb_ledger.Text.Equals(""))
+            if (ucTabControl.Instance.tb_ledger.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
             }
@@ -153,11 +188,11 @@ namespace AccountantAssistant
                     decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
                     if(rbtn_s.Checked == true)
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
                     }
                     else
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
+                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
                     }
 
                     cb_contraLedger.Text = "";
@@ -279,9 +314,9 @@ namespace AccountantAssistant
                     AccTransaction newAccTransaction = new AccTransaction(IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), netto_s, brutto_s, ust_s, Convert.ToInt32(row.Cells[7].Value), row.Cells[1].Value.ToString(), dateTransaction);
                     Serverconnection.InsertDataAccTransaction(newAccTransaction);
 
-                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(tb_ledger.Text), IDC);
+                    int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
 
-                    string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
+                    string type = Serverconnection.SaveType(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
                     //controls if the type is a 'Aktives Bestandskonto' or a 'Aufwandskonto'
                     if(type == "AB" || type == "AK")
                     {
@@ -359,21 +394,6 @@ namespace AccountantAssistant
             }
         }
 
-        private void SaveLedger(int IDLE, int ledger1, int ledger2, string debitValue, string creditValue, string ust, string refNumber, string date)
-        {
-            Ledger ledger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), netto_s, "0", row.Cells[1].Value.ToString(), dateTransaction);
-            Serverconnection.InsertDataLedger(ledger);
-
-            Ledger contraLedger = new Ledger(IDLE, IDC, Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[2].Value), "0", netto_s, row.Cells[1].Value.ToString(), dateTransaction);
-            Serverconnection.InsertDataLedger(contraLedger);
-
-            if (Convert.ToDecimal(row.Cells[6].Value) > 0)
-            {
-                Ledger ledgerUst = new Ledger(IDLE, IDC, 2500, Convert.ToInt32(row.Cells[3].Value), ust_s, "0", row.Cells[1].Value.ToString(), dateTransaction);
-                Serverconnection.InsertDataLedger(ledgerUst);
-            }
-        }
-
         #endregion
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -398,7 +418,7 @@ namespace AccountantAssistant
             IDC = Convert.ToInt32(cb_clients.SelectedItem);
             //Serverconnection.GetLedger(cb_ledger, IDC);
             Serverconnection.GetLedger(cb_contraLedger, IDC);
-            Serverconnection.GetLedger(cb_search_ledger, IDC);
+            Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
         }
 
 
@@ -445,7 +465,7 @@ namespace AccountantAssistant
 
         private void btn_search_ref_Click_1(object sender, EventArgs e)
         {
-            frm_search_refNumber.search_item = tb_search_ref.Text;
+            frm_search_refNumber.search_item = ucTabControl.Instance.tb_search_ref.Text;
             this.Hide();
             frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
             frm_Search_Ref.ShowDialog();
@@ -453,7 +473,7 @@ namespace AccountantAssistant
 
         private void btn_searchDate_Click(object sender, EventArgs e)
         {
-            frm_search_date.search_date = tb_searchDate.Text;
+            frm_search_date.search_date = ucTabControl.Instance.tb_searchDate.Text;
             this.Hide();
             frm_search_date frm_Search = new frm_search_date();
             frm_Search.ShowDialog();
@@ -461,7 +481,7 @@ namespace AccountantAssistant
 
         private void btn_search_ledger_Click(object sender, EventArgs e)
         {
-            frm_search_ledger.search_ledger = Convert.ToInt32(cb_search_ledger.SelectedItem);
+            frm_search_ledger.search_ledger = Convert.ToInt32(ucTabControl.Instance.cb_search_ledger.SelectedItem);
             this.Hide();
             frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
             frm_Search_Ledger.ShowDialog();
@@ -475,13 +495,13 @@ namespace AccountantAssistant
         {
             frm_ledger_overview frm_lo = new frm_ledger_overview();
             frm_lo.ShowDialog();
-            tb_ledger.Text = frm_ledger_overview.ledger_number;
+            ucTabControl.Instance.tb_ledger.Text = frm_ledger_overview.ledger_number;
         }
 
 
         private void tb_ledger_TextChanged(object sender, EventArgs e)
         {
-            string type = Serverconnection.SaveType(Convert.ToInt32(tb_ledger.Text), IDC);
+            string type = Serverconnection.SaveType(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
             if (type == "AB" || type == "AK")
             {
                 rbtn_s.Checked = true;
@@ -509,7 +529,7 @@ namespace AccountantAssistant
         }
         private void VisitLink()
         {
-            linklable_email.LinkVisited = true;
+            ucTabControl.Instance.linklable_email.LinkVisited = true;
             System.Diagnostics.Process.Start("https://outlook.live.com/owa/");
         }
 
