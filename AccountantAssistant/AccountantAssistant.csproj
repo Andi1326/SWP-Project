@@ -189,6 +189,9 @@
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Serverconnection.cs" />
     <Compile Include="Theme_White.cs" />
     <Compile Include="Theme_Dark.cs" />
@@ -346,6 +349,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifyingGlass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

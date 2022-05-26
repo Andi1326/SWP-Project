@@ -48,14 +48,16 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.pb_save.Visible = true;
                 ucTopBarDark.Instance.pb_save.Click += btn_save_Click;
 
-
                 dgv_transaction.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
                 dgv_transaction.BackgroundColor = Theme_Dark.DarkBackColor;
                 dgv_transaction.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
                 dgv_transaction.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                 dgv_transaction.RowHeadersDefaultCellStyle.BackColor = Color.Black;
                 dgv_transaction.EnableHeadersVisualStyles = false;
+
                 ucTabControl.Instance.BackColor = Theme_Dark.DarkBackColor;
+                datePicker.SkinColor = Theme_Dark.DarkBackColor;
+                datePicker.TextColor = Color.White;
             }
             else
             {
@@ -161,7 +163,7 @@ namespace AccountantAssistant
             {
                 MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
             }
-            else if (date_picker.Text.Equals(""))
+            else if (datePicker.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen ein Datum eingeben", "Fehler");
             }
@@ -189,11 +191,11 @@ namespace AccountantAssistant
                     decimal brutto = Convert.ToDecimal(tb_netto.Text) + ust;
                     if(rbtn_s.Checked == true)
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
+                        dgv_transaction.Rows.Add(datePicker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "S");
                     }
                     else
                     {
-                        dgv_transaction.Rows.Add(date_picker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
+                        dgv_transaction.Rows.Add(datePicker.Value.ToShortDateString(), tb_referenceNumber.Text, ucTabControl.Instance.tb_ledger.Text, cb_contraLedger.SelectedItem.ToString(), Convert.ToDecimal(tb_netto.Text), brutto, ust, cb_salesTaxRate.SelectedItem.ToString(), "H");
                     }
 
                     cb_contraLedger.Text = "";

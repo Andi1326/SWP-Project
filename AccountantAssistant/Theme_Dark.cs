@@ -44,6 +44,11 @@ namespace AccountantAssistant
                 {
                     component.BackgroundImage = Properties.Resources.gearWhite;
                 }
+                else if(component is RJDatePicker)
+                {
+                    component.BackColor = DarkBackColor;
+                    component.ForeColor = Color.White;
+                }
             }
 
 
