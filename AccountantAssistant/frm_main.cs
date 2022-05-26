@@ -65,6 +65,7 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.BringToFront();
                 ucTopBarWhite.Instance.pb_save.Visible = true;
                 ucTopBarWhite.Instance.pb_save.Click += btn_save_main_Click;
+                ucTabControl.Instance.BackColor = Color.White;
             }
 
             #region ucTabControl
@@ -316,7 +317,7 @@ namespace AccountantAssistant
 
                     int IDLE = Serverconnection.SaveIDLE(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
 
-                    string type = Serverconnection.SaveType(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
+                    string type = Serverconnection.SaveType(ucTabControl.Instance.tb_ledger.Text.ToString(), IDC);
                     //controls if the type is a 'Aktives Bestandskonto' or a 'Aufwandskonto'
                     if(type == "AB" || type == "AK")
                     {
@@ -481,7 +482,7 @@ namespace AccountantAssistant
 
         private void btn_search_ledger_Click(object sender, EventArgs e)
         {
-            frm_search_ledger.search_ledger = Convert.ToInt32(ucTabControl.Instance.cb_search_ledger.SelectedItem);
+            frm_search_ledger.search_ledger = ucTabControl.Instance.cb_search_ledger.SelectedItem.ToString();
             this.Hide();
             frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
             frm_Search_Ledger.ShowDialog();
@@ -501,7 +502,7 @@ namespace AccountantAssistant
 
         private void tb_ledger_TextChanged(object sender, EventArgs e)
         {
-            string type = Serverconnection.SaveType(Convert.ToInt32(ucTabControl.Instance.tb_ledger.Text), IDC);
+            string type = Serverconnection.SaveType(ucTabControl.Instance.tb_ledger.Text.ToString(), IDC);
             if (type == "AB" || type == "AK")
             {
                 rbtn_s.Checked = true;

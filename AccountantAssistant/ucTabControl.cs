@@ -37,6 +37,7 @@ namespace AccountantAssistant
             pageSearch.Visible = false;
             pageLedger.Visible = false;
             pageHelp.Visible = false;
+            pb_line.Location = new Point(76, 25);
         }
 
         private void btn_search_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace AccountantAssistant
             pageSearch.Visible = true;
             pageLedger.Visible = false;
             pageHelp.Visible = false;
+            pb_line.Location = new Point(147, 25);
         }
 
         private void btn_ledger_Click(object sender, EventArgs e)
@@ -53,6 +55,7 @@ namespace AccountantAssistant
             pageSearch.Visible = false;
             pageLedger.Visible = true;
             pageHelp.Visible = false;
+            pb_line.Location = new Point(217, 25);
         }
 
         private void btn_help_Click(object sender, EventArgs e)
@@ -61,6 +64,7 @@ namespace AccountantAssistant
             pageSearch.Visible = false;
             pageLedger.Visible = false;
             pageHelp.Visible = true;
+            pb_line.Location = new Point(281, 25);
         }
 
         private void ucTabControl_Load(object sender, EventArgs e)
@@ -83,5 +87,6 @@ namespace AccountantAssistant
                 }
             }
         }
+
     }
 }

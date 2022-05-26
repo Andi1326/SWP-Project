@@ -12,7 +12,7 @@ namespace AccountantAssistant
 {
     public partial class frm_search_ledger : Form
     {
-        public static int search_ledger;
+        public static string search_ledger;
         public frm_search_ledger()
         {
             InitializeComponent();

@@ -428,7 +428,7 @@ namespace AccountantAssistant
             }
         }
 
-        public static string SaveType(int number, int idc)
+        public static string SaveType(string number, int idc)
         {
             //selects the IDLE from the table
             try
@@ -474,7 +474,7 @@ namespace AccountantAssistant
         public static void Search_Date(string search_date, DataGridView dgv, int idc)
         {
             string type = null;
-            int number = 0;
+            string number = "";
             //search for Date
             con.Open();
             cmd.Connection = con;
@@ -483,7 +483,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                number = Convert.ToInt32(dr["ledger1"]);
+                number = dr["ledger1"].ToString();
                 
             }
             con.Close();
@@ -516,7 +516,7 @@ namespace AccountantAssistant
 
 
 
-        public static void Search_ledger(int search_ledger, DataGridView dgv, int idc)
+        public static void Search_ledger(string search_ledger, DataGridView dgv, int idc)
         {
             //search for ledger
             string type = Serverconnection.SaveType(search_ledger, idc);
