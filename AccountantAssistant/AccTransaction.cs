@@ -13,9 +13,9 @@ namespace AccountantAssistant
         private int idc;
         private int ledger1;
         private int ledger2;
-        private decimal netto;
-        private decimal brutto;
-        private decimal ust;
+        private string netto;
+        private string brutto;
+        private string ust;
         private int salestaxrate;
         private string referenceNumber;
         private string date;
@@ -59,7 +59,7 @@ namespace AccountantAssistant
             }
         }
 
-        public decimal Netto
+        public string Netto
         {
             get
             {
@@ -71,7 +71,7 @@ namespace AccountantAssistant
             }
         }
 
-        public decimal Brutto
+        public string Brutto
         {
             get
             {
@@ -83,7 +83,7 @@ namespace AccountantAssistant
             }
         }
 
-        public decimal Ust
+        public string Ust
         {
             get
             {
@@ -134,7 +134,7 @@ namespace AccountantAssistant
         #endregion
 
         //constructor
-        public AccTransaction (int idc, int ledger1, int ledger2, decimal netto, decimal brutto, decimal ust, int salestaxrate, string referenceNumber,string date)
+        public AccTransaction (int idc, int ledger1, int ledger2, string netto, string brutto, string ust, int salestaxrate, string referenceNumber,string date)
         {
             this.Idc = idc;
             this.Ledger1 = ledger1;
