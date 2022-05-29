@@ -27,6 +27,12 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                dgv_search_refNumber.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_search_refNumber.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_search_refNumber.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_refNumber.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_search_refNumber.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_refNumber.EnableHeadersVisualStyles = false;
             }
             else
             {
@@ -34,6 +40,19 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+            }
+
+            if (frm_login.role.Equals("Mitarbeiter"))
+            {
+                btn_delete_ref.Visible = false;
+            }
+            else if (frm_login.role.Equals("Praktikant"))
+            {
+                btn_delete_ref.Visible = false;
+                btn_save_ref.Visible = false;
+                dgv_search_refNumber.ReadOnly = true;
+                ucTopBarDark.Instance.pb_save.Visible = false;
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
             Serverconnection.Search_refNumber(search_item, dgv_search_refNumber, frm_main.IDC);

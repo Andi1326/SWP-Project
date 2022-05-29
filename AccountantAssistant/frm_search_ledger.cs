@@ -12,7 +12,7 @@ namespace AccountantAssistant
 {
     public partial class frm_search_ledger : Form
     {
-        public static int search_ledger;
+        public static string search_ledger;
         public frm_search_ledger()
         {
             InitializeComponent();
@@ -33,6 +33,12 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                dgv_search_ledger.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_search_ledger.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_search_ledger.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_ledger.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_search_ledger.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_ledger.EnableHeadersVisualStyles = false;
             }
             else
             {
@@ -40,6 +46,19 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+            }
+
+            if (frm_login.role.Equals("Mitarbeiter"))
+            {
+                btn_delete_ledger.Visible = false;
+            }
+            else if (frm_login.role.Equals("Praktikant"))
+            {
+                btn_delete_ledger.Visible = false;
+                btn_save_ledger.Visible = false;
+                dgv_search_ledger.ReadOnly = true;
+                ucTopBarDark.Instance.pb_save.Visible = false;
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
             Serverconnection.Search_ledger(search_ledger, dgv_search_ledger, frm_main.IDC);

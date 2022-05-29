@@ -39,6 +39,7 @@ namespace AccountantAssistant
                     //if yes the Role and IDL are saved and frm_customer opens
                     Serverconnection.SaveRole(tb_user);
                     Serverconnection.SaveIDL(tb_user);
+                    Serverconnection.SaveDarkmode(tb_user); 
                     frm_main frm_main = new frm_main();
                     this.Hide();
                     frm_main.ShowDialog();

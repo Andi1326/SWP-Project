@@ -26,6 +26,12 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                dgv_search_date.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
+                dgv_search_date.BackgroundColor = Theme_Dark.DarkBackColor;
+                dgv_search_date.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_date.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgv_search_date.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+                dgv_search_date.EnableHeadersVisualStyles = false;
             }
             else
             {
@@ -35,7 +41,20 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.BringToFront();
             }
 
-            Serverconnection.Search_Date(search_date, dgv_search_refNumber, frm_main.IDC);
+            if (frm_login.role.Equals("Mitarbeiter"))
+            {
+                btn_delete_date.Visible = false;
+            }
+            else if (frm_login.role.Equals("Praktikant"))
+            {
+                btn_delete_date.Visible = false;
+                btn_save_date.Visible = false;
+                dgv_search_date.ReadOnly = true;
+                ucTopBarDark.Instance.pb_save.Visible = false;
+                ucTopBarWhite.Instance.pb_save.Visible = false;
+            }
+
+            Serverconnection.Search_Date(search_date, dgv_search_date, frm_main.IDC);
         }
 
 
@@ -53,7 +72,7 @@ namespace AccountantAssistant
 
         private void btn_delete_ref_Click(object sender, EventArgs e)
         {
-            Serverconnection.DeleteData(dgv_search_refNumber);
+            Serverconnection.DeleteData(dgv_search_date);
         }
 
         private void btn_save_ref_Click(object sender, EventArgs e)

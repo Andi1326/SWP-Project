@@ -13,8 +13,8 @@ namespace AccountantAssistant
         private int idc;
         private int number;
         private int contraLedger;
-        private decimal debitValue;
-        private decimal creditValue;
+        private string debitValue;
+        private string creditValue;
         private string referenceNumber;
         private string date;
 
@@ -71,7 +71,7 @@ namespace AccountantAssistant
             }
         }
 
-        public decimal DebitValue
+        public string DebitValue
         {
             get
             {
@@ -83,7 +83,7 @@ namespace AccountantAssistant
             }
         }
 
-        public decimal CreditValue
+        public string CreditValue
         {
             get
             {
@@ -124,7 +124,7 @@ namespace AccountantAssistant
 
 
         //constructor
-        public Ledger(int idle, int idc, int number, int contraLedger, decimal debitValue, decimal creditValue, string referenceNumber, string date)
+        public Ledger(int idle, int idc, int number, int contraLedger, string debitValue, string creditValue, string referenceNumber, string date)
         {
             this.IDLE = idle;
             this.IDC = idc;
