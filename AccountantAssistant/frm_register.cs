@@ -68,7 +68,7 @@ namespace AccountantAssistant
             {
                 //if everything is ok, data inserts into the table with the method Serverconnection.InsertData
 
-                Login newlogin = new Login(tb_user.Text, tb_password.Text, tb_sq1.Text, tb_sq2.Text, cb_sq1.SelectedItem.ToString(), cb_sq2.SelectedItem.ToString(), cb_role.SelectedItem.ToString());
+                Login newlogin = new Login(tb_user.Text, tb_password.Text, tb_sq1.Text, tb_sq2.Text, cb_sq1.SelectedItem.ToString(), cb_sq2.SelectedItem.ToString(), cb_role.SelectedItem.ToString(), 1);
                 Serverconnection.InsertDataLogin(newlogin);
 
                 frm_login l = new frm_login();

@@ -16,6 +16,7 @@ namespace AccountantAssistant
         private string sq1question;
         private string sq2question;
         private string role;
+        private int darkmode;
 
 
 
@@ -130,16 +131,25 @@ namespace AccountantAssistant
             {
                 role = value;
             }
+        }
 
-
-
+        public int Darkmode
+        {
+            get
+            {
+                return darkmode;
+            }
+            set
+            {
+                darkmode = value;
+            }
         }
 
         #endregion
 
 
         //constructor
-        public Login(string username, string password, string sq1, string sq2, string sq1question, string sq2question, string role)
+        public Login(string username, string password, string sq1, string sq2, string sq1question, string sq2question, string role, int darkmode)
         {
             this.Username = username;
             this.Password = password;
@@ -148,6 +158,7 @@ namespace AccountantAssistant
             this.Sq1question = sq1question;
             this.Sq2question = sq2question;
             this.Role = role;
+            this.Darkmode = darkmode;
         }
     }
 }

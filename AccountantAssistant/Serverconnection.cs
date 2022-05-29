@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using MySql.Data.MySqlClient;
+using BCrypt.Net;
 
 namespace AccountantAssistant
 {
@@ -19,16 +20,11 @@ namespace AccountantAssistant
         public static MySqlCommand cmd = new MySqlCommand();
         public static MySqlDataReader dr;
 
-        //public static SqlConnection con = new SqlConnection("server = (localdb)\\MSSQLLocalDB ; Integrated Security = true");
-        //public static SqlCommand cmd = new SqlCommand();
-
-        //private static SqlDataReader dr;
-
         public static DataTable dt = new DataTable();
         public static DataTable dt1 = new DataTable();
 
-        private static SqlDataAdapter Da = new SqlDataAdapter();
-        private static SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(Da);
+        private static MySqlDataAdapter Da = new MySqlDataAdapter();
+        private static MySqlCommandBuilder cmdbuilder = new MySqlCommandBuilder(Da);
 
 
         #region Login
@@ -40,7 +36,6 @@ namespace AccountantAssistant
             {
                 con.Open();
                 con.Close();
-
             }
             catch(Exception ex)
             {
@@ -49,29 +44,6 @@ namespace AccountantAssistant
             }
         }
 
-        //public static void SaveStandardLedgers(int client)
-        //{
-        //    try
-        //    {
-        //        con.Open();
-        //        cmd.Connection = con;
-        //        var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountantAssistant.Resources.AllLedgers.csv");
-        //        StreamReader sr = new StreamReader(stream);
-        //        while (!sr.EndOfStream)
-        //        {
-        //            var line = sr.ReadLine();
-        //            var values = line.Split(';');
-
-        //            cmd.CommandText = "Insert into AllLedgers (IDC, number, name, type) values (" + client + ", '" + values[0] + "', '" + values[1] + "', '" + values[2] + "')";
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        con.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString(), "Standard Konten konnten nicht erstellt werden");
-        //    }
-        //}
 
         public static bool Proofuser(TextBox username)
         {
@@ -92,42 +64,56 @@ namespace AccountantAssistant
             return false;
         }
 
-        public static bool Proofpassword(TextBox password, string username)
+        public static bool Proofpassword(TextBox tb_password, string username)
         {
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
+            string savedPassword = "";
+
             cmd.CommandText = "Select password from Login where username = '" + username + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text.Equals(dr["password"].ToString()))
-                {
-                    con.Close();
-                    return true;
-                }
+                savedPassword = dr["password"].ToString();
             }
             con.Close();
-            return false;
+
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(tb_password.Text, savedPassword);
+            if (isValidPassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public static bool PasswordQuery(TextBox password, int IDL)
+        public static bool PasswordQuery(TextBox tb_password, int IDL)
         {
             //Proof if the password matches with the user
             con.Open();
             cmd.Connection = con;
+            string savedPassword = "";
+
             cmd.CommandText = "Select password from Login  where IDL = '" + IDL + "'";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                if (password.Text.Equals(dr["password"].ToString()))
-                {
-                    con.Close();
-                    return true;
-                }
+                savedPassword = dr["password"].ToString();
             }
             con.Close();
-            return false;
+
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(tb_password.Text, savedPassword);
+            if (isValidPassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void InsertDataLogin(Login login)
@@ -137,7 +123,8 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role ) values ('" + login.Username + "', '" + login.Password + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "');";
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(login.Password);
+                cmd.CommandText = "Insert into Login (username, password, sq1, sq2, sq1question, sq2question, role, darkmode) values ('" + login.Username + "', '" + hashedPassword + "', '" + login.Sq1 + "', '" + login.Sq2 + "','" + login.Sq1question + "','" + login.Sq2question + "','" + login.Role + "', '"+login.Darkmode +"');";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -217,6 +204,24 @@ namespace AccountantAssistant
             return sq2;
         }
 
+        public static void SaveDarkmode(TextBox tb_username)
+        {
+            //selects the IDL from the table and saves it into the var IDL
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select darkmode from Login where username = '" + tb_username.Text + "'";
+            if(Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+            {
+                frm_settings.darkmode = false;
+            }
+            else
+            {
+                frm_settings.darkmode = true;
+            }
+            
+            con.Close();
+        }
+
         public static void ChangePassword(string password, string IDL)
         {
             //trys to change the old password to the new
@@ -224,7 +229,25 @@ namespace AccountantAssistant
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE LOGIN SET password = '" + password + "' where IDL = " + IDL;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                cmd.CommandText = "UPDATE Login SET password = '" + hashedPassword + "' where IDL = " + IDL;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Password can't be changed");
+            }
+        }
+
+        public static void ChangeDarkmode(int darkmode, string IDL)
+        {
+            //trys to change the darkmode settings of the user
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE Login SET darkmode = '" + darkmode + "' where IDL = " + IDL;
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -405,7 +428,7 @@ namespace AccountantAssistant
             }
         }
 
-        public static string SaveType(int number, int idc)
+        public static string SaveType(string number, int idc)
         {
             //selects the IDLE from the table
             try
@@ -439,7 +462,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
             }
             con.Close();
        
@@ -451,7 +474,7 @@ namespace AccountantAssistant
         public static void Search_Date(string search_date, DataGridView dgv, int idc)
         {
             string type = null;
-            int number = 0;
+            string number = "";
             //search for Date
             con.Open();
             cmd.Connection = con;
@@ -460,7 +483,7 @@ namespace AccountantAssistant
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                number = Convert.ToInt32(dr["ledger1"]);
+                number = dr["ledger1"].ToString();
                 
             }
             con.Close();
@@ -472,37 +495,28 @@ namespace AccountantAssistant
             cmd.CommandText = "Select date, referenceNumber, ledger1,  netto, ledger2, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
             
             dr = cmd.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
-            //}
-            //con.Close();
 
             while (dr.Read())
             {
-                
-
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToDecimal(dr["netto"]), Convert.ToInt32(dr["ledger2"]),0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
                 }
                 else if (type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]),0, Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]));
                 }
                 else
                 {
                     MessageBox.Show("Es ist ein Fehler passiert");
                 }
-
-
             }
             con.Close();
         }
 
 
 
-        public static void Search_ledger(int search_ledger, DataGridView dgv, int idc)
+        public static void Search_ledger(string search_ledger, DataGridView dgv, int idc)
         {
             //search for ledger
             string type = Serverconnection.SaveType(search_ledger, idc);
@@ -534,8 +548,7 @@ namespace AccountantAssistant
 
         #endregion
 
-        #region balance
-
+        #region Balance
 
         public static bool Balance(DataGridView dgv)
         {
@@ -567,7 +580,7 @@ namespace AccountantAssistant
 
         #endregion
           
-        #region delete & save
+        #region Delete & Save
 
 
         public static void DeleteData(DataGridView dgv)
@@ -605,12 +618,6 @@ namespace AccountantAssistant
         }
 
 
-
-
-
-
-        #endregion
-
         public static string datetimeCancel;
         public static string referenceNumberCancel;
         public static string contraLedgerCancel;
@@ -631,6 +638,8 @@ namespace AccountantAssistant
             salestaxrateCancel = dgv.CurrentRow.Cells[5].Value.ToString();
 
         }
+
+        #endregion
 
     }
 }

@@ -37,14 +37,14 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_ledger));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_ledger = new System.Windows.Forms.DataGridView();
-            this.btn_save_ledger = new System.Windows.Forms.Button();
-            this.btn_delete_ledger = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_save_ledger = new System.Windows.Forms.Button();
+            this.btn_delete_ledger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_ledger)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +189,7 @@ namespace AccountantAssistant
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_search_ledger";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_search_ledger_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_ledger)).EndInit();
             this.ResumeLayout(false);

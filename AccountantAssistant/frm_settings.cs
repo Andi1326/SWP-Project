@@ -81,6 +81,8 @@ namespace AccountantAssistant
             if(cb_design.SelectedIndex == 0)
             {
                 darkmode = true;
+                Serverconnection.ChangeDarkmode(1, frm_login.IDL);
+
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 Controls.Remove(ucTopBarWhite.Instance);
                 Controls.Add(ucTopBarDark.Instance);
@@ -90,6 +92,8 @@ namespace AccountantAssistant
             else
             {
                 darkmode = false;
+                Serverconnection.ChangeDarkmode(0, frm_login.IDL);
+
                 Theme_White.ChangeThemeWhite(Controls, this);
                 this.Hide();
                 frm_settings frm_s = new frm_settings();
