@@ -19,6 +19,7 @@ namespace AccountantAssistant
 
         public static int IDC;
         private static int transaction_count;
+        public static bool tabConCreated = false;
 
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -78,21 +79,25 @@ namespace AccountantAssistant
             cb_clients.BringToFront();
             pb_settings.BringToFront();
 
-            ucTabControl.Instance.btn_file.Click += TabCon_btnFile;
-            ucTabControl.Instance.btn_start.Click += TabCon_HidePanel;
-            ucTabControl.Instance.btn_search.Click += TabCon_HidePanel;
-            ucTabControl.Instance.btn_ledger.Click += TabCon_HidePanel;
-            ucTabControl.Instance.btn_help.Click += TabCon_HidePanel;
+            if (!tabConCreated)
+            {
+                ucTabControl.Instance.btn_file.Click += TabCon_btnFile;
+                ucTabControl.Instance.btn_start.Click += TabCon_HidePanel;
+                ucTabControl.Instance.btn_search.Click += TabCon_HidePanel;
+                ucTabControl.Instance.btn_ledger.Click += TabCon_HidePanel;
+                ucTabControl.Instance.btn_help.Click += TabCon_HidePanel;
 
-            ucTabControl.Instance.btn_chooseLedger.Click += btn_chooseLedger_Click;
-            ucTabControl.Instance.btn_balance.Click += btn_balance_Click;
-            ucTabControl.Instance.btn_search_ref.Click += btn_search_ref_Click_1;
-            ucTabControl.Instance.btn_searchDate.Click += btn_searchDate_Click;
-            ucTabControl.Instance.btn_newLedger.Click += btn_newLedger_Click;
-            ucTabControl.Instance.btn_search_ledger.Click += btn_search_ledger_Click;
-            ucTabControl.Instance.tb_ledger.TextChanged += tb_ledger_TextChanged;
-            ucTabControl.Instance.linklable_email.LinkClicked += linklable_email_LinkClicked;
-            ucTabControl.Instance.btn_email.Click += btn_email_Click;
+                ucTabControl.Instance.btn_chooseLedger.Click += btn_chooseLedger_Click;
+                ucTabControl.Instance.btn_balance.Click += btn_balance_Click;
+                ucTabControl.Instance.btn_search_ref.Click += btn_search_ref_Click_1;
+                ucTabControl.Instance.btn_searchDate.Click += btn_searchDate_Click;
+                ucTabControl.Instance.btn_newLedger.Click += btn_newLedger_Click;
+                ucTabControl.Instance.btn_search_ledger.Click += btn_search_ledger_Click;
+                ucTabControl.Instance.tb_ledger.TextChanged += tb_ledger_TextChanged;
+                ucTabControl.Instance.linklable_email.LinkClicked += linklable_email_LinkClicked;
+                ucTabControl.Instance.btn_email.Click += btn_email_Click;
+                tabConCreated = true;
+            }
 
             
             #endregion
