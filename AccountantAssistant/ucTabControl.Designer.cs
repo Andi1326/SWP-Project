@@ -73,15 +73,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TabCon.BackColor = System.Drawing.Color.Transparent;
             this.TabCon.Controls.Add(this.pb_line);
-            this.TabCon.Controls.Add(this.pageStart);
-            this.TabCon.Controls.Add(this.pageHelp);
-            this.TabCon.Controls.Add(this.pageLedger);
-            this.TabCon.Controls.Add(this.pageSearch);
             this.TabCon.Controls.Add(this.btn_help);
             this.TabCon.Controls.Add(this.btn_start);
             this.TabCon.Controls.Add(this.btn_search);
             this.TabCon.Controls.Add(this.btn_ledger);
             this.TabCon.Controls.Add(this.btn_file);
+            this.TabCon.Controls.Add(this.pageLedger);
+            this.TabCon.Controls.Add(this.pageSearch);
+            this.TabCon.Controls.Add(this.pageStart);
+            this.TabCon.Controls.Add(this.pageHelp);
             this.TabCon.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabCon.Location = new System.Drawing.Point(3, 3);
             this.TabCon.Name = "TabCon";
@@ -128,6 +128,7 @@
             this.btn_chooseLedger.Size = new System.Drawing.Size(33, 21);
             this.btn_chooseLedger.TabIndex = 64;
             this.btn_chooseLedger.UseVisualStyleBackColor = false;
+            this.btn_chooseLedger.Click += new System.EventHandler(this.btn_chooseLedger_Click);
             // 
             // tb_ledger
             // 
@@ -150,6 +151,7 @@
             this.btn_balance.TabIndex = 63;
             this.btn_balance.Text = "Berechnen";
             this.btn_balance.UseVisualStyleBackColor = true;
+            this.btn_balance.Click += new System.EventHandler(this.btn_balance_Click);
             // 
             // lbl_TP_balance
             // 
@@ -259,13 +261,14 @@
             this.btn_search_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search_ledger.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_search_ledger.Location = new System.Drawing.Point(535, 23);
+            this.btn_search_ledger.Location = new System.Drawing.Point(535, 21);
             this.btn_search_ledger.Name = "btn_search_ledger";
-            this.btn_search_ledger.Size = new System.Drawing.Size(83, 23);
+            this.btn_search_ledger.Size = new System.Drawing.Size(83, 26);
             this.btn_search_ledger.TabIndex = 65;
             this.btn_search_ledger.Tag = "normal";
             this.btn_search_ledger.Text = "Suchen";
             this.btn_search_ledger.UseVisualStyleBackColor = true;
+            this.btn_search_ledger.Click += new System.EventHandler(this.btn_search_ledger_Click);
             // 
             // lbl_TP_ledger
             // 
@@ -300,6 +303,7 @@
             this.btn_newLedger.Text = "Konto hinzufügen";
             this.btn_newLedger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_newLedger.UseVisualStyleBackColor = true;
+            this.btn_newLedger.Click += new System.EventHandler(this.btn_newLedger_Click);
             // 
             // pageSearch
             // 
@@ -325,13 +329,14 @@
             this.btn_searchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_searchDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchDate.ForeColor = System.Drawing.Color.Black;
-            this.btn_searchDate.Location = new System.Drawing.Point(712, 20);
+            this.btn_searchDate.Location = new System.Drawing.Point(712, 18);
             this.btn_searchDate.Name = "btn_searchDate";
-            this.btn_searchDate.Size = new System.Drawing.Size(83, 23);
+            this.btn_searchDate.Size = new System.Drawing.Size(83, 26);
             this.btn_searchDate.TabIndex = 66;
             this.btn_searchDate.Tag = "normal";
             this.btn_searchDate.Text = "Suchen";
             this.btn_searchDate.UseVisualStyleBackColor = true;
+            this.btn_searchDate.Click += new System.EventHandler(this.btn_searchDate_Click);
             // 
             // tb_searchDate
             // 
@@ -358,11 +363,12 @@
             this.btn_search_ref.ForeColor = System.Drawing.Color.Black;
             this.btn_search_ref.Location = new System.Drawing.Point(326, 20);
             this.btn_search_ref.Name = "btn_search_ref";
-            this.btn_search_ref.Size = new System.Drawing.Size(83, 23);
+            this.btn_search_ref.Size = new System.Drawing.Size(83, 26);
             this.btn_search_ref.TabIndex = 63;
             this.btn_search_ref.Tag = "normal";
             this.btn_search_ref.Text = "Suchen";
             this.btn_search_ref.UseVisualStyleBackColor = true;
+            this.btn_search_ref.Click += new System.EventHandler(this.btn_search_ref_Click);
             // 
             // tb_search_ref
             // 

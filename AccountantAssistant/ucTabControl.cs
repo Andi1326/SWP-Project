@@ -88,5 +88,60 @@ namespace AccountantAssistant
             }
         }
 
+        private void btn_chooseLedger_Click(object sender, EventArgs e)
+        {
+            frm_ledger_overview frm_lo = new frm_ledger_overview();
+            frm_lo.ShowDialog();
+            tb_ledger.Text = frm_ledger_overview.ledger_number;
+        }
+
+        private void btn_balance_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Hide();
+            frm_balance frm_Balance = new frm_balance();
+            frm_Balance.ShowDialog();
+        }
+
+        private void btn_search_ref_Click(object sender, EventArgs e)
+        {
+            frm_search_refNumber.search_item = tb_search_ref.Text;
+
+            frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
+            this.ParentForm.Hide();
+            frm_Search_Ref.Show();
+        }
+
+        private void btn_search_ledger_Click(object sender, EventArgs e)
+        {
+            frm_search_ledger.search_ledger = cb_search_ledger.Text.ToString();
+
+            frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
+            this.ParentForm.Hide();
+            frm_Search_Ledger.Show();
+        }
+
+        private void btn_newLedger_Click(object sender, EventArgs e)
+        {
+            if (frm_main.IDC.Equals(0))
+            {
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+            }
+            else
+            {
+                //opens frm_new_ledger
+                this.ParentForm.Hide();
+                frm_create_ledger frm_new_ledger = new frm_create_ledger();
+                frm_new_ledger.ShowDialog();
+            }
+        }
+
+        private void btn_searchDate_Click(object sender, EventArgs e)
+        {
+            frm_search_date.search_date = tb_searchDate.Text;
+
+            frm_search_date frm_Search = new frm_search_date();
+            this.ParentForm.Hide();
+            frm_Search.Show();
+        }
     }
 }

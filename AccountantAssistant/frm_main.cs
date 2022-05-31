@@ -87,12 +87,12 @@ namespace AccountantAssistant
                 ucTabControl.Instance.btn_ledger.Click += TabCon_HidePanel;
                 ucTabControl.Instance.btn_help.Click += TabCon_HidePanel;
 
-                ucTabControl.Instance.btn_chooseLedger.Click += btn_chooseLedger_Click;
-                ucTabControl.Instance.btn_balance.Click += btn_balance_Click;
-                ucTabControl.Instance.btn_search_ref.Click += btn_search_ref_Click_1;
-                ucTabControl.Instance.btn_searchDate.Click += btn_searchDate_Click;
-                ucTabControl.Instance.btn_newLedger.Click += btn_newLedger_Click;
-                ucTabControl.Instance.btn_search_ledger.Click += btn_search_ledger_Click;
+                //ucTabControl.Instance.btn_chooseLedger.Click += btn_chooseLedger_Click;
+                //ucTabControl.Instance.btn_balance.Click += btn_balance_Click;
+                //ucTabControl.Instance.btn_search_ref.Click += btn_search_ref_Click_1;
+                //ucTabControl.Instance.btn_searchDate.Click += btn_searchDate_Click;
+                //ucTabControl.Instance.btn_newLedger.Click += btn_newLedger_Click;
+                //ucTabControl.Instance.btn_search_ledger.Click += btn_search_ledger_Click;
                 ucTabControl.Instance.tb_ledger.TextChanged += tb_ledger_TextChanged;
                 ucTabControl.Instance.linklable_email.LinkClicked += linklable_email_LinkClicked;
                 ucTabControl.Instance.btn_email.Click += btn_email_Click;
@@ -119,7 +119,7 @@ namespace AccountantAssistant
             }
         }
 
-        private void TabCon_btnFile(object sender, EventArgs e)
+        public void TabCon_btnFile(object sender, EventArgs e)
         {
             pnl_1.Location = new Point(0, 30);
             pnl_1.Visible = true;
@@ -129,29 +129,6 @@ namespace AccountantAssistant
         private void TabCon_HidePanel(object sender, EventArgs e)
         {
             pnl_1.Visible = false;
-        }
-
-        private void tabCon1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if the tabPage switches to index 0 (Datei) then the panel displays
-            //if (tabCon1.SelectedIndex == 0)
-            //{
-            //    tabCon1.SelectedIndex = 1;
-            //    pnl_1.Location = new Point(0, 30);
-            //    pnl_1.Visible = true;
-            //    pnl_1.BringToFront();
-            //}
-            //else if(tabCon1.SelectedIndex >= 1)
-            //{
-            //    //if the tabPage is another Page the panel gets invisible
-            //    pnl_1.Visible = false;
-            //}
-
-            //Loads the Ledger of the Client
-            //Serverconnection.GetLedger(cb_ledger, IDC);
-            Serverconnection.GetLedger(cb_contraLedger, IDC);
-            Serverconnection.GetClient(cb_clients);
-            Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
         }
 
         private void pb_back_Click(object sender, EventArgs e)
@@ -227,20 +204,20 @@ namespace AccountantAssistant
             Serverconnection.GetClient(cb_clients);
         }
 
-        private void btn_newLedger_Click(object sender, EventArgs e)
-        {
-            if (cb_clients.Text.ToString().Equals(null))
-            {
-                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
-            }
-            else
-            {
-                //opens frm_new_ledger
-                this.Hide();
-                frm_create_ledger frm_new_ledger = new frm_create_ledger();
-                frm_new_ledger.ShowDialog();
-            }
-        }
+        //private void btn_newLedger_Click(object sender, EventArgs e)
+        //{
+        //    if (cb_clients.Text.ToString().Equals(null))
+        //    {
+        //        MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+        //    }
+        //    else
+        //    {
+        //        //opens frm_new_ledger
+        //        this.Hide();
+        //        frm_create_ledger frm_new_ledger = new frm_create_ledger();
+        //        frm_new_ledger.ShowDialog();
+        //    }
+        //}
 
         #region Save_Functions
 
@@ -281,23 +258,23 @@ namespace AccountantAssistant
             }
         }
 
-        public void ucTopbar_save_Click(object sender, EventArgs e)
-        {
-            //executes the Save Function
-            transaction_count = dgv_transaction.Rows.Count;
-            if (transaction_count > 0)
-            {
-                Save_Transaction();
-            }
-            else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
-            {
-                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
-            }
-            else
-            {
-                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
-            }
-        }
+        //public void ucTopbar_save_Click(object sender, EventArgs e)
+        //{
+        //    //executes the Save Function
+        //    transaction_count = dgv_transaction.Rows.Count;
+        //    if (transaction_count > 0)
+        //    {
+        //        Save_Transaction();
+        //    }
+        //    else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
+        //    {
+        //        MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+        //    }
+        //}
 
         private void Save_Transaction()
         {
@@ -437,12 +414,12 @@ namespace AccountantAssistant
             frm_s.ShowDialog();
         }
 
-        private void btn_balance_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frm_balance frm_Balance = new frm_balance();
-            frm_Balance.ShowDialog();
-        }
+        //private void btn_balance_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    frm_balance frm_Balance = new frm_balance();
+        //    frm_Balance.ShowDialog();
+        //}
 
         #region Printing
         Bitmap bmp;
@@ -471,29 +448,32 @@ namespace AccountantAssistant
 
         #region search
 
-        private void btn_search_ref_Click_1(object sender, EventArgs e)
-        {
-            frm_search_refNumber.search_item = ucTabControl.Instance.tb_search_ref.Text;
-            this.Hide();
-            frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
-            frm_Search_Ref.ShowDialog();
-        }
+        //private void btn_search_ref_Click_1(object sender, EventArgs e)
+        //{
+        //    frm_search_refNumber.search_item = ucTabControl.Instance.tb_search_ref.Text;
+            
+        //    frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
+        //    this.Hide();
+        //    frm_Search_Ref.Show();
+        //}
 
-        private void btn_searchDate_Click(object sender, EventArgs e)
-        {
-            frm_search_date.search_date = ucTabControl.Instance.tb_searchDate.Text;
-            this.Hide();
-            frm_search_date frm_Search = new frm_search_date();
-            frm_Search.ShowDialog();
-        }
+        //private void btn_searchDate_Click(object sender, EventArgs e)
+        //{
+        //    frm_search_date.search_date = ucTabControl.Instance.tb_searchDate.Text;
+            
+        //    frm_search_date frm_Search = new frm_search_date();
+        //    this.Hide();
+        //    frm_Search.Show();
+        //}
 
-        private void btn_search_ledger_Click(object sender, EventArgs e)
-        {
-            frm_search_ledger.search_ledger = ucTabControl.Instance.cb_search_ledger.SelectedItem.ToString();
-            this.Hide();
-            frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
-            frm_Search_Ledger.ShowDialog();
-        }
+        //private void btn_search_ledger_Click(object sender, EventArgs e)
+        //{
+        //    frm_search_ledger.search_ledger = ucTabControl.Instance.cb_search_ledger.SelectedItem.ToString();
+            
+        //    frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
+        //    this.Hide();
+        //    frm_Search_Ledger.Show();
+        //}
 
         #endregion
 
@@ -554,6 +534,5 @@ namespace AccountantAssistant
         }
 
         #endregion
-
     }
 }
