@@ -53,7 +53,7 @@ namespace AccountantAssistant
             this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(3, 55);
+            this.btn_delete_ref.Location = new System.Drawing.Point(118, 55);
             this.btn_delete_ref.Name = "btn_delete_ref";
             this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ref.TabIndex = 8;
@@ -66,7 +66,7 @@ namespace AccountantAssistant
             this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(118, 55);
+            this.btn_save_ref.Location = new System.Drawing.Point(3, 55);
             this.btn_save_ref.Name = "btn_save_ref";
             this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_save_ref.TabIndex = 9;

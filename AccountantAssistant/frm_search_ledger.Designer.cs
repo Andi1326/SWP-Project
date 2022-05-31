@@ -154,7 +154,7 @@ namespace AccountantAssistant
             this.btn_save_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ledger.Location = new System.Drawing.Point(127, 66);
+            this.btn_save_ledger.Location = new System.Drawing.Point(12, 66);
             this.btn_save_ledger.Name = "btn_save_ledger";
             this.btn_save_ledger.Size = new System.Drawing.Size(109, 33);
             this.btn_save_ledger.TabIndex = 57;
@@ -167,7 +167,7 @@ namespace AccountantAssistant
             this.btn_delete_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ledger.Location = new System.Drawing.Point(12, 66);
+            this.btn_delete_ledger.Location = new System.Drawing.Point(127, 66);
             this.btn_delete_ledger.Name = "btn_delete_ledger";
             this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ledger.TabIndex = 56;

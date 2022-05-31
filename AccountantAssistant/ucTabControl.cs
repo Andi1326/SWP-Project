@@ -12,8 +12,11 @@ namespace AccountantAssistant
 {
     public partial class ucTabControl : UserControl
     {
+        //var private _instance
         private static ucTabControl _instance;
 
+
+        //get of Instance
         public static ucTabControl Instance
         {
             get
@@ -26,6 +29,7 @@ namespace AccountantAssistant
             }
         }
 
+        //const of UcTabControl
         public ucTabControl()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace AccountantAssistant
 
         private void btn_start_Click(object sender, EventArgs e)
         {
+            //activates page_start, deactivates the others, sets line to the page
             pageStart.Visible = true;
             pageSearch.Visible = false;
             pageLedger.Visible = false;
@@ -42,6 +47,7 @@ namespace AccountantAssistant
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            //activates page_search, deactivates the others, sets line to the page
             pageStart.Visible = false;
             pageSearch.Visible = true;
             pageLedger.Visible = false;
@@ -51,6 +57,7 @@ namespace AccountantAssistant
 
         private void btn_ledger_Click(object sender, EventArgs e)
         {
+            //activates page_ledger, deactivates the others, sets line to the page
             pageStart.Visible = false;
             pageSearch.Visible = false;
             pageLedger.Visible = true;
@@ -59,7 +66,8 @@ namespace AccountantAssistant
         }
 
         private void btn_help_Click(object sender, EventArgs e)
-        { 
+        {
+            //activates page_help, deactivates the others, sets line to the page
             pageStart.Visible = false;
             pageSearch.Visible = false;
             pageLedger.Visible = false;
@@ -67,29 +75,9 @@ namespace AccountantAssistant
             pb_line.Location = new Point(281, 25);
         }
 
-        private void ucTabControl_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        public static void ChangeThemeUcTabControl(Control.ControlCollection container)
-        {
-            foreach (Control component in container)
-            {
-                if (component is TextBox || component is ComboBox)
-                {
-                    component.ForeColor = Color.White;
-                    component.BackColor = Theme_Dark.DarkBackColor;
-                }
-                else if (component is Label)
-                {
-                    component.ForeColor = Color.White;
-                }
-            }
-        }
-
         private void btn_chooseLedger_Click(object sender, EventArgs e)
         {
+            //opens the frm_ledger_overview, after closing it, tb_ledger gets the value of ledger_number
             frm_ledger_overview frm_lo = new frm_ledger_overview();
             frm_lo.ShowDialog();
             tb_ledger.Text = frm_ledger_overview.ledger_number;
@@ -97,6 +85,7 @@ namespace AccountantAssistant
 
         private void btn_balance_Click(object sender, EventArgs e)
         {
+            //opens frm_balance, closes Parentform(frm_main)
             this.ParentForm.Hide();
             frm_balance frm_Balance = new frm_balance();
             frm_Balance.ShowDialog();
@@ -104,6 +93,7 @@ namespace AccountantAssistant
 
         private void btn_search_ref_Click(object sender, EventArgs e)
         {
+            //sets the search_item of the tb_search_ref, opens frm_search_refNumber, closes Parentform(frm_main)
             frm_search_refNumber.search_item = tb_search_ref.Text;
 
             frm_search_refNumber frm_Search_Ref = new frm_search_refNumber();
@@ -113,6 +103,7 @@ namespace AccountantAssistant
 
         private void btn_search_ledger_Click(object sender, EventArgs e)
         {
+            //sets the search_ledger of the cb_search_ledger, opens frm_search_ledger, closes Parentform(frm_main)
             frm_search_ledger.search_ledger = cb_search_ledger.Text.ToString();
 
             frm_search_ledger frm_Search_Ledger = new frm_search_ledger();
@@ -122,6 +113,7 @@ namespace AccountantAssistant
 
         private void btn_newLedger_Click(object sender, EventArgs e)
         {
+            //if IDC is set, frm_create_ledger opens, closes Parentform(frm_main)
             if (frm_main.IDC.Equals(0))
             {
                 MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
@@ -137,6 +129,7 @@ namespace AccountantAssistant
 
         private void btn_searchDate_Click(object sender, EventArgs e)
         {
+            //sets the search_date of the tb_searchDate, opens frm_search_date, closes Parentform(frm_main)
             frm_search_date.search_date = tb_searchDate.Text;
 
             frm_search_date frm_Search = new frm_search_date();
