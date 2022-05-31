@@ -91,7 +91,6 @@ namespace AccountantAssistant
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(165, 26);
             this.tb_password.TabIndex = 12;
-            this.tb_password.Text = "andi";
             // 
             // tb_user
             // 
@@ -101,7 +100,6 @@ namespace AccountantAssistant
             this.tb_user.Name = "tb_user";
             this.tb_user.Size = new System.Drawing.Size(165, 26);
             this.tb_user.TabIndex = 11;
-            this.tb_user.Text = "andi";
             // 
             // lbl_password
             // 

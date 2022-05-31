@@ -29,13 +29,13 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.btn_back = new System.Windows.Forms.Button();
             this.pnl_1 = new System.Windows.Forms.Panel();
@@ -120,7 +120,7 @@ namespace AccountantAssistant
             this.btn_newClient.Size = new System.Drawing.Size(122, 36);
             this.btn_newClient.TabIndex = 48;
             this.btn_newClient.Tag = "normal";
-            this.btn_newClient.Text = " Neuer Client";
+            this.btn_newClient.Text = " Neuer Klient";
             this.btn_newClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_newClient.UseVisualStyleBackColor = true;
             this.btn_newClient.Click += new System.EventHandler(this.btn_newClient_Click);
@@ -194,7 +194,7 @@ namespace AccountantAssistant
             this.lbl_client.Name = "lbl_client";
             this.lbl_client.Size = new System.Drawing.Size(57, 18);
             this.lbl_client.TabIndex = 47;
-            this.lbl_client.Text = "Client:";
+            this.lbl_client.Text = "Klient:";
             // 
             // cb_clients
             // 
@@ -213,14 +213,14 @@ namespace AccountantAssistant
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_transaction.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_transaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_date,
@@ -232,27 +232,27 @@ namespace AccountantAssistant
             this.column_ust,
             this.column_ust_rate,
             this.column_debit_credit});
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle41.Format = "C2";
-            dataGridViewCellStyle41.NullValue = null;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_transaction.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_transaction.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dgv_transaction.Location = new System.Drawing.Point(5, 144);
             this.dgv_transaction.Name = "dgv_transaction";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_transaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_transaction.Size = new System.Drawing.Size(927, 389);
             this.dgv_transaction.TabIndex = 49;
             // 
@@ -281,36 +281,36 @@ namespace AccountantAssistant
             // 
             // column_netto
             // 
-            dataGridViewCellStyle37.Format = "C2";
-            dataGridViewCellStyle37.NullValue = null;
-            this.column_netto.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.column_netto.DefaultCellStyle = dataGridViewCellStyle2;
             this.column_netto.HeaderText = "Nettobetrag";
             this.column_netto.Name = "column_netto";
             this.column_netto.Width = 120;
             // 
             // column_brutto
             // 
-            dataGridViewCellStyle38.Format = "C2";
-            dataGridViewCellStyle38.NullValue = null;
-            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.column_brutto.DefaultCellStyle = dataGridViewCellStyle3;
             this.column_brutto.HeaderText = "Bruttobetrag";
             this.column_brutto.Name = "column_brutto";
             this.column_brutto.Width = 120;
             // 
             // column_ust
             // 
-            dataGridViewCellStyle39.Format = "C2";
-            dataGridViewCellStyle39.NullValue = null;
-            this.column_ust.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.column_ust.DefaultCellStyle = dataGridViewCellStyle4;
             this.column_ust.HeaderText = "Ust";
             this.column_ust.Name = "column_ust";
             this.column_ust.Width = 60;
             // 
             // column_ust_rate
             // 
-            dataGridViewCellStyle40.Format = "0 \"%\"";
-            dataGridViewCellStyle40.NullValue = null;
-            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle5.Format = "0 \"%\"";
+            dataGridViewCellStyle5.NullValue = null;
+            this.column_ust_rate.DefaultCellStyle = dataGridViewCellStyle5;
             this.column_ust_rate.HeaderText = "Ust-Satz";
             this.column_ust_rate.Name = "column_ust_rate";
             this.column_ust_rate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -520,7 +520,7 @@ namespace AccountantAssistant
             this.datePicker.Font = new System.Drawing.Font("Tahoma", 11.25F);
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePicker.Location = new System.Drawing.Point(12, 557);
-            this.datePicker.MinimumSize = new System.Drawing.Size(0, 26);
+            this.datePicker.MinimumSize = new System.Drawing.Size(4, 26);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(126, 26);
             this.datePicker.SkinColor = System.Drawing.Color.White;
@@ -581,7 +581,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.Button btn_new;
         private System.Windows.Forms.PictureBox pb_settings;
         private System.Windows.Forms.Label lbl_client;
-        private System.Windows.Forms.ComboBox cb_clients;
         private System.Windows.Forms.Button btn_newClient;
         private System.Windows.Forms.DataGridView dgv_transaction;
         private System.Windows.Forms.Label lbl_contraLedger;
@@ -610,5 +609,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_ust_rate;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit_credit;
         private RJDatePicker datePicker;
+        public System.Windows.Forms.ComboBox cb_clients;
     }
 }
