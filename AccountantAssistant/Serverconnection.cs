@@ -456,16 +456,51 @@ namespace AccountantAssistant
         public static void Search_refNumber(string search_item, DataGridView dgv, int idc)
         {
             //search for refNumber
+
+            string type = null;
+            string number = "";
+
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "Select ledger1 from AccTransaction where referenceNumber = '" + search_item + "'and IDC = '" + idc + "'";
+
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                number = dr["ledger1"].ToString();
+
+            }
+            con.Close();
+
+            type = Serverconnection.SaveType(number, idc);
+
+
+
+
             con.Open();
             cmd.Connection = con;
             cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where referenceNumber = '"+search_item +"'and IDC = '"+idc + "'";
             dr = cmd.ExecuteReader();
+        
             while (dr.Read())
             {
-                dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), Convert.ToDecimal(dr["brutto"]));
+                if (type == "AB" || type == "AK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                }
+                else if (type == "PB" || type == "EK")
+                {
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]));
+                }
+                else
+                {
+                    MessageBox.Show("Es ist ein Fehler passiert");
+                }
+
+
             }
             con.Close();
-       
+        
         }
 
 
@@ -555,22 +590,27 @@ namespace AccountantAssistant
             decimal saldo;
             con.Open();
             cmd.Connection = con;
-            //cmd.CommandText = "Select  AllLedgers.number, AllLedgers.name, Ledger.creditValue, Ledger.debitValue from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE ";
-            cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, SUM(Ledger.creditValue) as credit, SUM(Ledger.debitValue) as debit from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by AllLedgers.number, AllLedgers.name";
+           
+            //cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, SUM(Ledger.creditValue) as credit, SUM(Ledger.debitValue) as debit from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by AllLedgers.number, AllLedgers.name";cmd.CommandText = "Select AllLedgers.number, AllLedgers.name, SUM(Ledger.creditValue) as credit, SUM(Ledger.debitValue) as debit from AllLedgers inner join Ledger on AllLedgers.IDLE = Ledger.IDLE group by AllLedgers.number, AllLedgers.name";
+            cmd.CommandText = "Select number, SUM(creditValue) as credit, SUM(debitValue) as debit from Ledger group by number";
 
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 if(Convert.ToDecimal(dr["debit"]) > Convert.ToDecimal(dr["credit"]))
                 {
+
                     saldo = Convert.ToDecimal(dr["debit"]) - Convert.ToDecimal(dr["credit"]);
+
                 }
                 else
                 {
+
                     saldo = Convert.ToDecimal(dr["credit"]) - Convert.ToDecimal(dr["debit"]);
+
                 }
                 //dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debitValue"]), Convert.ToDecimal(dr["creditValue"]));
-                dgv.Rows.Add(dr["number"].ToString(), dr["name"].ToString(), Convert.ToDecimal(dr["debit"]), Convert.ToDecimal(dr["credit"]), saldo);
+                dgv.Rows.Add(dr["number"].ToString(), Convert.ToDecimal(dr["debit"]), Convert.ToDecimal(dr["credit"]), saldo);
 
             }
             con.Close();
@@ -583,16 +623,26 @@ namespace AccountantAssistant
         #region Delete & Save
 
 
-        public static void DeleteData(DataGridView dgv)
+        public static void DeleteData(string refNumber, int idc)
         {
-            //Deletes the Row which is selected
+            //cancels the account rekorm which is selected
             try
             {
                 con.Open();
-                dgv.Rows.RemoveAt(dgv.CurrentRow.Index);
-                Da.Update(dt);
+                cmd.Connection = con;
+                cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where referenceNumber = '" + refNumber + "'and IDC = '" + idc + "'";
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate, referenceNumber, date) values ('" + idc + "', '" + dr["ledger2"] + "', '" + dr["ledger1"] + "', '" + dr["netto"] + "','" + dr["brutto"] + "','" + dr["ust"] + "','" + dr["salestaxrate"] + "','" + dr["referenceNumber"] + "','" + dr["date"] + "');";
+                    cmd.ExecuteNonQuery();                
+                }
                 con.Close();
+
             }
+
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());

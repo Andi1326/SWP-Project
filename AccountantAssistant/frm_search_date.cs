@@ -72,7 +72,12 @@ namespace AccountantAssistant
 
         private void btn_delete_ref_Click(object sender, EventArgs e)
         {
-            Serverconnection.DeleteData(dgv_search_date);
+            string date = dgv_search_date.CurrentRow.Cells[0].Value.ToString();
+            string refNumber = dgv_search_date.CurrentRow.Cells[1].Value.ToString();
+
+            
+
+            //Serverconnection.DeleteData(dgv_search_date);
         }
 
         private void btn_save_ref_Click(object sender, EventArgs e)
