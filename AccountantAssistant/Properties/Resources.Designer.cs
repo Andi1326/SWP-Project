@@ -158,6 +158,26 @@ namespace AccountantAssistant.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hidePassword_Dark {
+            get {
+                object obj = ResourceManager.GetObject("hidePassword_Dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hidePassword_White {
+            get {
+                object obj = ResourceManager.GetObject("hidePassword_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_blue {
             get {
                 object obj = ResourceManager.GetObject("logo_blue", resourceCulture);
@@ -261,6 +281,26 @@ namespace AccountantAssistant.Properties {
         internal static System.Drawing.Bitmap SaveButtonWhite {
             get {
                 object obj = ResourceManager.GetObject("SaveButtonWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap showPassword_Dark {
+            get {
+                object obj = ResourceManager.GetObject("showPassword_Dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap showPassword_White {
+            get {
+                object obj = ResourceManager.GetObject("showPassword_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

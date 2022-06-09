@@ -17,6 +17,8 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        private static bool showPassword = false;
+
         private void btn_back_Click(object sender, EventArgs e)
         {
             //closes frm_register and opens frm_login
@@ -97,6 +99,7 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_Dark;
             }
             else
             {
@@ -105,10 +108,46 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
                 ucTopBarWhite.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
             }
 
             //sets Keypreview to true and adds User Control to the form
             KeyPreview = true;
+        }
+
+        private void btn_showHidePassword_Click(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode && !showPassword)
+            {
+                showPassword = true;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.hidePassword_Dark;
+            }
+            else if (frm_settings.darkmode && showPassword)
+            {
+                showPassword = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_Dark;
+            }
+            else if (!frm_settings.darkmode && !showPassword)
+            {
+                showPassword = true;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.hidePassword_White;
+            }
+            else
+            {
+                showPassword = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
+            }
+
+            if (tb_password.UseSystemPasswordChar)
+            {
+                tb_password.UseSystemPasswordChar = false;
+                tb_passwordagain.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tb_password.UseSystemPasswordChar = true;
+                tb_passwordagain.UseSystemPasswordChar = true;
+            }
         }
     }
 }
