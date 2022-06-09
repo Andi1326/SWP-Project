@@ -38,6 +38,7 @@ namespace AccountantAssistant
             this.lbl_password = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
             this.pb_logo = new System.Windows.Forms.PictureBox();
+            this.btn_showHidePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,7 @@ namespace AccountantAssistant
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(165, 26);
             this.tb_password.TabIndex = 12;
+            this.tb_password.UseSystemPasswordChar = true;
             // 
             // tb_user
             // 
@@ -136,6 +138,24 @@ namespace AccountantAssistant
             this.pb_logo.TabIndex = 8;
             this.pb_logo.TabStop = false;
             // 
+            // btn_showHidePassword
+            // 
+            this.btn_showHidePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_showHidePassword.BackColor = System.Drawing.Color.Transparent;
+            this.btn_showHidePassword.BackgroundImage = global::AccountantAssistant.Properties.Resources.showPassword_White;
+            this.btn_showHidePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_showHidePassword.FlatAppearance.BorderSize = 0;
+            this.btn_showHidePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_showHidePassword.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_showHidePassword.ForeColor = System.Drawing.Color.White;
+            this.btn_showHidePassword.Location = new System.Drawing.Point(452, 209);
+            this.btn_showHidePassword.Name = "btn_showHidePassword";
+            this.btn_showHidePassword.Size = new System.Drawing.Size(35, 35);
+            this.btn_showHidePassword.TabIndex = 16;
+            this.btn_showHidePassword.Tag = "blue";
+            this.btn_showHidePassword.UseVisualStyleBackColor = false;
+            this.btn_showHidePassword.Click += new System.EventHandler(this.btn_showHidePassword_Click);
+            // 
             // frm_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +163,7 @@ namespace AccountantAssistant
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(545, 379);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_showHidePassword);
             this.Controls.Add(this.lbl_register);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.lbl_forgot);
@@ -158,6 +179,7 @@ namespace AccountantAssistant
             this.MinimumSize = new System.Drawing.Size(545, 379);
             this.Name = "frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Password";
             this.Load += new System.EventHandler(this.frm_login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo)).EndInit();
             this.ResumeLayout(false);
@@ -175,6 +197,7 @@ namespace AccountantAssistant
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.PictureBox pb_logo;
+        private System.Windows.Forms.Button btn_showHidePassword;
     }
 }
 

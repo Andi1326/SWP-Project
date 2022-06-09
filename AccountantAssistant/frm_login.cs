@@ -20,6 +20,7 @@ namespace AccountantAssistant
         public static string IDL;
         public static string role;
         public static string forget_username;
+        private static bool showPassword = false;
 
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -56,6 +57,7 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_Dark;
             }
             else
             {
@@ -64,6 +66,7 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
                 ucTopBarWhite.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
             }
 
             //Trys to connect to the server
@@ -97,6 +100,39 @@ namespace AccountantAssistant
                 frm_forget_password frm_Forget_Password = new frm_forget_password();
                 this.Hide();
                 frm_Forget_Password.ShowDialog();
+            }
+        }
+
+        private void btn_showHidePassword_Click(object sender, EventArgs e)
+        {
+            if (frm_settings.darkmode && !showPassword)
+            {
+                showPassword = true;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.hidePassword_Dark;
+            }
+            else if(frm_settings.darkmode && showPassword)
+            {
+                showPassword = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_Dark;
+            }
+            else if(!frm_settings.darkmode && !showPassword)
+            {
+                showPassword = true;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.hidePassword_White;
+            }
+            else
+            {
+                showPassword = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
+            }
+
+            if (tb_password.UseSystemPasswordChar)
+            {
+                tb_password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tb_password.UseSystemPasswordChar = true;
             }
         }
     }

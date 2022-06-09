@@ -17,7 +17,11 @@ namespace AccountantAssistant
             f.BackColor = DarkBackColor;
             foreach (Control component in container)
             {
-                if (component is Button)
+                if(component is Button && component.Name.ToString().Equals("btn_showHidePassword"))
+                {
+                    component.BackColor = Color.Transparent;
+                }
+                else if (component is Button)
                 {
                     component.ForeColor = Color.White;
                     component.BackColor = Color.Black;
