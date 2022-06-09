@@ -136,7 +136,7 @@ namespace AccountantAssistant
             //hides the blue menu panel
             pnl_1.Visible = false;
         }
-
+        #region Error function
         private void btn_enter_Click(object sender, EventArgs e)
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
@@ -193,6 +193,9 @@ namespace AccountantAssistant
             }
         }
 
+        #endregion
+
+        #region new Client
         private void btn_newClient_Click(object sender, EventArgs e)
         {
             //opens frm_create_client
@@ -204,6 +207,7 @@ namespace AccountantAssistant
 
             Serverconnection.GetClient(cb_clients);
         }
+        #endregion
 
         #region Save_Functions
 
@@ -243,6 +247,7 @@ namespace AccountantAssistant
                 MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
             }
         }
+
 
         private void Save_Transaction()
         {
@@ -349,6 +354,7 @@ namespace AccountantAssistant
 
         #endregion
 
+        #region button Neu
         private void btn_new_Click(object sender, EventArgs e)
         {
             //delets all columns of the dgv_transaction
@@ -366,7 +372,9 @@ namespace AccountantAssistant
             }
         }
 
-        
+        #endregion
+
+        #region Selected Index
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if index is changed, the boxes gets the new values
@@ -374,8 +382,9 @@ namespace AccountantAssistant
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
         }
+        #endregion
 
-
+        #region Open Settings
         private void pb_settings_Click(object sender, EventArgs e)
         {
             //opens frm_settings
@@ -383,7 +392,7 @@ namespace AccountantAssistant
             this.Hide();
             frm_s.ShowDialog();
         }
-
+        #endregion
 
         #region Printing
         Bitmap bmp;
@@ -399,15 +408,19 @@ namespace AccountantAssistant
             printDia.AllowSomePages = true;
             if (printDia.ShowDialog() == DialogResult.OK)
             {
+
                 printDoc.Print();
+
             }
             pnl_1.Visible = false;
         }
 
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
             //creates and image of the bmp
             e.Graphics.DrawImage(bmp, 0, 0);
+
         }
 
         #endregion
@@ -439,7 +452,7 @@ namespace AccountantAssistant
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to open link");
+               
             }
         }
         private void VisitLink()
@@ -463,5 +476,7 @@ namespace AccountantAssistant
         }
 
         #endregion
+
+
     }
 }

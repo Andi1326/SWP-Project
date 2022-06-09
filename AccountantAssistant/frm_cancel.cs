@@ -40,5 +40,7 @@ namespace AccountantAssistant
             tb_netto.Text = Serverconnection.nettoCancel;
             tb_salestaxrate.Text = Serverconnection.salestaxrateCancel;
         }
+
+       
     }
 }

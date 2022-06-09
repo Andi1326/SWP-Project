@@ -27,6 +27,7 @@ namespace AccountantAssistant
      
         private void frm_balance_Load(object sender, EventArgs e)
         {
+            //darkmode on every form 
             if (frm_settings.darkmode)
             {
                 Theme_Dark.ChangeThemeDark(Controls, this);
@@ -52,5 +53,27 @@ namespace AccountantAssistant
             Serverconnection.Balance(dgv_balance);
 
         }
+
+        #region Print
+        Bitmap bmp;
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+
+            //creates a Bitmap of the dgv_balance and then prints the document
+            int height = dgv_balance.Height;
+            dgv_balance.Height = dgv_balance.RowCount * dgv_balance.RowTemplate.Height * 2;
+            bmp = new Bitmap(dgv_balance.Width, dgv_balance.Height);
+            dgv_balance.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_balance.Width, dgv_balance.Height));
+            dgv_balance.Height = height;
+
+            print_Dialog.AllowSomePages = true;
+            if (print_Dialog.ShowDialog() == DialogResult.OK)
+            {
+                print_Document.Print();
+            }
+          
+        }
+        #endregion
+
     }
 }

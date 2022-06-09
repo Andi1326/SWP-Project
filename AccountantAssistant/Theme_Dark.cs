@@ -55,7 +55,7 @@ namespace AccountantAssistant
                 }
             }
 
-
+            #region UcTAbControl
             ucTabControl.Instance.lbl_TP_balance.ForeColor = Color.White;
             ucTabControl.Instance.lbl_select_ledger.ForeColor = Color.White;
             ucTabControl.Instance.lbl_eMail1.ForeColor = Color.White;
@@ -106,6 +106,7 @@ namespace AccountantAssistant
             ucTabControl.Instance.linklable_email.LinkColor = Color.White;
 
             ucTabControl.Instance.pb_line.BackColor = Color.White;
+            #endregion
         }
     }
 }
