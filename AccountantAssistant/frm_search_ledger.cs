@@ -33,6 +33,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
                 dgv_search_ledger.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
                 dgv_search_ledger.BackgroundColor = Theme_Dark.DarkBackColor;
                 dgv_search_ledger.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
@@ -46,6 +47,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
             if (frm_login.role.Equals("Mitarbeiter"))
@@ -55,7 +57,6 @@ namespace AccountantAssistant
             else if (frm_login.role.Equals("Praktikant"))
             {
                 btn_delete_ledger.Visible = false;
-                btn_save_ledger.Visible = false;
                 dgv_search_ledger.ReadOnly = true;
                 ucTopBarDark.Instance.pb_save.Visible = false;
                 ucTopBarWhite.Instance.pb_save.Visible = false;
@@ -64,21 +65,11 @@ namespace AccountantAssistant
             Serverconnection.Search_ledger(search_ledger, dgv_search_ledger, frm_main.IDC);
         }
 
-        private void btn_ucTopbar_save_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_delete_ledger_Click(object sender, EventArgs e)
         {
-            Serverconnection.CancelTransaction(dgv_search_ledger);
+            Serverconnection.GetDataCancel(dgv_search_ledger);
             frm_cancel frm_Cancel = new frm_cancel();
             frm_Cancel.ShowDialog();
-        }
-
-        private void btn_save_ledger_Click(object sender, EventArgs e)
-        {
-            Serverconnection.SaveData();
         }
     }
 }

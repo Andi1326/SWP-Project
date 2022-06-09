@@ -26,6 +26,11 @@ namespace AccountantAssistant
         private static MySqlDataAdapter Da = new MySqlDataAdapter();
         private static MySqlCommandBuilder cmdbuilder = new MySqlCommandBuilder(Da);
 
+        public static string contraLedgerCancel;
+        public static string nettoCancel;
+        public static string ledgerCancel;
+        public static string salestaxrateCancel;
+
 
         #region Login
 
@@ -472,39 +477,32 @@ namespace AccountantAssistant
             }
             con.Close();
 
-            type = Serverconnection.SaveType(number, idc);
-
-
+            type = SaveType(number, idc);
 
 
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where referenceNumber = '"+search_item +"'and IDC = '"+idc + "'";
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto, salestaxrate from AccTransaction where referenceNumber = '"+search_item +"'and IDC = '"+idc + "'";
             dr = cmd.ExecuteReader();
         
             while (dr.Read())
             {
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0, Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else if (type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]), Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else
                 {
                     MessageBox.Show("Es ist ein Fehler passiert");
                 }
-
-
             }
             con.Close();
         
         }
-
-
-        
 
         public static void Search_Date(string search_date, DataGridView dgv, int idc)
         {
@@ -527,7 +525,7 @@ namespace AccountantAssistant
 
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select date, referenceNumber, ledger1,  netto, ledger2, brutto from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
+            cmd.CommandText = "Select date, referenceNumber, ledger1,  netto, ledger2, brutto, salestaxrate from AccTransaction where date = '" + search_date + "'and IDC = '" + idc + "'";
             
             dr = cmd.ExecuteReader();
 
@@ -535,11 +533,11 @@ namespace AccountantAssistant
             {
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0, Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else if (type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), 0, Convert.ToDecimal(dr["brutto"]), Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else
                 {
@@ -554,21 +552,21 @@ namespace AccountantAssistant
         public static void Search_ledger(string search_ledger, DataGridView dgv, int idc)
         {
             //search for ledger
-            string type = Serverconnection.SaveType(search_ledger, idc);
+            string type = SaveType(search_ledger, idc);
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where ledger1 = '" + search_ledger + "'and IDC = '" + idc + "'";
+            cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto, salestaxrate from AccTransaction where ledger1 = '" + search_ledger + "'and IDC = '" + idc + "'";
             dr = cmd.ExecuteReader();
            
             while (dr.Read())
             {
                 if (type == "AB" || type == "AK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0);
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]), Convert.ToDecimal(dr["netto"]), 0, Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else if(type == "PB" || type == "EK")
                 {
-                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]),0, Convert.ToDecimal(dr["brutto"]));
+                    dgv.Rows.Add(dr["date"].ToString(), dr["referenceNumber"].ToString(), Convert.ToInt32(dr["ledger1"]), Convert.ToInt32(dr["ledger2"]),0, Convert.ToDecimal(dr["brutto"]), Convert.ToInt32(dr["salestaxrate"]));
                 }
                 else
                 {
@@ -620,35 +618,8 @@ namespace AccountantAssistant
 
         #endregion
           
-        #region Delete & Save
+        #region Cancel
 
-
-        public static void DeleteData(string refNumber, int idc)
-        {
-            //cancels the account rekorm which is selected
-            try
-            {
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "Select date, referenceNumber, ledger1, ledger2, netto, brutto from AccTransaction where referenceNumber = '" + refNumber + "'and IDC = '" + idc + "'";
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    cmd.CommandText = "Insert into AccTransaction (idc, ledger1, ledger2, netto, brutto, ust, salestaxrate, referenceNumber, date) values ('" + idc + "', '" + dr["ledger2"] + "', '" + dr["ledger1"] + "', '" + dr["netto"] + "','" + dr["brutto"] + "','" + dr["ust"] + "','" + dr["salestaxrate"] + "','" + dr["referenceNumber"] + "','" + dr["date"] + "');";
-                    cmd.ExecuteNonQuery();                
-                }
-                con.Close();
-
-            }
-
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                con.Close();
-            }
-        }
 
         public static void SaveData()
         {
@@ -667,26 +638,21 @@ namespace AccountantAssistant
             }
         }
 
+        
 
-        public static string datetimeCancel;
-        public static string referenceNumberCancel;
-        public static string contraLedgerCancel;
-        public static string nettoCancel;
-        public static string salestaxrateCancel;
-        public static string ledgerCancel;
-
-        public static void CancelTransaction(DataGridView dgv)
+        public static void GetDataCancel(DataGridView dgv)
         {
-            con.Open();
-
-            //datetimeCancel = dgv.CurrentRow.Cells[0].Value.ToString();
-            
-            referenceNumberCancel = dgv.CurrentRow.Cells[1].Value.ToString();
-            contraLedgerCancel = dgv.CurrentRow.Cells[2].Value.ToString();
-            ledgerCancel = dgv.CurrentRow.Cells[3].Value.ToString();
-            nettoCancel = dgv.CurrentRow.Cells[4].Value.ToString();
-            salestaxrateCancel = dgv.CurrentRow.Cells[5].Value.ToString();
-
+            try
+            {
+                contraLedgerCancel = dgv.CurrentRow.Cells[2].Value.ToString();
+                ledgerCancel = dgv.CurrentRow.Cells[3].Value.ToString();
+                nettoCancel = dgv.CurrentRow.Cells[4].Value.ToString();
+                salestaxrateCancel = dgv.CurrentRow.Cells[6].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Die Daten für das Stornieren konnten nicht übermittelt werden", "Fehler Stornieren Daten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
