@@ -179,12 +179,6 @@
     <Compile Include="frm_search_refNumber.Designer.cs">
       <DependentUpon>frm_search_refNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_support.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_support.Designer.cs">
-      <DependentUpon>frm_support.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ledger.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
@@ -254,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_search_refNumber.resx">
       <DependentUpon>frm_search_refNumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_support.resx">
-      <DependentUpon>frm_support.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
