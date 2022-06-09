@@ -99,6 +99,7 @@ namespace AccountantAssistant
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
                 ucTopBarDark.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_Dark;
             }
             else
             {
@@ -107,6 +108,7 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
                 ucTopBarWhite.Instance.pb_save.Visible = false;
+                btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
             }
 
             //sets Keypreview to true and adds User Control to the form
