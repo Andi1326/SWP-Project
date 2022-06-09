@@ -127,19 +127,5 @@ namespace AccountantAssistant
         }
 
         #endregion
-
-        private void ucTopBar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void pb_save_Click(object sender, EventArgs e)
-        {
-            //if (!this.ParentForm.Name.Equals("frm_login"))
-            //{
-            //    Serverconnection.SaveData();
-            //}
-        }
     }
 }

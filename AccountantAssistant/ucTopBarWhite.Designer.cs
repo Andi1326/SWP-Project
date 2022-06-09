@@ -108,7 +108,6 @@ namespace AccountantAssistant
             this.pb_save.TabStop = false;
             this.pb_save.Tag = "normal";
             this.pb_save.Visible = false;
-            this.pb_save.Click += new System.EventHandler(this.pb_save_Click);
             // 
             // ucTopBarWhite
             // 
@@ -121,7 +120,6 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_header);
             this.Name = "ucTopBarWhite";
             this.Size = new System.Drawing.Size(776, 29);
-            this.Load += new System.EventHandler(this.ucTopBar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();

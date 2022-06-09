@@ -620,39 +620,12 @@ namespace AccountantAssistant
           
         #region Cancel
 
-
-        public static void SaveData()
-        {
-            //saves the data in the datagridview
-            try
-            {
-                con.Open();
-                Da.UpdateCommand = cmdbuilder.GetUpdateCommand();
-                Da.Update(dt);
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                con.Close();
-            }
-        }
-
-        
-
         public static void GetDataCancel(DataGridView dgv)
         {
-            try
-            {
-                contraLedgerCancel = dgv.CurrentRow.Cells[2].Value.ToString();
-                ledgerCancel = dgv.CurrentRow.Cells[3].Value.ToString();
-                nettoCancel = dgv.CurrentRow.Cells[4].Value.ToString();
-                salestaxrateCancel = dgv.CurrentRow.Cells[6].Value.ToString();
-            }
-            catch
-            {
-                MessageBox.Show("Die Daten für das Stornieren konnten nicht übermittelt werden", "Fehler Stornieren Daten", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            contraLedgerCancel = dgv.CurrentRow.Cells[2].Value.ToString();
+            ledgerCancel = dgv.CurrentRow.Cells[3].Value.ToString();
+            nettoCancel = dgv.CurrentRow.Cells[4].Value.ToString();
+            salestaxrateCancel = dgv.CurrentRow.Cells[6].Value.ToString();
         }
 
         #endregion

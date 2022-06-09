@@ -67,9 +67,16 @@ namespace AccountantAssistant
 
         private void btn_delete_ledger_Click(object sender, EventArgs e)
         {
-            Serverconnection.GetDataCancel(dgv_search_ledger);
-            frm_cancel frm_Cancel = new frm_cancel();
-            frm_Cancel.ShowDialog();
+            try 
+            { 
+                Serverconnection.GetDataCancel(dgv_search_ledger);
+                frm_cancel frm_Cancel = new frm_cancel();
+                frm_Cancel.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Die Daten für das Stornieren konnten nicht übermittelt werden", "Fehler Stornieren Daten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
