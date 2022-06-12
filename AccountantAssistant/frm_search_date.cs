@@ -26,6 +26,8 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
                 ucTopBarDark.Instance.BringToFront();
+                ucTopBarDark.Instance.pb_save.Visible = false;
+
                 dgv_search_date.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
                 dgv_search_date.BackgroundColor = Theme_Dark.DarkBackColor;
                 dgv_search_date.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
@@ -39,6 +41,7 @@ namespace AccountantAssistant
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
                 ucTopBarWhite.Instance.BringToFront();
+                ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
             if (frm_login.role.Equals("Mitarbeiter"))
@@ -48,7 +51,6 @@ namespace AccountantAssistant
             else if (frm_login.role.Equals("Praktikant"))
             {
                 btn_delete_date.Visible = false;
-                btn_save_date.Visible = false;
                 dgv_search_date.ReadOnly = true;
                 ucTopBarDark.Instance.pb_save.Visible = false;
                 ucTopBarWhite.Instance.pb_save.Visible = false;
@@ -72,17 +74,16 @@ namespace AccountantAssistant
 
         private void btn_delete_ref_Click(object sender, EventArgs e)
         {
-            string date = dgv_search_date.CurrentRow.Cells[0].Value.ToString();
-            string refNumber = dgv_search_date.CurrentRow.Cells[1].Value.ToString();
-
-            
-
-            //Serverconnection.DeleteData(dgv_search_date);
-        }
-
-        private void btn_save_ref_Click(object sender, EventArgs e)
-        {
-            Serverconnection.SaveData();
+            try 
+            { 
+                Serverconnection.GetDataCancel(dgv_search_date);
+                frm_cancel frm_Cancel = new frm_cancel();
+                frm_Cancel.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Die Daten für das Stornieren konnten nicht übermittelt werden", "Fehler Stornieren Daten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -30,21 +30,22 @@ namespace AccountantAssistant
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_refNumber));
             this.btn_delete_ref = new System.Windows.Forms.Button();
-            this.btn_save_ref = new System.Windows.Forms.Button();
             this.dgv_search_refNumber = new System.Windows.Forms.DataGridView();
+            this.btn_back = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_contraLedger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_back = new System.Windows.Forms.Button();
+            this.columnSTR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_refNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,26 +54,13 @@ namespace AccountantAssistant
             this.btn_delete_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ref.Location = new System.Drawing.Point(118, 55);
+            this.btn_delete_ref.Location = new System.Drawing.Point(12, 55);
             this.btn_delete_ref.Name = "btn_delete_ref";
             this.btn_delete_ref.Size = new System.Drawing.Size(109, 33);
             this.btn_delete_ref.TabIndex = 8;
             this.btn_delete_ref.Text = "Stonieren";
             this.btn_delete_ref.UseVisualStyleBackColor = true;
             this.btn_delete_ref.Click += new System.EventHandler(this.btn_delete_ref_Click);
-            // 
-            // btn_save_ref
-            // 
-            this.btn_save_ref.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save_ref.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save_ref.ForeColor = System.Drawing.Color.Black;
-            this.btn_save_ref.Location = new System.Drawing.Point(3, 55);
-            this.btn_save_ref.Name = "btn_save_ref";
-            this.btn_save_ref.Size = new System.Drawing.Size(109, 33);
-            this.btn_save_ref.TabIndex = 9;
-            this.btn_save_ref.Text = "Speichern";
-            this.btn_save_ref.UseVisualStyleBackColor = true;
-            this.btn_save_ref.Click += new System.EventHandler(this.btn_save_ref_Click);
             // 
             // dgv_search_refNumber
             // 
@@ -93,30 +81,45 @@ namespace AccountantAssistant
             this.column_ledger,
             this.column_contraLedger,
             this.column_debit,
-            this.column_credit});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_search_refNumber.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_search_refNumber.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv_search_refNumber.Location = new System.Drawing.Point(3, 94);
-            this.dgv_search_refNumber.Name = "dgv_search_refNumber";
+            this.column_credit,
+            this.columnSTR});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_search_refNumber.Size = new System.Drawing.Size(584, 391);
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_search_refNumber.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_search_refNumber.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_search_refNumber.Location = new System.Drawing.Point(12, 94);
+            this.dgv_search_refNumber.Name = "dgv_search_refNumber";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_search_refNumber.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_search_refNumber.Size = new System.Drawing.Size(686, 383);
             this.dgv_search_refNumber.TabIndex = 50;
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(12, 483);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(122, 25);
+            this.btn_back.TabIndex = 51;
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // column_date
             // 
@@ -162,30 +165,22 @@ namespace AccountantAssistant
             this.column_credit.Name = "column_credit";
             this.column_credit.Width = 80;
             // 
-            // btn_back
+            // columnSTR
             // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(3, 491);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 51;
-            this.btn_back.Text = "Zurück";
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            dataGridViewCellStyle4.Format = "0";
+            this.columnSTR.DefaultCellStyle = dataGridViewCellStyle4;
+            this.columnSTR.HeaderText = "Steuersatz";
+            this.columnSTR.Name = "columnSTR";
             // 
             // frm_search_refNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(615, 520);
+            this.ClientSize = new System.Drawing.Size(718, 520);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_search_refNumber);
-            this.Controls.Add(this.btn_save_ref);
             this.Controls.Add(this.btn_delete_ref);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -200,7 +195,6 @@ namespace AccountantAssistant
         #endregion
 
         private System.Windows.Forms.Button btn_delete_ref;
-        private System.Windows.Forms.Button btn_save_ref;
         private System.Windows.Forms.DataGridView dgv_search_refNumber;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_date;
@@ -209,5 +203,6 @@ namespace AccountantAssistant
         private System.Windows.Forms.DataGridViewTextBoxColumn column_contraLedger;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_credit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnSTR;
     }
 }
