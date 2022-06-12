@@ -452,7 +452,7 @@ namespace AccountantAssistant
             }
             catch (Exception ex)
             {
-               
+                MessageBox.Show(ex.ToString(), "Unable to open link");
             }
         }
         private void VisitLink()
@@ -471,7 +471,7 @@ namespace AccountantAssistant
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to open link");
+                MessageBox.Show(ex.ToString(),"Unable to open link");
             }
         }
 
