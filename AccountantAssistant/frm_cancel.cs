@@ -21,6 +21,7 @@ namespace AccountantAssistant
         {
             if (frm_settings.darkmode)
             {
+                //if darkmode is activated the Theme changes to dark, ucTopBarDark gets diplayed 
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
@@ -28,6 +29,7 @@ namespace AccountantAssistant
             }
             else
             {
+                //the dgv gets the data of balance
                 Theme_White.ChangeThemeWhite(Controls, this);
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
