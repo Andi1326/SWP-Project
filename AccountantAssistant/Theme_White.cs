@@ -10,8 +10,10 @@ namespace AccountantAssistant
 {
     internal class Theme_White
     {
+        //button color of the white theme
         public static Color ButtonBgColor = ColorTranslator.FromHtml("#047dda");
 
+        //changes the color of the ucTabControl on every form
         public static void ChangeThemeWhite(Control.ControlCollection container, Form f)
         {
             ucTabControl.Instance.lbl_TP_balance.ForeColor = Color.Black;

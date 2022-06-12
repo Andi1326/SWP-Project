@@ -25,6 +25,7 @@ namespace AccountantAssistant
         {
             if (darkmode)
             {
+                //if darkmode is activated the Theme changes to dark, ucTopBarDark gets diplayed 
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
@@ -33,6 +34,7 @@ namespace AccountantAssistant
             }
             else
             {
+                //else the Theme changes to white, ucTopBarWhite gets displayed
                 Theme_White.ChangeThemeWhite(Controls, this);
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
@@ -43,6 +45,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes this form and opens main
             this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
@@ -50,6 +53,7 @@ namespace AccountantAssistant
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
+            //if loged out IDL is void
             frm_login.IDL = "";
         }
 
