@@ -52,6 +52,7 @@ namespace AccountantAssistant
         {
             if (frm_settings.darkmode)
             {
+                //if darkmode is activated the Theme changes to dark, ucTopBarDark gets diplayed
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 Controls.Add(ucTopBarDark.Instance);
                 ucTopBarDark.Instance.Dock = DockStyle.Top;
@@ -61,6 +62,7 @@ namespace AccountantAssistant
             }
             else
             {
+                //else the Theme changes to white, ucTopBarWhite gets displayed
                 Theme_White.ChangeThemeWhite(Controls, this);
                 Controls.Add(ucTopBarWhite.Instance);
                 ucTopBarWhite.Instance.Dock = DockStyle.Top;
@@ -105,6 +107,7 @@ namespace AccountantAssistant
 
         private void btn_showHidePassword_Click(object sender, EventArgs e)
         {
+            //if showPassword is false the image changes to hidePassword_Dark or _White, else image changes to showPassword_Dark or _WHite 
             if (frm_settings.darkmode && !showPassword)
             {
                 showPassword = true;
@@ -125,7 +128,7 @@ namespace AccountantAssistant
                 showPassword = false;
                 btn_showHidePassword.BackgroundImage = Properties.Resources.showPassword_White;
             }
-
+            //if the password stars are activated changes to false, else changes to true
             if (tb_password.UseSystemPasswordChar)
             {
                 tb_password.UseSystemPasswordChar = false;

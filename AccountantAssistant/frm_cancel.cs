@@ -21,12 +21,14 @@ namespace AccountantAssistant
         {
             if (frm_settings.darkmode)
             {
+                //if darkmode is activated the Theme changes to dark, ucTopBarDark gets diplayed 
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 datePicker.SkinColor = Theme_Dark.DarkBackColor;
                 datePicker.TextColor = Color.White;
             }
             else
             {
+                //the dgv gets the data of balance
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
 

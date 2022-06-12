@@ -39,10 +39,12 @@ namespace AccountantAssistant
         {
             if (frm_settings.darkmode)
             {
+                //if darkmode is activated the Theme changes to dark
                 Theme_Dark.ChangeThemeDark(Controls, this);
             }
             else
             {
+                //else the Theme changes to white, ucTopBarWhite gets displayed
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
         }
