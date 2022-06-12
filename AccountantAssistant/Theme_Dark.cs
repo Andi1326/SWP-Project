@@ -10,8 +10,10 @@ namespace AccountantAssistant
 {
     internal class Theme_Dark
     {
+        //background color of the dark theme
         public static Color DarkBackColor = ColorTranslator.FromHtml("#212121");
 
+        //changes the color of every component on every form
         public static void ChangeThemeDark(Control.ControlCollection container, Form f)
         {
             f.BackColor = DarkBackColor;
