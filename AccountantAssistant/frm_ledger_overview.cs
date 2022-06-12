@@ -23,6 +23,7 @@ namespace AccountantAssistant
         {
             if (frm_settings.darkmode)
             {
+                //if darkmode is activated the Theme changes to dark, dgv gets dark background
                 Theme_Dark.ChangeThemeDark(Controls, this);
                 dgv_ledger.RowsDefaultCellStyle.BackColor = Theme_Dark.DarkBackColor;
                 dgv_ledger.BackgroundColor = Theme_Dark.DarkBackColor;
@@ -33,15 +34,17 @@ namespace AccountantAssistant
             }
             else
             {
+                //Theme changes to white
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
-
+            //dgv gets data of every Ledger and sorts it
             Serverconnection.ShowLedgers(dgv_ledger, frm_main.IDC);
             dgv_ledger.Sort(this.dgv_ledger.Columns[0], ListSortDirection.Ascending);
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //if no ledger is selected ledger number is void
             ledger_number = "";
             this.Hide();
         }
@@ -49,6 +52,7 @@ namespace AccountantAssistant
 
         private void dgv_ledger_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if a ledger is selected ledger_number gets the value of the selected ledger
             ledger_number = dgv_ledger.CurrentRow.Cells[0].Value.ToString();
             this.Hide();
         }

@@ -478,7 +478,7 @@ namespace AccountantAssistant
             this.rbtn_s.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_s.Location = new System.Drawing.Point(779, 548);
             this.rbtn_s.Name = "rbtn_s";
-            this.rbtn_s.Size = new System.Drawing.Size(33, 20);
+            this.rbtn_s.Size = new System.Drawing.Size(34, 20);
             this.rbtn_s.TabIndex = 55;
             this.rbtn_s.TabStop = true;
             this.rbtn_s.Text = "S";
@@ -491,7 +491,7 @@ namespace AccountantAssistant
             this.rbtn_h.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_h.Location = new System.Drawing.Point(779, 567);
             this.rbtn_h.Name = "rbtn_h";
-            this.rbtn_h.Size = new System.Drawing.Size(33, 20);
+            this.rbtn_h.Size = new System.Drawing.Size(34, 20);
             this.rbtn_h.TabIndex = 56;
             this.rbtn_h.Text = "H";
             this.rbtn_h.UseVisualStyleBackColor = true;

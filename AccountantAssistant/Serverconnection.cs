@@ -16,6 +16,7 @@ namespace AccountantAssistant
 {
     class Serverconnection
     {
+        #region SQL connection
         public static MySqlConnection con = new MySqlConnection("server=50.7.115.30;port=3306;user id=andi;password=Ny8r4yiJ!;persistsecurityinfo=True;database=ACAS_1;allowuservariables=True");
         public static MySqlCommand cmd = new MySqlCommand();
         public static MySqlDataReader dr;
@@ -31,6 +32,7 @@ namespace AccountantAssistant
         public static string ledgerCancel;
         public static string salestaxrateCancel;
 
+        #endregion
 
         #region Login
 
@@ -585,6 +587,7 @@ namespace AccountantAssistant
 
         public static bool Balance(DataGridView dgv)
         {
+            //calculates the balance of the ledgers
             decimal saldo;
             con.Open();
             cmd.Connection = con;
