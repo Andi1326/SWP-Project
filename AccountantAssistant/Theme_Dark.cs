@@ -58,6 +58,7 @@ namespace AccountantAssistant
             }
 
             #region UcTAbControl
+            //changes the Colors/BackColors of the ucTabControl controls
             ucTabControl.Instance.lbl_TP_balance.ForeColor = Color.White;
             ucTabControl.Instance.lbl_select_ledger.ForeColor = Color.White;
             ucTabControl.Instance.lbl_eMail1.ForeColor = Color.White;

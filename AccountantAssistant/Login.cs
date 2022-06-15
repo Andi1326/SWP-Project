@@ -18,8 +18,6 @@ namespace AccountantAssistant
         private string role;
         private int darkmode;
 
-
-
         //get/set
         #region Get/Set
 
@@ -29,14 +27,10 @@ namespace AccountantAssistant
             {
                 return username;
             }
-
             set
             {
                 username = value;
             }
-
-
-
         }
 
 
@@ -46,14 +40,10 @@ namespace AccountantAssistant
             {
                 return password;
             }
-
             set
             {
                 password = value;
             }
-
-
-
         }
         public string Sq1
         {
@@ -61,14 +51,10 @@ namespace AccountantAssistant
             {
                 return sq1;
             }
-
             set
             {
                 sq1 = value;
             }
-
-
-
         }
 
 
@@ -78,14 +64,10 @@ namespace AccountantAssistant
             {
                 return sq2;
             }
-
             set
             {
                 sq2 = value;
             }
-
-
-
         }
 
         public string Sq1question
@@ -94,14 +76,10 @@ namespace AccountantAssistant
             {
                 return sq1question;
             }
-
             set
             {
                 sq1question = value;
             }
-
-
-
         }
 
         public string Sq2question
@@ -110,14 +88,10 @@ namespace AccountantAssistant
             {
                 return sq2question;
             }
-
             set
             {
                 sq2question = value;
             }
-
-
-
         }
 
         public string Role
@@ -126,7 +100,6 @@ namespace AccountantAssistant
             {
                 return role;
             }
-
             set
             {
                 role = value;
@@ -146,7 +119,6 @@ namespace AccountantAssistant
         }
 
         #endregion
-
 
         //constructor
         public Login(string username, string password, string sq1, string sq2, string sq1question, string sq2question, string role, int darkmode)
