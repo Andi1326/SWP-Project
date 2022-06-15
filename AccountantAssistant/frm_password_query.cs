@@ -19,11 +19,13 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes the form
             this.Close();
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
+            //if the password is incorrect, MessageBox gets displayed, else password_change gets true and form closes
             if (!Serverconnection.PasswordQuery(tb_password, Convert.ToInt32(frm_login.IDL)))
             {
                 MessageBox.Show("Das eingegebene Passwort ist falsch", "Falsches Passwort", MessageBoxButtons.OK, MessageBoxIcon.Error);

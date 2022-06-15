@@ -31,13 +31,14 @@ namespace AccountantAssistant
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_settings));
             this.btn_back = new System.Windows.Forms.Button();
-            this.lbl_head = new System.Windows.Forms.Label();
+            this.lbl_heading_account = new System.Windows.Forms.Label();
             this.tb_password = new System.Windows.Forms.TextBox();
             this.lbl_password = new System.Windows.Forms.Label();
             this.btn_changePassword = new System.Windows.Forms.Button();
             this.lbl_design = new System.Windows.Forms.Label();
             this.cb_design = new System.Windows.Forms.ComboBox();
             this.btn_changeDesign = new System.Windows.Forms.Button();
+            this.lbl_heading_design = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_back
@@ -55,20 +56,20 @@ namespace AccountantAssistant
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // lbl_head
+            // lbl_heading_account
             // 
-            this.lbl_head.AutoSize = true;
-            this.lbl_head.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_head.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_head.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.lbl_head.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbl_head.Location = new System.Drawing.Point(11, 44);
-            this.lbl_head.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_head.Name = "lbl_head";
-            this.lbl_head.Size = new System.Drawing.Size(164, 29);
-            this.lbl_head.TabIndex = 45;
-            this.lbl_head.Tag = "blue";
-            this.lbl_head.Text = "Konto-Daten:";
+            this.lbl_heading_account.AutoSize = true;
+            this.lbl_heading_account.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_heading_account.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_heading_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.lbl_heading_account.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbl_heading_account.Location = new System.Drawing.Point(11, 44);
+            this.lbl_heading_account.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_heading_account.Name = "lbl_heading_account";
+            this.lbl_heading_account.Size = new System.Drawing.Size(164, 29);
+            this.lbl_heading_account.TabIndex = 45;
+            this.lbl_heading_account.Tag = "blue";
+            this.lbl_heading_account.Text = "Konto-Daten:";
             // 
             // tb_password
             // 
@@ -106,7 +107,7 @@ namespace AccountantAssistant
             // 
             this.lbl_design.AutoSize = true;
             this.lbl_design.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_design.Location = new System.Drawing.Point(28, 135);
+            this.lbl_design.Location = new System.Drawing.Point(28, 223);
             this.lbl_design.Name = "lbl_design";
             this.lbl_design.Size = new System.Drawing.Size(56, 18);
             this.lbl_design.TabIndex = 54;
@@ -119,7 +120,7 @@ namespace AccountantAssistant
             this.cb_design.Items.AddRange(new object[] {
             "Darkmode",
             "Whitemode"});
-            this.cb_design.Location = new System.Drawing.Point(90, 131);
+            this.cb_design.Location = new System.Drawing.Point(90, 219);
             this.cb_design.Name = "cb_design";
             this.cb_design.Size = new System.Drawing.Size(195, 26);
             this.cb_design.Sorted = true;
@@ -130,7 +131,7 @@ namespace AccountantAssistant
             this.btn_changeDesign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_changeDesign.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_changeDesign.ForeColor = System.Drawing.Color.Black;
-            this.btn_changeDesign.Location = new System.Drawing.Point(291, 131);
+            this.btn_changeDesign.Location = new System.Drawing.Point(291, 219);
             this.btn_changeDesign.Name = "btn_changeDesign";
             this.btn_changeDesign.Size = new System.Drawing.Size(96, 26);
             this.btn_changeDesign.TabIndex = 56;
@@ -139,20 +140,36 @@ namespace AccountantAssistant
             this.btn_changeDesign.UseVisualStyleBackColor = true;
             this.btn_changeDesign.Click += new System.EventHandler(this.btn_changeDesign_Click);
             // 
+            // lbl_heading_design
+            // 
+            this.lbl_heading_design.AutoSize = true;
+            this.lbl_heading_design.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_heading_design.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_heading_design.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.lbl_heading_design.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbl_heading_design.Location = new System.Drawing.Point(11, 187);
+            this.lbl_heading_design.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_heading_design.Name = "lbl_heading_design";
+            this.lbl_heading_design.Size = new System.Drawing.Size(267, 29);
+            this.lbl_heading_design.TabIndex = 57;
+            this.lbl_heading_design.Tag = "blue";
+            this.lbl_heading_design.Text = "Design-Einstellungen:";
+            // 
             // frm_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(932, 511);
+            this.ClientSize = new System.Drawing.Size(948, 527);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_heading_design);
             this.Controls.Add(this.btn_changeDesign);
             this.Controls.Add(this.cb_design);
             this.Controls.Add(this.lbl_design);
             this.Controls.Add(this.btn_changePassword);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.tb_password);
-            this.Controls.Add(this.lbl_head);
+            this.Controls.Add(this.lbl_heading_account);
             this.Controls.Add(this.btn_back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -168,12 +185,13 @@ namespace AccountantAssistant
         #endregion
 
         private System.Windows.Forms.Button btn_back;
-        private System.Windows.Forms.Label lbl_head;
+        private System.Windows.Forms.Label lbl_heading_account;
         private System.Windows.Forms.TextBox tb_password;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Button btn_changePassword;
         private System.Windows.Forms.Label lbl_design;
         private System.Windows.Forms.ComboBox cb_design;
         private System.Windows.Forms.Button btn_changeDesign;
+        private System.Windows.Forms.Label lbl_heading_design;
     }
 }
