@@ -38,7 +38,6 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_ledger));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_ledger = new System.Windows.Forms.DataGridView();
-            this.btn_delete_ledger = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@ namespace AccountantAssistant
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_STR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_delete_ledger = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_ledger)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +66,9 @@ namespace AccountantAssistant
             // dgv_search_ledger
             // 
             this.dgv_search_ledger.AllowUserToAddRows = false;
+            this.dgv_search_ledger.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_search_ledger.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -107,19 +110,6 @@ namespace AccountantAssistant
             this.dgv_search_ledger.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_search_ledger.Size = new System.Drawing.Size(716, 391);
             this.dgv_search_ledger.TabIndex = 58;
-            // 
-            // btn_delete_ledger
-            // 
-            this.btn_delete_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_ledger.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_ledger.Location = new System.Drawing.Point(12, 66);
-            this.btn_delete_ledger.Name = "btn_delete_ledger";
-            this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_ledger.TabIndex = 56;
-            this.btn_delete_ledger.Text = "Stonieren";
-            this.btn_delete_ledger.UseVisualStyleBackColor = true;
-            this.btn_delete_ledger.Click += new System.EventHandler(this.btn_delete_ledger_Click);
             // 
             // column_date
             // 
@@ -171,6 +161,19 @@ namespace AccountantAssistant
             this.column_STR.HeaderText = "Steuersatz";
             this.column_STR.Name = "column_STR";
             // 
+            // btn_delete_ledger
+            // 
+            this.btn_delete_ledger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_ledger.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_ledger.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_ledger.Location = new System.Drawing.Point(12, 66);
+            this.btn_delete_ledger.Name = "btn_delete_ledger";
+            this.btn_delete_ledger.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_ledger.TabIndex = 56;
+            this.btn_delete_ledger.Text = "Stonieren";
+            this.btn_delete_ledger.UseVisualStyleBackColor = true;
+            this.btn_delete_ledger.Click += new System.EventHandler(this.btn_delete_ledger_Click);
+            // 
             // frm_search_ledger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +186,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.btn_delete_ledger);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(740, 542);
             this.Name = "frm_search_ledger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_search_ledger_Load);

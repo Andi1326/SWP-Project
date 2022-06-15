@@ -17,6 +17,7 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        //var for frm_login
         public static string IDL;
         public static string role;
         public static string forget_username;

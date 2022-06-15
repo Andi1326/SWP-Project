@@ -9,7 +9,6 @@ namespace AccountantAssistant
     class AccTransaction
     {
         //var for the class AccTransaction
-
         private int idc;
         private int ledger1;
         private int ledger2;

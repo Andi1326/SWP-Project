@@ -120,6 +120,9 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_header);
             this.Name = "ucTopBarDark";
             this.Size = new System.Drawing.Size(776, 29);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ucTopBarDark_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ucTopBarDark_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ucTopBarDark_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();

@@ -8,7 +8,7 @@ namespace AccountantAssistant
 {
     class Client
     {
-        //var for the class Login
+        //var for the class Client
         private string firstname;
         private string lastname;
         private string telephone;
@@ -19,7 +19,7 @@ namespace AccountantAssistant
         private string place;
         private string country;
 
-        //getter und setter
+        //get/set
         #region get/set
    
 
@@ -29,25 +29,22 @@ namespace AccountantAssistant
             {
                 return firstname;
             }
-
             set
             {
                 firstname = value;
             }
-
         }
+
         public string Lastname
         {
             get
             {
                 return lastname;
             }
-
             set
             {
                 lastname = value;
             }
-
         }
 
         public string Telephone
@@ -56,12 +53,10 @@ namespace AccountantAssistant
             {
                 return telephone;
             }
-
             set
             {
                 telephone = value;
             }
-
         }
 
         public string Email
@@ -70,12 +65,10 @@ namespace AccountantAssistant
             {
                 return email;
             }
-
             set
             {
                 email = value;
             }
-
         }
 
         public string Uidnumber
@@ -84,12 +77,10 @@ namespace AccountantAssistant
             {
                 return uidnumber;
             }
-
             set
             {
                 uidnumber = value;
             }
-
         }
 
         public string Address
@@ -98,12 +89,10 @@ namespace AccountantAssistant
             {
                 return address;
             }
-
             set
             {
                 address = value;
             }
-
         }
 
         public string Plz
@@ -112,12 +101,10 @@ namespace AccountantAssistant
             {
                 return plz;
             }
-
             set
             {
                 plz = value;
             }
-
         }
 
         public string Place
@@ -126,12 +113,10 @@ namespace AccountantAssistant
             {
                 return place;
             }
-
             set
             {
                 place = value;
             }
-
         }
 
         public string Country
@@ -140,12 +125,10 @@ namespace AccountantAssistant
             {
                 return country;
             }
-
             set
             {
                 country = value;
             }
-
         }
 
         #endregion
@@ -153,7 +136,6 @@ namespace AccountantAssistant
         //constructor
         public Client(string firstname, string lastname, string telephone, string email, string uidnumber,string address, string plz, string place, string country)
         {
-            
             this.Firstname = firstname;
             this.Lastname = lastname;
             this.Telephone = telephone;
@@ -163,8 +145,6 @@ namespace AccountantAssistant
             this.Plz = plz;
             this.Place = place;
             this.Country = country;
-
         }
-
     }
 }

@@ -16,10 +16,10 @@ namespace AccountantAssistant
         {
             InitializeComponent();
         }
-       
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes the form and opens frm_main
             this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
@@ -61,7 +61,6 @@ namespace AccountantAssistant
         Bitmap bmp;
         private void btn_print_Click(object sender, EventArgs e)
         {
-
             //creates a Bitmap of the dgv_balance and then prints the document
             int height = dgv_balance.Height;
             dgv_balance.Height = dgv_balance.RowCount * dgv_balance.RowTemplate.Height * 2;
@@ -74,7 +73,6 @@ namespace AccountantAssistant
             {
                 print_Document.Print();
             }
-          
         }
         #endregion
 

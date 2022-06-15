@@ -29,6 +29,7 @@ namespace AccountantAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cancel));
             this.btn_cancel = new System.Windows.Forms.Button();
             this.tb_referenceNumber = new System.Windows.Forms.TextBox();
             this.tb_netto = new System.Windows.Forms.TextBox();
@@ -226,8 +227,10 @@ namespace AccountantAssistant
             this.Controls.Add(this.lbl_netto);
             this.Controls.Add(this.lbl_contraLedger);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1065, 134);
             this.Name = "frm_cancel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_cancel_Load);

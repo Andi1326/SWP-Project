@@ -8,7 +8,7 @@ namespace AccountantAssistant
 {
     class Ledger
     {
-        //var for the class Login
+        //var for the class Ledger
         private int idle;
         private int idc;
         private int number;
@@ -17,7 +17,6 @@ namespace AccountantAssistant
         private string creditValue;
         private string referenceNumber;
         private string date;
-
 
         //get/set
         #region Get/Set
@@ -40,7 +39,6 @@ namespace AccountantAssistant
             {
                 return idc;
             }
-
             set
             {
                 idc = value;
