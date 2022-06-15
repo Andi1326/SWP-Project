@@ -35,10 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ledger_overview));
             this.dgv_ledger = new System.Windows.Forms.DataGridView();
-            this.btn_back = new System.Windows.Forms.Button();
             this.column_referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ust_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_debit_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ledger)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,24 +83,9 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_ledger.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_ledger.Size = new System.Drawing.Size(657, 415);
+            this.dgv_ledger.Size = new System.Drawing.Size(673, 431);
             this.dgv_ledger.TabIndex = 50;
             this.dgv_ledger.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ledger_CellDoubleClick);
-            // 
-            // btn_back
-            // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
-            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(12, 433);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(122, 25);
-            this.btn_back.TabIndex = 51;
-            this.btn_back.Tag = "blue";
-            this.btn_back.Text = "Zurück";
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // column_referenceNumber
             // 
@@ -125,6 +110,21 @@
             this.column_debit_credit.HeaderText = "Typ";
             this.column_debit_credit.Name = "column_debit_credit";
             // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(125)))), ((int)(((byte)(218)))));
+            this.btn_back.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.Location = new System.Drawing.Point(12, 449);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(122, 25);
+            this.btn_back.TabIndex = 51;
+            this.btn_back.Tag = "blue";
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // frm_ledger_overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,7 +134,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_ledger);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(715, 486);
             this.Name = "frm_ledger_overview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_ledger_overview_Load);

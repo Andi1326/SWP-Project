@@ -19,7 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            //closes the frm_create_client
+            //closes the frm_create_client and opens frm_main
             this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
@@ -27,7 +27,7 @@ namespace AccountantAssistant
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //saves the data in database
+            //saves the data into the database
             Client client = new Client (tb_firstname.Text, tb_lastname.Text, tb_telephone.Text, tb_email.Text, tb_uidnumber.Text, tb_address.Text, tb_plz.Text, tb_place.Text, tb_country.Text);
             Serverconnection.InsertDataClient(client);
             this.Hide();

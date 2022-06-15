@@ -17,6 +17,7 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        //var for frm_register
         private static bool showPassword = false;
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -69,7 +70,6 @@ namespace AccountantAssistant
             else
             {
                 //if everything is ok, data inserts into the table with the method Serverconnection.InsertData
-
                 Login newlogin = new Login(tb_user.Text, tb_password.Text, tb_sq1.Text, tb_sq2.Text, cb_sq1.SelectedItem.ToString(), cb_sq2.SelectedItem.ToString(), cb_role.SelectedItem.ToString(), 1);
                 Serverconnection.InsertDataLogin(newlogin);
 

@@ -18,6 +18,7 @@ namespace AccountantAssistant
             InitializeComponent();
         }
 
+        //var for frm_settings
         public static bool password_change = false;
         public static bool darkmode = true;
 
@@ -59,6 +60,7 @@ namespace AccountantAssistant
 
         private void btn_change_Click(object sender, EventArgs e)
         {
+            //if password_change is false, frm_password_query opens, else controls if a new password is typed in and then changes the password
             if (!password_change)
             {
                 frm_password_query frm_pq = new frm_password_query();
@@ -82,6 +84,7 @@ namespace AccountantAssistant
 
         private void btn_changeDesign_Click(object sender, EventArgs e)
         {
+            //if the Index of the cb_design changes, it either changes to darkmode or to whitemode
             if(cb_design.SelectedIndex == 0)
             {
                 darkmode = true;

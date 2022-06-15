@@ -8,7 +8,7 @@ namespace AccountantAssistant
 {
     class AllLedgers
     {
-        //var for the class Login
+        //var for the class AllLedgers
         private int idc;
         private int number;
         private string name;

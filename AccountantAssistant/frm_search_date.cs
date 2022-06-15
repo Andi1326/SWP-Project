@@ -12,11 +12,13 @@ namespace AccountantAssistant
 {
     public partial class frm_search_date : Form
     {
-        public static string search_date;
         public frm_search_date()
         {
             InitializeComponent();
         }
+
+        //var for frm_search_date
+        public static string search_date;
 
         private void frm_search_date_Load(object sender, EventArgs e)
         {
@@ -46,6 +48,7 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
+            //if the role is 'Mitarbeiter' btn_delete gets invisible, else if the role is 'Praktikant' btn_delete and the pictureBoxes gets invisible and the dgv.Readonly gets activated
             if (frm_login.role.Equals("Mitarbeiter"))
             {
                 btn_delete_date.Visible = false;
@@ -58,15 +61,13 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
+            //executes the function Search_Date
             Serverconnection.Search_Date(search_date, dgv_search_date, frm_main.IDC);
         }
 
-
-        
-
         private void btn_back_Click(object sender, EventArgs e)
         {
-            //closes this form and opend main
+            //closes this form and opens frm_main
             this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
@@ -74,6 +75,7 @@ namespace AccountantAssistant
 
         private void btn_delete_ref_Click(object sender, EventArgs e)
         {
+            //gets the data of the accouting record to be cancelled and opens frm_cancel
             try 
             { 
                 Serverconnection.GetDataCancel(dgv_search_date);

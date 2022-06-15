@@ -53,6 +53,7 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
+            //if the role is 'Mitarbeiter' btn_delete gets invisible, else if the role is 'Praktikant' btn_delete and the pictureBoxes gets invisible and the dgv.Readonly gets activated
             if (frm_login.role.Equals("Mitarbeiter"))
             {
                 btn_delete_ledger.Visible = false;
@@ -65,12 +66,14 @@ namespace AccountantAssistant
                 ucTopBarWhite.Instance.pb_save.Visible = false;
             }
 
+            //executes the function Search_ledger
             Serverconnection.Search_ledger(search_ledger, dgv_search_ledger, frm_main.IDC);
         }
 
         private void btn_delete_ledger_Click(object sender, EventArgs e)
         {
-            try 
+            //gets the data of the accouting record to be cancelled and opens frm_cancel
+            try
             { 
                 Serverconnection.GetDataCancel(dgv_search_ledger);
                 frm_cancel frm_Cancel = new frm_cancel();

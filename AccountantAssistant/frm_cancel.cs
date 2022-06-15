@@ -28,10 +28,11 @@ namespace AccountantAssistant
             }
             else
             {
-                //the dgv gets the data of balance
+                //else the theme changes to white
                 Theme_White.ChangeThemeWhite(Controls, this);
             }
 
+            //TextBoxes gets the data of the cancel accouting record
             tb_ledger.Text = Serverconnection.ledgerCancel;
             tb_contraledger.Text = Serverconnection.contraLedgerCancel;
             tb_netto.Text = Serverconnection.nettoCancel;
@@ -40,11 +41,13 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            //closes the form
             this.Hide();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            //calculates netto, brutto and ust and replaces ',' to '.', so it can save into the database
             if (tb_referenceNumber.Text.Equals(""))
             {
                 MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehlende Belegnummer");

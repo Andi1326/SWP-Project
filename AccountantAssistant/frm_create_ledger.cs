@@ -19,7 +19,7 @@ namespace AccountantAssistant
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            //closes frm_new_ledger
+            //closes frm_new_ledger and opens frm_main
             this.Hide();
             frm_main frm_m = new frm_main();
             frm_m.ShowDialog();
@@ -50,7 +50,6 @@ namespace AccountantAssistant
                 frm_main frm_Main = new frm_main();
                 frm_Main.ShowDialog();
             }
-            
         }
 
         private void frm_new_ledger_Load(object sender, EventArgs e)
