@@ -15,6 +15,9 @@ namespace AccountantAssistant
         //creates the ucTopBar instance
         private static ucTopBarDark _instance;
 
+        //var for ucTopBarDark for moving Form
+        private bool enableMoving;
+        private Point initialClickedPoint;
 
         public static ucTopBarDark Instance
         {
@@ -128,5 +131,26 @@ namespace AccountantAssistant
 
         #endregion
 
+        #region Moving ParentForm
+        private void ucTopBarDark_MouseDown(object sender, MouseEventArgs e)
+        {
+            enableMoving = true;
+            initialClickedPoint = e.Location;
+        }
+
+        private void ucTopBarDark_MouseUp(object sender, MouseEventArgs e)
+        {
+            enableMoving = false;
+        }
+
+        private void ucTopBarDark_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (enableMoving)
+            {
+                ParentForm.Location = new Point(e.X + ParentForm.Left - initialClickedPoint.X, e.Y + ParentForm.Top - initialClickedPoint.Y);
+            }
+        }
+
+        #endregion
     }
 }
