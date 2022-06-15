@@ -99,6 +99,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.tb_password);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(328, 142);
             this.Name = "frm_password_query";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_password_query_Load);

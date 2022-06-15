@@ -38,7 +38,6 @@ namespace AccountantAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_search_date));
             this.btn_back = new System.Windows.Forms.Button();
             this.dgv_search_date = new System.Windows.Forms.DataGridView();
-            this.btn_delete_date = new System.Windows.Forms.Button();
             this.column_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.referenceNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_ledger = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@ namespace AccountantAssistant
             this.column_debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_STR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_delete_date = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_search_date)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +66,9 @@ namespace AccountantAssistant
             // dgv_search_date
             // 
             this.dgv_search_date.AllowUserToAddRows = false;
+            this.dgv_search_date.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_search_date.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -107,19 +110,6 @@ namespace AccountantAssistant
             this.dgv_search_date.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_search_date.Size = new System.Drawing.Size(683, 391);
             this.dgv_search_date.TabIndex = 54;
-            // 
-            // btn_delete_date
-            // 
-            this.btn_delete_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_date.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete_date.Location = new System.Drawing.Point(12, 52);
-            this.btn_delete_date.Name = "btn_delete_date";
-            this.btn_delete_date.Size = new System.Drawing.Size(109, 33);
-            this.btn_delete_date.TabIndex = 52;
-            this.btn_delete_date.Text = "Stornieren ";
-            this.btn_delete_date.UseVisualStyleBackColor = true;
-            this.btn_delete_date.Click += new System.EventHandler(this.btn_delete_ref_Click);
             // 
             // column_date
             // 
@@ -172,6 +162,19 @@ namespace AccountantAssistant
             this.column_STR.HeaderText = "Steuersatz";
             this.column_STR.Name = "column_STR";
             // 
+            // btn_delete_date
+            // 
+            this.btn_delete_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_date.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_date.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete_date.Location = new System.Drawing.Point(12, 52);
+            this.btn_delete_date.Name = "btn_delete_date";
+            this.btn_delete_date.Size = new System.Drawing.Size(109, 33);
+            this.btn_delete_date.TabIndex = 52;
+            this.btn_delete_date.Text = "Stornieren ";
+            this.btn_delete_date.UseVisualStyleBackColor = true;
+            this.btn_delete_date.Click += new System.EventHandler(this.btn_delete_ref_Click);
+            // 
             // frm_search_date
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +187,7 @@ namespace AccountantAssistant
             this.Controls.Add(this.btn_delete_date);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(719, 523);
             this.Name = "frm_search_date";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_search_date_Load);
