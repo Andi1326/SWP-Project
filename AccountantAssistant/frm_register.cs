@@ -33,39 +33,39 @@ namespace AccountantAssistant
             //chech if the textboxes are empty and if the user is already taken
             if (tb_user.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen einen Username eingeben", "Kein Username");
+                MessageBox.Show("Sie müssen einen Username eingeben", "Kein Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (Serverconnection.Proofuser(tb_user))
             {
-                MessageBox.Show("Der Username ist bereits vergeben", "Username vorhanden");
+                MessageBox.Show("Der Username ist bereits vergeben", "Username vorhanden", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_password.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen ein Passwort eingeben", "Kein Passwort");
+                MessageBox.Show("Sie müssen ein Passwort eingeben", "Kein Passwort", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_passwordagain.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen das Passwort wiederholen", "Passwort wiederholen!");
+                MessageBox.Show("Sie müssen das Passwort wiederholen", "Passwort wiederholen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!tb_password.Text.Equals(tb_passwordagain.Text))
             {
-                MessageBox.Show("Ihre Passwörter stimmen nicht überein", "Passwort stimmt nicht überein");
+                MessageBox.Show("Ihre Passwörter stimmen nicht überein", "Passwort stimmt nicht überein", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cb_sq1.SelectedItem.Equals(null))
             {
-                MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage");
+                MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_sq1.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler");
+                MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cb_sq2.SelectedItem.Equals(null))
             {
-                MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage");
+                MessageBox.Show("Sie müssen eine Sicherheitsfrage auswählen", "Keine Sicherheitsfrage", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_sq2.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler");
+                MessageBox.Show("Sie müssen die Sicherheitsfrage beantworten", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

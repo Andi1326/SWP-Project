@@ -71,41 +71,41 @@ namespace AccountantAssistant
             //Check if everything has been typed in correctly
             if (tb_password.Text.Equals(""))
             {
-                MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler");
+                MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_passwordagain.Text.Equals(""))
             {
-                MessageBox.Show("Bitte wiederholen Sie das Passwort", "Fehler");
+                MessageBox.Show("Bitte wiederholen Sie das Passwort", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!tb_password.Text.Equals(tb_passwordagain.Text))
             {
-                MessageBox.Show("Passwörter stimmen nicht überein", "Fehler");
+                MessageBox.Show("Passwörter stimmen nicht überein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_sq1.Text.Equals(""))
             {
-                MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 1 ein", "Fehler");
+                MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 1 ein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_sq2.Text.Equals(""))
             {
-                MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 2 ein", "Fehler");
+                MessageBox.Show("Bitte geben Sie eine Antwort bei der Sicherheitsfrage 2 ein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!tb_sq1.Text.Equals(Serverconnection.SaveSQ1(frm_login.IDL)))
             {
-                MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 1 stimmt nicht überein", "Fehler");
+                MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 1 stimmt nicht überein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!tb_sq2.Text.Equals(Serverconnection.SaveSQ2(frm_login.IDL)))
             {
-                MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 2 stimmt nicht überein", "Fehler");
+                MessageBox.Show("Ihre Antwort bei der Sicherheitsfrage 2 stimmt nicht überein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(Serverconnection.Proofpassword(tb_password, frm_login.forget_username))
             {
-                MessageBox.Show("Ihr altes Passwort darf nicht Ihr neues Passwort sein", "Fehler");
+                MessageBox.Show("Ihr altes Passwort darf nicht Ihr neues Passwort sein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //if yes the password changes to the new and a MessageBox displays
                 Serverconnection.ChangePassword(tb_password.Text, frm_login.IDL);
-                MessageBox.Show("Password wurde erfolgreich geändert!", "Passwort geändert", MessageBoxButtons.OK);
+                MessageBox.Show("Password wurde erfolgreich geändert!", "Passwort geändert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frm_login l = new frm_login();
                 this.Hide();
                 l.ShowDialog();
