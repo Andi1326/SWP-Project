@@ -130,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(699, 470);
+            this.ClientSize = new System.Drawing.Size(715, 486);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.dgv_ledger);
