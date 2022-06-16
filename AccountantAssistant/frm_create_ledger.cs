@@ -31,15 +31,15 @@ namespace AccountantAssistant
             //checks if the textboxes are empty
             if (Serverconnection.ProofLedger(tb_number, frm_main.IDC))
             {
-                MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits");
+                MessageBox.Show("Dieses Konto existiert bereits", "Konto existiert bereits", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(tb_number.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen eine Kontonummer eingeben", "Keine Kontonummer");
+                MessageBox.Show("Sie müssen eine Kontonummer eingeben", "Keine Kontonummer", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(tb_name.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen einen Kontonamen eingeben", "Kein Kontoname");
+                MessageBox.Show("Sie müssen einen Kontonamen eingeben", "Kein Kontoname", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

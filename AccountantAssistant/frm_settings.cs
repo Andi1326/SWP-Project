@@ -70,12 +70,12 @@ namespace AccountantAssistant
             {
                 if(tb_password.Text.Equals(""))
                 {
-                    MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler");
+                    MessageBox.Show("Bitte geben Sie ein Passwort ein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     Serverconnection.ChangePassword(tb_password.Text, frm_login.IDL);
-                    MessageBox.Show("Password wurde erfolgreich geändert!", "Passwort geändert", MessageBoxButtons.OK);
+                    MessageBox.Show("Password wurde erfolgreich geändert!", "Passwort geändert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tb_password.Text = "";
                     password_change = false;
                 }

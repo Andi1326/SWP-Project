@@ -136,34 +136,34 @@ namespace AccountantAssistant
             //hides the blue menu panel
             pnl_1.Visible = false;
         }
-        #region Error function
+        
         private void btn_enter_Click(object sender, EventArgs e)
         {
             //trys to calculate the ust and brutto and then adds the Transaction to the Datagridview
             //then sets the Text to "" of the Textboxes
             if (ucTabControl.Instance.tb_ledger.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler");
+                MessageBox.Show("Sie müssen ein Konto eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (datePicker.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen ein Datum eingeben", "Fehler");
+                MessageBox.Show("Sie müssen ein Datum eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_referenceNumber.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehler");
+                MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(cb_contraLedger.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen ein Gegenkonto eingeben", "Fehler");
+                MessageBox.Show("Sie müssen ein Gegenkonto eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (tb_netto.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen den Nettobetrag eingeben eingeben", "Fehler");
+                MessageBox.Show("Sie müssen den Nettobetrag eingeben eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cb_salesTaxRate.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen einen Umsatzsteuersatz eingeben", "Fehler");
+                MessageBox.Show("Sie müssen einen Umsatzsteuersatz eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -186,19 +186,17 @@ namespace AccountantAssistant
                     tb_netto.Text = "";
                     cb_salesTaxRate.Text = "";
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show(ex.ToString(), "Buchung konnte nicht durchgeführt werden");
+                    MessageBox.Show("Buchung konnte nicht durchgeführt werden. Bitte informieren Sie Ihren Administrator", "Buchung konnte nicht durchgeführt werden", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        #endregion
 
-        #region new Client
         private void btn_newClient_Click(object sender, EventArgs e)
         {
-            //opens frm_create_client
+            //opens frm_create_client and closes pnl_1
             pnl_1.Visible = false;
 
             this.Hide();
@@ -207,13 +205,12 @@ namespace AccountantAssistant
 
             Serverconnection.GetClient(cb_clients);
         }
-        #endregion
 
         #region Save_Functions
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            //executes the Save Function
+            //executes the Save Function if the transaction_count is higher than 0 and if a client is selected
             transaction_count = dgv_transaction.Rows.Count;
             if (transaction_count > 0)
             {
@@ -221,18 +218,18 @@ namespace AccountantAssistant
             }
             else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
             {
-                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             pnl_1.Visible = false;
         }
 
         private void btn_save_main_Click(object sender, EventArgs e)
         {
-            //executes the Save Function
+            //executes the Save Function if the transaction_count is higher than 0 and if a client is selected
             transaction_count = dgv_transaction.Rows.Count;
             if(transaction_count > 0)
             {
@@ -240,11 +237,11 @@ namespace AccountantAssistant
             }
             else if (Convert.ToInt32(cb_clients.SelectedItem).Equals(0))
             {
-                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler");
+                MessageBox.Show("Sie müssen einen Klienten auswählen", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler");
+                MessageBox.Show("Sie haben noch keine Buchung durchgeführt", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -346,19 +343,18 @@ namespace AccountantAssistant
                 dgv_transaction.DataSource = null;
                 dgv_transaction.Rows.Clear();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString(), "Buchung konnte nicht gespeichert werden");
+                MessageBox.Show("Buchung konnte nicht durchgeführt werden. Bitte informieren Sie Ihren Administrator", "Buchung konnte nicht gespeichert werden", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         #endregion
 
-        #region button Neu
         private void btn_new_Click(object sender, EventArgs e)
         {
             //delets all columns of the dgv_transaction
-            DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Wollen Sie wirklich diese Buchuchgen löschen?", "Achtung", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 dgv_transaction.DataSource = null;
@@ -372,9 +368,7 @@ namespace AccountantAssistant
             }
         }
 
-        #endregion
 
-        #region Selected Index
         private void cb_clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if index is changed, the boxes gets the new values
@@ -382,9 +376,7 @@ namespace AccountantAssistant
             Serverconnection.GetLedger(cb_contraLedger, IDC);
             Serverconnection.GetLedger(ucTabControl.Instance.cb_search_ledger, IDC);
         }
-        #endregion
 
-        #region Open Settings
         private void pb_settings_Click(object sender, EventArgs e)
         {
             //opens frm_settings
@@ -392,7 +384,6 @@ namespace AccountantAssistant
             this.Hide();
             frm_s.ShowDialog();
         }
-        #endregion
 
         #region Printing
         Bitmap bmp;
@@ -408,19 +399,15 @@ namespace AccountantAssistant
             printDia.AllowSomePages = true;
             if (printDia.ShowDialog() == DialogResult.OK)
             {
-
                 printDoc.Print();
-
             }
             pnl_1.Visible = false;
         }
 
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-
             //creates and image of the bmp
             e.Graphics.DrawImage(bmp, 0, 0);
-
         }
 
         #endregion
@@ -450,9 +437,9 @@ namespace AccountantAssistant
             {
                 VisitLink();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString(), "Unable to open link");
+                MessageBox.Show("Link konnte nicht geöffnet werden. Bitte informieren Sie Ihren Administrator", "Fehler Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void VisitLink()
@@ -469,14 +456,14 @@ namespace AccountantAssistant
             {
                 VisitLink();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString(),"Unable to open link");
+                MessageBox.Show("Link konnte nicht geöffnet werden. Bitte informieren Sie Ihren Administrator", "Fehler Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }
