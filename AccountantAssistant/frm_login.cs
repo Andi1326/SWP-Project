@@ -28,13 +28,13 @@ namespace AccountantAssistant
             //check if the user and the password are ok
             if (!Serverconnection.Proofuser(tb_user))
             {
-                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
+                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (!Serverconnection.Proofpassword(tb_password, tb_user.Text))
                 {
-                    MessageBox.Show("Ihr Passwort ist falsch", "Fehler");
+                    MessageBox.Show("Ihr Passwort ist falsch", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -89,11 +89,11 @@ namespace AccountantAssistant
             //Check if you have typed in a user and if this user exists
             if (tb_user.Text.Equals(""))
             {
-                MessageBox.Show("Bitte geben Sie ihren Benutzer ein", "Fehler");
+                MessageBox.Show("Bitte geben Sie ihren Benutzer ein", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (!Serverconnection.Proofuser(tb_user))
             {
-                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler");
+                MessageBox.Show("Ihren Benutzer gibt es nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

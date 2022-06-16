@@ -50,7 +50,7 @@ namespace AccountantAssistant
             //calculates netto, brutto and ust and replaces ',' to '.', so it can save into the database
             if (tb_referenceNumber.Text.Equals(""))
             {
-                MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehlende Belegnummer");
+                MessageBox.Show("Sie müssen eine Belegnummer eingeben", "Fehlende Belegnummer", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
